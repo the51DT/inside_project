@@ -19,7 +19,7 @@ module.exports = defineConfig({
     loaderOptions: {
       scss: {
         additionalData: `
-          @import "@/assets/scss/reset.scss";
+          @import "@/assets/scss/index.scss";
         `
       }
     }
