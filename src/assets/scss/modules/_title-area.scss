@@ -1,0 +1,8 @@
+@use '../abstract/' as *;
+
+@mixin title-area {
+  $className: '.title';
+  .title {
+    font-size: 32px;
+  }
+}

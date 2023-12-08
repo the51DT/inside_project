@@ -1,0 +1,39 @@
+@use 'sass:list';
+
+// In this file, only add variables or mixins to be used globally.
+
+// # to-rem
+@function to-rem($size) {
+  $root-size: 16px;
+  @if string == type-of($size) {
+    @return $size;
+  } @else if 0 == $size {
+    @return 0;
+  } @else {
+    @return calc($size / $root-size * 1rem);
+  }
+}
+// =- description -=
+// $size : only allow "px" unit. If the format cannot be calculated, the value is returned as it is.
+// this function just do for unit convert. for declaration at each file, use "rem" function.
+
+// # rem
+@function rem($value) {
+  // @debug type-of($value);
+  @if 0 == str-index(#{$value}, 'px') {
+    @warn "invalid value. use 'px'";
+  } @else {
+    @if list == type-of($value) {
+      $rem: to-rem(list.nth($value, 1));
+      $output: $rem;
+      @for $i from 2 through length($value) {
+        $rem: to-rem(list.nth($value, $i));
+        $output: list.append($output, $rem);
+        // @debug $output;
+      }
+      @return $output;
+    } @else {
+      @return to-rem($value);
+    }
+  }
+}
