@@ -14,14 +14,5 @@ module.exports = defineConfig({
     } else {
       // mutate for development...
     }
-  },
-  css: {
-    loaderOptions: {
-      scss: {
-        additionalData: `
-          @import "@/assets/scss/index.scss";
-        `
-      }
-    }
   }
 })
