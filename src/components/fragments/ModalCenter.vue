@@ -10,9 +10,6 @@
       <div class="popup--footer">
         <slot name="footer"></slot>
       </div>
-      <div class="popup--close">
-        <slot name="close"></slot>
-      </div>
     </div>
   </div>
 </template>
@@ -68,11 +65,6 @@ export default {
   &--footer {
     margin-top: rem(48px);
     text-align: center;
-  }
-  &--close {
-    position: absolute;
-    right: rem(24px);
-    top: rem(32px);
   }
 }
 </style>

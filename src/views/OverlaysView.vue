@@ -11,7 +11,7 @@
         </div>
       </template>
       <template v-slot:footer>
-        <button>Action</button><button @click="closeBtn($event)">Action</button>
+        <button>Action</button><button @click="closeBtn($event)">Close</button>
       </template>
     </modal-center>
   </div>
@@ -19,20 +19,6 @@
 
 <script>
 /* eslint-disable */
-import ModalCenter from '@/components/fragments/ModalCenter.vue'
-export default {
-  components: { ModalCenter },
-  methods: {
-    openBtn(id) {
-      if (id !== '') {
-        const popupId = document.getElementById(id)
-        popupId.classList.add('active')
-      }
-    },
-    closeBtn(event) {
-      console.log(event)
-    }
-  }
-}
+export default {}
 </script>
 <style lang="scss"></style>
