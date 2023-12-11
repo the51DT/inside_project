@@ -6,7 +6,17 @@ module.exports = defineConfig({
   configureWebpack: {
     plugins: []
   },
-
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `
+          @import '@/assets/scss/index.scss';
+          @import '@/assets/scss/abstract/_index.scss';
+          @import '@/assets/scss/modules/_index.scss';
+        `
+      }
+    }
+  },
   /* 옵션 체이닝 */
   chainWebpack: (config) => {
     if (process.env.NODE_ENV === 'production') {
