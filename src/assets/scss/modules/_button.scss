@@ -5,6 +5,19 @@
 @use '../abstract/' as *;
 
 @mixin bgBtnDefault {
+  //가이드 화면 때문에 만든 style
+  .guide__wrap {
+    .guide-box {
+      & + .guide-box {
+        margin-top: 20px;
+      }
+    }
+    button {
+      & + button {
+        margin-top: 10px;
+      }
+    }
+  }
   button {
     border: 0;
     padding: 0;
