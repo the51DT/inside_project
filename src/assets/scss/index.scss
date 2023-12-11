@@ -3,3 +3,5 @@
 @use 'base/_reset';
 @use 'abstract/' as *;
 @use 'modules/' as *;
+
+@include titleArea;

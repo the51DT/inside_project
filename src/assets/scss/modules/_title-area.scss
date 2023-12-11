@@ -1,14 +1,13 @@
 @use '../abstract/' as *;
 
-@mixin fontStyle($size, $color, $weight, $line-height) {
-  font-size: $size;
-  color: $color;
-  font-weight: $weight;
-  line-height: $line-height;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-
-// 주석 아래는 테스트 용으로 작성했습니다.
-.title {
-  @include fontStyle(rem(32px), $secondary-dark, 700, 32px);
+@mixin titleArea() {
+  .title {
+    font-size: rem(32px);
+    color: $neutral-dark;
+    font-weight: 700;
+    line-height: rem(32px);
+    &-gray {
+      color: $secondary-dark;
+    }
+  }
 }
