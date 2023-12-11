@@ -3,3 +3,72 @@
 @use 'sass:color';
 @use 'sass:string';
 @use '../abstract/' as *;
+
+@mixin bgBtnDefault {
+  button {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    &.btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border-radius: rem(100px);
+      padding: 16px 20px;
+      .btn-txt {
+        vertical-align: middle;
+        font-size: rem(16px);
+        line-height: rem(22.4px);
+        font-weight: 500;
+      }
+      // size case
+      &.btn[size='large'] {
+        min-width: rem(328px);
+      }
+      &.btn[size='medium'] {
+        min-width: rem(170px);
+      }
+      &.btn[size='small'] {
+        min-width: rem(154px);
+      }
+      // bg
+      &.bg-btn {
+        .bg-btn__txt {
+          color: $neutral-white;
+        }
+      }
+      &.bg-btn[type='primary-base'] {
+        background-color: $primary-base;
+      }
+      &.bg-btn[type='primary-dark'] {
+        background-color: $primary-dark;
+      }
+      &.bg-btn[type='neutral-basegrey'] {
+        background-color: $neutral-basegrey;
+      }
+      //border
+      div {
+        position: relative;
+        width: 100%;
+        // icon
+        .btn-link {
+          img {
+            width: rem(20px);
+            height: rem(20px);
+            position: absolute;
+            left: 0;
+            top: rem(1.6px);
+            &.btn-link__right {
+              right: 0;
+              left: auto;
+            }
+            &.center {
+              left: rem(46px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
