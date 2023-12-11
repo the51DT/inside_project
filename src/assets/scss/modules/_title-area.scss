@@ -6,8 +6,11 @@
     color: $neutral-dark;
     font-weight: 700;
     line-height: rem(32px);
-    &-gray {
-      color: $secondary-dark;
+    &--gray {
+      color: $neutral-darkgrey;
+      font-size: rem(32px);
+      font-weight: 700;
+      line-height: rem(32px);
     }
   }
 }
