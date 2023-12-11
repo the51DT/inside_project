@@ -1,5 +1,5 @@
 @charset 'UTF-8';
-// module
+// Use rules must be written before any other rules
 @use 'base/_reset';
 @use 'abstract/' as *;
 @use 'modules/' as *;
@@ -7,3 +7,4 @@
 @include titleArea;
 @include bgBtnDefault;
 @include hiddens;
+@include modal;
