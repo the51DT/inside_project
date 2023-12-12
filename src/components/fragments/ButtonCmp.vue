@@ -1,18 +1,11 @@
 <template>
-  <button :class="btnOptions" class="btn">
-    <div>
-      <span class="btn-txt bg-btn__txt">{{ btnBgTxt }}</span>
-      <i class="btn-link" v-if="btnLink">
-        <img
-          src="@/assets/images/icon/arrow-right.png"
-          :class="[
-            btnLinkRight ? 'btn-link__right' : '',
-            !btnLinkRight && center ? 'center' : ''
-          ]"
-        />
-        <span class="hidden">{{ btnBgTxt }} 바로가기</span>
-      </i>
-    </div>
+  <button :class="['btn', typeClass, sizeClass]" :disabled="disabled">
+    <i
+      :class="['btn-link', iconPosition ? 'link-right' : 'link-center']"
+      v-if="icon"
+    ></i>
+    <span class="btn-txt">{{ btnTxt }}</span>
+    <i :class="['btn-link', iconPosition ? 'link-left' : '']" v-if="icon2"></i>
   </button>
 </template>
 
@@ -20,50 +13,56 @@
 /* eslint-disable */
 export default {
   props: {
-    btnBg: {
-      type: Boolean,
-      default: false
+    bgBtn: {
+      type: String,
+      default: ''
     },
-    btnBd: {
-      type: Boolean,
-      default: false
+    bdBtn: {
+      type: String,
+      default: ''
     },
-    btnBgTxt: {
+    hvBtn: {
+      type: String,
+      default: ''
+    },
+    btnSize: {
+      type: String,
+      default: ''
+    },
+    btnTxt: {
       type: String,
       default: 'Block + Primary'
     },
-    btnLink: {
+    disabled: {
       type: Boolean,
       default: false
     },
-    linkDefault: {
+    iconPosition: {
       type: Boolean,
       default: false
     },
-    btnLinkRight: {
+    icon: {
       type: Boolean,
       default: false
     },
-    center: {
+    icon2: {
       type: Boolean,
       default: false
     }
   },
   computed: {
-    btnOptions() {
-      return {
-        'bg-btn': this.btnBg,
-        'bd-btn': this.btnBd,
-        'hover-btn': this.btnBg && this.btnBgHover,
-        [this.type]: true,
-        [this.size]: true
-      }
+    typeClass() {
+      if (this.bgBtn !== '') return `bg-${this.bgBtn}`
+      if (this.bdBtn !== '') return `bd-${this.bdBtn}`
+      if (this.hvBtn !== '') return `hv-${this.hvBtn}`
+      return ''
     },
-    btnBgHover() {
-      return true
+    sizeClass() {
+      if (this.btnSize === 'large') return `btn-${this.btnSize}`
+      else if (this.btnSize === 'medium') return `btn-${this.btnSize}`
+      else if (this.btnSize === 'small') return `btn-${this.btnSize}`
+      return ''
     }
   }
 }
 </script>
-
-<style lang="scss"></style>

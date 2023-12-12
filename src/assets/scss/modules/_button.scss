@@ -7,9 +7,13 @@
 @mixin bgBtnDefault {
   //가이드 화면 때문에 만든 style
   .guide__wrap {
+    display: flex;
+    & + .guide__wrap {
+      margin-top: 30px;
+    }
     .guide-box {
       & + .guide-box {
-        margin-top: 20px;
+        margin-left: 20px;
       }
     }
     button {
@@ -28,58 +32,135 @@
       align-items: center;
       position: relative;
       border-radius: rem(100px);
-      padding: 16px 20px;
       .btn-txt {
         vertical-align: middle;
         font-size: rem(16px);
         line-height: rem(22.4px);
         font-weight: 500;
+        flex: 1;
       }
       // size case
-      &.btn[size='large'] {
+      &.btn-large {
         min-width: rem(328px);
+        padding: 16px 24px;
+        .btn-link {
+          &.link-center {
+            margin-right: 16px;
+          }
+        }
       }
-      &.btn[size='medium'] {
-        min-width: rem(170px);
+      &.btn-medium {
+        min-width: rem(206px);
+        padding: 16px 24px;
+        gap: 16px;
+        .btn-link {
+          &.link-center {
+            margin-right: -8px;
+          }
+        }
       }
-      &.btn[size='small'] {
-        min-width: rem(154px);
+      &.btn-small {
+        min-width: rem(190px);
+        padding: 8px 16px;
+        gap: 16px;
+        .btn-link {
+          &.link-center {
+            margin-right: -8px;
+          }
+        }
       }
-      // bg
-      &.bg-btn {
-        .bg-btn__txt {
+      // iconPositionClass
+      .btn-link {
+        width: rem(20px);
+        height: rem(20px);
+        background: url('@/assets/images/icon/arrow-right.png') no-repeat;
+        background-size: contain;
+        display: inline-flex;
+        &.link-center {
+          & + .btn-txt {
+            flex: 0 0 auto;
+          }
+        }
+      }
+      // bg색 버튼
+      &[class*='bg-'] {
+        .btn-txt {
           color: $neutral-white;
         }
       }
-      &.bg-btn[type='primary-base'] {
+      &.bg-base {
         background-color: $primary-base;
       }
-      &.bg-btn[type='primary-dark'] {
+      &.bg-dark {
         background-color: $primary-dark;
       }
-      &.bg-btn[type='neutral-basegrey'] {
-        background-color: $neutral-basegrey;
+      &.bg-disabled {
+        &:disabled {
+          background-color: $neutral-basegrey;
+        }
       }
-      //border
-      div {
-        position: relative;
-        width: 100%;
-        // icon
+      // border색 버튼
+      &[class*='bd-'] {
+        border: 1px solid transparent;
+        background-color: transparent;
+      }
+      &.bd-base {
+        border-color: $primary-base;
+        .btn-txt {
+          color: $primary-base;
+        }
         .btn-link {
-          img {
-            width: rem(20px);
-            height: rem(20px);
-            position: absolute;
-            left: 0;
-            top: rem(1.6px);
-            &.btn-link__right {
-              right: 0;
-              left: auto;
-            }
-            &.center {
-              left: rem(46px);
-            }
-          }
+          background: url('@/assets/images/icon/arrow-right-base.png') no-repeat;
+          background-size: contain;
+        }
+      }
+      &.bd-dark {
+        border-color: $primary-dark;
+        .btn-txt {
+          color: $primary-dark;
+        }
+        .btn-link {
+          background: url('@/assets/images/icon/arrow-right-dark.png') no-repeat;
+          background-size: contain;
+        }
+      }
+      &.bd-disabled {
+        .btn-txt {
+          color: $neutral-basegrey;
+        }
+        &:disabled {
+          border-color: $neutral-basegrey;
+        }
+        .btn-link {
+          background: url('@/assets/images/icon/arrow-right-disabled.png')
+            no-repeat;
+          background-size: contain;
+        }
+      }
+      // hover 시, bg색 버튼
+      &[class*='hv-'] {
+        background-color: transparent;
+        .btn-txt {
+          color: $primary-base;
+        }
+      }
+      &.hv-base {
+        &:hover {
+          background-color: $primary-light;
+        }
+        .btn-link {
+          background: url('@/assets/images/icon/arrow-right-base.png') no-repeat;
+          background-size: contain;
+        }
+      }
+      &.hv-disabled {
+        .btn-txt {
+          color: $neutral-basegrey;
+        }
+        .btn-link {
+          background: url('@/assets/images/icon/arrow-right-disabled.png')
+            no-repeat;
+          background-size: contain;
         }
       }
     }
