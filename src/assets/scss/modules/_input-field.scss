@@ -36,6 +36,24 @@
       &[type="password"] {
         padding-right: rem(50px);
       }
+      &[type="checkbox"] {
+        width: rem(22px);
+        height: rem(22px);
+        padding: 0;
+        border-radius: rem(4px);
+        cursor: pointer;
+        &:checked {
+          background-color: $primary-base;
+          background-image: url(@/assets/icon/checkbox_arrow.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          border: none;
+        }
+        &:focus {
+          box-shadow: none;
+          border: solid rem(1px) $neutral-basegrey;
+        }
+      }
       &[readonly]:focus {
         box-shadow: none;
       }
@@ -45,11 +63,56 @@
       background-image: url(@/assets/icon/select_arrow.svg);
       background-repeat: no-repeat;
       background-position: 95% 50%;
+      cursor: pointer;
       &[readonly]:focus {
         box-shadow: none;
       }
     }
-    &__label {
+    &__text {
+      border: none;
+      padding: rem(16px);
+      font-size: rem(16px);
+      line-height: rem(22.4px);
+      width: 100%;
+      height: 100%;
+      resize: none;
+      color: $neutral-darkgrey;
+      overflow-y: auto;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: $neutral-basegrey;
+      }
+      &--side {
+        width: calc(100% - rem(34px));
+        padding: 0;
+        margin-left: rem(12px);
+        height: rem(22px);
+      }
+      &.checked {
+        text-decoration: line-through;
+      }
+    }
+    &__file {
+      display: none;
+      &--label {
+        display: block;
+        width: rem(64px);
+        height: rem(64px);
+        padding: rem(16px);
+        box-shadow: 0 rem(3px) rem(4px) 0 rgba(0, 0, 0, 0.20);
+        border-radius: rem(100px);
+        &::after {
+          content: '';
+          display: block;
+          width: rem(32px);
+          height: rem(32px);
+          background-image: url(@/assets/icon/file_pencil.svg);
+        }
+      }
+    }
+    &__title {
       font-size: rem(16px);
       font-weight: 500;
       margin-bottom: rem(12px);
@@ -69,7 +132,7 @@
       border: none;
       transform: translate(-50%, -50%);
       cursor: pointer;
-      &[disabled]{
+      &[readonly]{
         filter: opacity(25%);
       }
     }
@@ -80,8 +143,12 @@
       color: $neutral-basegrey;
       .inputField__input {
         border: solid rem(1px) $neutral-lightgrey;
-        background: $neutral-lightgrey;
+        background-color: $neutral-lightgrey;
         color: $neutral-basegrey;
+      }
+      select {
+        background-image: url(@/assets/icon/select_arrow_gray.svg);
+      
       }
       & + .inputField, + .inputField--disabled {
         margin-top: rem(20px);
