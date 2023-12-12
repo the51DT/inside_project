@@ -41,3 +41,16 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
+button {
+  background: none;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+  padding: 0;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
