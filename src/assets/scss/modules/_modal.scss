@@ -32,6 +32,9 @@
         text-align: center;
         font-weight: 700;
       }
+      .success {
+        padding-top: 80px;
+      }
     }
     &--body {
       margin-top: rem(8px);
@@ -44,6 +47,26 @@
     &--footer {
       margin-top: rem(48px);
       text-align: center;
+    }
+    &--bottom {
+      justify-content: flex-end;
+      padding: rem(0px);
+      .popup {
+        &--area {
+          border-radius: rem(16px 16px 0 0);
+          width: 100%;
+          padding: rem(48px 16px 16px);
+        }
+        &--body {
+          margin: 0;
+        }
+        &--footer {
+          margin: 0;
+          position: absolute;
+          right: rem(16px);
+          top: rem(16px);
+        }
+      }
     }
   }
 }
