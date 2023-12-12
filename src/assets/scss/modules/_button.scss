@@ -22,90 +22,156 @@
       }
     }
   }
-  button {
+  .btn {
     border: 0;
     padding: 0;
     cursor: pointer;
-    &.btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      border-radius: rem(100px);
-      .btn-txt {
-        vertical-align: middle;
-        font-size: rem(16px);
-        line-height: rem(22.4px);
-        font-weight: 500;
-        flex: 1;
-      }
-      // size case
-      &.btn-large {
-        min-width: rem(328px);
-        padding: 16px 24px;
-        .btn-link {
-          &.link-center {
-            margin-right: 16px;
-          }
-        }
-      }
-      &.btn-medium {
-        min-width: rem(206px);
-        padding: 16px 24px;
-        gap: 16px;
-        .btn-link {
-          &.link-center {
-            margin-right: -8px;
-          }
-        }
-      }
-      &.btn-small {
-        min-width: rem(190px);
-        padding: 8px 16px;
-        gap: 16px;
-        .btn-link {
-          &.link-center {
-            margin-right: -8px;
-          }
-        }
-      }
-      // iconPositionClass
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: rem(100px);
+    .btn-txt {
+      flex: 1;
+    }
+    // size case
+    &.btn-large {
+      min-width: rem(328px);
+      padding: 16px 24px;
       .btn-link {
-        width: rem(20px);
-        height: rem(20px);
-        background: url('@/assets/images/icon/arrow-right.png') no-repeat;
-        background-size: contain;
-        display: inline-flex;
         &.link-center {
-          & + .btn-txt {
-            flex: 0 0 auto;
-          }
+          margin-right: 16px;
         }
       }
-      // bg색 버튼
-      &[class*='bg-'] {
-        .btn-txt {
-          color: $neutral-white;
+    }
+    &.btn-medium {
+      min-width: rem(206px);
+      padding: 16px 24px;
+      gap: 16px;
+      .btn-link {
+        &.link-center {
+          margin-right: -8px;
         }
       }
-      &.bg-base {
-        background-color: $primary-base;
-      }
-      &.bg-dark {
-        background-color: $primary-dark;
-      }
-      &.bg-disabled {
-        &:disabled {
-          background-color: $neutral-basegrey;
+    }
+    &.btn-small {
+      min-width: rem(190px);
+      padding: 8px 16px;
+      gap: 16px;
+      .btn-link {
+        &.link-center {
+          margin-right: -8px;
         }
       }
-      // border색 버튼
-      &[class*='bd-'] {
-        border: 1px solid transparent;
-        background-color: transparent;
+    }
+    // iconPositionClass
+    .btn-link {
+      width: rem(20px);
+      height: rem(20px);
+      background: url('@/assets/images/icon/arrow-right.png') no-repeat;
+      background-size: contain;
+      display: inline-flex;
+      &.link-center {
+        & + .btn-txt {
+          flex: 0 0 auto;
+        }
       }
-      &.bd-base {
-        border-color: $primary-base;
+    }
+    // bg색 버튼
+    &[class*='bg-'] {
+      .btn-txt {
+        color: $neutral-white;
+      }
+    }
+    &.bg-base {
+      background-color: $primary-base;
+    }
+    &.bg-dark {
+      background-color: $primary-dark;
+    }
+    &.bg-disabled {
+      &:disabled {
+        background-color: $neutral-basegrey;
+      }
+    }
+    // border색 버튼
+    &[class*='bd-'] {
+      border: 1px solid transparent;
+      background-color: transparent;
+    }
+    &.bd-base {
+      border-color: $primary-base;
+      .btn-txt {
+        color: $primary-base;
+      }
+      .btn-link {
+        background: url('@/assets/images/icon/arrow-right-base.png') no-repeat;
+        background-size: contain;
+      }
+    }
+    &.bd-dark {
+      border-color: $primary-dark;
+      .btn-txt {
+        color: $primary-dark;
+      }
+      .btn-link {
+        background: url('@/assets/images/icon/arrow-right-dark.png') no-repeat;
+        background-size: contain;
+      }
+    }
+    &.bd-disabled {
+      .btn-txt {
+        color: $neutral-basegrey;
+      }
+      &:disabled {
+        border-color: $neutral-basegrey;
+      }
+      .btn-link {
+        background: url('@/assets/images/icon/arrow-right-disabled.png')
+          no-repeat;
+        background-size: contain;
+      }
+    }
+    // hover 시, bg색 버튼
+    &[class*='hv-'] {
+      background-color: transparent;
+      .btn-txt {
+        color: $primary-base;
+      }
+    }
+    &.hv-base {
+      &:hover {
+        background-color: $primary-light;
+      }
+      .btn-link {
+        background: url('@/assets/images/icon/arrow-right-base.png') no-repeat;
+        background-size: contain;
+      }
+    }
+    &.hv-disabled {
+      .btn-txt {
+        color: $neutral-basegrey;
+      }
+      .btn-link {
+        background: url('@/assets/images/icon/arrow-right-disabled.png')
+          no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+  // 링크
+  a {
+    &.btn {
+      gap: 16px;
+      border-radius: 0;
+      // center에서만 8px 나타남
+      .btn-link {
+        &.link-center {
+          margin-right: -8px;
+        }
+      }
+      // 폰트 색상
+      &[class*='color-base'] {
         .btn-txt {
           color: $primary-base;
         }
@@ -114,8 +180,28 @@
           background-size: contain;
         }
       }
-      &.bd-dark {
-        border-color: $primary-dark;
+      &.color-base-under {
+        .btn-txt {
+          text-decoration: underline;
+          text-decoration-color: $primary-base;
+          -webkit-text-decoration-color: $primary-base;
+        }
+      }
+      &.color-dark-under {
+        .btn-txt {
+          text-decoration: underline;
+          text-decoration-color: $primary-dark;
+          -webkit-text-decoration-color: $primary-dark;
+        }
+      }
+      &.color-disabled-under {
+        .btn-txt {
+          text-decoration: underline;
+          text-decoration-color: $neutral-basegrey;
+          -webkit-text-decoration-color: $neutral-basegrey;
+        }
+      }
+      &[class*='color-dark'] {
         .btn-txt {
           color: $primary-dark;
         }
@@ -124,36 +210,7 @@
           background-size: contain;
         }
       }
-      &.bd-disabled {
-        .btn-txt {
-          color: $neutral-basegrey;
-        }
-        &:disabled {
-          border-color: $neutral-basegrey;
-        }
-        .btn-link {
-          background: url('@/assets/images/icon/arrow-right-disabled.png')
-            no-repeat;
-          background-size: contain;
-        }
-      }
-      // hover 시, bg색 버튼
-      &[class*='hv-'] {
-        background-color: transparent;
-        .btn-txt {
-          color: $primary-base;
-        }
-      }
-      &.hv-base {
-        &:hover {
-          background-color: $primary-light;
-        }
-        .btn-link {
-          background: url('@/assets/images/icon/arrow-right-base.png') no-repeat;
-          background-size: contain;
-        }
-      }
-      &.hv-disabled {
+      &[class*='color-disabled'] {
         .btn-txt {
           color: $neutral-basegrey;
         }
@@ -162,6 +219,17 @@
             no-repeat;
           background-size: contain;
         }
+      }
+      // 폰트 사이즈
+      &.fs-large {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: rem(22.4px);
+      }
+      &.fs-small {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: normal;
       }
     }
   }
