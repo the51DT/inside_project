@@ -7,13 +7,11 @@
 </template>
 
 <style lang="scss">
-@import '@/assets/scss/index.scss';
+// @import '@/assets/scss/index.scss';
 </style>
 
-<script setup>
-</script>
+<script setup></script>
 
 <script>
-export default {
-}
+export default {}
 </script>
