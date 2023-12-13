@@ -36,7 +36,7 @@
       &[type="password"] {
         padding-right: rem(50px);
       }
-      &[type="checkbox"] {
+      &__checkbox {
         width: rem(22px);
         height: rem(22px);
         padding: 0;
@@ -46,12 +46,28 @@
           background-color: $primary-base;
           background-image: url(@/assets/icon/checkbox_arrow.svg);
           background-repeat: no-repeat;
-          background-size: contain;
+          background-size: rem(16px) rem(16px);
+          background-position: center center;
           border: none;
         }
         &:focus {
           box-shadow: none;
           border: solid rem(1px) $neutral-basegrey;
+        }
+        &--small {
+          width: rem(15px);
+          height: rem(15px);
+          &:checked {
+            background-size: rem(11px) rem(11px);
+          }
+        }
+        &--round {
+          border-radius: rem(100px);
+        }
+        &--highlight {
+          &:checked {
+            background-color: $primary-dark;
+          }
         }
       }
       &[readonly]:focus {
@@ -136,19 +152,89 @@
         filter: opacity(25%);
       }
     }
+    &__toggle {
+      display: none;
+      &--label {
+        display: block;
+        position: relative;
+        width: rem(44px);
+        height: rem(22px);
+        background-color: $neutral-lightgrey;
+        border-radius: rem(50px);
+        transition: all .3s;
+        &--circle {
+          display: block;
+          position: absolute;
+          width: rem(18px);
+          height: rem(18px);
+          background-color: $neutral-basegrey;
+          border-radius: rem(100px);
+          top: 50%;
+          left: rem(2px);
+          transform: translateY(-50%);
+          transition: all .3s;
+        }
+        &--highlight {
+          background-color: $primary-light;
+          .inputField__toggle--label--circle {
+            background-color: $primary-dark;
+          }
+        }
+      }
+      &:checked {
+        & + .inputField__toggle--label {
+          background-color: $primary-light;
+          .inputField__toggle--label--circle {
+            background-color: $primary-base;
+            left: rem(24px);
+          }
+        }
+        & + .inputField__toggle--label--highlight {
+          .inputField__toggle--label--circle {
+            background-color: $primary-dark;
+          }
+        }
+      }
+    }
     &--disabled {
       position: relative;
       width: rem(328px);
       display: block;
       color: $neutral-basegrey;
-      .inputField__input {
-        border: solid rem(1px) $neutral-lightgrey;
-        background-color: $neutral-lightgrey;
-        color: $neutral-basegrey;
+      .inputField {
+        &__input {
+          border: solid rem(1px) $neutral-lightgrey;
+          background-color: $neutral-lightgrey;
+          color: $neutral-basegrey;
+          &__checkbox {
+            background-color: $neutral-basegrey;
+            background-image: url(@/assets/icon/checkbox_arrow.svg);
+            &:checked {
+              background-color: $neutral-basegrey;
+            }
+          }
+        }
+        &__toggle {
+          &--label {
+            background-color: transparent;
+            border: solid rem(1px) $neutral-lightgrey;
+            &--circle {
+              background-color: $neutral-lightgrey;
+            }
+          }
+          &:checked {
+            & + .inputField__toggle--label {
+              background-color: $neutral-basegrey;
+              border: none;
+              .inputField__toggle--label--circle {
+                background-color: $neutral-darkgrey;
+              }
+            }
+          }
+        }
       }
       select {
         background-image: url(@/assets/icon/select_arrow_gray.svg);
-      
       }
       & + .inputField, + .inputField--disabled {
         margin-top: rem(20px);
