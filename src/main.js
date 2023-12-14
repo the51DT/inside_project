@@ -7,6 +7,7 @@ import ModalCenter from '@/components/layouts/ModalCenter.vue'
 import ModalBottom from '@/components/layouts/ModalBottom.vue'
 import ButtonCmp from '@/components/fragments/ButtonCmp.vue'
 import listCmp from '@/components/fragments/listCmp.vue'
+import tagCmp from '@/components/fragments/TagCmp.vue'
 import common from './assets/js/common'
 
 const app = createApp(App)
@@ -18,4 +19,5 @@ app.component('ModalCenter', ModalCenter)
 app.component('ModalBottom', ModalBottom)
 app.component('ButtonCmp', ButtonCmp)
 app.component('listCmp', listCmp)
+app.component('tagCmp', tagCmp)
 app.mount('#app')
