@@ -78,26 +78,11 @@ export default {
     defaultText: String,
     size: String,
     color: String,
-    round: {
-      type: Boolean,
-      default: false
-    },
-    readonly: {
-      type: Boolean,
-      default: false
-    },
-    warn: {
-      type: Boolean,
-      default: false
-    },
-    checked: {
-      type: Boolean,
-      default: false
-    },
-    sub: {
-      type: Boolean,
-      default: false
-    },
+    round: Boolean,
+    readonly: Boolean,
+    warn: Boolean,
+    checked: Boolean,
+    sub: Boolean,
     options: {
       type: Array,
       default: () => {

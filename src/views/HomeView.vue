@@ -99,17 +99,20 @@
   </form>
 </template>
 
-<script setup>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-import inputField from '@/components/fragments/inputField.vue'
-</script>
-
 <script>
+import inputField from '@/components/fragments/inputField.vue'
+import { ref } from 'vue'
+
 export default {
-  data: () => ({
-    options: ['t', 'e', 's', 't']
-  })
+  components: {
+    inputField
+  },
+  setup () {
+    const options = ref(['t', 'e', 's', 't'])
+    return {
+      options
+    }
+  }
 }
 </script>
 <style lang="scss"></style>
