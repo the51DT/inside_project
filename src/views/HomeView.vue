@@ -4,7 +4,7 @@
     <div class="guide-txt-box">
       <h5>1. type</h5>
       <p>select, textarea, checkbox, toggle, file, search</p>
-      <p>* 그 외는 지정한 타입이 들어갑니다. ex - text, password</p>
+      <p>* 그 외는 지정한 타입이 들어갑니다. ex - text, password / default = text</p>
     </div>
     <div class="guide-txt-box">
       <h5>2. warn</h5>
@@ -99,18 +99,17 @@
   </form>
 </template>
 
-<script>
+<script setup>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 import inputField from '@/components/fragments/inputField.vue'
+</script>
 
+<script>
 export default {
-  components: { inputField },
-  data () {
-    return {
-      options: ['t', 'e', 's', 't']
-    }
-  }
+  data: () => ({
+    options: ['t', 'e', 's', 't']
+  })
 }
 </script>
 <style lang="scss"></style>
