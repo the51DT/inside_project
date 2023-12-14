@@ -27,12 +27,22 @@ export default {
   },
   methods: {
     choiceBtn(event) {
-      if (
-        event.target.closest('.bg--item').querySelectorAll('.active').length < 0
-      ) {
-        event.target.classList.contains('active')
-          ? event.target.classList.remove('active')
-          : event.target.classList.add('active')
+      // console.log(
+      //   event.target.closest('.bg--item').querySelectorAll('.active').length
+      // )
+      if (!event.target.classList.contains('active')) {
+        if (
+          event.target.closest('.bg--item').querySelectorAll('.active').length >
+          0
+        ) {
+          event.target
+            .closest('.bg--item')
+            .querySelectorAll('.active')
+            .forEach((element) => {
+              element.classList.remove('active')
+            })
+        }
+        event.target.classList.add('active')
       }
     }
   }

@@ -20,7 +20,7 @@ const routes = [
     path: '/overlays',
     name: 'overlays',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/OverlaysView.vue')
+      import(/* webpackChunkName: "overlays" */ '../views/OverlaysView.vue')
   }
 ]
 

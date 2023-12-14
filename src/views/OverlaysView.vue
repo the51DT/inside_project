@@ -1,5 +1,7 @@
 <template>
   <div>
+    <title-input title="modal" />
+    <title-input title="modal" type="gray" />
     <button @click="openBtn('modal')">modal</button>
     <br />
     <button @click="openBtn('success-modal')">success-modal</button>
@@ -38,7 +40,7 @@
     <modal-bottom id="modal-bottom">
       <template v-slot:title> </template>
       <template v-slot:body>
-        <button class="eestore">Restore This Note</button>
+        <button class="restore">Restore This Note</button>
         <button class="deleteBtn">Delete Note</button>
       </template>
       <template v-slot:footer>
