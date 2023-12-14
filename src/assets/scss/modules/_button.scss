@@ -6,19 +6,49 @@
 
 @mixin bgBtnDefault {
   //가이드 화면 때문에 만든 style
+  .guide-txt__wrap {
+    background-color: $neutral-lightgrey;
+    margin: rem(20px) 0;
+    padding: rem(16px);
+    h4 {
+      font-size: rem(22px);
+      line-height: rem(26px);
+      font-weight: 500;
+    }
+    .guide-txt-box {
+      margin-top: 16px;
+      h5 {
+        font-size: rem(18px);
+        line-height: rem(24px);
+      }
+      p,
+      ol > li {
+        font-size: rem(16px);
+        line-height: rem(22px);
+      }
+    }
+  }
   .guide__wrap {
     display: flex;
     & + .guide__wrap {
       margin-top: 30px;
     }
+    button {
+      & + button {
+        margin-top: 10px;
+      }
+    }
     .guide-box {
       & + .guide-box {
         margin-left: 20px;
       }
-    }
-    button {
-      & + button {
-        margin-top: 10px;
+      &.icon-box {
+        display: flex;
+        button {
+          & + button {
+            margin: 0 0 0 rem(16px);
+          }
+        }
       }
     }
   }
@@ -33,6 +63,7 @@
     border-radius: rem(100px);
     .btn-txt {
       flex: 1;
+      font-weight: 500;
     }
     // size case
     &.btn-large {
@@ -94,6 +125,45 @@
         background-color: $neutral-basegrey;
       }
     }
+    // bg색 버튼 > Icon Button
+    &[class*='bg-icon'] {
+      width: rem(64px);
+      height: rem(64px);
+      border-radius: 100%;
+      box-shadow: 0px rem(3px) rem(4px) 0px rgba(0, 0, 0, 0.2);
+      .btn-link {
+        width: rem(32px);
+        height: rem(32px);
+        background: url('@/assets/images/icon/icon_plus.png') no-repeat;
+        background-size: contain;
+        display: inline-flex;
+      }
+    }
+    &.bg-icon-base {
+      background-color: $primary-base;
+    }
+    &.bg-icon-white {
+      background-color: $neutral-white;
+      .btn-link {
+        background: url('@/assets/images/icon/icon_plus_base.png') no-repeat;
+        background-size: contain;
+      }
+    }
+    &.bg-icon-dark {
+      background-color: $primary-dark;
+    }
+    &.bg-icon-light {
+      background-color: $primary-light;
+      .btn-link {
+        background: url('@/assets/images/icon/icon_plus_base.png') no-repeat;
+        background-size: contain;
+      }
+    }
+    &.bg-icon-disabled {
+      &:disabled {
+        background-color: $neutral-basegrey;
+      }
+    }
     // border색 버튼
     &[class*='bd-'] {
       border: 1px solid transparent;
@@ -129,6 +199,19 @@
       .btn-link {
         background: url('@/assets/images/icon/arrow-right-disabled.png')
           no-repeat;
+        background-size: contain;
+      }
+    }
+    &.bd-google {
+      border-color: $neutral-basegrey;
+      background-color: $neutral-white;
+      .btn-txt {
+        color: $neutral-dark;
+      }
+      .btn-link {
+        background: url('@/assets/images/icon/google_logo.png') no-repeat;
+        width: rem(24px);
+        height: rem(24px);
         background-size: contain;
       }
     }

@@ -3,13 +3,16 @@
   <button
     :class="['btn', typeClass, sizeClass]"
     :disabled="disabled"
+    :type="button"
     v-if="btnType"
   >
     <i
       :class="['btn-link', iconPosition ? 'link-right' : 'link-center']"
       v-if="icon"
     ></i>
-    <span class="btn-txt">{{ btnTxt }}</span>
+    <span :class="[btnTxt ? 'btn-txt' : 'hidden']">{{
+      btnTxt || btnTxtHidden
+    }}</span>
     <i :class="['btn-link', iconPosition ? 'link-left' : '']" v-if="icon2"></i>
   </button>
   <!-- 링크 -->
@@ -49,7 +52,11 @@ export default {
     },
     btnTxt: {
       type: String,
-      default: 'Block + Primary'
+      default: ''
+    },
+    btnTxtHidden: {
+      type: String,
+      default: ''
     },
     disabled: {
       type: Boolean,

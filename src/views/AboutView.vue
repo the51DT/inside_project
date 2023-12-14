@@ -1,6 +1,70 @@
 <template>
   <div class="button">
-    <title-input title="button" />
+    <title-input title="Button" />
+    <div class="guide-txt__wrap">
+      <h4>버튼 컴포넌트 : ButtonCmp</h4>
+      <div class="guide-txt-box">
+        <h5>1. btnType</h5>
+        <ol>
+          <li>btnType : true (button 태그 사용)</li>
+          <li>btnType : false (a 태그 사용)</li>
+        </ol>
+      </div>
+      <div class="guide-txt-box">
+        <h5>2. ButtonCmp : typeClass</h5>
+        <p>
+          typeClass(button태그) & colorClass(a태그)를 선택 후 색상 작성
+          ex.bgBtn="base" 하면 이중클래스(bg-base) 완성
+        </p>
+        <ol>
+          <li>bgBtn : 배경색만 있는 버튼</li>
+          <li>bdBtn : 테투리(선)만 있는 버튼</li>
+          <li>hvBtn : hover 시 배경색 생기는 버튼</li>
+        </ol>
+      </div>
+      <div class="guide-txt-box">
+        <h5>3. ButtonCmp : sizeClass</h5>
+        <p>
+          sizeClass & fontSizeClass 를 선택 후 사이즈 작성 ex.btnSize="large"
+          하면 이중클래스(btn-large) 완성
+        </p>
+        <ol>
+          <li>large : min-width: 328px</li>
+          <li>medium : min-width: 206px</li>
+          <li>small : min-width: 190px</li>
+        </ol>
+      </div>
+      <div class="guide-txt-box">
+        <h5>4. ButtonCmp : btnTxt</h5>
+        <p>
+          btnTxt 사용 시 btn-txt 클래스 적용 , <br />
+          btnTxt 미 사용 시 hidden 클래스 적용
+        </p>
+      </div>
+      <div class="guide-txt-box">
+        <h5>5. ButtonCmp : icon & icon2 & iconPosition</h5>
+        <ol>
+          <li>
+            icon : true = 오른쪽 영역
+            <ol>
+              <li>iconPosition : true = link-right</li>
+              <li>iconPosition : false = link-center</li>
+            </ol>
+          </li>
+          <li>
+            icon2 : true = 왼쪽 영역
+            <ol>
+              <li>iconPosition : true = link-left</li>
+              <li>iconPosition : false = ''</li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+      <div class="guide-txt-box">
+        <h5>6. ButtonCmp : useUrl</h5>
+        <p>useUrl : 새 페이지 이동 x (기존 페이지에서 이동)</p>
+      </div>
+    </div>
     <div class="guide__wrap">
       <div class="guide-box">
         <ButtonCmp bgBtn="base" btnSize="large" btnTxt="default" />
@@ -1045,16 +1109,75 @@
         />
       </div>
     </div>
+    <title-input title="Social Button/Google" />
+    <div class="guide__wrap">
+      <div class="guide-box">
+        <ButtonCmp
+          bdBtn="google"
+          btnSize="large"
+          icon
+          btnTxt="Login with Google"
+          @click="onClickGoogle()"
+        />
+      </div>
+    </div>
+    <title-input title="Icon Button" />
+    <div class="guide__wrap">
+      <div class="guide-box icon-box">
+        <ButtonCmp
+          bgBtn="icon-base"
+          icon
+          iconPosition
+          btnTxtHidden="노트 추가하기"
+          @click="addNoteMove()"
+        />
+        <ButtonCmp
+          bgBtn="icon-white"
+          icon
+          iconPosition
+          btnTxtHidden="노트 추가하기"
+          @click="$router.push('/home')"
+        />
+        <ButtonCmp
+          bgBtn="icon-dark"
+          icon
+          iconPosition
+          btnTxtHidden="노트 추가하기"
+        />
+        <ButtonCmp
+          bgBtn="icon-light"
+          icon
+          iconPosition
+          btnTxtHidden="노트 추가하기"
+        />
+        <ButtonCmp
+          bgBtn="icon-disabled"
+          disabled
+          icon
+          iconPosition
+          btnTxtHidden="노트 추가하기"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
+<script setup>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 import TitleInput from '@/components/fragments/TitleInput.vue'
 import ButtonCmp from '@/components/fragments/ButtonCmp.vue'
+import { useRouter } from 'vue-router'
 
-export default {
-  components: { TitleInput, ButtonCmp }
+const onClickGoogle = () => {
+  // 구글 새 창 열기 (window.open 사용)
+  window.open('http://google.com', '_blank')
+}
+// 메소드로 router 불러오기
+const router = useRouter()
+const addNoteMove = () => {
+  router.push({
+    path: '/home'
+  })
 }
 </script>
