@@ -32,6 +32,4 @@
 <script setup>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import TitleInput from '@/components/fragments/TitleInput.vue'
-import listCmp from '@/components/fragments/listCmp.vue'
 </script>

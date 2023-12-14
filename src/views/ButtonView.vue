@@ -1170,8 +1170,6 @@
 <script setup>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import TitleInput from '@/components/fragments/TitleInput.vue'
-import ButtonCmp from '@/components/fragments/ButtonCmp.vue'
 import { useRouter } from 'vue-router'
 
 const onClickGoogle = () => {
