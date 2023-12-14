@@ -99,7 +99,7 @@
     .btn-link {
       width: rem(20px);
       height: rem(20px);
-      background: url('@/assets/images/icon/arrow-right.png') no-repeat;
+      background: url('@/assets/images/icon/arrow-right.svg') no-repeat;
       background-size: contain;
       display: inline-flex;
       &.link-center {
@@ -134,7 +134,7 @@
       .btn-link {
         width: rem(32px);
         height: rem(32px);
-        background: url('@/assets/images/icon/icon_plus.png') no-repeat;
+        background: url('@/assets/images/icon/icon_plus.svg') no-repeat;
         background-size: contain;
         display: inline-flex;
       }
@@ -145,7 +145,7 @@
     &.bg-icon-white {
       background-color: $neutral-white;
       .btn-link {
-        background: url('@/assets/images/icon/icon_plus_base.png') no-repeat;
+        background: url('@/assets/images/icon/icon_plus_base.svg') no-repeat;
         background-size: contain;
       }
     }
@@ -155,7 +155,7 @@
     &.bg-icon-light {
       background-color: $primary-light;
       .btn-link {
-        background: url('@/assets/images/icon/icon_plus_base.png') no-repeat;
+        background: url('@/assets/images/icon/icon_plus_base.svg') no-repeat;
         background-size: contain;
       }
     }
@@ -175,7 +175,7 @@
         color: $primary-base;
       }
       .btn-link {
-        background: url('@/assets/images/icon/arrow-right-base.png') no-repeat;
+        background: url('@/assets/images/icon/arrow-right-base.svg') no-repeat;
         background-size: contain;
       }
     }
@@ -185,7 +185,7 @@
         color: $primary-dark;
       }
       .btn-link {
-        background: url('@/assets/images/icon/arrow-right-dark.png') no-repeat;
+        background: url('@/assets/images/icon/arrow-right-dark.svg') no-repeat;
         background-size: contain;
       }
     }
@@ -197,7 +197,7 @@
         border-color: $neutral-basegrey;
       }
       .btn-link {
-        background: url('@/assets/images/icon/arrow-right-disabled.png')
+        background: url('@/assets/images/icon/arrow-right-disabled.svg')
           no-repeat;
         background-size: contain;
       }
@@ -209,7 +209,7 @@
         color: $neutral-dark;
       }
       .btn-link {
-        background: url('@/assets/images/icon/google_logo.png') no-repeat;
+        background: url('@/assets/images/logo/google_logo.png') no-repeat;
         width: rem(24px);
         height: rem(24px);
         background-size: contain;
@@ -227,7 +227,7 @@
         background-color: $primary-light;
       }
       .btn-link {
-        background: url('@/assets/images/icon/arrow-right-base.png') no-repeat;
+        background: url('@/assets/images/icon/arrow-right-base.svg') no-repeat;
         background-size: contain;
       }
     }
@@ -236,7 +236,7 @@
         color: $neutral-basegrey;
       }
       .btn-link {
-        background: url('@/assets/images/icon/arrow-right-disabled.png')
+        background: url('@/assets/images/icon/arrow-right-disabled.svg')
           no-repeat;
         background-size: contain;
       }
@@ -259,7 +259,7 @@
           color: $primary-base;
         }
         .btn-link {
-          background: url('@/assets/images/icon/arrow-right-base.png') no-repeat;
+          background: url('@/assets/images/icon/arrow-right-base.svg') no-repeat;
           background-size: contain;
         }
       }
@@ -289,7 +289,7 @@
           color: $primary-dark;
         }
         .btn-link {
-          background: url('@/assets/images/icon/arrow-right-dark.png') no-repeat;
+          background: url('@/assets/images/icon/arrow-right-dark.svg') no-repeat;
           background-size: contain;
         }
       }
@@ -298,7 +298,7 @@
           color: $neutral-basegrey;
         }
         .btn-link {
-          background: url('@/assets/images/icon/arrow-right-disabled.png')
+          background: url('@/assets/images/icon/arrow-right-disabled.svg')
             no-repeat;
           background-size: contain;
         }
