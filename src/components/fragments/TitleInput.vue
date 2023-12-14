@@ -1,6 +1,5 @@
 <template>
   <h3 :class="type === '' ? 'title' : `title--${type}`">{{ title }}</h3>
-  <!-- <h3 class="title--gray">{{ title }}</h3> -->
 </template>
 
 <script>
