@@ -99,7 +99,7 @@
     .btn-link {
       width: rem(20px);
       height: rem(20px);
-      background: url('@/assets/images/icon/arrow-right.svg') no-repeat;
+      background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
       background-size: contain;
       display: inline-flex;
       &.link-center {
@@ -175,7 +175,8 @@
         color: $primary-base;
       }
       .btn-link {
-        background: url('@/assets/images/icon/arrow-right-base.svg') no-repeat;
+        background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+          no-repeat;
         background-size: contain;
       }
     }
@@ -185,7 +186,8 @@
         color: $primary-dark;
       }
       .btn-link {
-        background: url('@/assets/images/icon/arrow-right-dark.svg') no-repeat;
+        background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
+          no-repeat;
         background-size: contain;
       }
     }
@@ -197,7 +199,7 @@
         border-color: $neutral-basegrey;
       }
       .btn-link {
-        background: url('@/assets/images/icon/arrow-right-disabled.svg')
+        background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
           no-repeat;
         background-size: contain;
       }
@@ -227,7 +229,8 @@
         background-color: $primary-light;
       }
       .btn-link {
-        background: url('@/assets/images/icon/arrow-right-base.svg') no-repeat;
+        background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+          no-repeat;
         background-size: contain;
       }
     }
@@ -236,7 +239,7 @@
         color: $neutral-basegrey;
       }
       .btn-link {
-        background: url('@/assets/images/icon/arrow-right-disabled.svg')
+        background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
           no-repeat;
         background-size: contain;
       }
@@ -259,7 +262,8 @@
           color: $primary-base;
         }
         .btn-link {
-          background: url('@/assets/images/icon/arrow-right-base.svg') no-repeat;
+          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+            no-repeat;
           background-size: contain;
         }
       }
@@ -289,7 +293,8 @@
           color: $primary-dark;
         }
         .btn-link {
-          background: url('@/assets/images/icon/arrow-right-dark.svg') no-repeat;
+          background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
+            no-repeat;
           background-size: contain;
         }
       }
@@ -298,7 +303,7 @@
           color: $neutral-basegrey;
         }
         .btn-link {
-          background: url('@/assets/images/icon/arrow-right-disabled.svg')
+          background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
             no-repeat;
           background-size: contain;
         }
