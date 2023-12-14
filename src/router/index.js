@@ -21,6 +21,36 @@ const routes = [
     name: 'overlays',
     component: () =>
       import(/* webpackChunkName: "overlays" */ '../views/OverlaysView.vue')
+  },
+  {
+    path: '/main/home',
+    name: 'HomeView',
+    component: () =>
+      import(/* webpackChunkName: "main" */ '../views/main/HomeView.vue')
+  },
+  {
+    path: '/main/finished',
+    name: 'FinishedView',
+    component: () =>
+      import(/* webpackChunkName: "main" */ '../views/main/FinishedView.vue')
+  },
+  {
+    path: '/main/create',
+    name: 'CreateView',
+    component: () =>
+      import(/* webpackChunkName: "main" */ '../views/main/CreateView.vue')
+  },
+  {
+    path: '/main/search',
+    name: 'SearchView',
+    component: () =>
+      import(/* webpackChunkName: "main" */ '../views/main/SearchView.vue')
+  },
+  {
+    path: '/main/setting',
+    name: 'SettingsView',
+    component: () =>
+      import(/* webpackChunkName: "main" */ '../views/main/SettingsView.vue')
   }
 ]
 

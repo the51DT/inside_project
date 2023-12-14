@@ -9,6 +9,8 @@
     <button @click="openBtn('modal-bottom')">modal-bottom</button>
     <br />
     <button @click="openBtn('modal-bottom2')">modal-bottom2</button>
+    <br />
+    <button @click="openBtn('modal-bottom3')">modal-bottom3</button>
     <modal-center id="modal">
       <template v-slot:title>
         <h4>Modal Title</h4>
@@ -63,6 +65,21 @@
           </ul>
         </div>
         <button class="deleteBtn">Delete Note</button>
+      </template>
+      <template v-slot:footer>
+        <button @click="closeBtn($event)">close</button>
+      </template>
+    </modal-bottom>
+
+    <modal-bottom id="modal-bottom3">
+      <template v-slot:title> </template>
+      <template v-slot:body>
+        <div>
+          <h5>Notes Pinned Successfully</h5>
+        </div>
+        <div>
+          <p>This note already displayed on pinned section</p>
+        </div>
       </template>
       <template v-slot:footer>
         <button @click="closeBtn($event)">close</button>

@@ -1,8 +1,10 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/overlays">Overlays</router-link>
+    <router-link to="/main/home">Home</router-link> |
+    <router-link to="/main/finished">Finished</router-link> |
+    <router-link to="/main/Create">Create</router-link> |
+    <router-link to="/main/Search">search</router-link> |
+    <router-link to="/main/Setting">setting</router-link>
   </nav>
   <router-view />
 </template>
