@@ -82,8 +82,8 @@ export default {
   computed: {
     typeClass() {
       if (this.bgBtn !== '') return `bg-${this.bgBtn}`
-      if (this.bdBtn !== '') return `bd-${this.bdBtn}`
-      if (this.hvBtn !== '') return `hv-${this.hvBtn}`
+      else if (this.bdBtn !== '') return `bd-${this.bdBtn}`
+      else if (this.hvBtn !== '') return `hv-${this.hvBtn}`
       return ''
     },
     sizeClass() {
@@ -94,7 +94,7 @@ export default {
     },
     colorClass() {
       if (this.bgBtn !== '') return `color-${this.bgBtn}-under`
-      if (this.bdBtn !== '') return `color-${this.bdBtn}`
+      else if (this.bdBtn !== '') return `color-${this.bdBtn}`
       return ''
     },
     fontSizeClass() {
