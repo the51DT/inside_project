@@ -3,8 +3,8 @@
     <router-link to="/main/home">Home</router-link> |
     <router-link to="/main/finished">Finished</router-link> |
     <router-link to="/main/Create">Create</router-link> |
-    <router-link to="/main/Search">search</router-link> |
-    <router-link to="/main/Setting">setting</router-link>
+    <router-link to="/main/Search">Search</router-link> |
+    <router-link to="/main/Setting">Setting</router-link>
   </nav>
   <router-view />
 </template>

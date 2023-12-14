@@ -1,0 +1,38 @@
+@use '../abstract/' as *;
+
+@mixin tag {
+  .tag {
+    display: flex;
+    gap: rem(6px);
+    width: fit-content;
+    padding: rem(6px) rem(12px);
+    font-size: rem(12px);
+    border-radius: rem(100px);
+    background-color: $neutral-lightgrey;
+    color: $neutral-darkgrey;
+    &--highlight {
+      background-color: $neutral-basegrey;
+      color: $neutral-darkgrey;
+    }
+    &--white {
+      background-color: $neutral-lightgrey;
+      color: $neutral-white;
+      .tag__del {
+        width: rem(16px);
+        height: rem(16px);
+        background-image: url(@/assets/images/icon/tag_x_white.svg);
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+    &__del {
+      width: rem(16px);
+      height: rem(16px);
+      background-image: url(@/assets/images/icon/tag_x.svg);
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}

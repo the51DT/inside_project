@@ -64,6 +64,11 @@
         <h5>6. ButtonCmp : useUrl</h5>
         <p>useUrl : 새 페이지 이동 x (기존 페이지에서 이동)</p>
       </div>
+      <div class="guide-txt-box">
+        <h5>6. ButtonCmp : Icon Button</h5>
+        <p>첫번째 버튼 : @click="addNoteMove()"</p>
+        <p>두번째 버튼 : @click="$router.push('/home')"</p>
+      </div>
     </div>
     <div class="guide__wrap">
       <div class="guide-box">
@@ -1165,8 +1170,6 @@
 <script setup>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import TitleInput from '@/components/fragments/TitleInput.vue'
-import ButtonCmp from '@/components/fragments/ButtonCmp.vue'
 import { useRouter } from 'vue-router'
 
 const onClickGoogle = () => {

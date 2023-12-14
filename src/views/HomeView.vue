@@ -301,15 +301,42 @@
       placeholder="Search..."
     ></inputField>
   </form>
+  <div class="guide-txt__wrap">
+    <h4>태그 컴포넌트 : inputField</h4>
+    <div class="guide-txt-box">
+      <h5>1. text</h5>
+      <p>태그에 들어갈 텍스르를 정합니다. type:String</p>
+    </div>
+    <div class="guide-txt-box">
+      <h5>2. color</h5>
+      <p>태그의 색상을 정합니다. type:String - none, hightlight, white</p>
+    </div>
+    <div class="guide-txt-box">
+      <h5>3. del</h5>
+      <p>태그 삭제 버튼을 넣습니다. type:Boolean</p>
+    </div>
+  </div>
+  <div>
+    <p>tag_default</p>
+    <TagCmp text="Label Name"></TagCmp>
+    <TagCmp text="Label Name" color="highlight"></TagCmp>
+    <TagCmp text="Label Name" color="white"></TagCmp>
+    <p>tag_delete</p>
+    <TagCmp text="Label Name" del></TagCmp>
+    <TagCmp text="Label Name" color="highlight" del></TagCmp>
+    <TagCmp text="Label Name" color="white" del></TagCmp>
+  </div>
 </template>
 
 <script>
 import inputField from '@/components/fragments/inputField.vue'
+import TagCmp from '@/components/fragments/TagCmp.vue'
 import { ref } from 'vue'
 
 export default {
   components: {
-    inputField
+    inputField,
+    TagCmp
   },
   setup () {
     const options = ref(['t', 'e', 's', 't'])

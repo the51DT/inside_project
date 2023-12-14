@@ -1,0 +1,154 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:color';
+@use 'sass:string';
+@use '../abstract/' as *;
+
+@mixin listDefault {
+  .list-box {
+    display: flex;
+    align-items: flex-start;
+    border-radius: rem(8px);
+    padding: rem(16px);
+    background-color: transparent;
+    min-width: rem(328px);
+    gap: rem(14px);
+    &__left {
+      flex: 0 0 rem(46px);
+      border-radius: rem(100px);
+      width: rem(46px);
+      height: rem(46px);
+      background-color: transparent;
+      position: relative;
+    }
+    &__right {
+      .big-title {
+        font-size: rem(16px);
+        font-weight: 700;
+        line-height: rem(22.4px);
+        color: $neutral-white;
+      }
+      .sub-title {
+        font-size: rem(12px);
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+    &.shooping-list-box {
+      background-color: $success-base;
+      .list-box__left {
+        background-color: $success-dark;
+        &::before {
+          content: '';
+          position: absolute;
+          display: inline-flex;
+          width: rem(22px);
+          height: rem(22px);
+          background: url('@/assets/images/icon/icon_shopping_cart.svg')
+            no-repeat;
+          background-size: contain;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .list-box__right {
+        .sub-title {
+          color: $success-dark;
+        }
+      }
+    }
+    &.idea-list-box {
+      background-color: $primary-base;
+      .list-box__left {
+        background-color: $primary-dark;
+        &::before {
+          content: '';
+          position: absolute;
+          display: inline-flex;
+          width: rem(22px);
+          height: rem(22px);
+          background: url('@/assets/images/icon/icon_idea.svg') no-repeat;
+          background-size: contain;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .list-box__right {
+        .sub-title {
+          color: $primary-light;
+        }
+      }
+    }
+    &.guidance-list-box {
+      background-color: $error-base;
+      .list-box__left {
+        background-color: $error-dark;
+        &::before {
+          content: '';
+          position: absolute;
+          display: inline-flex;
+          width: rem(22px);
+          height: rem(22px);
+          background: url('@/assets/images/icon/icon_guidance.svg') no-repeat;
+          background-size: contain;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .list-box__right {
+        .sub-title {
+          color: $error-light;
+        }
+      }
+    }
+    &.goals-list-box {
+      background-color: $warning-base;
+      .list-box__left {
+        background-color: $warning-dark;
+        &::before {
+          content: '';
+          position: absolute;
+          display: inline-flex;
+          width: rem(22px);
+          height: rem(22px);
+          background: url('@/assets/images/icon/icon_goal.svg') no-repeat;
+          background-size: contain;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .list-box__right {
+        .sub-title {
+          color: $warning-dark;
+        }
+      }
+    }
+    &.tasks-list-box {
+      background-color: $secondary-base;
+      .list-box__left {
+        background-color: $secondary-dark;
+        &::before {
+          content: '';
+          position: absolute;
+          display: inline-flex;
+          width: rem(22px);
+          height: rem(22px);
+          background: url('@/assets/images/icon/icon_clipboard.svg') no-repeat;
+          background-size: contain;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .list-box__right {
+        .sub-title {
+          color: $secondary-dark;
+        }
+      }
+    }
+  }
+}
