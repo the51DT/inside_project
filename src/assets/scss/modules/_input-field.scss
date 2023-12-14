@@ -2,8 +2,7 @@
 
 @mixin inputFeild{
   .inputField {
-    width: rem(328px);
-    display: block;
+    width: fit-content;
     position: relative;
     &__input {
       -webkit-appearance: none;
@@ -15,7 +14,7 @@
       border-radius: rem(8px);
       font-size: rem(16px);
       color: $neutral-dark;
-      width: 100%;
+      width: rem(328px);
       &::placeholder {
         color: $neutral-basegrey;
       }
@@ -75,6 +74,7 @@
       }
     }
     select {
+      width: rem(328px);
       padding-right: rem(50px);
       background-image: url(@/assets/icon/select_arrow.svg);
       background-repeat: no-repeat;
@@ -86,11 +86,11 @@
     }
     &__text {
       border: none;
+      width: rem(328px);
       padding: rem(16px);
       font-size: rem(16px);
       line-height: rem(22.4px);
-      width: 100%;
-      height: 100%;
+      height: auto;
       resize: none;
       color: $neutral-darkgrey;
       overflow-y: auto;
@@ -101,7 +101,7 @@
         color: $neutral-basegrey;
       }
       &--side {
-        width: calc(100% - rem(34px));
+        width: rem(278px);
         padding: 0;
         margin-left: rem(12px);
         height: rem(22px);
@@ -141,12 +141,12 @@
     &__button {
       position: absolute;
       top: 50%;
-      right: rem(0px);
+      left: rem(290px);
       background: url(@/assets/icon/eye.svg) no-repeat;
       width: rem(24px);
       height: rem(24px);
       border: none;
-      transform: translate(-50%, -50%);
+      transform: translateY(-50%);
       cursor: pointer;
       &[readonly]{
         filter: opacity(25%);
@@ -198,7 +198,7 @@
     }
     &--disabled {
       position: relative;
-      width: rem(328px);
+      width: fit-content;
       display: block;
       color: $neutral-basegrey;
       .inputField {
@@ -236,10 +236,12 @@
       select {
         background-image: url(@/assets/icon/select_arrow_gray.svg);
       }
+      // 가이드 화면용
       & + .inputField, + .inputField--disabled {
         margin-top: rem(20px);
       }
     }
+    // 가이드 화면용
     & + .inputField, + .inputField--disabled {
       margin-top: rem(20px);
     }
