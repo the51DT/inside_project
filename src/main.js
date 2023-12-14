@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import ModalCenter from '@/components/fragments/ModalCenter.vue'
-import ModalBottom from '@/components/fragments/ModalBottom.vue'
+import ModalCenter from '@/components/layouts/ModalCenter.vue'
+import ModalBottom from '@/components/layouts/ModalBottom.vue'
 import common from './assets/js/common'
 
 const app = createApp(App)

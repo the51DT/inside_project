@@ -49,6 +49,9 @@
     <modal-bottom id="modal-bottom2">
       <template v-slot:title> </template>
       <template v-slot:body>
+        <div class="bg--list">
+          <bg-choice :bglist="bglist" />
+        </div>
         <div class="extras">
           <p class="extras__title">EXTRAS</p>
           <ul>
@@ -68,7 +71,9 @@
 
 <script>
 /* eslint-disable */
+import BgChoice from '@/components/fragments/BgChoice.vue'
 export default {
+  components: { BgChoice },
   data() {
     return {
       lists: [
