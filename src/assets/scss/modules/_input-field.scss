@@ -72,6 +72,9 @@
       &[readonly]:focus {
         box-shadow: none;
       }
+      &--sub {
+        margin-left: rem(23px);
+      }
     }
     select {
       width: rem(328px);
@@ -126,6 +129,59 @@
           height: rem(32px);
           background-image: url(@/assets/icon/file_pencil.svg);
         }
+      }
+    }
+    &__search {
+      padding: rem(8px);
+      background-color: $neutral-lightgrey;
+      border: none;
+      border-radius: rem(8px);
+      font-size: rem(14px);
+      &--remove {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: rem(10px);
+        height: rem(10px);
+        background-color: $neutral-darkgrey;
+      }
+      &::placeholder {
+        color: $neutral-basegrey;
+      }
+      &:focus {
+        outline: none;
+      }
+      &::-ms-clear,
+      &::-ms-reveal{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: rem(18px);
+        height: rem(18px);
+        border-radius: rem(100px);
+        background-color: $neutral-basegrey;
+        background-image: url(@/assets/icon/search_x.svg);
+        background-size: rem(14px) rem(14px);
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin-left: rem(8px);
+      }
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: rem(18px);
+        height: rem(18px);
+        border-radius: rem(100px);
+        background-color: $neutral-basegrey;
+        background-image: url(@/assets/icon/search_x.svg);
+        background-size: rem(14px) rem(14px);
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin-left: rem(8px);
       }
     }
     &__title {
@@ -236,14 +292,12 @@
       select {
         background-image: url(@/assets/icon/select_arrow_gray.svg);
       }
-      // 가이드 화면용
       & + .inputField, + .inputField--disabled {
-        margin-top: rem(20px);
+        margin-top: rem(32px);
       }
     }
-    // 가이드 화면용
     & + .inputField, + .inputField--disabled {
-      margin-top: rem(20px);
+      margin-top: rem(32px);
     }
   }
 }

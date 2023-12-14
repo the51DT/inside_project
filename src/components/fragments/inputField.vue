@@ -13,8 +13,9 @@
     <input v-else-if=" type === 'checkbox'" :type="type"
       :class="[
         size === 'small' ? 'inputField__input inputField__input__checkbox inputField__input__checkbox--small' : 'inputField__input inputField__input__checkbox',
-        round === 'round' ? 'inputField__input__checkbox--round' : '',
-        color === 'highlight' ? 'inputField__input__checkbox--highlight' : '']"
+        round ? 'inputField__input__checkbox--round' : '',
+        color === 'highlight' ? 'inputField__input__checkbox--highlight' : '',
+        sub ? 'inputField__input--sub' : '']"
       :id="id"
       :name="name"
       :readonly="readonly"
@@ -29,6 +30,8 @@
       :checked="checked">
     <!-- 파일 -->
     <input v-else-if=" type === 'file'" :type="type" class="inputField__file" :id="id" :name="name"/>
+    <!-- 서치 -->
+    <input v-else-if=" type === 'search'" :type="type" class="inputField__search" :id="id" :name="name" :placeholder="placeholder">
     <!-- 그외 -->
     <input v-else :type="type" :class="warn === false ? 'inputField__input' : 'inputField__input inputField__input--warn'"
       :id="id"
@@ -74,8 +77,11 @@ export default {
     placeholder: String,
     defaultText: String,
     size: String,
-    round: String,
     color: String,
+    round: {
+      type: Boolean,
+      default: false
+    },
     readonly: {
       type: Boolean,
       default: false
@@ -85,6 +91,10 @@ export default {
       default: false
     },
     checked: {
+      type: Boolean,
+      default: false
+    },
+    sub: {
       type: Boolean,
       default: false
     },
