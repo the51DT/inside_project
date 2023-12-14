@@ -23,6 +23,11 @@ const routes = [
       import(/* webpackChunkName: "overlays" */ '../views/OverlaysView.vue')
   },
   {
+    path: '/list',
+    name: 'list',
+    component: () => import(/* ListView: "list" */ '../views/ListView.vue')
+  },
+  {
     path: '/main/home',
     name: 'HomeView',
     component: () =>
@@ -51,6 +56,12 @@ const routes = [
     name: 'SettingsView',
     component: () =>
       import(/* webpackChunkName: "main" */ '../views/main/SettingsView.vue')
+  },
+  {
+    path: '/main/login',
+    name: 'LoginView',
+    component: () =>
+      import(/* webpackChunkName: "main" */ '../views/main/LoginView.vue')
   }
 ]
 
