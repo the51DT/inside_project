@@ -318,26 +318,20 @@
   </div>
   <div>
     <p>tag_default</p>
-    <TagCmp text="Label Name"></TagCmp>
-    <TagCmp text="Label Name" color="highlight"></TagCmp>
-    <TagCmp text="Label Name" color="white"></TagCmp>
+    <tagCmp text="Label Name"></tagCmp>
+    <tagCmp text="Label Name" color="highlight"></tagCmp>
+    <tagCmp text="Label Name" color="white"></tagCmp>
     <p>tag_delete</p>
-    <TagCmp text="Label Name" del></TagCmp>
-    <TagCmp text="Label Name" color="highlight" del></TagCmp>
-    <TagCmp text="Label Name" color="white" del></TagCmp>
+    <tagCmp text="Label Name" del></tagCmp>
+    <tagCmp text="Label Name" color="highlight" del></tagCmp>
+    <tagCmp text="Label Name" color="white" del></tagCmp>
   </div>
 </template>
 
 <script>
-import inputField from '@/components/fragments/inputField.vue'
-import TagCmp from '@/components/fragments/TagCmp.vue'
 import { ref } from 'vue'
 
 export default {
-  components: {
-    inputField,
-    TagCmp
-  },
   setup () {
     const options = ref(['t', 'e', 's', 't'])
     return {
