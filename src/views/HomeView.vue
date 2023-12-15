@@ -326,13 +326,40 @@
     <tagCmp text="Label Name" color="highlight" del></tagCmp>
     <tagCmp text="Label Name" color="white" del></tagCmp>
   </div>
+  <div class="guide-txt__wrap">
+    <h4>태그 컴포넌트 : textarea 제목 + 설명 박스</h4>
+    <div class="guide-txt-box">
+      <h5>1. type</h5>
+      <p>textareaTitle, textareaDes 두가지 중 하나 작성</p>
+    </div>
+    <div class="guide-txt-box">
+      <h5>2. maxlength</h5>
+      <p>textareaTitle : 20자</p>
+      <p>textareaDes : 1000자</p>
+    </div>
+  </div>
+  <div>
+    <inputField
+      type="textareaTitle"
+      title="textareaTitleDes_default"
+      id="textareaTitle_default"
+      placeholder="Title here"
+    />
+    <inputField type="limitTitleLength" />
+    <inputField
+      type="textareaDes"
+      id="textareaDes_default"
+      placeholder="Description here"
+    />
+  </div>
 </template>
 
 <script>
+/* eslint-disable */
 import { ref } from 'vue'
 
 export default {
-  setup () {
+  setup() {
     const options = ref(['t', 'e', 's', 't'])
     return {
       options

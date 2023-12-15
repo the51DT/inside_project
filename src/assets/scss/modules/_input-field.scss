@@ -1,6 +1,6 @@
 @use '../abstract/' as *;
 
-@mixin inputFeild{
+@mixin inputFeild {
   .inputField {
     width: fit-content;
     position: relative;
@@ -32,7 +32,7 @@
           border: solid rem(1px) $error-base;
         }
       }
-      &[type="password"] {
+      &[type='password'] {
         padding-right: rem(50px);
       }
       &__checkbox {
@@ -112,6 +112,22 @@
       &.checked {
         text-decoration: line-through;
       }
+      &[class*='textarea_'] {
+        padding: rem(0px);
+        color: $neutral-dark;
+        width: 100%;
+      }
+      &.textarea_tit {
+        font-size: rem(32px);
+        font-weight: 700;
+        line-height: rem(38.4px);
+        height: rem(42px);
+      }
+      &.textarea_des {
+        font-size: rem(16px);
+        font-weight: 400;
+        height: rem(23px);
+      }
     }
     &__file {
       display: none;
@@ -120,7 +136,7 @@
         width: rem(64px);
         height: rem(64px);
         padding: rem(16px);
-        box-shadow: 0 rem(3px) rem(4px) 0 rgba(0, 0, 0, 0.20);
+        box-shadow: 0 rem(3px) rem(4px) 0 rgba(0, 0, 0, 0.2);
         border-radius: rem(100px);
         &::after {
           content: '';
@@ -152,7 +168,7 @@
         outline: none;
       }
       &::-ms-clear,
-      &::-ms-reveal{
+      &::-ms-reveal {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -169,7 +185,7 @@
       &::-webkit-search-decoration,
       &::-webkit-search-cancel-button,
       &::-webkit-search-results-button,
-      &::-webkit-search-results-decoration{
+      &::-webkit-search-results-decoration {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -204,7 +220,7 @@
       border: none;
       transform: translateY(-50%);
       cursor: pointer;
-      &[readonly]{
+      &[readonly] {
         filter: opacity(25%);
       }
     }
@@ -217,7 +233,7 @@
         height: rem(22px);
         background-color: $neutral-lightgrey;
         border-radius: rem(50px);
-        transition: all .3s;
+        transition: all 0.3s;
         &--circle {
           display: block;
           position: absolute;
@@ -228,7 +244,7 @@
           top: 50%;
           left: rem(2px);
           transform: translateY(-50%);
-          transition: all .3s;
+          transition: all 0.3s;
         }
         &--highlight {
           background-color: $primary-light;
@@ -292,12 +308,21 @@
       select {
         background-image: url(@/assets/images/icon/select_arrow_gray.svg);
       }
-      & + .inputField, + .inputField--disabled {
+      & + .inputField,
+      + .inputField--disabled {
         margin-top: rem(32px);
       }
     }
-    & + .inputField, + .inputField--disabled {
+    & + .inputField,
+    + .inputField--disabled {
       margin-top: rem(32px);
+    }
+    &.inputField:has(> .textarea_tit),
+    &.inputField:has(> .textarea_des) {
+      width: 100%;
+    }
+    & + .inputField:has(> .textarea_des) {
+      margin-top: rem(16px);
     }
   }
 }
