@@ -1,5 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ButtonView from '../views/ButtonView.vue'
+import OverlaysView from '../views/OverlaysView.vue'
+import ListView from '../views/ListView.vue'
+import MainHomeView from '../views/main/HomeView.vue'
+import FinishedView from '../views/main/FinishedView.vue'
+import CreateView from '../views/main/CreateView.vue'
+import SearchView from '../views/main/SearchView.vue'
+import SettingsView from '../views/main/SettingsView.vue'
+import LoginView from '../views/main/LoginView.vue'
 
 const routes = [
   {
@@ -13,55 +22,47 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (button.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "button" */ '../views/ButtonView.vue')
+    component: ButtonView
   },
   {
     path: '/overlays',
     name: 'overlays',
-    component: () =>
-      import(/* webpackChunkName: "overlays" */ '../views/OverlaysView.vue')
+    component: OverlaysView
   },
   {
     path: '/list',
     name: 'list',
-    component: () => import(/* ListView: "list" */ '../views/ListView.vue')
+    component: ListView
   },
   {
     path: '/main/home',
     name: 'HomeView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/HomeView.vue')
+    component: MainHomeView
   },
   {
     path: '/main/finished',
     name: 'FinishedView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/FinishedView.vue')
+    component: FinishedView
   },
   {
     path: '/main/create',
     name: 'CreateView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/CreateView.vue')
+    component: CreateView
   },
   {
     path: '/main/search',
     name: 'SearchView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/SearchView.vue')
+    component: SearchView
   },
   {
     path: '/main/setting',
     name: 'SettingsView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/SettingsView.vue')
+    component: SettingsView
   },
   {
     path: '/main/login',
     name: 'LoginView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/LoginView.vue')
+    component: LoginView
   }
 ]
 

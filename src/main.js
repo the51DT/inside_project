@@ -8,6 +8,7 @@ import ModalBottom from '@/components/layouts/ModalBottom.vue'
 import ButtonCmp from '@/components/fragments/ButtonCmp.vue'
 import listCmp from '@/components/fragments/listCmp.vue'
 import tagCmp from '@/components/fragments/TagCmp.vue'
+import inputField from '@/components/fragments/inputField.vue'
 import common from './assets/js/common'
 
 const app = createApp(App)
@@ -20,4 +21,5 @@ app.component('ModalBottom', ModalBottom)
 app.component('ButtonCmp', ButtonCmp)
 app.component('listCmp', listCmp)
 app.component('tagCmp', tagCmp)
+app.component('inputField', inputField)
 app.mount('#app')
