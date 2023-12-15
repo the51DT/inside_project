@@ -85,6 +85,7 @@
         <button @click="closeBtn($event)">close</button>
       </template>
     </modal-bottom>
+    <tab-bar />
   </div>
 </template>
 
