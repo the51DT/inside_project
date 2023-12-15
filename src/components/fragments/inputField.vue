@@ -6,146 +6,66 @@
   >
     <!-- 타이틀 -->
     <p v-if="title" class="inputField__title">{{ title }}</p>
-    <!-- 셀렉트 -->
-    <select
-      v-if="type === 'select'"
-      :class="
-        warn === false
-          ? 'inputField__input'
-          : 'inputField__input inputField__input--warn'
-      "
-      :id="id"
-      :name="name"
-      :readonly="readonly"
-    >
-      <option disabled selected hidden>{{ placeholder }}</option>
-      <option :key="i" v-for="(options, i) in options" :value="options">
-        {{ options }}
-      </option>
-    </select>
-    <!-- 텍스트에리어 -->
-    <textarea
-      v-else-if="type === 'textarea'"
-      :type="type"
-      class="inputField__text"
-      :id="id"
-      :name="name"
-      :placeholder="placeholder"
-      @input="textareaHegiht"
-      rows="1"
-    ></textarea>
-    <!-- 텍스트에리어 (제목 혹은 설명으로 사용되는 경우) -->
-    <textarea
-      v-else-if="type === 'textareaTitle' || type === 'textareaDes'"
-      :type="type"
-      class="inputField__text"
-      :class="[type === 'textareaTitle' ? 'textarea_tit' : 'textarea_des']"
-      :id="id"
-      :name="name"
-      :placeholder="placeholder"
-      @input="textareaHegiht"
-      :maxlength="[type === 'textareaTitle' ? 20 : 1000]"
-      rows="1"
-    ></textarea>
-    <!-- 체크박스 -->
-    <input
-      v-else-if="type === 'checkbox'"
-      :type="type"
-      :class="[
-        size === 'small'
-          ? 'inputField__input inputField__input__checkbox inputField__input__checkbox--small'
-          : 'inputField__input inputField__input__checkbox',
-        round ? 'inputField__input__checkbox--round' : '',
-        color === 'highlight' ? 'inputField__input__checkbox--highlight' : '',
-        sub ? 'inputField__input--sub' : ''
-      ]"
-      :id="id"
-      :name="name"
-      :readonly="readonly"
-      :checked="checked"
-      @change="checkedText"
-    />
-    <!-- 토글 -->
-    <input
-      v-else-if="type === 'toggle'"
-      type="checkbox"
-      class="inputField__toggle"
-      :id="id"
-      :name="name"
-      :readonly="readonly"
-      :checked="checked"
-    />
-    <!-- 파일 -->
-    <input
-      v-else-if="type === 'file'"
-      :type="type"
-      class="inputField__file"
-      :id="id"
-      :name="name"
-    />
-    <!-- 서치 -->
-    <input
-      v-else-if="type === 'search'"
-      :type="type"
-      class="inputField__search"
-      :id="id"
-      :name="name"
-      :placeholder="placeholder"
-    />
-    <!-- 그외 -->
-    <input
-      v-else
-      :type="type"
-      :class="
-        warn === false
-          ? 'inputField__input'
-          : 'inputField__input inputField__input--warn'
-      "
-      :id="id"
-      :name="name"
-      :placeholder="placeholder"
-      :readonly="readonly"
-      :checked="checked"
-    />
-    <!-- 패스워드 눈 버튼 -->
-    <button
-      v-if="type === 'password'"
-      class="inputField__button"
-      :readonly="readonly"
-      @click="passwordView"
-    ></button>
-    <!-- 체크박스 텍스트에리어 -->
-    <textarea
-      v-if="type === 'checkbox'"
-      :class="
-        checked
-          ? 'inputField__text inputField__text--side checked'
-          : 'inputField__text inputField__text--side'
-      "
-      :id="id + '__text'"
+    <div class="inputField__wrap">
+      <!-- 셀렉트 -->
+      <select v-if=" type === 'select'" :class=" warn === false ? 'inputField__input' : 'inputField__input inputField__input--warn'" :id="id" :name="name" :readonly="readonly">
+        <option disabled selected hidden>{{ placeholder }}</option>
+        <option :key="i" v-for="(options, i) in options" :value="options">{{ options }}</option>
+      </select>
+      <!-- 텍스트에리어 -->
+      <textarea v-else-if=" type === 'textarea'" :type="type" class="inputField__text" :id="id" :name="name" :placeholder="placeholder" @input="textareaHegiht" rows="1"></textarea>
+      <!-- 체크박스 -->
+      <input v-else-if=" type === 'checkbox'" :type="type"
+        :class="[
+          size === 'small' ? 'inputField__input inputField__input__checkbox inputField__input__checkbox--small' : 'inputField__input inputField__input__checkbox',
+          round ? 'inputField__input__checkbox--round' : '',
+          color === 'highlight' ? 'inputField__input__checkbox--highlight' : '',
+          sub ? 'inputField__input--sub' : '']"
+        :id="id"
+        :name="name"
+        :readonly="readonly"
+        :checked="checked"
+        @change="checkedText">
+      <!-- 토글 -->
+      <input v-else-if=" type === 'toggle'" type="checkbox"
+        class="inputField__toggle"
+        :id="id"
+        :name="name"
+        :readonly="readonly"
+        :checked="checked">
+      <!-- 파일 -->
+      <input v-else-if=" type === 'file'" :type="type" class="inputField__file" :id="id" :name="name"/>
+      <!-- 서치 -->
+      <input v-else-if=" type === 'search'" :type="type" class="inputField__search" :id="id" :name="name" :placeholder="placeholder">
+      <!-- 그외 -->
+      <input v-else :type="type" :class="warn === false ? 'inputField__input' : 'inputField__input inputField__input--warn'"
+        :id="id"
+        :name="name"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :checked="checked"/>
+      <!-- 패스워드 눈 버튼 -->
+      <button v-if="type === 'password'" class="inputField__button" :readonly=readonly @click="passwordView"></button>
+      <!-- 체크박스 텍스트에리어 -->
+      <textarea v-if="type === 'checkbox'"
+      :class="[checked ? 'inputField__text inputField__text--side checked' : 'inputField__text inputField__text--side',
+      sub ? 'inputField__text--side--sub' : '']"
+      :id =" id + '__text'"
       :name="name"
       :placeholder="placeholder"
       :value="defaultText"
       @input="textareaHegiht"
       rows="1"
-      :readonly="checked"
-    ></textarea>
-    <!-- 라벨 -->
-    <label
-      :for="id"
+      :readonly="checked"></textarea>
+      <!-- 라벨 -->
+      <label :for="id"
       :class="[
         type === 'file' ? 'inputField__file--label' : '',
         type === 'toggle' ? 'inputField__toggle--label' : '',
-        type === 'toggle' && color === 'highlight'
-          ? 'inputField__toggle--label inputField__toggle--label--highlight'
-          : ''
-      ]"
-    >
-      <span
-        v-if="type === 'toggle'"
-        class="inputField__toggle--label--circle"
-      ></span>
-    </label>
+        type === 'toggle' && color === 'highlight' ? 'inputField__toggle--label inputField__toggle--label--highlight' : '']">
+        <span v-if="type === 'toggle'" class="inputField__toggle--label--circle"></span>
+      </label>
+    </div>
     <!-- 캡션 -->
     <p v-if="caption" class="inputField__caption">{{ caption }}</p>
   </div>
@@ -174,7 +94,7 @@ export default {
     options: {
       type: Array,
       default: () => {
-        return ['r', 'd']
+        return ['']
       }
     }
   },

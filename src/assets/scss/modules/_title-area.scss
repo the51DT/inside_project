@@ -13,6 +13,12 @@
       font-weight: 700;
       line-height: rem(32px);
     }
+    &__sub {
+      color: $neutral-darkgrey;
+      font-size: rem(16px);
+      font-weight: 400;
+      line-height: rem(22.4px);
+    }
   }
 }
 

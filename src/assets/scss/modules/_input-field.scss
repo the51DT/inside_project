@@ -2,8 +2,10 @@
 
 @mixin inputFeild {
   .inputField {
-    width: fit-content;
-    position: relative;
+    width: 100%;
+    &__wrap {
+      position: relative;
+    }
     &__input {
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -14,7 +16,7 @@
       border-radius: rem(8px);
       font-size: rem(16px);
       color: $neutral-dark;
-      width: rem(328px);
+      width: 100%;
       &::placeholder {
         color: $neutral-basegrey;
       }
@@ -77,11 +79,11 @@
       }
     }
     select {
-      width: rem(328px);
+      width: 100%;
       padding-right: rem(50px);
       background-image: url(@/assets/images/icon/select_arrow.svg);
       background-repeat: no-repeat;
-      background-position: 95% 50%;
+      background-position: right rem(16px) top 50%;
       cursor: pointer;
       &[readonly]:focus {
         box-shadow: none;
@@ -89,7 +91,7 @@
     }
     &__text {
       border: none;
-      width: rem(328px);
+      width: 100%;
       padding: rem(16px);
       font-size: rem(16px);
       line-height: rem(22.4px);
@@ -104,10 +106,13 @@
         color: $neutral-basegrey;
       }
       &--side {
-        width: rem(278px);
+        width: calc(100% - rem(34px));
         padding: 0;
         margin-left: rem(12px);
         height: rem(22px);
+        &--sub {
+          width: calc(100% - rem(58px));
+        }
       }
       &.checked {
         text-decoration: line-through;
@@ -148,6 +153,7 @@
       }
     }
     &__search {
+      width: 100%;
       padding: rem(8px);
       background-color: $neutral-lightgrey;
       border: none;
@@ -213,7 +219,7 @@
     &__button {
       position: absolute;
       top: 50%;
-      left: rem(290px);
+      right: rem(12px);
       background: url(@/assets/images/icon/eye.svg) no-repeat;
       width: rem(24px);
       height: rem(24px);
@@ -270,7 +276,7 @@
     }
     &--disabled {
       position: relative;
-      width: fit-content;
+      width: 100%;
       display: block;
       color: $neutral-basegrey;
       .inputField {
