@@ -345,7 +345,6 @@
       id="textareaTitle_default"
       placeholder="Title here"
     />
-    <inputField type="limitTitleLength" />
     <inputField
       type="textareaDes"
       id="textareaDes_default"

@@ -323,12 +323,5 @@
     + .inputField--disabled {
       margin-top: rem(32px);
     }
-    &.inputField:has(> .textarea_tit),
-    &.inputField:has(> .textarea_des) {
-      width: 100%;
-    }
-    & + .inputField:has(> .textarea_des) {
-      margin-top: rem(16px);
-    }
   }
 }
