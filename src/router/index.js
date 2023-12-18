@@ -55,7 +55,7 @@ const routes = [
     component: SearchView
   },
   {
-    path: '/main/setting',
+    path: '/main/settings',
     name: 'SettingsView',
     component: SettingsView
   },
