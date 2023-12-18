@@ -11,13 +11,11 @@
     </span>
   </button>
   <!-- 링크 -->
-  <div v-else :href="useUrl">
-    <a :class="['btn', colorClass, fontSizeClass]">
-      <span :class="[btnTxt ? 'btn-txt' : 'hidden', positionClass]">{{
-        btnTxt
-      }}</span>
-    </a>
-  </div>
+  <a :class="['btn', colorClass, fontSizeClass]" v-else :href="useUrl">
+    <span :class="[btnTxt ? 'btn-txt' : 'hidden', positionClass]">{{
+      btnTxt
+    }}</span>
+  </a>
 </template>
 
 <script>

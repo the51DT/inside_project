@@ -485,6 +485,7 @@
         .icon-right {
           position: relative;
           display: block;
+          padding-right: 36px;
           &::before {
             content: '';
             position: absolute;
@@ -493,7 +494,9 @@
             background: url('@/assets/images/icon/icon_arrow_right_base.svg')
               no-repeat;
             background-size: contain;
-            right: rem(-36px);
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
         .icon-center {
@@ -508,7 +511,9 @@
             background: url('@/assets/images/icon/icon_arrow_right_base.svg')
               no-repeat;
             background-size: contain;
-            left: rem(0);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
         .icon-left {
@@ -523,7 +528,9 @@
             background: url('@/assets/images/icon/icon_arrow_right_base.svg')
               no-repeat;
             background-size: contain;
-            left: rem(0);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
       }
@@ -555,6 +562,7 @@
         .icon-right {
           position: relative;
           display: block;
+          padding-right: 36px;
           &::before {
             content: '';
             position: absolute;
@@ -563,7 +571,9 @@
             background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
               no-repeat;
             background-size: contain;
-            right: rem(-36px);
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
         .icon-center {
@@ -578,7 +588,9 @@
             background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
               no-repeat;
             background-size: contain;
-            left: rem(0);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
         .icon-left {
@@ -593,7 +605,9 @@
             background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
               no-repeat;
             background-size: contain;
-            left: rem(0);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
       }
@@ -604,6 +618,7 @@
         .icon-right {
           position: relative;
           display: block;
+          padding-right: 36px;
           &::before {
             content: '';
             position: absolute;
@@ -612,7 +627,9 @@
             background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
               no-repeat;
             background-size: contain;
-            right: rem(-36px);
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
         .icon-center {
@@ -627,7 +644,9 @@
             background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
               no-repeat;
             background-size: contain;
-            left: rem(0);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
         .icon-left {
@@ -642,7 +661,9 @@
             background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
               no-repeat;
             background-size: contain;
-            left: rem(0);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
       }
