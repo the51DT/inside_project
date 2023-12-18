@@ -122,7 +122,8 @@
           checked
             ? 'inputField__text inputField__text--side checked'
             : 'inputField__text inputField__text--side',
-          sub ? 'inputField__text--side--sub' : ''
+          sub ? 'inputField__text--side--sub' : '',
+          size === 'small' ? 'inputField__text--side--small' : ''
         ]"
         :id="id + '__text'"
         :name="name"
@@ -136,6 +137,9 @@
       <label
         :for="id"
         :class="[
+          type === 'checkbox' ? 'inputField__input__checkbox--label' : '',
+          type === 'checkbox' && checked ? 'on' : '',
+          type === 'checkbox' && size === 'small' ? 'inputField__input__checkbox--label--small' : '',
           type === 'file' ? 'inputField__file--label' : '',
           type === 'toggle' ? 'inputField__toggle--label' : '',
           type === 'toggle' && color === 'highlight'
@@ -206,6 +210,7 @@ export default {
     checkedText: function (el) {
       const target = el.currentTarget
       const input = target.nextElementSibling
+      const label = input.nextElementSibling
       if (input.value.length === 0) {
         target.checked = false
       }
@@ -215,8 +220,10 @@ export default {
         input.classList.remove('checked')
       }
       if (target.checked === true) {
+        label.classList.add('on')
         input.readOnly = true
       } else {
+        label.classList.remove('on')
         input.readOnly = false
       }
       if (target.readOnly === true) {
