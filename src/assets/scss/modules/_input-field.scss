@@ -215,6 +215,9 @@
       font-size: rem(12px);
       color: $neutral-basegrey;
       margin-top: rem(12px);
+      &--warn {
+        color: $error-base;
+      }
     }
     &__button {
       position: absolute;

@@ -86,6 +86,7 @@
       id="input_warn"
       name="input_warn"
       placeholder="input_warn"
+      caption="input_warn"
       warn
     ></inputField>
     <inputField
