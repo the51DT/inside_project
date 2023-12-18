@@ -25,4 +25,9 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.popup {
+  position: relative;
+  z-index: 100;
+}
+</style>
