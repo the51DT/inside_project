@@ -23,6 +23,7 @@
 <style lang="scss">
 .task-bar {
   display: flex;
+  box-shadow: 0px 1px 0px 0px $neutral-lightgrey;
   &--date {
     width: 100%;
     padding-left: rem(16px);
