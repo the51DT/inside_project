@@ -9,6 +9,7 @@ import CreateView from '../views/main/CreateView.vue'
 import SearchView from '../views/main/SearchView.vue'
 import SettingsView from '../views/main/SettingsView.vue'
 import LoginView from '../views/main/LoginView.vue'
+import LoginDetail from '../views/main/LoginDetail.vue'
 import OnBoarding from '../views/main/OnBoarding.vue'
 
 const routes = [
@@ -64,6 +65,16 @@ const routes = [
     path: '/main/login',
     name: 'LoginView',
     component: LoginView
+  },
+  {
+    path: '/main/login/logindetail',
+    name: 'LoginDetail',
+    component: LoginDetail,
+    children: [
+      { path: 'loginRegister', name: 'loginRegister', component: () => import('@/components/fragments/loginRegister.vue') },
+      { path: 'loginForgot', name: 'loginForgot', component: () => import('@/components/fragments/loginForgot.vue') },
+      { path: 'loginReset', name: 'loginReset', component: () => import('@/components/fragments/loginReset.vue') }
+    ]
   },
   {
     path: '/main/start',

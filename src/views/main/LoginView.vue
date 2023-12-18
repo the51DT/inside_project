@@ -8,34 +8,35 @@
         id="email"
         name="email"
         placeholder="Example: johndoe@gmail.com"
-      ></inputField>
+      />
       <inputField
         type="password"
         title="Password"
         id="password"
         name="password"
         placeholder="********"
-      ></inputField>
+      />
       <ButtonCmp
         bgBtn="base"
         btnSize="large"
         btnTxt="Forgot Password"
         :btnType="false"
+        useUrl="login/loginDetail/loginForgot"
       />
     </div>
     <div class="login__button">
       <ButtonCmp
         bgBtn="base"
         btnSize="large"
-        icon2
-        iconPosition
+        iconPositionRight="right"
         btnTxt="Login"
+        @click="goUrl('home')"
       />
       <div class="login__button__line">Or</div>
       <ButtonCmp
         bdBtn="google"
         btnSize="large"
-        icon
+        iconPositionCenter="center"
         btnTxt="Login with Google"
         @click="onClickGoogle()"
       />
@@ -44,62 +45,31 @@
         btnSize="large"
         btnTxt="Don’t have any account? Register here"
         :btnType="false"
+        useUrl="login/loginDetail/loginRegister"
       />
     </div>
   </div>
 </template>
 
-<script>
-export default {}
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goUrl = (url) => {
+  if (url === 'home') {
+    router.push('home')
+  } else if (url === 'register') {
+    router.push('login/loginDetail/loginRegister')
+  } else if (url === 'forgot') {
+    router.push('login/loginDetail/loginForgot')
+  }
+}
+
+const onClickGoogle = () => {
+  // 구글 새 창 열기 (window.open 사용)
+  window.open('http://google.com', '_blank')
+}
 </script>
 
-<style lang="scss">
-  .login {
-    &__wrap {
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-      margin: 0 auto;
-      padding: rem(16px);
-      width: rem(360px);
-      height: 100vh;
-    }
-    &__input {
-      margin-top: rem(32px);
-      & .btn {
-        display: block;
-        margin-top: rem(12px);
-      }
-    }
-    &__button {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: rem(16px);
-      margin-top: rem(40px);
-      &__line {
-        position: relative;
-        font-size: rem(12px);
-        font-weight: 500;
-        color: $neutral-darkgrey;
-        width: 100%;
-        text-align: center;
-        &::before,
-        &::after {
-          content: '';
-          display: block;
-          position: absolute;
-          top: 50%;
-          width: rem(141px);
-          border-top: solid rem(1px) $neutral-lightgrey;
-        }
-        &::before {
-          left: 0;
-        }
-        &::after {
-          right: 0;
-        }
-      }
-    }
-  }
-</style>
+<style lang="scss"></style>

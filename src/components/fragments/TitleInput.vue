@@ -1,6 +1,8 @@
 <template>
-  <h3 :class="type === '' ? 'title' : `title--${type}`">{{ title }}</h3>
-  <p :class="type === '' ? 'title__sub' : `title--${type}`">{{ sub }}</p>
+  <div>
+    <h3 :class="type === '' ? 'title' : `title--${type}`">{{ title }}</h3>
+    <p :class="type === '' ? 'title__sub' : `title--${type}`">{{ sub }}</p>
+  </div>
 </template>
 
 <script>
