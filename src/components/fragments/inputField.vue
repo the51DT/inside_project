@@ -150,7 +150,7 @@
       </label>
     </div>
     <!-- 캡션 -->
-    <p v-if="caption" class="inputField__caption">{{ caption }}</p>
+    <p v-if="caption" :class="warn ? 'inputField__caption inputField__caption--warn' : 'inputField__caption'">{{ caption }}</p>
   </div>
 </template>
 

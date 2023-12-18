@@ -10,6 +10,8 @@ import listCmp from '@/components/fragments/listCmp.vue'
 import inputField from '@/components/fragments/inputField.vue'
 import tagCmp from '@/components/fragments/TagCmp.vue'
 import TabBar from '@/components/fragments/TabBar.vue'
+import TaskBar from '@/components/fragments/TaskBar.vue'
+import NavBar from '@/components/fragments/NavBar.vue'
 import common from './assets/js/common'
 
 const app = createApp(App)
@@ -24,4 +26,6 @@ app.component('listCmp', listCmp)
 app.component('inputField', inputField)
 app.component('tagCmp', tagCmp)
 app.component('TabBar', TabBar)
+app.component('TaskBar', TaskBar)
+app.component('NavBar', NavBar)
 app.mount('#app')

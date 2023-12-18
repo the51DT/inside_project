@@ -85,6 +85,13 @@
         <button @click="closeBtn($event)">close</button>
       </template>
     </modal-bottom>
+    <task-bar />
+    <nav-bar title="" rightBtn="" />
+    <nav-bar title="" rightBtn="setting" />
+    <nav-bar title="" rightBtn="action" />
+    <nav-bar title="title" rightBtn="" />
+    <nav-bar title="title" rightBtn="setting" />
+    <nav-bar title="title" rightBtn="action" />
   </div>
 </template>
 
