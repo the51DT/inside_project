@@ -9,6 +9,7 @@ import CreateView from '../views/main/CreateView.vue'
 import SearchView from '../views/main/SearchView.vue'
 import SettingsView from '../views/main/SettingsView.vue'
 import LoginView from '../views/main/LoginView.vue'
+import OnBoarding from '../views/main/OnBoarding.vue'
 
 const routes = [
   {
@@ -63,6 +64,11 @@ const routes = [
     path: '/main/login',
     name: 'LoginView',
     component: LoginView
+  },
+  {
+    path: '/main/start',
+    name: 'OnBoarding',
+    component: OnBoarding
   }
 ]
 
