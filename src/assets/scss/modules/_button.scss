@@ -40,7 +40,7 @@
     // size case
     &.btn-large {
       width: 100%;
-      padding: 16px 0;
+      padding: rem(16px) rem(20px);
       display: block;
       // iconPositionClass
       .icon-right {
@@ -53,6 +53,7 @@
           height: rem(20px);
           background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
           background-size: contain;
+          right: 0;
         }
       }
       .icon-center {
@@ -78,7 +79,7 @@
           height: rem(20px);
           background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
           background-size: contain;
-          left: rem(20px);
+          left: 0;
         }
       }
     }
@@ -432,6 +433,7 @@
       background-color: $neutral-white;
       .btn-txt {
         color: $neutral-dark;
+        line-height: rem(22px);
       }
       .icon-center {
         position: relative;
