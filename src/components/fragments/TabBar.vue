@@ -35,6 +35,7 @@ const routerRef = ref([
   position: fixed;
   width: 100%;
   bottom: 0;
+  background-color: $neutral-white;
   nav {
     ul {
       position: relative;
