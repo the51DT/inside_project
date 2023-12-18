@@ -42,54 +42,140 @@
       width: 100%;
       padding: 16px 0;
       display: block;
+      // iconPositionClass
+      .icon-right {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+          background-size: contain;
+        }
+      }
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+          background-size: contain;
+          left: rem(-36px);
+        }
+      }
+      .icon-left {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+          background-size: contain;
+          left: rem(20px);
+        }
+      }
     }
     &.btn-medium {
-      width: 100%;
-      padding: 16px 0;
+      width: auto;
+      padding: rem(16px) rem(24px);
       display: inline-block;
+      // iconPositionClass
+      .icon-right {
+        position: relative;
+        display: block;
+        padding: 0 rem(36px) 0 0;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+          background-size: contain;
+          right: 0;
+        }
+      }
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        padding: 0 0 0 rem(28px);
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+          background-size: contain;
+          left: 0;
+        }
+      }
+      .icon-left {
+        position: relative;
+        display: block;
+        padding: 0 0 0 rem(36px);
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+          background-size: contain;
+          left: 0;
+        }
+      }
     }
     &.btn-small {
-      width: 100%;
-      padding: 8px 0;
-    }
-    // iconPositionClass
-    .icon-right {
-      position: relative;
-      display: block;
-      &::before {
-        content: '';
-        position: absolute;
-        width: rem(20px);
-        height: rem(20px);
-        background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
-        background-size: contain;
-        right: rem(20px);
-      }
-    }
-    .icon-center {
-      position: relative;
+      width: auto;
+      padding: rem(8px) rem(16px);
       display: inline-block;
-      &::before {
-        content: '';
-        position: absolute;
-        width: rem(20px);
-        height: rem(20px);
-        background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
-        background-size: contain;
-        left: rem(-36px);
+      // iconPositionClass
+      .icon-right {
+        position: relative;
+        display: block;
+        padding: 0 rem(36px) 0 0;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+          background-size: contain;
+          right: 0;
+        }
       }
-    }
-    .icon-left {
-      position: relative;
-      display: block;
-      &::before {
-        content: '';
-        position: absolute;
-        width: rem(20px);
-        height: rem(20px);
-        background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
-        background-size: contain;
-        left: rem(20px);
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        padding: 0 0 0 rem(28px);
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+          background-size: contain;
+          left: 0;
+        }
+      }
+      .icon-left {
+        position: relative;
+        display: block;
+        padding: 0 0 0 rem(36px);
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+          background-size: contain;
+          left: 0;
+        }
       }
     }
     // bg색 버튼
@@ -220,7 +306,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_base.svg')
             no-repeat;
           background-size: contain;
-          right: rem(20px);
         }
       }
       .icon-center {
@@ -234,7 +319,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_base.svg')
             no-repeat;
           background-size: contain;
-          left: rem(-36px);
         }
       }
       .icon-left {
@@ -248,7 +332,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_base.svg')
             no-repeat;
           background-size: contain;
-          left: rem(20px);
         }
       }
     }
@@ -268,7 +351,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
             no-repeat;
           background-size: contain;
-          right: rem(20px);
         }
       }
       .icon-center {
@@ -282,7 +364,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
             no-repeat;
           background-size: contain;
-          left: rem(-36px);
         }
       }
       .icon-left {
@@ -296,7 +377,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
             no-repeat;
           background-size: contain;
-          left: rem(20px);
         }
       }
     }
@@ -318,7 +398,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
             no-repeat;
           background-size: contain;
-          right: rem(20px);
         }
       }
       .icon-center {
@@ -332,7 +411,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
             no-repeat;
           background-size: contain;
-          left: rem(-36px);
         }
       }
       .icon-left {
@@ -346,7 +424,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
             no-repeat;
           background-size: contain;
-          left: rem(20px);
         }
       }
     }
@@ -366,7 +443,6 @@
           height: rem(24px);
           background: url('@/assets/images/logo/google_logo.png') no-repeat;
           background-size: contain;
-          right: rem(-36px);
         }
       }
     }
@@ -392,7 +468,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_base.svg')
             no-repeat;
           background-size: contain;
-          right: rem(20px);
         }
       }
       .icon-center {
@@ -406,7 +481,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_base.svg')
             no-repeat;
           background-size: contain;
-          left: rem(-36px);
         }
       }
       .icon-left {
@@ -420,7 +494,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_base.svg')
             no-repeat;
           background-size: contain;
-          left: rem(20px);
         }
       }
     }
@@ -439,7 +512,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
             no-repeat;
           background-size: contain;
-          right: rem(20px);
         }
       }
       .icon-center {
@@ -453,7 +525,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
             no-repeat;
           background-size: contain;
-          left: rem(-36px);
         }
       }
       .icon-left {
@@ -467,7 +538,6 @@
           background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
             no-repeat;
           background-size: contain;
-          left: rem(20px);
         }
       }
     }
@@ -485,7 +555,7 @@
         .icon-right {
           position: relative;
           display: block;
-          padding-right: 36px;
+          padding-right: rem(36px);
           &::before {
             content: '';
             position: absolute;
@@ -502,7 +572,7 @@
         .icon-center {
           position: relative;
           display: inline-block;
-          padding-left: 28px;
+          padding-left: rem(28px);
           &::before {
             content: '';
             position: absolute;
@@ -519,7 +589,7 @@
         .icon-left {
           position: relative;
           display: block;
-          padding-left: 36px;
+          padding-left: rem(36px);
           &::before {
             content: '';
             position: absolute;
@@ -562,7 +632,7 @@
         .icon-right {
           position: relative;
           display: block;
-          padding-right: 36px;
+          padding-right: rem(36px);
           &::before {
             content: '';
             position: absolute;
@@ -579,7 +649,7 @@
         .icon-center {
           position: relative;
           display: inline-block;
-          padding-left: 28px;
+          padding-left: rem(28px);
           &::before {
             content: '';
             position: absolute;
@@ -596,7 +666,7 @@
         .icon-left {
           position: relative;
           display: block;
-          padding-left: 36px;
+          padding-left: rem(36px);
           &::before {
             content: '';
             position: absolute;
@@ -618,7 +688,7 @@
         .icon-right {
           position: relative;
           display: block;
-          padding-right: 36px;
+          padding-right: rem(36px);
           &::before {
             content: '';
             position: absolute;
@@ -635,7 +705,7 @@
         .icon-center {
           position: relative;
           display: inline-block;
-          padding-left: 28px;
+          padding-left: rem(28px);
           &::before {
             content: '';
             position: absolute;
@@ -652,7 +722,7 @@
         .icon-left {
           position: relative;
           display: block;
-          padding-left: 36px;
+          padding-left: rem(36px);
           &::before {
             content: '';
             position: absolute;
@@ -677,6 +747,41 @@
         font-size: 12px;
         font-weight: 500;
         line-height: normal;
+        .icon-right {
+          position: relative;
+          display: block;
+          padding-right: rem(31px);
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(15px);
+            height: rem(15px);
+          }
+        }
+        .icon-center {
+          position: relative;
+          display: inline-block;
+          padding-left: rem(24px);
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(15px);
+            height: rem(15px);
+            background-size: contain;
+          }
+        }
+        .icon-left {
+          position: relative;
+          display: block;
+          padding-left: rem(31px);
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(15px);
+            height: rem(15px);
+            background-size: contain;
+          }
+        }
       }
     }
   }
