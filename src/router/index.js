@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ButtonView from '../views/ButtonView.vue'
 import OverlaysView from '../views/OverlaysView.vue'
-import ListView from '../views/ListView.vue'
 import MainHomeView from '../views/main/HomeView.vue'
 import FinishedView from '../views/main/FinishedView.vue'
 import CreateView from '../views/main/CreateView.vue'
@@ -30,11 +29,6 @@ const routes = [
     path: '/overlays',
     name: 'overlays',
     component: OverlaysView
-  },
-  {
-    path: '/list',
-    name: 'list',
-    component: ListView
   },
   {
     path: '/main/home',
@@ -71,9 +65,21 @@ const routes = [
     name: 'LoginDetail',
     component: LoginDetail,
     children: [
-      { path: 'loginRegister', name: 'loginRegister', component: () => import('@/components/fragments/loginRegister.vue') },
-      { path: 'loginForgot', name: 'loginForgot', component: () => import('@/components/fragments/loginForgot.vue') },
-      { path: 'loginReset', name: 'loginReset', component: () => import('@/components/fragments/loginReset.vue') }
+      {
+        path: 'loginRegister',
+        name: 'loginRegister',
+        component: () => import('@/components/fragments/loginRegister.vue')
+      },
+      {
+        path: 'loginForgot',
+        name: 'loginForgot',
+        component: () => import('@/components/fragments/loginForgot.vue')
+      },
+      {
+        path: 'loginReset',
+        name: 'loginReset',
+        component: () => import('@/components/fragments/loginReset.vue')
+      }
     ]
   },
   {

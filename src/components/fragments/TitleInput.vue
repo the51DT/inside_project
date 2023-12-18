@@ -1,7 +1,12 @@
 <template>
   <div>
     <h3 :class="type === '' ? 'title' : `title--${type}`">{{ title }}</h3>
-    <p :class="type === '' ? 'title__sub' : `title__sub--${type}`">{{ sub }}</p>
+    <p
+      :class="subtype === '' ? 'title__sub' : `title__sub--${subtype}`"
+      v-if="sub !== null"
+    >
+      {{ sub }}
+    </p>
   </div>
 </template>
 
@@ -13,6 +18,10 @@ export default {
       default: 'Title'
     },
     type: {
+      type: String,
+      default: ''
+    },
+    subtype: {
       type: String,
       default: ''
     },
