@@ -1,6 +1,8 @@
 <template>
   <nav v-if="isMain">
     <router-link to="/main/home">Home</router-link> |
+    <router-link to="/main/start">OnBoarding</router-link> |
+    <router-link to="/main/login">Login</router-link> |
     <router-link to="/main/finished">Finished</router-link> |
     <router-link to="/main/Create">Create</router-link> |
     <router-link to="/main/Search">Search</router-link> |
