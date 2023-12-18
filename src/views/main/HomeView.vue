@@ -8,6 +8,7 @@
             <TitleInput
               type="24"
               title="Start Your Journey"
+              subtype="14"
               sub="Every big step start with small step.
               Notes your first idea and start
               your journey!"
