@@ -6,24 +6,18 @@
     :type="button"
     v-if="btnType"
   >
-    <i
-      :class="['btn-link', iconPosition ? 'link-right' : 'link-center']"
-      v-if="icon"
-    ></i>
-    <span :class="[btnTxt ? 'btn-txt' : 'hidden']">{{
-      btnTxt || btnTxtHidden
-    }}</span>
-    <i :class="['btn-link', iconPosition ? 'link-left' : '']" v-if="icon2"></i>
+    <span :class="[btnTxt ? 'btn-txt' : 'hidden', positionClass]">
+      {{ btnTxt || btnTxtHidden }}
+    </span>
   </button>
   <!-- 링크 -->
-  <a :class="['btn', colorClass, fontSizeClass]" v-else :href="useUrl">
-    <i
-      :class="['btn-link', iconPosition ? 'link-right' : 'link-center']"
-      v-if="icon"
-    ></i>
-    <span class="btn-txt">{{ btnTxt }}</span>
-    <i :class="['btn-link', iconPosition ? 'link-left' : '']" v-if="icon2"></i>
-  </a>
+  <div v-else :href="useUrl">
+    <a :class="['btn', colorClass, fontSizeClass]">
+      <span :class="[btnTxt ? 'btn-txt' : 'hidden', positionClass]">{{
+        btnTxt
+      }}</span>
+    </a>
+  </div>
 </template>
 
 <script>
@@ -62,17 +56,17 @@ export default {
       type: Boolean,
       default: false
     },
-    iconPosition: {
-      type: Boolean,
-      default: false
+    iconPositionRight: {
+      type: String,
+      default: ''
     },
-    icon: {
-      type: Boolean,
-      default: false
+    iconPositionCenter: {
+      type: String,
+      default: ''
     },
-    icon2: {
-      type: Boolean,
-      default: false
+    iconPositionLeft: {
+      type: String,
+      default: ''
     },
     useUrl: {
       type: String,
@@ -100,6 +94,12 @@ export default {
     fontSizeClass() {
       if (this.btnSize === 'large') return `fs-${this.btnSize}`
       else if (this.btnSize === 'small') return `fs-${this.btnSize}`
+      return ''
+    },
+    positionClass() {
+      if (this.iconPositionRight === 'right') return `icon-right`
+      else if (this.iconPositionCenter === 'center') return `icon-center`
+      else if (this.iconPositionLeft === 'left') return `icon-left`
       return ''
     }
   }

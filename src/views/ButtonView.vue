@@ -29,9 +29,9 @@
           하면 이중클래스(btn-large) 완성
         </p>
         <ol>
-          <li>large : min-width: 328px</li>
-          <li>medium : min-width: 206px</li>
-          <li>small : min-width: 190px</li>
+          <li>large</li>
+          <li>medium</li>
+          <li>small</li>
         </ol>
       </div>
       <div class="guide-txt-box">
@@ -42,20 +42,14 @@
         </p>
       </div>
       <div class="guide-txt-box">
-        <h5>5. ButtonCmp : icon & icon2 & iconPosition</h5>
+        <h5>5. ButtonCmp : icon</h5>
         <ol>
           <li>
-            icon : true = 오른쪽 영역
+            positionClass 를 선택
             <ol>
-              <li>iconPosition : true = link-right</li>
-              <li>iconPosition : false = link-center</li>
-            </ol>
-          </li>
-          <li>
-            icon2 : true = 왼쪽 영역
-            <ol>
-              <li>iconPosition : true = link-left</li>
-              <li>iconPosition : false = ''</li>
+              <li>iconPositionRight : icon-right</li>
+              <li>iconPositionCenter : icon-center</li>
+              <li>iconPositionLeft : icon-left</li>
             </ol>
           </li>
         </ol>
@@ -80,23 +74,20 @@
         <ButtonCmp
           bgBtn="base"
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-icon-right"
         />
         <ButtonCmp
           bgBtn="dark"
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-icon-right"
         />
         <ButtonCmp
           bgBtn="disabled"
           disabled
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-icon-right"
         />
       </div>
@@ -104,20 +95,20 @@
         <ButtonCmp
           bgBtn="base"
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-icon-center"
         />
         <ButtonCmp
           bgBtn="dark"
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-icon-center"
         />
         <ButtonCmp
           bgBtn="disabled"
           disabled
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-icon-center"
         />
       </div>
@@ -125,23 +116,20 @@
         <ButtonCmp
           bgBtn="base"
           btnSize="large"
-          icon2
-          iconPosition
-          btnTxt="default-icon-center"
+          iconPositionLeft="left"
+          btnTxt="default-icon-left"
         />
         <ButtonCmp
           bgBtn="dark"
           btnSize="large"
-          icon2
-          iconPosition
-          btnTxt="default-icon-center"
+          iconPositionLeft="left"
+          btnTxt="default-icon-left"
         />
         <ButtonCmp
           bgBtn="disabled"
           disabled
           btnSize="large"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="default-icon-left"
         />
       </div>
@@ -156,23 +144,20 @@
         <ButtonCmp
           bdBtn="base"
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="border-icon-right"
         />
         <ButtonCmp
           bdBtn="dark"
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="border-icon-right"
         />
         <ButtonCmp
           bdBtn="disabled"
           disabled
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="defauborderlt-icon-right"
         />
       </div>
@@ -180,20 +165,20 @@
         <ButtonCmp
           bdBtn="base"
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="border-icon-center"
         />
         <ButtonCmp
           bdBtn="dark"
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="border-icon-center"
         />
         <ButtonCmp
           bdBtn="disabled"
           disabled
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="border-icon-center"
         />
       </div>
@@ -201,23 +186,20 @@
         <ButtonCmp
           bdBtn="base"
           btnSize="large"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="border-icon-left"
         />
         <ButtonCmp
           bdBtn="dark"
           btnSize="large"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="border-icon-left"
         />
         <ButtonCmp
           bdBtn="disabled"
           disabled
           btnSize="large"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="border-icon-left"
         />
       </div>
@@ -231,16 +213,14 @@
         <ButtonCmp
           hvBtn="base"
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="hover-icon-right"
         />
         <ButtonCmp
           hvBtn="disabled"
           disabled
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="hover-icon-right"
         />
       </div>
@@ -248,14 +228,14 @@
         <ButtonCmp
           hvBtn="base"
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="hover-icon-center"
         />
         <ButtonCmp
           hvBtn="disabled"
           disabled
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="hover-icon-center"
         />
       </div>
@@ -263,16 +243,14 @@
         <ButtonCmp
           hvBtn="base"
           btnSize="large"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="hover-icon-left"
         />
         <ButtonCmp
           hvBtn="disabled"
           disabled
           btnSize="large"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="hover-icon-left"
         />
       </div>
@@ -292,23 +270,20 @@
         <ButtonCmp
           bgBtn="base"
           btnSize="medium"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-medium-icon-right"
         />
         <ButtonCmp
           bgBtn="dark"
           btnSize="medium"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-medium-icon-right"
         />
         <ButtonCmp
           bgBtn="disabled"
           disabled
           btnSize="medium"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-medium-icon-right"
         />
       </div>
@@ -316,20 +291,20 @@
         <ButtonCmp
           bgBtn="base"
           btnSize="medium"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-medium-icon-center"
         />
         <ButtonCmp
           bgBtn="dark"
           btnSize="medium"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-medium-icon-center"
         />
         <ButtonCmp
           bgBtn="disabled"
           disabled
           btnSize="medium"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-medium-icon-center"
         />
       </div>
@@ -337,23 +312,20 @@
         <ButtonCmp
           bgBtn="base"
           btnSize="medium"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="default-medium-icon-center"
         />
         <ButtonCmp
           bgBtn="dark"
           btnSize="medium"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="default-medium-icon-center"
         />
         <ButtonCmp
           bgBtn="disabled"
           disabled
           btnSize="medium"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="default-medium-icon-left"
         />
       </div>
@@ -373,23 +345,20 @@
         <ButtonCmp
           bdBtn="base"
           btnSize="medium"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="border-medium-icon-right"
         />
         <ButtonCmp
           bdBtn="dark"
           btnSize="medium"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="border-medium-icon-right"
         />
         <ButtonCmp
           bdBtn="disabled"
           disabled
           btnSize="medium"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="border-medium-icon-right"
         />
       </div>
@@ -397,20 +366,20 @@
         <ButtonCmp
           bdBtn="base"
           btnSize="medium"
-          icon
+          iconPositionCenter="center"
           btnTxt="border-medium-icon-center"
         />
         <ButtonCmp
           bdBtn="dark"
           btnSize="medium"
-          icon
+          iconPositionCenter="center"
           btnTxt="border-medium-icon-center"
         />
         <ButtonCmp
           bdBtn="disabled"
           disabled
           btnSize="medium"
-          icon
+          iconPositionCenter="center"
           btnTxt="border-medium-icon-center"
         />
       </div>
@@ -418,23 +387,20 @@
         <ButtonCmp
           bdBtn="base"
           btnSize="medium"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="border-medium-icon-left"
         />
         <ButtonCmp
           bdBtn="dark"
           btnSize="medium"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="border-medium-icon-left"
         />
         <ButtonCmp
           bdBtn="disabled"
           disabled
           btnSize="medium"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="border-medium-icon-left"
         />
       </div>
@@ -453,16 +419,14 @@
         <ButtonCmp
           hvBtn="base"
           btnSize="medium"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="hover-medium-icon-right"
         />
         <ButtonCmp
           hvBtn="disabled"
           disabled
           btnSize="medium"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="hover-medium-icon-right"
         />
       </div>
@@ -470,14 +434,14 @@
         <ButtonCmp
           hvBtn="base"
           btnSize="medium"
-          icon
+          iconPositionCenter="center"
           btnTxt="hover-medium-icon-center"
         />
         <ButtonCmp
           hvBtn="disabled"
           disabled
           btnSize="medium"
-          icon
+          iconPositionCenter="center"
           btnTxt="hover-medium-icon-center"
         />
       </div>
@@ -485,16 +449,14 @@
         <ButtonCmp
           hvBtn="base"
           btnSize="medium"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="hover-medium-icon-left"
         />
         <ButtonCmp
           hvBtn="disabled"
           disabled
           btnSize="medium"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="hover-medium-icon-left"
         />
       </div>
@@ -514,23 +476,20 @@
         <ButtonCmp
           bgBtn="base"
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-small-icon-right"
         />
         <ButtonCmp
           bgBtn="dark"
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-small-icon-right"
         />
         <ButtonCmp
           bgBtn="disabled"
           disabled
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-small-icon-right"
         />
       </div>
@@ -538,20 +497,20 @@
         <ButtonCmp
           bgBtn="base"
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-small-icon-center"
         />
         <ButtonCmp
           bgBtn="dark"
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-small-icon-center"
         />
         <ButtonCmp
           bgBtn="disabled"
           disabled
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-small-icon-center"
         />
       </div>
@@ -559,23 +518,20 @@
         <ButtonCmp
           bgBtn="base"
           btnSize="small"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="default-small-icon-center"
         />
         <ButtonCmp
           bgBtn="dark"
           btnSize="small"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="default-small-icon-center"
         />
         <ButtonCmp
           bgBtn="disabled"
           disabled
           btnSize="small"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="default-small-icon-left"
         />
       </div>
@@ -595,23 +551,20 @@
         <ButtonCmp
           bdBtn="base"
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="border-small-icon-right"
         />
         <ButtonCmp
           bdBtn="dark"
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="border-small-icon-right"
         />
         <ButtonCmp
           bdBtn="disabled"
           disabled
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="border-small-icon-right"
         />
       </div>
@@ -619,20 +572,20 @@
         <ButtonCmp
           bdBtn="base"
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="border-small-icon-center"
         />
         <ButtonCmp
           bdBtn="dark"
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="border-small-icon-center"
         />
         <ButtonCmp
           bdBtn="disabled"
           disabled
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="border-small-icon-center"
         />
       </div>
@@ -640,23 +593,20 @@
         <ButtonCmp
           bdBtn="base"
           btnSize="small"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="border-small-icon-left"
         />
         <ButtonCmp
           bdBtn="dark"
           btnSize="small"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="border-small-icon-left"
         />
         <ButtonCmp
           bdBtn="disabled"
           disabled
           btnSize="small"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="border-small-icon-left"
         />
       </div>
@@ -675,16 +625,14 @@
         <ButtonCmp
           hvBtn="base"
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="hover-small-icon-right"
         />
         <ButtonCmp
           hvBtn="disabled"
           disabled
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="hover-small-icon-right"
         />
       </div>
@@ -707,16 +655,14 @@
         <ButtonCmp
           hvBtn="base"
           btnSize="small"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="hover-small-icon-left"
         />
         <ButtonCmp
           hvBtn="disabled"
           disabled
           btnSize="small"
-          icon2
-          iconPosition
+          iconPositionLeft="left"
           btnTxt="hover-small-icon-left"
         />
       </div>
@@ -749,16 +695,14 @@
           :btnType="false"
           bgBtn="base"
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="underline-large-icon-right"
         />
         <ButtonCmp
           :btnType="false"
           bgBtn="dark"
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="underline-large-icon-right"
         />
         <ButtonCmp
@@ -766,8 +710,7 @@
           bgBtn="disabled"
           disabled
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="underline-large-icon-right"
         />
       </div>
@@ -776,14 +719,14 @@
           :btnType="false"
           bgBtn="base"
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="underline-large-icon-center"
         />
         <ButtonCmp
           :btnType="false"
           bgBtn="dark"
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="underline-large-icon-center"
         />
         <ButtonCmp
@@ -791,7 +734,7 @@
           bgBtn="disabled"
           disabled
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="underline-large-icon-center"
         />
       </div>
@@ -800,14 +743,14 @@
           :btnType="false"
           bgBtn="base"
           btnSize="large"
-          icon2
+          iconPositionLeft="left"
           btnTxt="underline-large-icon-left"
         />
         <ButtonCmp
           :btnType="false"
           bgBtn="dark"
           btnSize="large"
-          icon2
+          iconPositionLeft="left"
           btnTxt="underline-large-icon-left"
         />
         <ButtonCmp
@@ -815,7 +758,7 @@
           bgBtn="disabled"
           disabled
           btnSize="large"
-          icon2
+          iconPositionLeft="left"
           btnTxt="underline-large-icon-left"
         />
       </div>
@@ -847,16 +790,14 @@
           :btnType="false"
           bdBtn="base"
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-large-icon-right"
         />
         <ButtonCmp
           :btnType="false"
           bdBtn="dark"
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-large-icon-right"
         />
         <ButtonCmp
@@ -864,8 +805,7 @@
           bdBtn="disabled"
           disabled
           btnSize="large"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-large-icon-right"
         />
       </div>
@@ -874,14 +814,14 @@
           :btnType="false"
           bdBtn="base"
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-large-icon-center"
         />
         <ButtonCmp
           :btnType="false"
           bdBtn="dark"
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-large-icon-center"
         />
         <ButtonCmp
@@ -889,7 +829,7 @@
           bdBtn="disabled"
           disabled
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-large-icon-center"
         />
       </div>
@@ -898,14 +838,14 @@
           :btnType="false"
           bdBtn="base"
           btnSize="large"
-          icon2
+          iconPositionLeft="left"
           btnTxt="default-large-icon-left"
         />
         <ButtonCmp
           :btnType="false"
           bdBtn="dark"
           btnSize="large"
-          icon2
+          iconPositionLeft="left"
           btnTxt="default-large-icon-left"
         />
         <ButtonCmp
@@ -913,7 +853,7 @@
           bdBtn="disabled"
           disabled
           btnSize="large"
-          icon2
+          iconPositionLeft="left"
           btnTxt="default-large-icon-left"
         />
       </div>
@@ -945,16 +885,14 @@
           :btnType="false"
           bgBtn="base"
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="underline-small-icon-right"
         />
         <ButtonCmp
           :btnType="false"
           bgBtn="dark"
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="underline-small-icon-right"
         />
         <ButtonCmp
@@ -962,8 +900,7 @@
           bgBtn="disabled"
           disabled
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="underline-small-icon-right"
         />
       </div>
@@ -972,14 +909,14 @@
           :btnType="false"
           bgBtn="base"
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="underline-small-icon-center"
         />
         <ButtonCmp
           :btnType="false"
           bgBtn="dark"
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="underline-small-icon-center"
         />
         <ButtonCmp
@@ -987,7 +924,7 @@
           bgBtn="disabled"
           disabled
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="underline-small-icon-center"
         />
       </div>
@@ -996,14 +933,14 @@
           :btnType="false"
           bgBtn="base"
           btnSize="small"
-          icon2
+          iconPositionLeft="left"
           btnTxt="underline-small-icon-left"
         />
         <ButtonCmp
           :btnType="false"
           bgBtn="dark"
           btnSize="small"
-          icon2
+          iconPositionLeft="left"
           btnTxt="underline-small-icon-left"
         />
         <ButtonCmp
@@ -1011,7 +948,7 @@
           bgBtn="disabled"
           disabled
           btnSize="small"
-          icon2
+          iconPositionLeft="left"
           btnTxt="underline-small-icon-left"
         />
       </div>
@@ -1043,16 +980,14 @@
           :btnType="false"
           bdBtn="base"
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-small-icon-right"
         />
         <ButtonCmp
           :btnType="false"
           bdBtn="dark"
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-small-icon-right"
         />
         <ButtonCmp
@@ -1060,8 +995,7 @@
           bdBtn="disabled"
           disabled
           btnSize="small"
-          icon
-          iconPosition
+          iconPositionRight="right"
           btnTxt="default-small-icon-right"
         />
       </div>
@@ -1070,14 +1004,14 @@
           :btnType="false"
           bdBtn="base"
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-small-icon-center"
         />
         <ButtonCmp
           :btnType="false"
           bdBtn="dark"
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-small-icon-center"
         />
         <ButtonCmp
@@ -1085,7 +1019,7 @@
           bdBtn="disabled"
           disabled
           btnSize="small"
-          icon
+          iconPositionCenter="center"
           btnTxt="default-small-icon-center"
         />
       </div>
@@ -1094,14 +1028,14 @@
           :btnType="false"
           bdBtn="base"
           btnSize="small"
-          icon2
+          iconPositionLeft="left"
           btnTxt="default-small-icon-left"
         />
         <ButtonCmp
           :btnType="false"
           bdBtn="dark"
           btnSize="small"
-          icon2
+          iconPositionLeft="left"
           btnTxt="default-small-icon-left"
         />
         <ButtonCmp
@@ -1109,7 +1043,7 @@
           bdBtn="disabled"
           disabled
           btnSize="small"
-          icon2
+          iconPositionLeft="left"
           btnTxt="default-small-icon-left"
         />
       </div>
@@ -1120,7 +1054,7 @@
         <ButtonCmp
           bdBtn="google"
           btnSize="large"
-          icon
+          iconPositionCenter="center"
           btnTxt="Login with Google"
           @click="onClickGoogle()"
         />
@@ -1131,35 +1065,19 @@
       <div class="guide-box icon-box">
         <ButtonCmp
           bgBtn="icon-base"
-          icon
-          iconPosition
           btnTxtHidden="노트 추가하기"
           @click="addNoteMove()"
         />
         <ButtonCmp
           bgBtn="icon-white"
-          icon
-          iconPosition
           btnTxtHidden="노트 추가하기"
           @click="$router.push('/home')"
         />
-        <ButtonCmp
-          bgBtn="icon-dark"
-          icon
-          iconPosition
-          btnTxtHidden="노트 추가하기"
-        />
-        <ButtonCmp
-          bgBtn="icon-light"
-          icon
-          iconPosition
-          btnTxtHidden="노트 추가하기"
-        />
+        <ButtonCmp bgBtn="icon-dark" btnTxtHidden="노트 추가하기" />
+        <ButtonCmp bgBtn="icon-light" btnTxtHidden="노트 추가하기" />
         <ButtonCmp
           bgBtn="icon-disabled"
           disabled
-          icon
-          iconPosition
           btnTxtHidden="노트 추가하기"
         />
       </div>

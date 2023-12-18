@@ -28,84 +28,68 @@
       }
     }
   }
-  .guide__wrap {
-    display: flex;
-    & + .guide__wrap {
-      margin-top: 30px;
-    }
-    button {
-      & + button {
-        margin-top: 10px;
-      }
-    }
-    .guide-box {
-      & + .guide-box {
-        margin-left: 20px;
-      }
-      &.icon-box {
-        display: flex;
-        button {
-          & + button {
-            margin: 0 0 0 rem(16px);
-          }
-        }
-      }
-    }
-  }
   .btn {
     border: 0;
     padding: 0;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
     border-radius: rem(100px);
     .btn-txt {
-      flex: 1;
       font-weight: 500;
     }
     // size case
     &.btn-large {
-      min-width: rem(328px);
-      padding: 16px 24px;
-      .btn-link {
-        &.link-center {
-          margin-right: 16px;
-        }
-      }
+      width: 100%;
+      padding: 16px 0;
+      display: block;
     }
     &.btn-medium {
-      min-width: rem(206px);
-      padding: 16px 24px;
-      gap: 16px;
-      .btn-link {
-        &.link-center {
-          margin-right: -8px;
-        }
-      }
+      width: 100%;
+      padding: 16px 0;
+      display: inline-block;
     }
     &.btn-small {
-      min-width: rem(190px);
-      padding: 8px 16px;
-      gap: 16px;
-      .btn-link {
-        &.link-center {
-          margin-right: -8px;
-        }
-      }
+      width: 100%;
+      padding: 8px 0;
     }
     // iconPositionClass
-    .btn-link {
-      width: rem(20px);
-      height: rem(20px);
-      background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
-      background-size: contain;
-      display: inline-flex;
-      &.link-center {
-        & + .btn-txt {
-          flex: 0 0 auto;
-        }
+    .icon-right {
+      position: relative;
+      display: block;
+      &::before {
+        content: '';
+        position: absolute;
+        width: rem(20px);
+        height: rem(20px);
+        background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+        background-size: contain;
+        right: rem(20px);
+      }
+    }
+    .icon-center {
+      position: relative;
+      display: inline-block;
+      &::before {
+        content: '';
+        position: absolute;
+        width: rem(20px);
+        height: rem(20px);
+        background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+        background-size: contain;
+        left: rem(-36px);
+      }
+    }
+    .icon-left {
+      position: relative;
+      display: block;
+      &::before {
+        content: '';
+        position: absolute;
+        width: rem(20px);
+        height: rem(20px);
+        background: url('@/assets/images/icon/icon_arrow_right.svg') no-repeat;
+        background-size: contain;
+        left: rem(20px);
       }
     }
     // bg색 버튼
@@ -131,37 +115,88 @@
       height: rem(64px);
       border-radius: 100%;
       box-shadow: 0px rem(3px) rem(4px) 0px rgba(0, 0, 0, 0.2);
-      .btn-link {
+      &::before {
+        content: '';
+        position: absolute;
         width: rem(32px);
         height: rem(32px);
-        background: url('@/assets/images/icon/icon_plus.svg') no-repeat;
+        background: url('@/assets/images/icon/icon_plus_base.svg') no-repeat;
         background-size: contain;
-        display: inline-flex;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
     &.bg-icon-base {
       background-color: $primary-base;
+      &::before {
+        content: '';
+        position: absolute;
+        width: rem(32px);
+        height: rem(32px);
+        background: url('@/assets/images/icon/icon_plus.svg') no-repeat;
+        background-size: contain;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
     &.bg-icon-white {
       background-color: $neutral-white;
-      .btn-link {
+      &::before {
+        content: '';
+        position: absolute;
+        width: rem(32px);
+        height: rem(32px);
         background: url('@/assets/images/icon/icon_plus_base.svg') no-repeat;
         background-size: contain;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
     &.bg-icon-dark {
       background-color: $primary-dark;
+      &::before {
+        content: '';
+        position: absolute;
+        width: rem(32px);
+        height: rem(32px);
+        background: url('@/assets/images/icon/icon_plus.svg') no-repeat;
+        background-size: contain;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
     &.bg-icon-light {
       background-color: $primary-light;
-      .btn-link {
+      &::before {
+        content: '';
+        position: absolute;
+        width: rem(32px);
+        height: rem(32px);
         background: url('@/assets/images/icon/icon_plus_base.svg') no-repeat;
         background-size: contain;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
     &.bg-icon-disabled {
       &:disabled {
         background-color: $neutral-basegrey;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        width: rem(32px);
+        height: rem(32px);
+        background: url('@/assets/images/icon/icon_plus.svg') no-repeat;
+        background-size: contain;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
     // border색 버튼
@@ -174,10 +209,47 @@
       .btn-txt {
         color: $primary-base;
       }
-      .btn-link {
-        background: url('@/assets/images/icon/icon_arrow_right_base.svg')
-          no-repeat;
-        background-size: contain;
+      .icon-right {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+            no-repeat;
+          background-size: contain;
+          right: rem(20px);
+        }
+      }
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+            no-repeat;
+          background-size: contain;
+          left: rem(-36px);
+        }
+      }
+      .icon-left {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+            no-repeat;
+          background-size: contain;
+          left: rem(20px);
+        }
       }
     }
     &.bd-dark {
@@ -185,10 +257,47 @@
       .btn-txt {
         color: $primary-dark;
       }
-      .btn-link {
-        background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
-          no-repeat;
-        background-size: contain;
+      .icon-right {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
+            no-repeat;
+          background-size: contain;
+          right: rem(20px);
+        }
+      }
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
+            no-repeat;
+          background-size: contain;
+          left: rem(-36px);
+        }
+      }
+      .icon-left {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
+            no-repeat;
+          background-size: contain;
+          left: rem(20px);
+        }
       }
     }
     &.bd-disabled {
@@ -198,10 +307,47 @@
       &:disabled {
         border-color: $neutral-basegrey;
       }
-      .btn-link {
-        background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
-          no-repeat;
-        background-size: contain;
+      .icon-right {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
+            no-repeat;
+          background-size: contain;
+          right: rem(20px);
+        }
+      }
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
+            no-repeat;
+          background-size: contain;
+          left: rem(-36px);
+        }
+      }
+      .icon-left {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
+            no-repeat;
+          background-size: contain;
+          left: rem(20px);
+        }
       }
     }
     &.bd-google {
@@ -210,11 +356,18 @@
       .btn-txt {
         color: $neutral-dark;
       }
-      .btn-link {
-        background: url('@/assets/images/logo/google_logo.png') no-repeat;
-        width: rem(24px);
-        height: rem(24px);
-        background-size: contain;
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(24px);
+          height: rem(24px);
+          background: url('@/assets/images/logo/google_logo.png') no-repeat;
+          background-size: contain;
+          right: rem(-36px);
+        }
       }
     }
     // hover 시, bg색 버튼
@@ -228,43 +381,150 @@
       &:hover {
         background-color: $primary-light;
       }
-      .btn-link {
-        background: url('@/assets/images/icon/icon_arrow_right_base.svg')
-          no-repeat;
-        background-size: contain;
+      .icon-right {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+            no-repeat;
+          background-size: contain;
+          right: rem(20px);
+        }
+      }
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+            no-repeat;
+          background-size: contain;
+          left: rem(-36px);
+        }
+      }
+      .icon-left {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+            no-repeat;
+          background-size: contain;
+          left: rem(20px);
+        }
       }
     }
     &.hv-disabled {
       .btn-txt {
         color: $neutral-basegrey;
       }
-      .btn-link {
-        background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
-          no-repeat;
-        background-size: contain;
+      .icon-right {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
+            no-repeat;
+          background-size: contain;
+          right: rem(20px);
+        }
+      }
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
+            no-repeat;
+          background-size: contain;
+          left: rem(-36px);
+        }
+      }
+      .icon-left {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
+            no-repeat;
+          background-size: contain;
+          left: rem(20px);
+        }
       }
     }
   }
   // 링크
   a {
     &.btn {
-      gap: 16px;
       border-radius: 0;
-      // center에서만 8px 나타남
-      .btn-link {
-        &.link-center {
-          margin-right: -8px;
-        }
-      }
+      display: inline-block;
       // 폰트 색상
       &[class*='color-base'] {
         .btn-txt {
           color: $primary-base;
         }
-        .btn-link {
-          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
-            no-repeat;
-          background-size: contain;
+        .icon-right {
+          position: relative;
+          display: block;
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(20px);
+            height: rem(20px);
+            background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+              no-repeat;
+            background-size: contain;
+            right: rem(-36px);
+          }
+        }
+        .icon-center {
+          position: relative;
+          display: inline-block;
+          padding-left: 28px;
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(20px);
+            height: rem(20px);
+            background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+              no-repeat;
+            background-size: contain;
+            left: rem(0);
+          }
+        }
+        .icon-left {
+          position: relative;
+          display: block;
+          padding-left: 36px;
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(20px);
+            height: rem(20px);
+            background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+              no-repeat;
+            background-size: contain;
+            left: rem(0);
+          }
         }
       }
       &.color-base-under {
@@ -292,20 +552,98 @@
         .btn-txt {
           color: $primary-dark;
         }
-        .btn-link {
-          background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
-            no-repeat;
-          background-size: contain;
+        .icon-right {
+          position: relative;
+          display: block;
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(20px);
+            height: rem(20px);
+            background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
+              no-repeat;
+            background-size: contain;
+            right: rem(-36px);
+          }
+        }
+        .icon-center {
+          position: relative;
+          display: inline-block;
+          padding-left: 28px;
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(20px);
+            height: rem(20px);
+            background: url('@/assets/images/icon/icon_arrow_right_dark.svg')
+              no-repeat;
+            background-size: contain;
+            left: rem(0);
+          }
+        }
+        .icon-left {
+          position: relative;
+          display: block;
+          padding-left: 36px;
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(20px);
+            height: rem(20px);
+            background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
+              no-repeat;
+            background-size: contain;
+            left: rem(0);
+          }
         }
       }
       &[class*='color-disabled'] {
         .btn-txt {
           color: $neutral-basegrey;
         }
-        .btn-link {
-          background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
-            no-repeat;
-          background-size: contain;
+        .icon-right {
+          position: relative;
+          display: block;
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(20px);
+            height: rem(20px);
+            background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
+              no-repeat;
+            background-size: contain;
+            right: rem(-36px);
+          }
+        }
+        .icon-center {
+          position: relative;
+          display: inline-block;
+          padding-left: 28px;
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(20px);
+            height: rem(20px);
+            background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
+              no-repeat;
+            background-size: contain;
+            left: rem(0);
+          }
+        }
+        .icon-left {
+          position: relative;
+          display: block;
+          padding-left: 36px;
+          &::before {
+            content: '';
+            position: absolute;
+            width: rem(20px);
+            height: rem(20px);
+            background: url('@/assets/images/icon/icon_arrow_right_disabled.svg')
+              no-repeat;
+            background-size: contain;
+            left: rem(0);
+          }
         }
       }
       // 폰트 사이즈
