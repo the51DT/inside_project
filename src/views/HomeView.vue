@@ -71,7 +71,7 @@
       <p>* checkbox에서만 사용</p>
     </div>
   </div>
-  <form>
+  <div>
     <inputField
       type="text"
       title="input_default"
@@ -301,7 +301,7 @@
       id="search_default"
       placeholder="Search..."
     ></inputField>
-  </form>
+  </div>
   <div class="guide-txt__wrap">
     <h4>태그 컴포넌트 : inputField</h4>
     <div class="guide-txt-box">
