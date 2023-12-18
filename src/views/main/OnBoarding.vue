@@ -29,7 +29,6 @@
             btnSize="large"
             iconPositionRight="right"
             btnTxt="Next"
-            @click="i += 1"
             v-else-if="i === 1"
           />
           <ButtonCmp
