@@ -16,7 +16,6 @@
       justify-content: end;
       margin: 0 auto;
       padding: 0 rem(16px) rem(48px);
-      width: rem(360px);
       height: 100vh;
       &--detail {
         justify-content: space-between;
