@@ -68,6 +68,10 @@
           border-radius: rem(100px);
         }
         &--highlight {
+          border-color: $primary-base;
+          &:focus {
+            border-color: $primary-base;
+          }
           &:checked {
             background-color: $primary-dark;
           }
