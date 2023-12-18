@@ -192,8 +192,80 @@
       background-color: $primary-dark;
     }
     &.bg-disabled {
+      background-color: $neutral-white;
+      .btn-txt {
+        color: $primary-base;
+      }
+      // iconPositionClass
+      .icon-right {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+            no-repeat;
+          background-size: contain;
+        }
+      }
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        &::before {
+          content: '';
+          position: absolute;
+          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+            no-repeat;
+          background-size: contain;
+        }
+      }
+      .icon-left {
+        position: relative;
+        display: block;
+        &::before {
+          content: '';
+          position: absolute;
+          background: url('@/assets/images/icon/icon_arrow_right_base.svg')
+            no-repeat;
+          background-size: contain;
+        }
+      }
       &:disabled {
         background-color: $neutral-basegrey;
+        // iconPositionClass
+        .icon-right {
+          position: relative;
+          display: block;
+          &::before {
+            content: '';
+            position: absolute;
+            background: url('@/assets/images/icon/icon_arrow_right.svg')
+              no-repeat;
+            background-size: contain;
+          }
+        }
+        .icon-center {
+          position: relative;
+          display: inline-block;
+          &::before {
+            content: '';
+            position: absolute;
+            background: url('@/assets/images/icon/icon_arrow_right.svg')
+              no-repeat;
+            background-size: contain;
+          }
+        }
+        .icon-left {
+          position: relative;
+          display: block;
+          &::before {
+            content: '';
+            position: absolute;
+            background: url('@/assets/images/icon/icon_arrow_right.svg')
+              no-repeat;
+            background-size: contain;
+          }
+        }
       }
     }
     // bg색 버튼 > Icon Button
