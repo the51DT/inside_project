@@ -11,9 +11,9 @@
     <router-link @click="isMain = !isMain" to="/">Components</router-link>
   </nav> -->
   <nav v-else>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/button">Button</router-link> |
-    <router-link to="/overlays">Overlays</router-link> |
+    <router-link to="/guide/input">Home</router-link> |
+    <router-link to="/guide/button">Button</router-link> |
+    <router-link to="/guide/overlays">Overlays</router-link> |
     <router-link @click="isMain = !isMain" event="" to="/main/home"
       >Main</router-link
     >

@@ -12,24 +12,32 @@ import { createRouter, createWebHistory } from 'vue-router'
 // import OnBoarding from '../views/main/OnBoarding.vue'
 
 const routes = [
+  // guide
   {
-    path: '/',
-    name: 'HomeView',
+    path: '/guide/input',
+    name: 'inputView',
     component: () =>
-      import(/* webpackChunkName: "components" */ '../views/HomeView.vue')
+      import(
+        /* webpackChunkName: "components" */ '../views/guide/inputView.vue'
+      )
   },
   {
-    path: '/button',
+    path: '/guide/button',
     name: 'ButtonView',
     component: () =>
-      import(/* webpackChunkName: "components" */ '../views/ButtonView.vue')
+      import(
+        /* webpackChunkName: "components" */ '../views/guide/ButtonView.vue'
+      )
   },
   {
-    path: '/overlays',
+    path: '/guide/overlays',
     name: 'OverlaysView',
     component: () =>
-      import(/* webpackChunkName: "components" */ '../views/OverlaysView.vue')
+      import(
+        /* webpackChunkName: "components" */ '../views/guide/OverlaysView.vue'
+      )
   },
+  // main
   {
     path: '/main/home',
     name: 'MainHomeView',
@@ -60,12 +68,53 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "main" */ '../views/main/SettingsView.vue')
   },
+  // onboarding
+  {
+    path: '/start',
+    name: 'OnBoarding',
+    component: () =>
+      import(
+        /* webpackChunkName: "onboarding" */ '../views/onboarding/OnBoarding.vue'
+      )
+  },
+  // login
+  {
+    path: '/login',
+    name: 'LoginView',
+    component: () =>
+      import(/* webpackChunkName: "login" */ '../views/login/LoginView.vue')
+  },
+  {
+    path: '/signup',
+    name: 'loginRegister',
+    component: () =>
+      import(/* webpackChunkName: "login" */ '../views/login/loginRegister.vue')
+  },
+  {
+    path: '/login/reset',
+    name: 'loginReset',
+    component: () =>
+      import(/* webpackChunkName: "login" */ '../views/login/loginReset.vue')
+  },
+  {
+    path: '/login/forot',
+    name: 'loginForgot',
+    component: () =>
+      import(/* webpackChunkName: "login" */ '../views/login/loginForgot.vue')
+  },
+  {
+    path: '/login/detail',
+    name: 'LoginDetail',
+    component: () =>
+      import(/* webpackChunkName: "login" */ '../views/login/LoginDetail.vue')
+  },
+  // setting
   {
     path: '/main/settings/edit',
     name: 'SettingsEdit',
     component: () =>
       import(
-        /* webpackChunkName: "settings" */ '../components/fragments/settingsEdit.vue'
+        /* webpackChunkName: "settings" */ '../views/setting/settingsEdit.vue'
       )
   },
   {
@@ -73,46 +122,13 @@ const routes = [
     name: 'SettingsChange',
     component: () =>
       import(
-        /* webpackChunkName: "settings" */ '../components/fragments/settingsChange.vue'
-      )
-  },
-  {
-    path: '/main/login',
-    name: 'LoginView',
-    component: () =>
-      import(/* webpackChunkName: "login" */ '../views/main/LoginView.vue')
-  },
-  {
-    path: '/main/login/logindetail',
-    name: 'LoginDetail',
-    children: [
-      {
-        path: 'loginRegister',
-        name: 'loginRegister',
-        component: () => import('@/components/fragments/loginRegister.vue')
-      },
-      {
-        path: 'loginForgot',
-        name: 'loginForgot',
-        component: () => import('@/components/fragments/loginForgot.vue')
-      },
-      {
-        path: 'loginReset',
-        name: 'loginReset',
-        component: () => import('@/components/fragments/loginReset.vue')
-      }
-    ],
-    component: () =>
-      import(/* webpackChunkName: "login" */ '../views/main/LoginDetail.vue')
-  },
-  {
-    path: '/main/start',
-    name: 'OnBoarding',
-    component: () =>
-      import(
-        /* webpackChunkName: "onboarding" */ '../views/main/OnBoarding.vue'
+        /* webpackChunkName: "settings" */ '../views/setting/settingsChange.vue'
       )
   }
+  // home
+  // creative
+  // finish
+  // search
 ]
 
 const router = createRouter({
