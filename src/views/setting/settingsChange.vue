@@ -34,7 +34,7 @@
         :class="'setting__submit'"
         bgBtn="base"
         btnSize="large"
-        iconPositionLeft="left"
+        iconPositionRight="right"
         btnTxt="Save Changes"
         @click="goUrl('complete')"
       />
