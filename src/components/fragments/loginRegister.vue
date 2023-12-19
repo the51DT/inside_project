@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login__wrap login__wrap--detail">
     <TitleInput title="Register" sub="And start taking notes"></TitleInput>
     <div class="login__input">
       <inputField

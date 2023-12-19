@@ -1,8 +1,5 @@
 <template>
-  <div class="login__wrap login__wrap--detail">
-    <router-link to="/main/login" class="btn fs-large backLink">Back to Login</router-link>
-    <router-view></router-view>
-  </div>
+  <NavBar title="" back="Back to Login"></NavBar>
 </template>
 
 <script setup>
@@ -18,8 +15,8 @@
       padding: 0 rem(16px) rem(48px);
       height: 100vh;
       &--detail {
-        justify-content: space-between;
         padding: 0 rem(16px) rem(32px);
+        height: calc(100vh - rem(54px));
       }
       .backLink {
         display: flex;

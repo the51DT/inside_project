@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login__wrap login__wrap--detail">
     <TitleInput title="Create a New Password" sub="Your new password should be different from the previous password"></TitleInput>
     <div class="login__input">
       <inputField
