@@ -9,39 +9,60 @@
         :iconList="list.iconList"
         :bigTitle="list.bigTitle"
         :subTitle="list.subTitle"
+        @click="ToCreateList(list.ToCreateList.path)"
       />
     </div>
   </div>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 const listsEx = [
   {
     iconList: 'shoppingIcon',
     bigTitle: 'Buying Something',
-    subTitle: 'Use checklist, so you won’t miss anything'
+    subTitle: 'Use checklist, so you won’t miss anything',
+    ToCreateList: {
+      path: 'main/home'
+    }
   },
   {
     iconList: 'ideaIcon',
     bigTitle: 'Interesting Idea',
-    subTitle: 'Use free text area, feel free to write it all'
+    subTitle: 'Use free text area, feel free to write it all',
+    ToCreateList: {
+      path: 'main/start'
+    }
   },
   {
     iconList: 'guidanceIcon',
     bigTitle: 'Guidance',
-    subTitle: 'Create guidance for routine activities'
+    subTitle: 'Create guidance for routine activities',
+    ToCreateList: {
+      path: 'main/login'
+    }
   },
   {
     iconList: 'goalsIcon',
     bigTitle: 'Goals',
-    subTitle: 'Near/future goals, notes and keep focus'
+    subTitle: 'Near/future goals, notes and keep focus',
+    ToCreateList: {
+      path: 'main/finished'
+    }
   },
   {
     iconList: 'tasksIcon',
     bigTitle: 'Routine Tasks',
-    subTitle: 'Checklist with sub-checklist'
+    subTitle: 'Checklist with sub-checklist',
+    ToCreateList: {
+      path: 'main/finished'
+    }
   }
 ]
+const router = useRouter()
+const ToCreateList = (path) => {
+  router.push(path)
+}
 </script>
 <style lang="scss">
 .create_list__wrap {

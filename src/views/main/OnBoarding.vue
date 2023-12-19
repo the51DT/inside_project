@@ -1,27 +1,30 @@
 <template>
   <div class="onboarding__wrap">
-    <swiper :pagination="true" :modules="modules">
+    <swiper :pagination="true" :modules="modules" @click="onSwiper">
       <swiper-slide
         v-for="(boarding, i) in OnBoarding"
         :slideIndex="i"
         :key="i"
+        @click="onSwiper"
       >
         <div class="swiper-box">
           <div class="top">
-            <div
-              class="swiper-box__image"
-              :style="{ backgroundImage: `url(${boarding.img})` }"
-            ></div>
+            <div class="top-img">
+              <div
+                class="swiper-box__image"
+                :style="{ backgroundImage: `url(${boarding.img})` }"
+              ></div>
+            </div>
             <div class="swiper-box__des">
               <p>{{ boarding.des }}</p>
             </div>
-            <div class="swiper-pagination"></div>
           </div>
           <ButtonCmp
             bgBtn="disabled"
             btnSize="large"
             iconPositionRight="right"
             btnTxt="Let’s Get Started"
+            @click="MoveNextPage(1)"
             v-if="i === 0"
           />
           <ButtonCmp
@@ -29,6 +32,7 @@
             btnSize="large"
             iconPositionRight="right"
             btnTxt="Next"
+            @click="MoveNextPage(2)"
             v-else-if="i === 1"
           />
           <ButtonCmp
@@ -52,6 +56,7 @@ import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { useRouter } from 'vue-router'
+import { ref } from 'vue'
 
 export default {
   components: {
@@ -77,37 +82,52 @@ export default {
     const router = useRouter()
     const MoveLoginPage = () => {
       router.push({
-        path: '/login'
+        path: '/main/login'
       })
+    }
+    const onSwiper = (swiper) => {
+      swiperInstance.value = swiper
+    }
+    const swiperInstance = ref()
+    const MoveNextPage = (index) => {
+      swiperInstance.value.slideTo(index)
     }
     return {
       OnBoarding,
       modules,
-      MoveLoginPage
+      MoveLoginPage,
+      onSwiper,
+      MoveNextPage
     }
   }
 }
 </script>
 <style lang="scss">
 .onboarding__wrap {
-  padding: 0 rem(16px) rem(84px);
   background-color: $primary-base;
-  //navbar 없으면 100vh
   height: calc(100vh - rem(18.39px));
+  /* height: calc(100vh - rem(84px)); */
   .swiper-wrapper {
-    height: calc(100vh - 102.39px);
+    height: calc(100vh - rem(18.39px));
+    /* height: calc(100vh - rem(84px)); */
     .swiper-box {
+      padding: 0 rem(16px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      height: calc(100vh - 102.39px);
+      height: calc(100vh - rem(18.39px));
+      /* height: calc(100vh - rem(84px)); */
+      .top-img {
+        padding: 0 rem(24px);
+      }
       &__image {
-        margin: 0 auto;
-        width: rem(280px);
-        height: rem(280px);
-        background-size: 100%;
+        width: 100%;
+        height: 0;
+        padding-top: 100%;
         margin-top: rem(86px);
+        background-repeat: no-repeat;
+        background-size: cover;
       }
       &__des {
         margin-top: rem(24px);
@@ -122,8 +142,7 @@ export default {
   }
   // swiper-pagination
   .swiper-pagination {
-    top: rem(486px);
-    bottom: auto;
+    bottom: 5%;
     .swiper-pagination-bullet {
       background-color: $primary-light;
       opacity: 1;
@@ -131,6 +150,14 @@ export default {
         background-color: $secondary-base;
       }
     }
+  }
+  // swiper-pagination-bullet
+  .swiper-pagination-bullet {
+    width: rem(8px);
+    height: rem(8px);
+  }
+  .btn {
+    margin-bottom: rem(84px);
   }
 }
 </style>
