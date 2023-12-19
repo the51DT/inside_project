@@ -109,7 +109,7 @@ const routes = [
   },
   // setting
   {
-    path: '/main/settings/edit',
+    path: '/settings/edit',
     name: 'SettingsEdit',
     component: () =>
       import(
@@ -117,7 +117,7 @@ const routes = [
       )
   },
   {
-    path: '/main/settings/change',
+    path: '/settings/change',
     name: 'SettingsChange',
     component: () =>
       import(
