@@ -25,7 +25,7 @@
         </option>
       </select>
       <!-- 텍스트에리어 -->
-      <textarea
+      <p
         v-else-if="type === 'textarea'"
         :type="type"
         class="inputField__text"
@@ -35,9 +35,10 @@
         @input="textareaHegiht"
         rows="1"
         :value="defaultText"
-      ></textarea>
+        contenteditable="true"
+      ></p>
       <!-- 텍스트에리어 (제목 혹은 설명으로 사용되는 경우) -->
-      <textarea
+      <p
         v-else-if="type === 'textareaTitle' || type === 'textareaDes'"
         :type="type"
         class="inputField__text"
@@ -48,7 +49,8 @@
         @input="textareaHegiht"
         :maxlength="[type === 'textareaTitle' ? 20 : 1000]"
         rows="1"
-      ></textarea>
+        contenteditable="true"
+      ></p>
       <!-- 체크박스 -->
       <input
         v-else-if="type === 'checkbox'"
@@ -120,7 +122,7 @@
         @click="passwordView"
       ></button>
       <!-- 체크박스 텍스트에리어 -->
-      <textarea
+      <p
         v-if="type === 'checkbox'"
         :class="[
           checked
@@ -132,11 +134,13 @@
         :id="id + '__text'"
         :name="name"
         :placeholder="placeholder"
-        :value="defaultText"
         @input="textareaHegiht"
         rows="1"
         :readonly="checked"
-      ></textarea>
+        contenteditable="true"
+      >
+      {{ defaultText }}
+      </p>
       <!-- 라벨 -->
       <label
         :for="id"
@@ -206,20 +210,20 @@ export default {
       }
     },
     // 텍스트에리어 높이 자동조절
-    textareaHegiht: function (el) {
-      const target = el.currentTarget
-      target.style.height = 'auto'
-      target.style.height = target.scrollHeight + 'px'
-    },
+    // textareaHegiht: function (el) {
+    //   const target = el.currentTarget
+    //   target.style.height = 'auto'
+    //   target.style.height = target.scrollHeight + 'px'
+    // },
     // 체크박스 체크하면 텍스트 줄치기
     checkedText: function (el) {
       const target = el.currentTarget
       const input = target.nextElementSibling
       const label = input.nextElementSibling
-      if (input.value.length === 0) {
+      if (input.innerText === 0) {
         target.checked = false
       }
-      if (target.checked === true && input.value.length !== 0) {
+      if (target.checked === true && input.innerText !== 0) {
         input.classList.add('checked')
       } else {
         input.classList.remove('checked')
