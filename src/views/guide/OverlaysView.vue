@@ -80,7 +80,9 @@
         <button class="deleteBtn">Delete Note</button>
       </template>
       <template v-slot:footer>
-        <button @click="closeBtn($event)">close</button>
+        <button class="closeBtn" @click="closeBtn($event)">
+          <span>close</span>
+        </button>
       </template>
     </modal-bottom>
 
@@ -98,25 +100,39 @@
             </li>
           </ul>
         </div>
-        <button class="deleteBtn">Delete Note</button>
+        <button>Delete Note</button>
       </template>
       <template v-slot:footer>
-        <button @click="closeBtn($event)">close</button>
+        <button class="closeBtn" @click="closeBtn($event)">
+          <span>close</span>
+        </button>
       </template>
     </modal-bottom>
 
     <modal-bottom id="modal-bottom3">
       <template v-slot:title> </template>
       <template v-slot:body>
-        <div>
-          <h5>Notes Pinned Successfully</h5>
-        </div>
-        <div>
-          <p>This note already displayed on pinned section</p>
+        <div class="popup--body__contnet">
+          <div class="notification">
+            <div class="notification--title">
+              <h5>Notes Pinned Successfully</h5>
+            </div>
+            <div class="notification--descript">
+              <p>This note already displayed on pinned section</p>
+            </div>
+          </div>
+          <ButtonCmp
+            bgBtn="base"
+            btnSize="small"
+            btnTxt="Close"
+            @click="closeBtn($event)"
+          />
         </div>
       </template>
       <template v-slot:footer>
-        <button @click="closeBtn($event)">close</button>
+        <button class="closeBtn" @click="closeBtn($event)">
+          <span>close</span>
+        </button>
       </template>
     </modal-bottom>
     <task-bar />
@@ -147,6 +163,24 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.notification {
+  &--title {
+    h5 {
+      font-weight: 700;
+      font-size: rem(20px);
+      line-height: rem(28px);
+      color: $neutral-dark;
+    }
+  }
+  &--descript {
+    p {
+      font-weight: 400;
+      font-size: rem(16px);
+      line-height: rem(22px);
+      color: $neutral-darkgrey;
+    }
+  }
+}
 .restore {
   width: 100%;
   line-height: rem(56px);
@@ -175,6 +209,20 @@ export default {
         line-height: rem(56px);
       }
     }
+  }
+}
+.closeBtn {
+  width: rem(24px);
+  height: rem(24px);
+  background-color: $neutral-lightgrey;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+  background-image: url('@/assets/images/icon/setting_x.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  span {
+    @include ally-hidden;
   }
 }
 </style>

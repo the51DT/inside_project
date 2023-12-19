@@ -51,7 +51,7 @@ const router = useRouter()
 
 const goUrl = (url) => {
   if (url === 'login') {
-    router.go(-1)
+    router.push({ name: 'LoginView' })
   }
 }
 </script>
