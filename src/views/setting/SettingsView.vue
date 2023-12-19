@@ -79,11 +79,11 @@ import router from '@/router'
 
 const goUrl = (url) => {
   if (url === 'edit') {
-    router.push('settings/edit')
+    router.push({ name: 'SettingsEdit' })
   } else if (url === 'changePW') {
-    router.push('settings/change')
+    router.push({ name: 'SettingsChange' })
   } else if (url === 'login') {
-    router.push('login')
+    router.push({ path: '/login' })
   }
 }
 
@@ -94,8 +94,8 @@ const state = ref('All active')
 
 const notifications = (el) => {
   const parentElement = el.currentTarget.parentElement.parentElement
-  const email = parentElement.querySelector(':first-child :first-child :first-child :first-child')
-  const push = parentElement.querySelector(':nth-child(2) :first-child :first-child :first-child')
+  const email = parentElement.querySelector('#email')
+  const push = parentElement.querySelector('#push')
   if (email.checked === true && push.checked === true) {
     state.value = 'All active'
   } else if (email.checked === true && push.checked === false) {

@@ -34,6 +34,7 @@
         :placeholder="placeholder"
         @input="textareaHegiht"
         rows="1"
+        :value="defaultText"
       ></textarea>
       <!-- 텍스트에리어 (제목 혹은 설명으로 사용되는 경우) -->
       <textarea
@@ -92,6 +93,7 @@
         :id="id"
         :name="name"
         :placeholder="placeholder"
+        :value="defaultText"
       />
       <!-- 그외 -->
       <input
@@ -107,7 +109,8 @@
         :placeholder="placeholder"
         :readonly="readonly"
         :checked="checked"
-        :value="value"
+        :value="defaultText"
+        @input="$emit('update:defaultText', $event.target.value)"
       />
       <!-- 패스워드 눈 버튼 -->
       <button
@@ -179,7 +182,6 @@ export default {
     warn: Boolean,
     checked: Boolean,
     sub: Boolean,
-    value: String,
     options: {
       type: Array,
       default: () => {
@@ -187,6 +189,7 @@ export default {
       }
     }
   },
+  emits: ['update:defaultText'],
   methods: {
     // 패스워드 눈 버튼
     passwordView: (el) => {

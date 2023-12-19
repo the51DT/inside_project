@@ -101,6 +101,14 @@ const routes = [
         /* webpackChunkName: "settings" */ '../views/setting/settingsChange.vue'
       )
   },
+  {
+    path: '/settings/complete',
+    name: 'SettingsComplete',
+    component: () =>
+      import(
+        /* webpackChunkName: "settings" */ '../views/setting/settingsComplete.vue'
+      )
+  },
   // home
   {
     path: '/home/default',

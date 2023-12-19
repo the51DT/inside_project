@@ -5,13 +5,7 @@
       <div class="setting__profile">
         <div class="profile__img"></div>
       </div>
-      <ButtonCmp
-        :class="'setting__profile--button'"
-        bdBtn="base"
-        btnSize="small"
-        iconPositionCenter="center"
-        btnTxt="Change Image"
-      />
+      <a class="btn bd-base btn-small setting__profile--button"><span>Change Image</span></a>
     </div>
     <div class="setting__bottom">
       <div>
@@ -21,7 +15,7 @@
           id="name"
           name="name"
           placeholder="Michael Antonio"
-          :value="nameValue"
+          v-model:defaultText="name"
         ></inputField>
         <inputField
           type="email"
@@ -30,6 +24,7 @@
           name="email"
           placeholder="anto_michael@gmail.com"
           caption="Changing email address information means you need to re-login to the apps."
+          v-model:defaultText="email"
         ></inputField>
       </div>
       <ButtonCmp
@@ -45,18 +40,17 @@
 </template>
 
 <script setup>
-import { defineEmits } from 'vue'
+import { ref } from 'vue'
 import router from '@/router'
-
-const emit = defineEmits(['dataBus'])
 
 const goUrl = (url) => {
   if (url === 'settings') {
     router.go(-1)
   }
 }
+const name = ref('')
+const email = ref('')
 
-emit('dataBus')
 </script>
 
 <style lang="scss">
@@ -72,6 +66,25 @@ emit('dataBus')
         .profile__img {
           width: rem(120px);
           height: rem(120px);
+        }
+        &--button {
+          border-radius: rem(100px);
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: rem(8px);
+            color: $primary-base;
+            &::before {
+              content: '';
+              display: block;
+              width: rem(20px);
+              height: rem(20px);
+              background-image: url('@/assets/images/icon/icon_edit.svg');
+              background-position: center center;
+              background-repeat: no-repeat;
+            }
+          }
         }
       }
       &__bottom {
