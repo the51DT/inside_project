@@ -96,11 +96,11 @@
           <p class="extras__title">EXTRAS</p>
           <ul>
             <li :key="list" v-for="list in lists">
-              <a href="" :data-icon="list.type">{{ list.text }}</a>
+              <button :data-icon="list.type">{{ list.text }}</button>
             </li>
           </ul>
         </div>
-        <button>Delete Note</button>
+        <button class="deleteBtn">Delete Note</button>
       </template>
       <template v-slot:footer>
         <button class="closeBtn" @click="closeBtn($event)">
@@ -189,11 +189,14 @@ export default {
   font-weight: 500;
 }
 .deleteBtn {
+  margin-top: rem(8px);
   width: 100%;
+  text-align: left;
   line-height: rem(56px);
   color: $error-base;
   font-size: rem(16px);
   font-weight: 500;
+  border: none;
 }
 .extras {
   &__title {
@@ -204,9 +207,10 @@ export default {
   ul {
     margin-top: rem(8px);
     li {
-      a {
+      button {
         display: block;
         line-height: rem(56px);
+        border: none;
       }
     }
   }
