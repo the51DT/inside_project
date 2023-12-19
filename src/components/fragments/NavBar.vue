@@ -26,7 +26,7 @@ import { defineProps } from 'vue'
 const props = defineProps({
   title: {
     type: String,
-    default: 'Title'
+    default: ''
   },
   back: {
     type: String,
