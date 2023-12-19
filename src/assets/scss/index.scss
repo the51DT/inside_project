@@ -1,8 +1,7 @@
 @charset 'UTF-8';
-// Use rules must be written before any other rules
+// @use 'abstract/' as *;
+// @use 'modules/' as *;
 @use 'base/_reset';
-@use 'abstract/' as *;
-@use 'modules/' as *;
 
 @include titleArea;
 @include bgBtnDefault;
@@ -11,3 +10,6 @@
 @include inputFeild;
 @include listDefault;
 @include tag;
+@include taskBar;
+@include navBar;
+@include tabBar;

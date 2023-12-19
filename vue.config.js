@@ -10,9 +10,10 @@ module.exports = defineConfig({
     loaderOptions: {
       sass: {
         additionalData: `
-          @import '@/assets/scss/index.scss';
-          @import '@/assets/scss/abstract/_index.scss';
-          @import '@/assets/scss/modules/_index.scss';
+        @use '@/assets/scss/abstract/' as *;
+        @use '@/assets/scss/modules/' as *;
+        // @import '@/assets/scss/base/_reset';
+        // @import '@/assets/scss/index.scss';
         `
       }
     }

@@ -21,7 +21,6 @@
 
   <router-view />
 </template>
-<style lang="scss"></style>
 <script setup>
 import { ref } from 'vue'
 const isMain = ref(false)

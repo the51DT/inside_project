@@ -13,6 +13,7 @@ import TabBar from '@/components/fragments/TabBar.vue'
 import TaskBar from '@/components/fragments/TaskBar.vue'
 import NavBar from '@/components/fragments/NavBar.vue'
 import common from './assets/js/common'
+import '@/assets/scss/index.scss'
 
 const app = createApp(App)
 app.use(store)
