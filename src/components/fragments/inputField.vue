@@ -107,6 +107,7 @@
         :placeholder="placeholder"
         :readonly="readonly"
         :checked="checked"
+        :value="value"
       />
       <!-- 패스워드 눈 버튼 -->
       <button
@@ -178,6 +179,7 @@ export default {
     warn: Boolean,
     checked: Boolean,
     sub: Boolean,
+    value: String,
     options: {
       type: Array,
       default: () => {

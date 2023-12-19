@@ -56,6 +56,16 @@ const routes = [
     component: SettingsView
   },
   {
+    path: '/main/settings/edit',
+    name: 'SettingsEdit',
+    component: () => import('@/components/fragments/settingsEdit.vue')
+  },
+  {
+    path: '/main/settings/change',
+    name: 'SettingsChange',
+    component: () => import('@/components/fragments/settingsChange.vue')
+  },
+  {
     path: '/main/login',
     name: 'LoginView',
     component: LoginView
