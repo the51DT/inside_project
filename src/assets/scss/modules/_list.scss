@@ -11,8 +11,10 @@
     border-radius: rem(8px);
     padding: rem(16px);
     background-color: transparent;
-    min-width: rem(328px);
+    width: 100%;
     gap: rem(14px);
+    border: 0;
+    cursor: pointer;
     &__left {
       flex: 0 0 rem(46px);
       border-radius: rem(100px);
@@ -22,6 +24,7 @@
       position: relative;
     }
     &__right {
+      text-align: start;
       .big-title {
         font-size: rem(16px);
         font-weight: 700;

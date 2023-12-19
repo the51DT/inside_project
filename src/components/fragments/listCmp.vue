@@ -1,6 +1,6 @@
 <template>
   <!-- 리스트 -->
-  <div :class="['list-box', typeClass]">
+  <button :class="['list-box', typeClass]">
     <!-- 왼쪽 -->
     <div class="list-box__left"></div>
     <!-- 오른쪽 -->
@@ -8,7 +8,7 @@
       <p class="big-title">{{ bigTitle }}</p>
       <p class="sub-title">{{ subTitle }}</p>
     </div>
-  </div>
+  </button>
 </template>
 
 <script>

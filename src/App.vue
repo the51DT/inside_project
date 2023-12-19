@@ -14,7 +14,6 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/button">Button</router-link> |
     <router-link to="/overlays">Overlays</router-link> |
-    <router-link to="/list">List</router-link> |
     <router-link @click="isMain = !isMain" event="" to="/main/home"
       >Main</router-link
     >
