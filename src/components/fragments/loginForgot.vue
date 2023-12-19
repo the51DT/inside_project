@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login__wrap login__wrap--detail">
     <TitleInput title="Forgot Password" sub="Insert your email address to receive a code for creating a new password"></TitleInput>
     <div class="login__input">
       <inputField

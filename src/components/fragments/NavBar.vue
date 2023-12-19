@@ -5,7 +5,7 @@
     <div class="nav-bar--list">
       <ul>
         <li>
-          <button class="back" @click="$router.go(-1)">Back</button>
+          <button class="back" @click="$router.go(-1)">{{ back }}</button>
         </li>
         <li v-if="rightBtn === 'setting' || rightBtn === 'action'">
           <button v-if="rightBtn === 'setting'" class="setting">
@@ -27,6 +27,10 @@ const props = defineProps({
   title: {
     type: String,
     default: 'Title'
+  },
+  back: {
+    type: String,
+    default: 'Back'
   },
   rightBtn: {
     type: String,
