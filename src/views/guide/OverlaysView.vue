@@ -2,15 +2,37 @@
   <div>
     <title-input title="modal" />
     <title-input title="modal" type="gray" />
-    <button @click="openBtn('modal')">modal</button>
+    <ButtonCmp
+      bdBtn="base"
+      btnSize="small"
+      btnTxt="modal"
+      @click="openBtn('modal')"
+    />
+    <ButtonCmp
+      bdBtn="base"
+      btnSize="small"
+      btnTxt="success-modal"
+      @click="openBtn('success-modal')"
+    />
     <br />
-    <button @click="openBtn('success-modal')">success-modal</button>
-    <br />
-    <button @click="openBtn('modal-bottom')">modal-bottom</button>
-    <br />
-    <button @click="openBtn('modal-bottom2')">modal-bottom2</button>
-    <br />
-    <button @click="openBtn('modal-bottom3')">modal-bottom3</button>
+    <ButtonCmp
+      bgBtn="base"
+      btnSize="small"
+      btnTxt="modal-bottom"
+      @click="openBtn('modal-bottom')"
+    />
+    <ButtonCmp
+      bgBtn="base"
+      btnSize="small"
+      btnTxt="modal-bottom2"
+      @click="openBtn('modal-bottom2')"
+    />
+    <ButtonCmp
+      bgBtn="base"
+      btnSize="small"
+      btnTxt="modal-bottom3"
+      @click="openBtn('modal-bottom3')"
+    />
     <modal-center id="modal">
       <template v-slot:title>
         <h4>Modal Title</h4>
@@ -21,7 +43,13 @@
         </div>
       </template>
       <template v-slot:footer>
-        <button>Action</button><button @click="closeBtn($event)">Close</button>
+        <ButtonCmp bdBtn="base" btnSize="small" btnTxt="Action" />
+        <ButtonCmp
+          bgBtn="base"
+          btnSize="small"
+          btnTxt="Action"
+          @click="closeBtn($event)"
+        />
       </template>
     </modal-center>
 
@@ -35,7 +63,13 @@
         </div>
       </template>
       <template v-slot:footer>
-        <button>Action</button><button @click="closeBtn($event)">Close</button>
+        <ButtonCmp bdBtn="base" btnSize="small" btnTxt="Action" />
+        <ButtonCmp
+          bgBtn="base"
+          btnSize="small"
+          btnTxt="Action"
+          @click="closeBtn($event)"
+        />
       </template>
     </modal-center>
 

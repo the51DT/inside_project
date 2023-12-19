@@ -57,4 +57,12 @@ a {
 .popup {
   position: relative;
   z-index: 100;
+  &--footer {
+    button,
+    a {
+      &:nth-child(n + 1) {
+        margin-left: 16px;
+      }
+    }
+  }
 }
