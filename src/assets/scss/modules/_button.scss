@@ -37,6 +37,9 @@
     .btn-txt {
       font-weight: 500;
     }
+    .hidden {
+      @include ally-hidden;
+    }
     // size case
     &.btn-large {
       width: 100%;
