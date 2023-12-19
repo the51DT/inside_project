@@ -19,19 +19,19 @@
 import { useRouter } from 'vue-router'
 const listsEx = [
   {
-    iconList: 'shoppingIcon',
-    bigTitle: 'Buying Something',
-    subTitle: 'Use checklist, so you won’t miss anything',
-    ToCreateList: {
-      path: 'main/home'
-    }
-  },
-  {
     iconList: 'ideaIcon',
     bigTitle: 'Interesting Idea',
     subTitle: 'Use free text area, feel free to write it all',
     ToCreateList: {
-      path: 'main/start'
+      path: 'creative/ListIdea'
+    }
+  },
+  {
+    iconList: 'shoppingIcon',
+    bigTitle: 'Buying Something',
+    subTitle: 'Use checklist, so you won’t miss anything',
+    ToCreateList: {
+      path: 'creative/ListBuying'
     }
   },
   {
@@ -39,7 +39,7 @@ const listsEx = [
     bigTitle: 'Guidance',
     subTitle: 'Create guidance for routine activities',
     ToCreateList: {
-      path: 'main/login'
+      path: 'creative/ListGuidance'
     }
   },
   {
@@ -47,7 +47,7 @@ const listsEx = [
     bigTitle: 'Goals',
     subTitle: 'Near/future goals, notes and keep focus',
     ToCreateList: {
-      path: 'main/finished'
+      path: 'creative/ListGoals'
     }
   },
   {
@@ -55,7 +55,7 @@ const listsEx = [
     bigTitle: 'Routine Tasks',
     subTitle: 'Checklist with sub-checklist',
     ToCreateList: {
-      path: 'main/finished'
+      path: 'creative/ListTasks'
     }
   }
 ]
