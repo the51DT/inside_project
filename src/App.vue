@@ -14,7 +14,7 @@
     <router-link to="/guide/input">Home</router-link> |
     <router-link to="/guide/button">Button</router-link> |
     <router-link to="/guide/overlays">Overlays</router-link> |
-    <router-link @click="isMain = !isMain" event="" to="/main/home"
+    <router-link @click="isMain = !isMain" event="" to="/home/default"
       >Main</router-link
     >
   </nav>
