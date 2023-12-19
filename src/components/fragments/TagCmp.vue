@@ -5,7 +5,7 @@
     color === 'white' ? 'tag--white' : ''
   ]">
     {{ text }}
-    <button v-if="del" class="tag__del" @click="deleteTag"></button>
+    <button v-if="del" class="tag__del" @click="deleteTag"><span class="hidden">delete</span></button>
   </div>
 </template>
 
@@ -26,4 +26,5 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+</style>
