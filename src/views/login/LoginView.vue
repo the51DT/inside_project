@@ -21,7 +21,8 @@
         btnSize="large"
         btnTxt="Forgot Password"
         :btnType="false"
-        useUrl="login/loginDetail/loginForgot"
+        useUrl="login/detail/forgot"
+        @click="goUrl('forgot')"
       />
     </div>
     <div class="login__button">
@@ -45,7 +46,8 @@
         btnSize="large"
         btnTxt="Don’t have any account? Register here"
         :btnType="false"
-        useUrl="login/loginDetail/loginRegister"
+        useUrl="login/detail/signup"
+        @click="goUrl('register')"
       />
     </div>
   </div>
@@ -58,11 +60,11 @@ const router = useRouter()
 
 const goUrl = (url) => {
   if (url === 'home') {
-    router.push('home')
+    router.push({ name: 'MainHomeView' })
   } else if (url === 'register') {
-    router.push('login/loginDetail/loginRegister')
+    router.push({ name: 'LoginRegister' })
   } else if (url === 'forgot') {
-    router.push('login/loginDetail/loginForgot')
+    router.push({ name: 'LoginForgot' })
   }
 }
 
@@ -72,4 +74,71 @@ const onClickGoogle = () => {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .login {
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      margin: 0 auto;
+      padding: 0 rem(16px) rem(48px);
+      height: 100vh;
+      &--detail {
+        padding: 0 rem(16px) rem(32px);
+        height: calc(100vh - rem(54px));
+      }
+      .backLink {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: rem(8px);
+        padding: rem(16px) 0;
+        color: $primary-base;
+        &::before {
+          content: '';
+          display: block;
+          width: rem(6px);
+          height: rem(10px);
+          background-image: url('@/assets/images/icon/login_back.svg');
+        }
+      }
+    }
+    &__input {
+      margin-top: rem(32px);
+      & .btn {
+        display: block;
+        margin-top: rem(12px);
+      }
+    }
+    &__button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: rem(16px);
+      margin-top: rem(40px);
+      &__line {
+        position: relative;
+        font-size: rem(12px);
+        font-weight: 500;
+        color: $neutral-darkgrey;
+        width: 100%;
+        text-align: center;
+        &::before,
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          width: rem(141px);
+          border-top: solid rem(1px) $neutral-lightgrey;
+        }
+        &::before {
+          left: 0;
+        }
+        &::after {
+          right: 0;
+        }
+      }
+    }
+  }
+</style>

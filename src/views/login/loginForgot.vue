@@ -30,7 +30,7 @@ const router = useRouter()
 
 const goUrl = (url) => {
   if (url === 'reset') {
-    router.push('loginReset')
+    router.push({ name: 'LoginReset' })
   }
 }
 </script>

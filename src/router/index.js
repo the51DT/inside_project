@@ -85,28 +85,27 @@ const routes = [
       import(/* webpackChunkName: "login" */ '../views/login/LoginView.vue')
   },
   {
-    path: '/signup',
-    name: 'loginRegister',
-    component: () =>
-      import(/* webpackChunkName: "login" */ '../views/login/loginRegister.vue')
-  },
-  {
-    path: '/login/reset',
-    name: 'loginReset',
-    component: () =>
-      import(/* webpackChunkName: "login" */ '../views/login/loginReset.vue')
-  },
-  {
-    path: '/login/forot',
-    name: 'loginForgot',
-    component: () =>
-      import(/* webpackChunkName: "login" */ '../views/login/loginForgot.vue')
-  },
-  {
     path: '/login/detail',
     name: 'LoginDetail',
     component: () =>
-      import(/* webpackChunkName: "login" */ '../views/login/LoginDetail.vue')
+      import(/* webpackChunkName: "login" */ '../views/login/LoginDetail.vue'),
+    children: [
+      {
+        path: '/login/detail/signup',
+        name: 'LoginRegister',
+        component: () => import('../views/login/loginRegister.vue')
+      },
+      {
+        path: '/login/detail/forgot',
+        name: 'LoginForgot',
+        component: () => import('../views/login/loginForgot.vue')
+      },
+      {
+        path: '/login/detail/reset',
+        name: 'LoginReset',
+        component: () => import('../views/login/loginReset.vue')
+      }
+    ]
   },
   // setting
   {
