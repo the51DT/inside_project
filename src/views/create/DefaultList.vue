@@ -23,7 +23,7 @@ const listsEx = [
     bigTitle: 'Interesting Idea',
     subTitle: 'Use free text area, feel free to write it all',
     ToCreateList: {
-      path: 'creative/ListIdea'
+      path: '/create/idea'
     }
   },
   {
@@ -31,7 +31,7 @@ const listsEx = [
     bigTitle: 'Buying Something',
     subTitle: 'Use checklist, so you won’t miss anything',
     ToCreateList: {
-      path: 'creative/ListBuying'
+      path: '/create/buying'
     }
   },
   {
@@ -39,7 +39,7 @@ const listsEx = [
     bigTitle: 'Guidance',
     subTitle: 'Create guidance for routine activities',
     ToCreateList: {
-      path: 'creative/ListGuidance'
+      path: '/create/guidance'
     }
   },
   {
@@ -47,7 +47,7 @@ const listsEx = [
     bigTitle: 'Goals',
     subTitle: 'Near/future goals, notes and keep focus',
     ToCreateList: {
-      path: 'creative/ListGoals'
+      path: '/create/goals'
     }
   },
   {
@@ -55,7 +55,7 @@ const listsEx = [
     bigTitle: 'Routine Tasks',
     subTitle: 'Checklist with sub-checklist',
     ToCreateList: {
-      path: 'creative/ListTasks'
+      path: '/create/tasks'
     }
   }
 ]
