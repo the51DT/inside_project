@@ -10,7 +10,7 @@
           :key="link.title"
           v-for="link in routerRef"
         >
-          <router-link :to="`/main/${link.title.toLowerCase()}`">
+          <router-link :to="`/${link.title.toLowerCase()}`">
             <span>{{ link.title }}</span>
           </router-link>
         </li>

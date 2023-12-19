@@ -37,37 +37,6 @@ const routes = [
         /* webpackChunkName: "components" */ '../views/guide/OverlaysView.vue'
       )
   },
-  // main
-  {
-    path: '/main/home',
-    name: 'MainHomeView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/HomeView.vue')
-  },
-  {
-    path: '/main/finished',
-    name: 'FinishedView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/FinishedView.vue')
-  },
-  {
-    path: '/main/create',
-    name: 'CreateView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/CreateView.vue')
-  },
-  {
-    path: '/main/search',
-    name: 'SearchView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/SearchView.vue')
-  },
-  {
-    path: '/main/settings',
-    name: 'SettingsView',
-    component: () =>
-      import(/* webpackChunkName: "main" */ '../views/main/SettingsView.vue')
-  },
   // onboarding
   {
     path: '/start',
@@ -109,7 +78,15 @@ const routes = [
   },
   // setting
   {
-    path: '/main/settings/edit',
+    path: '/settings',
+    name: 'SettingsView',
+    component: () =>
+      import(
+        /* webpackChunkName: "settings" */ '../views/setting/SettingsView.vue'
+      )
+  },
+  {
+    path: '/settings/edit',
     name: 'SettingsEdit',
     component: () =>
       import(
@@ -117,15 +94,63 @@ const routes = [
       )
   },
   {
-    path: '/main/settings/change',
+    path: '/settings/change',
     name: 'SettingsChange',
     component: () =>
       import(
         /* webpackChunkName: "settings" */ '../views/setting/settingsChange.vue'
       )
-  }
+  },
   // home
-  // creative
+  {
+    path: '/home/default',
+    name: 'defaultHome',
+    component: () =>
+      import(/* webpackChunkName: "settings" */ '../views/home/defaultHome.vue')
+  },
+  // create
+  {
+    path: '/create/default',
+    name: 'DefaultList',
+    component: () =>
+      import(
+        /* webpackChunkName: "settings" */ '../views/create/DefaultList.vue'
+      )
+  },
+  {
+    path: '/create/buying',
+    name: 'ListBuying',
+    component: () =>
+      import(
+        /* webpackChunkName: "settings" */ '../views/create/ListBuying.vue'
+      )
+  },
+  {
+    path: '/create/goals',
+    name: 'ListGoals',
+    component: () =>
+      import(/* webpackChunkName: "settings" */ '../views/create/ListGoals.vue')
+  },
+  {
+    path: '/create/guidance',
+    name: 'ListGuidance',
+    component: () =>
+      import(
+        /* webpackChunkName: "settings" */ '../views/create/ListGuidance.vue'
+      )
+  },
+  {
+    path: '/create/idea',
+    name: 'ListIdea',
+    component: () =>
+      import(/* webpackChunkName: "settings" */ '../views/create/ListIdea.vue')
+  },
+  {
+    path: '/create/tasks',
+    name: 'ListTasks',
+    component: () =>
+      import(/* webpackChunkName: "settings" */ '../views/create/ListTasks.vue')
+  }
   // finish
   // search
 ]
