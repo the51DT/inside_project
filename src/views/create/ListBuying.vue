@@ -4,11 +4,7 @@
     <div class="create__wrap">
       <div class="create-box--buying">
         <div class="create-box--buying-tit">
-          <inputField
-            type="textarea"
-            id="buying-title"
-            :txtareaDefaultMaxlength="20"
-          />
+          <inputField type="textarea" id="buying-title" />
         </div>
         <div class="create-box--buying-chbox" v-if="buyingCheckbox.length >= 1">
           <inputField
@@ -118,7 +114,7 @@ const deleteBuyingCheckbox = () => {
   }
 }
 //임시
-.tasks-bar {
+.task-bar {
   position: fixed;
   width: 100%;
   bottom: 0;
