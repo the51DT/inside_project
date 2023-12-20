@@ -667,6 +667,16 @@
         />
       </div>
     </div>
+    <div class="guide__wrap">
+      <div class="guide-box">
+        <ButtonCmp
+          plusBtn="base"
+          btnSize="small"
+          iconPositionCenter="center"
+          btnTxt="Add checkbox"
+        />
+      </div>
+    </div>
     <title-input title="link" />
     <div class="guide__wrap">
       <div class="guide-box">

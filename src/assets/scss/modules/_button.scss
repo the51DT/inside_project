@@ -627,6 +627,59 @@
         }
       }
     }
+    // plus 버튼
+    &[class*='plus-'] {
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      .btn-txt {
+        text-decoration: underline;
+        font-size: rem(16px);
+        font-weight: 500;
+        line-height: rem(22.4px);
+      }
+    }
+    &.plus-base {
+      .btn-txt {
+        color: $primary-base;
+        text-decoration: underline;
+        text-decoration-color: $primary-base;
+        -webkit-text-decoration-color: $primary-base;
+      }
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_plus_base.svg') no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+    &.plus-delete {
+      .btn-txt {
+        color: $error-base;
+        text-decoration: underline;
+        text-decoration-color: $error-base;
+        -webkit-text-decoration-color: $error-base;
+      }
+      .icon-center {
+        position: relative;
+        display: inline-block;
+        &::before {
+          content: '';
+          position: absolute;
+          width: rem(20px);
+          height: rem(20px);
+          background: url('@/assets/images/icon/icon_delete_red.svg') no-repeat;
+          background-size: contain;
+        }
+      }
+    }
   }
   // 링크
   a {

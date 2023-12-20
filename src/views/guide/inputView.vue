@@ -333,11 +333,6 @@
       <h5>1. type</h5>
       <p>textareaTitle, textareaDes 두가지 중 하나 작성</p>
     </div>
-    <div class="guide-txt-box">
-      <h5>2. maxlength</h5>
-      <p>textareaTitle : 20자</p>
-      <p>textareaDes : 1000자</p>
-    </div>
   </div>
   <div>
     <inputField

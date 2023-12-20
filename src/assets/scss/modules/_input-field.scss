@@ -116,7 +116,7 @@
       height: auto;
       resize: none;
       color: $neutral-darkgrey;
-      overflow-y: auto;
+      overflow-y: visible;
       &:empty {
         &::before {
           content: 'Write your notes here...';
@@ -125,6 +125,7 @@
       }
       &:focus {
         outline: none;
+        color: $neutral-dark;
       }
       &::placeholder {
         color: $neutral-basegrey;

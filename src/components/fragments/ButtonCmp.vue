@@ -6,7 +6,13 @@
     :type="button"
     v-if="btnType"
   >
-    <span :class="[btnTxt ? 'btn-txt' : 'hidden', positionClass]">
+    <span
+      :class="[
+        btnTxt ? 'btn-txt' : 'hidden',
+        positionClass,
+        { underline: isUnderlined }
+      ]"
+    >
       {{ btnTxt || btnTxtHidden }}
     </span>
   </button>
@@ -38,6 +44,10 @@ export default {
       type: String,
       default: ''
     },
+    plusBtn: {
+      type: String,
+      default: ''
+    },
     btnSize: {
       type: String,
       default: ''
@@ -49,6 +59,10 @@ export default {
     btnTxtHidden: {
       type: String,
       default: ''
+    },
+    isUnderlined: {
+      type: Boolean,
+      default: false
     },
     disabled: {
       type: Boolean,
@@ -76,6 +90,7 @@ export default {
       if (this.bgBtn !== '') return `bg-${this.bgBtn}`
       else if (this.bdBtn !== '') return `bd-${this.bdBtn}`
       else if (this.hvBtn !== '') return `hv-${this.hvBtn}`
+      else if (this.plusBtn !== '') return `plus-${this.plusBtn}`
       return ''
     },
     sizeClass() {
