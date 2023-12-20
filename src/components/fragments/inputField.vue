@@ -96,6 +96,8 @@
         :name="name"
         :placeholder="placeholder"
         :value="defaultText"
+        @input="$emit('update:defaultText', $event.target.value)"
+        @keyup.enter="searchProgress"
       />
       <!-- 그외 -->
       <input
@@ -186,6 +188,7 @@ export default {
     warn: Boolean,
     checked: Boolean,
     sub: Boolean,
+    searchValue: String,
     options: {
       type: Array,
       default: () => {
@@ -193,7 +196,7 @@ export default {
       }
     }
   },
-  emits: ['update:defaultText'],
+  emits: ['update:defaultText', 'update:searchValue'],
   methods: {
     // 패스워드 눈 버튼
     passwordView: (el) => {
@@ -243,6 +246,10 @@ export default {
         input.classList.add('checked')
         input.setAttribute('contenteditable', 'false')
       }
+    },
+    searchProgress: function (el) {
+      const searchValue = el.target.value
+      this.$emit('update:searchValue', searchValue)
     }
   }
 }
