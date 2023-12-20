@@ -90,13 +90,17 @@
       <template v-slot:title> </template>
       <template v-slot:body>
         <div class="bg--list">
+          <p class="bg--list__title">EXTRAS</p>
           <bg-choice :bglist="bglist" />
         </div>
         <div class="extras">
           <p class="extras__title">EXTRAS</p>
           <ul>
             <li :key="list" v-for="list in lists">
-              <button :data-icon="list.type">{{ list.text }}</button>
+              <button :data-icon="list.type">
+                {{ list.text }}
+                <span>{{ list.flag }}</span>
+              </button>
             </li>
           </ul>
         </div>
@@ -120,13 +124,13 @@
             <div class="notification--descript">
               <p>This note already displayed on pinned section</p>
             </div>
+            <ButtonCmp
+              bgBtn="base"
+              btnSize="small"
+              btnTxt="Close"
+              @click="closeBtn($event)"
+            />
           </div>
-          <ButtonCmp
-            bgBtn="base"
-            btnSize="small"
-            btnTxt="Close"
-            @click="closeBtn($event)"
-          />
         </div>
       </template>
       <template v-slot:footer>
@@ -162,71 +166,4 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.notification {
-  &--title {
-    h5 {
-      font-weight: 700;
-      font-size: rem(20px);
-      line-height: rem(28px);
-      color: $neutral-dark;
-    }
-  }
-  &--descript {
-    p {
-      font-weight: 400;
-      font-size: rem(16px);
-      line-height: rem(22px);
-      color: $neutral-darkgrey;
-    }
-  }
-}
-.restore {
-  width: 100%;
-  line-height: rem(56px);
-  color: $neutral-dark;
-  font-size: rem(16px);
-  font-weight: 500;
-}
-.deleteBtn {
-  margin-top: rem(8px);
-  width: 100%;
-  text-align: left;
-  line-height: rem(56px);
-  color: $error-base;
-  font-size: rem(16px);
-  font-weight: 500;
-  border: none;
-}
-.extras {
-  &__title {
-    font-size: rem(10px);
-    line-height: rem(12px);
-    color: $neutral-darkgrey;
-  }
-  ul {
-    margin-top: rem(8px);
-    li {
-      button {
-        display: block;
-        line-height: rem(56px);
-        border: none;
-      }
-    }
-  }
-}
-.closeBtn {
-  width: rem(24px);
-  height: rem(24px);
-  background-color: $neutral-lightgrey;
-  border-radius: 100%;
-  border: none;
-  cursor: pointer;
-  background-image: url('@/assets/images/icon/setting_x.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  span {
-    @include ally-hidden;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

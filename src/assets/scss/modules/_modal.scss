@@ -35,6 +35,9 @@
       }
       .success {
         padding-top: 80px;
+        background-image: url('@/assets/images/icon/icon Label.png');
+        background-repeat: no-repeat;
+        background-position: center top;
       }
     }
     &--body {
@@ -76,7 +79,139 @@
           position: absolute;
           right: rem(16px);
           top: rem(16px);
+          display: flex;
         }
+      }
+    }
+    .bg {
+      &--list {
+        &__title {
+          font-size: rem(10px);
+          line-height: rem(12px);
+          color: $neutral-darkgrey;
+        }
+      }
+      &--item {
+        padding-top: rem(16px);
+      }
+    }
+    .notification {
+      &--title {
+        padding-top: rem(176px);
+        background-image: url('@/assets/images/icon/Illustration.png');
+        background-repeat: no-repeat;
+        background-position: center top;
+        h5 {
+          font-weight: 700;
+          font-size: rem(20px);
+          line-height: rem(28px);
+          color: $neutral-dark;
+        }
+      }
+      &--descript {
+        margin-top: rem(8px);
+        p {
+          font-weight: 400;
+          font-size: rem(16px);
+          line-height: rem(22px);
+          color: $neutral-darkgrey;
+        }
+      }
+      button {
+        margin: rem(16px) 0;
+      }
+    }
+    .restore {
+      padding-left: rem(44px);
+      width: 100%;
+      line-height: rem(56px);
+      color: $neutral-dark;
+      font-size: rem(16px);
+      font-weight: 500;
+      border: none;
+      text-align: left;
+      background-image: url('@/assets/images/icon/icon-list-reply.svg');
+      background-repeat: no-repeat;
+      background-position: left rem(8px) center;
+    }
+    .deleteBtn {
+      padding-left: rem(44px);
+      margin-top: rem(8px);
+      padding-top: rem(8px);
+      width: 100%;
+      text-align: left;
+      line-height: rem(56px);
+      color: $error-base;
+      font-size: rem(16px);
+      font-weight: 500;
+      border: none;
+      border-top: rem(1px) solid $neutral-lightgrey;
+      background-image: url('@/assets/images/icon/icon-list-trash.svg');
+      background-repeat: no-repeat;
+      background-position: left rem(8px) top rem(24px);
+    }
+    .extras {
+      margin-top: rem(16px);
+      border-top: rem(1px) solid $neutral-lightgrey;
+      padding-top: rem(16px);
+      &__title {
+        font-size: rem(10px);
+        line-height: rem(12px);
+        color: $neutral-darkgrey;
+      }
+      ul {
+        margin-top: rem(8px);
+        li {
+          button {
+            padding-left: rem(44px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            width: 100%;
+            height: rem(56px);
+            border: none;
+            &[data-icon] {
+              background-repeat: no-repeat;
+              background-position: left rem(8px) center;
+            }
+            &[data-icon='1'] {
+              background-image: url('@/assets/images/icon/icon-list-clock.svg');
+            }
+            &[data-icon='2'] {
+              background-image: url('@/assets/images/icon/icon-list-pencil-alt.svg');
+            }
+            &[data-icon='3'] {
+              background-image: url('@/assets/images/icon/icon-list-tag.svg');
+            }
+            &[data-icon='4'] {
+              background-image: url('@/assets/images/icon/icon-list-check.svg');
+            }
+            span {
+              font-size: rem(12px);
+              color: $neutral-darkgrey;
+              display: block;
+              padding-right: rem(24px);
+              background-image: url('@/assets/images/icon/setting_arrow.svg');
+              background-position: right rem(5px) center;
+              background-repeat: no-repeat;
+            }
+          }
+        }
+      }
+    }
+    .closeBtn {
+      width: rem(24px);
+      height: rem(24px);
+      background-color: $neutral-lightgrey;
+      border-radius: 100%;
+      border: none;
+      cursor: pointer;
+      background-image: url('@/assets/images/icon/setting_x.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      span {
+        @include ally-hidden;
       }
     }
   }
