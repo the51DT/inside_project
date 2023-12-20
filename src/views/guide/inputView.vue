@@ -359,6 +359,34 @@
       id="textareaDes_default"
       placeholder="Description here"
     />
+    <inputField
+      type="textareaTitle"
+      title="textareaTitle_32"
+      id="textareaTitle_default"
+      placeholder="Title here"
+      fontCustom="32"
+    />
+    <inputField
+      type="textareaTitle"
+      title="textareaTitle_16"
+      id="textareaTitle_default"
+      placeholder="Title here"
+      fontCustom="16"
+    />
+    <inputField
+      type="textareaDes"
+      title="textareaDes_400"
+      id="textareaDes_default"
+      placeholder="Description here"
+      fontCustom="400"
+    />
+    <inputField
+      type="textareaDes"
+      title="textareaDes_500"
+      id="textareaDes_default"
+      placeholder="Description here"
+      fontCustom="500"
+    />
   </div>
 </template>
 

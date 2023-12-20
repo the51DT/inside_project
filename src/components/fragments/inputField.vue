@@ -32,8 +32,6 @@
         :id="id"
         :name="name"
         :placeholder="placeholder"
-        @input="textareaHegiht"
-        rows="1"
         :value="defaultText"
         contenteditable="true"
       ></p>
@@ -42,12 +40,14 @@
         v-else-if="type === 'textareaTitle' || type === 'textareaDes'"
         :type="type"
         class="inputField__text"
-        :class="[type === 'textareaTitle' ? 'textarea_tit' : 'textarea_des']"
+        :class="[type === 'textareaTitle' ? 'textarea_tit' : 'textarea_des',
+        type === 'textareaTitle' && fontCustom === '32' ? 'textarea_tit--32' : '',
+        type === 'textareaTitle' && fontCustom === '16' ? 'textarea_tit--16' : '',
+        type === 'textareaDes' && fontCustom === '400' ? 'textarea_des--400' : '',
+        type === 'textareaDes' && fontCustom === '500' ? 'textarea_des--500' : '',]"
         :id="id"
         :name="name"
         :placeholder="placeholder"
-        @input="textareaHegiht"
-        rows="1"
         contenteditable="true"
       ></p>
       <!-- 체크박스 -->
@@ -135,8 +135,6 @@
         :id="id + '__text'"
         :name="name"
         :placeholder="placeholder"
-        @input="textareaHegiht"
-        rows="1"
         :readonly="checked"
         :contenteditable="readonly ? false : true"
       >
@@ -208,6 +206,7 @@ export default {
     searchValue: String,
     chooseFileLabel: String,
     icon: Boolean,
+    fontCustom: String,
     options: {
       type: Array,
       default: () => {
