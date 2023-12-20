@@ -7,7 +7,7 @@
           <inputField
             type="textarea"
             id="buying-title"
-            placeholer="New Product guidances"
+            placeholder="Monthly Needs"
           />
         </div>
         <div class="create-box--buying-chbox" v-if="buyingCheckbox.length >= 1">
@@ -16,7 +16,7 @@
             :key="index"
             type="checkbox"
             :id="`buying-checkbox-${index}`"
-            placeholder="MAKE"
+            placeholder="Write your notes here..."
           />
         </div>
         <div class="create-box--buying-btn">

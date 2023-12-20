@@ -7,7 +7,7 @@
           <inputField
             type="textarea"
             id="guidance-title"
-            placeholer="New Product guidances"
+            placeholder="New Product guidances"
           />
         </div>
         <div class="create-box--guidance-middle">
@@ -25,7 +25,11 @@
             <img :src="previewImage" alt="선택한 이미지" />
           </div>
           <div class="middle-des">
-            <inputField type="textareaDes" id="textareaDes_default" />
+            <inputField
+              type="textareaDes"
+              id="textareaDes_default"
+              placeholder="Write your notes here..."
+            />
           </div>
         </div>
       </div>
