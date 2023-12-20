@@ -112,9 +112,8 @@
       width: 100%;
       padding: rem(16px);
       font-size: rem(16px);
-      line-height: rem(22.4px);
+      line-height: initial;
       height: auto;
-      resize: none;
       color: $neutral-darkgrey;
       overflow-y: auto;
       &:empty {
@@ -134,7 +133,6 @@
         padding: 0;
         padding-right: rem(16px);
         margin-left: rem(12px);
-        height: auto;
         &:empty {
           &::before {
             content: 'Write your notes here...';
@@ -147,7 +145,6 @@
         &--small {
           margin-left: rem(8px);
           font-size: rem(12px);
-          line-height: rem(15px);
         }
       }
       &.checked {

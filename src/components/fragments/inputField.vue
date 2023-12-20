@@ -137,7 +137,7 @@
         @input="textareaHegiht"
         rows="1"
         :readonly="checked"
-        contenteditable="true"
+        :contenteditable="readonly ? false : true"
       >
       {{ defaultText }}
       </p>
@@ -231,14 +231,17 @@ export default {
       if (target.checked === true) {
         label.classList.add('on')
         input.readOnly = true
+        input.setAttribute('contenteditable', 'false')
       } else {
         label.classList.remove('on')
         input.readOnly = false
+        input.setAttribute('contenteditable', 'true')
       }
       if (target.readOnly === true) {
         target.checked = true
         input.readOnly = true
         input.classList.add('checked')
+        input.setAttribute('contenteditable', 'false')
       }
     }
   }
