@@ -360,4 +360,7 @@
       margin-top: rem(32px);
     }
   }
+  .hidden {
+    @include ally-hidden;
+  }
 }
