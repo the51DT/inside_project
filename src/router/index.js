@@ -160,6 +160,12 @@ const routes = [
       import(/* webpackChunkName: "settings" */ '../views/create/ListTasks.vue')
   },
   // finish
+  {
+    path: '/finished/default',
+    name: 'defaultFinished',
+    component: () =>
+      import(/* webpackChunkName: "settings" */ '../views/finished/defaultFinished.vue')
+  },
   // search
   {
     path: '/search',
