@@ -39,6 +39,9 @@ const addRecent = (result) => {
 
 <style lang="scss">
   .search {
+    &__wrap{
+      height: 100vh;
+    }
     &__top {
       display: flex;
       align-items: center;
@@ -56,7 +59,11 @@ const addRecent = (result) => {
       }
     }
     &__bottom {
+      height: calc(100vh - rem(55px));
       padding: rem(24px) rem(16px);
+      overflow-y: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
       p {
         font-size: rem(10px);
         color: $neutral-basegrey;
@@ -86,6 +93,9 @@ const addRecent = (result) => {
             z-index: -1;
           }
         }
+      }
+      &::-webkit-scrollbar {
+        display: none;
       }
     }
   }
