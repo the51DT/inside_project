@@ -28,9 +28,13 @@ export default {}
 </script>
 <style lang="scss">
 .home-no__wrap {
+  display: flex;
+  height: 100vh;
+  background-color: $primary-background;
   .home-no__box {
     text-align: center;
     padding: 0 rem(60px);
+    margin: 0 auto;
     &__img {
       width: rem(240px);
       height: rem(240px);
