@@ -1,20 +1,20 @@
 <template>
   <div>
     <div>
-      <div class="home-no__wrap">
-        <div class="home-no__box">
-          <div class="home-no__box__img"></div>
-          <div class="home-no__box__des">
+      <div class="finished-no__wrap">
+        <div class="finished-no__box">
+          <div class="finished-no__box__img"></div>
+          <div class="finished-no__box__des">
             <TitleInput
               type="24"
-              title="Start Your Journey"
+              title="No Finished Notes Yet"
               subtype="14"
-              sub="Every big step start with small step.
-              Notes your first idea and start
-              your journey!"
+              sub="Once you create a note and finish it,
+                it will be appeared on this screen.
+                So, let’s start your journey!"
             />
           </div>
-          <div class="home-no__box__img-line"></div>
+          <div class="finished-no__box__img-line"></div>
         </div>
         <TabBar />
       </div>
@@ -27,24 +27,24 @@
 export default {}
 </script>
 <style lang="scss">
-.home-no__wrap {
+.finished-no__wrap {
   display: flex;
   height: 100vh;
   background-color: $primary-background;
-  .home-no__box {
+  .finished-no__box {
     text-align: center;
     padding: 0 rem(60px);
     margin: 0 auto;
     &__img {
       width: rem(240px);
       height: rem(240px);
-      background: url('@/assets/images/home/home_no_img.png') no-repeat;
+      background: url('@/assets/images/finished/finished_no_img.png') no-repeat;
       background-size: contain;
       margin: rem(111px) auto 0;
       &-line {
         width: rem(150px);
         height: rem(100px);
-        background: url('@/assets/images/home/home_no_img_line.png') no-repeat;
+        background: url('@/assets/images/finished/finished_no_img_line.png') no-repeat;
         background-size: contain;
         margin: rem(21px) auto 0;
       }
