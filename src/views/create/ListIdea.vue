@@ -70,10 +70,4 @@
     }
   }
 }
-//임시
-.task-bar {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
 </style>

@@ -6,6 +6,9 @@
 
 @mixin taskBar() {
   .task-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     display: flex;
     box-shadow: 0px 1px 0px 0px $neutral-lightgrey;
     &--date {
