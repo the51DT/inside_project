@@ -47,7 +47,6 @@
         :name="name"
         :placeholder="placeholder"
         @input="textareaHegiht"
-        :maxlength="[type === 'textareaTitle' ? 20 : 1000]"
         rows="1"
         contenteditable="true"
       ></p>
@@ -141,7 +140,7 @@
         :readonly="checked"
         :contenteditable="readonly ? false : true"
       >
-      {{ defaultText }}
+        {{ defaultText }}
       </p>
       <!-- 라벨 -->
       <label
@@ -149,14 +148,23 @@
         :class="[
           type === 'checkbox' ? 'inputField__input__checkbox--label' : '',
           type === 'checkbox' && checked ? 'on' : '',
-          type === 'checkbox' && size === 'small' ? 'inputField__input__checkbox--label--small' : '',
+          type === 'checkbox' && size === 'small'
+            ? 'inputField__input__checkbox--label--small'
+            : '',
           type === 'file' ? 'inputField__file--label' : '',
+          type === 'file' && chooseFileLabel
+            ? 'inputField__file--label-choose'
+            : '',
+          type === 'file' && chooseFileLabel && icon
+            ? 'inputField__file--label-choose icon'
+            : '',
           type === 'toggle' ? 'inputField__toggle--label' : '',
           type === 'toggle' && color === 'highlight'
             ? 'inputField__toggle--label inputField__toggle--label--highlight'
             : ''
         ]"
       >
+        <span>{{ chooseFileLabel }}</span>
         <span
           v-if="type === 'toggle'"
           class="inputField__toggle--label--circle"
@@ -164,7 +172,16 @@
       </label>
     </div>
     <!-- 캡션 -->
-    <p v-if="caption" :class="warn ? 'inputField__caption inputField__caption--warn' : 'inputField__caption'">{{ caption }}</p>
+    <p
+      v-if="caption"
+      :class="
+        warn
+          ? 'inputField__caption inputField__caption--warn'
+          : 'inputField__caption'
+      "
+    >
+      {{ caption }}
+    </p>
   </div>
 </template>
 
@@ -189,6 +206,8 @@ export default {
     checked: Boolean,
     sub: Boolean,
     searchValue: String,
+    chooseFileLabel: String,
+    icon: Boolean,
     options: {
       type: Array,
       default: () => {

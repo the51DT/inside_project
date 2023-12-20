@@ -160,12 +160,10 @@
         font-size: rem(32px);
         font-weight: 700;
         line-height: rem(38.4px);
-        height: rem(42px);
       }
       &.textarea_des {
         font-size: rem(16px);
         font-weight: 400;
-        height: rem(23px);
       }
     }
     &__file {
@@ -177,12 +175,48 @@
         padding: rem(16px);
         box-shadow: 0 rem(3px) rem(4px) 0 rgba(0, 0, 0, 0.2);
         border-radius: rem(100px);
+        cursor: pointer;
         &::after {
           content: '';
           display: block;
           width: rem(32px);
           height: rem(32px);
           background-image: url(@/assets/images/icon/file_pencil.svg);
+        }
+        &-choose {
+          display: block;
+          padding: rem(7px) rem(15px);
+          width: auto;
+          height: auto;
+          border-radius: rem(100px);
+          border: rem(1px) solid $primary-base;
+          color: $primary-base;
+          text-align: center;
+          box-shadow: none;
+          font-size: rem(16px);
+          font-weight: 500;
+          line-height: rem(22.4px);
+          &::after {
+            display: none;
+          }
+          &.icon {
+            > span {
+              padding-left: rem(28px);
+              position: relative;
+              &::before {
+                content: '';
+                display: inline-block;
+                width: rem(20px);
+                height: rem(20px);
+                background: url('@/assets/images/icon/icon_edit.svg') no-repeat;
+                background-size: cover;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+              }
+            }
+          }
         }
       }
     }

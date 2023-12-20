@@ -296,6 +296,19 @@
     ></inputField>
     <inputField type="file" title="file_default" id="file_default"></inputField>
     <inputField
+      type="file"
+      title="file_choose"
+      id="file_choose"
+      chooseFileLabel="Choose File"
+    ></inputField>
+    <inputField
+      type="file"
+      title="file_Change"
+      id="file_change"
+      chooseFileLabel="Change Image"
+      icon
+    ></inputField>
+    <inputField
       type="search"
       title="search_default"
       id="search_default"
