@@ -158,9 +158,15 @@ const routes = [
     name: 'ListTasks',
     component: () =>
       import(/* webpackChunkName: "settings" */ '../views/create/ListTasks.vue')
-  }
+  },
   // finish
   // search
+  {
+    path: '/search',
+    name: 'searchView',
+    component: () =>
+      import(/* webpackChunkName: "settings" */ '../views/search/searchView.vue')
+  }
 ]
 
 const router = createRouter({

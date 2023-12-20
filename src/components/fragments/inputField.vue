@@ -96,6 +96,8 @@
         :name="name"
         :placeholder="placeholder"
         :value="defaultText"
+        @input="$emit('update:defaultText', $event.target.value)"
+        @keyup.enter="searchProgress"
       />
       <!-- 그외 -->
       <input
@@ -137,7 +139,7 @@
         @input="textareaHegiht"
         rows="1"
         :readonly="checked"
-        contenteditable="true"
+        :contenteditable="readonly ? false : true"
       >
       {{ defaultText }}
       </p>
@@ -186,6 +188,7 @@ export default {
     warn: Boolean,
     checked: Boolean,
     sub: Boolean,
+    searchValue: String,
     options: {
       type: Array,
       default: () => {
@@ -193,7 +196,7 @@ export default {
       }
     }
   },
-  emits: ['update:defaultText'],
+  emits: ['update:defaultText', 'update:searchValue'],
   methods: {
     // 패스워드 눈 버튼
     passwordView: (el) => {
@@ -231,15 +234,22 @@ export default {
       if (target.checked === true) {
         label.classList.add('on')
         input.readOnly = true
+        input.setAttribute('contenteditable', 'false')
       } else {
         label.classList.remove('on')
         input.readOnly = false
+        input.setAttribute('contenteditable', 'true')
       }
       if (target.readOnly === true) {
         target.checked = true
         input.readOnly = true
         input.classList.add('checked')
+        input.setAttribute('contenteditable', 'false')
       }
+    },
+    searchProgress: function (el) {
+      const searchValue = el.target.value
+      this.$emit('update:searchValue', searchValue)
     }
   }
 }
