@@ -4,11 +4,29 @@
     <div class="create__wrap">
       <div class="create-box--guidance">
         <div class="create-box--guidance-tit">
-          <inputField type="textarea" id="guidance-title" />
+          <inputField
+            type="textarea"
+            id="guidance-title"
+            placeholer="New Product guidances"
+          />
         </div>
-        <div class="create-box--guidance-des">
-          <inputField type="file" id="file_default" />
-          <inputField type="textareaDes" id="textareaDes_default" />
+        <div class="create-box--guidance-middle">
+          <div class="middle-upload" v-if="previewImage === ''">
+            <i class="empty-img-icon"></i>
+            <p class="empty-des">Please try uploading the image.</p>
+            <inputField
+              type="file"
+              id="file_choose"
+              chooseFileLabel="Choose a file"
+              @change="changeImage"
+            />
+          </div>
+          <div class="middle-upload preview" v-else>
+            <img :src="previewImage" alt="선택한 이미지" />
+          </div>
+          <div class="middle-des">
+            <inputField type="textareaDes" id="textareaDes_default" />
+          </div>
         </div>
       </div>
       <div class="create-box--guidance__reminder">
@@ -21,7 +39,23 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+/* eslint-disable */
+const previewImage = ref('')
+
+const changeImage = (event) => {
+  const files = event.target?.files
+  if (files.length > 0) {
+    const file = files[0]
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      previewImage.value = e.target.result
+    }
+    reader.readAsDataURL(file)
+  }
+}
+</script>
 <style lang="scss">
 .create__wrap {
   padding: rem(24px) rem(16px) 0;
@@ -32,17 +66,44 @@
         font-size: rem(32px);
         font-weight: 700;
         line-height: rem(38.4px);
-        overflow-y: visible;
-        &:empty {
-          &::before {
-            content: 'New Product guidances';
-            color: $neutral-basegrey;
-          }
-        }
       }
     }
-    &-des {
+    &-middle {
       margin-top: rem(16px);
+      .middle-upload {
+        width: 100%;
+        border: 2px dashed $neutral-lightgrey;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: rem(10px);
+        padding: rem(20px) 0;
+        .empty-img-icon {
+          width: rem(28px);
+          height: rem(28px);
+          background: url('@/assets/images/icon/icon_file_upload.svg') no-repeat;
+          background-size: 100%;
+        }
+        .empty-des {
+          margin-top: rem(16px);
+          font-size: rem(12px);
+          line-height: normal;
+        }
+        .inputField {
+          margin-top: rem(24px);
+          width: auto;
+        }
+      }
+      .middle-des {
+        margin-top: rem(16px);
+      }
+      .preview {
+        padding: 0;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
     }
     &-btn {
       display: flex;

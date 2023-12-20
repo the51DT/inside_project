@@ -4,7 +4,11 @@
     <div class="create__wrap">
       <div class="create-box--buying">
         <div class="create-box--buying-tit">
-          <inputField type="textarea" id="buying-title" />
+          <inputField
+            type="textarea"
+            id="buying-title"
+            placeholer="New Product guidances"
+          />
         </div>
         <div class="create-box--buying-chbox" v-if="buyingCheckbox.length >= 1">
           <inputField
@@ -76,13 +80,6 @@ const deleteBuyingCheckbox = () => {
         font-size: rem(32px);
         font-weight: 700;
         line-height: rem(38.4px);
-        overflow-y: visible;
-        &:empty {
-          &::before {
-            content: 'Monthly Needs';
-            color: $neutral-basegrey;
-          }
-        }
       }
     }
     &-chbox {

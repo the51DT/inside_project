@@ -4,7 +4,11 @@
     <div class="create__wrap">
       <div class="create-box--idea">
         <div class="create-box--idea-tit">
-          <inputField type="textarea" id="idea-title" />
+          <inputField
+            type="textarea"
+            id="idea-title"
+            placeholer="New Product guidances"
+          />
         </div>
         <div class="create-box--idea-des">
           <inputField type="textareaDes" id="textareaDes_default" />
@@ -37,13 +41,6 @@
         font-size: rem(32px);
         font-weight: 700;
         line-height: rem(38.4px);
-        overflow-y: visible;
-        &:empty {
-          &::before {
-            content: 'New Product Ideas';
-            color: $neutral-basegrey;
-          }
-        }
       }
     }
     &-des {
