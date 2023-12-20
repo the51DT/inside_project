@@ -5,7 +5,12 @@
       <div class="setting__profile">
         <div class="profile__img"></div>
       </div>
-      <a class="btn bd-base btn-small setting__profile--button"><span>Change Image</span></a>
+      <inputField
+        type="file"
+        id="file_change"
+        chooseFileLabel="Change Image"
+        icon
+      ></inputField>
     </div>
     <div class="setting__bottom">
       <div>
@@ -61,6 +66,9 @@ const email = ref('')
         flex-direction: column;
         align-items: center;
         gap: rem(16px);
+        .inputField__wrap {
+          justify-content: center;
+        }
       }
       &__profile {
         .profile__img {
