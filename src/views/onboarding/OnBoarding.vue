@@ -82,7 +82,7 @@ export default {
     const router = useRouter()
     const MoveLoginPage = () => {
       router.push({
-        path: '/main/login'
+        path: '/login'
       })
     }
     const onSwiper = (swiper) => {
@@ -105,41 +105,37 @@ export default {
 <style lang="scss">
 .onboarding__wrap {
   background-color: $primary-base;
-  height: calc(100vh - rem(18.39px));
-  /* height: calc(100vh - rem(84px)); */
-  .swiper-wrapper {
-    height: calc(100vh - rem(18.39px));
-    /* height: calc(100vh - rem(84px)); */
-    .swiper-box {
-      padding: 0 rem(16px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      height: calc(100vh - rem(18.39px));
-      /* height: calc(100vh - rem(84px)); */
-      .top-img {
-        padding: 0 rem(24px);
-      }
-      &__image {
-        width: 100%;
-        height: 0;
-        padding-top: 100%;
-        margin-top: rem(86px);
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-      &__des {
-        margin-top: rem(24px);
-        p {
-          color: $neutral-white;
-          font-size: rem(20px);
-          line-height: rem(28px);
-          font-weight: 700;
+  .swiper {
+    &-wrapper {
+      .swiper-box {
+        padding: 0 rem(16px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .top-img {
+          padding: 0 rem(24px);
+        }
+        &__image {
+          width: 100%;
+          height: 0;
+          padding-top: 100%;
+          margin-top: rem(86px);
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        &__des {
+          margin-top: rem(24px);
+          p {
+            color: $neutral-white;
+            font-size: rem(20px);
+            line-height: rem(28px);
+            font-weight: 700;
+          }
         }
       }
     }
   }
+  .swiper
   // swiper-pagination
   .swiper-pagination {
     bottom: 5%;
