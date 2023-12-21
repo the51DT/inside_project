@@ -13,30 +13,33 @@
             fontCustom="32"
           />
         </div>
-        <div class="create-box--buying-chbox" v-if="buyingCheckbox.length >= 1">
-          <inputField
+        <div v-if="buyingCheckbox.length >= 1">
+          <div
+            class="create-box--buying-chbox"
             v-for="(checkbox, index) in buyingCheckbox"
             :key="index"
-            type="checkbox"
-            :id="`buying-checkbox-${index}`"
-            placeholder="Write your notes here..."
-          />
-          <div class="sub">
+          >
             <inputField
-              v-for="(checkbox, index) in buyingCheckboxSub"
-              :key="index"
               type="checkbox"
-              :id="`buying-checkbox-sub-${index}`"
+              :id="`buying-checkbox-${index}`"
               placeholder="Write your notes here..."
             />
-            <ButtonCmp
-              plusBtn="base"
-              btnSize="small"
-              iconPositionCenter="center"
-              btnTxt="Add Sub"
-              @click="addBuyingCheckbox"
-              v-if="addBuyingCheckboxSub.length < 4"
-            />
+            <div class="sub-chbox">
+              <inputField
+                v-for="(checkbox, index) in buyingCheckboxSub"
+                :key="index"
+                type="checkbox"
+                :id="`buying-checkbox-sub-${index}`"
+                placeholder="Write your notes here..."
+              />
+              <ButtonCmp
+                plusBtn="base"
+                btnSize="small"
+                iconPositionCenter="center"
+                btnTxt="Add Sub"
+                @click="addBuyingCheckboxSub()"
+              />
+            </div>
           </div>
         </div>
         <div class="create-box--buying-btn">
@@ -45,8 +48,7 @@
             btnSize="small"
             iconPositionCenter="center"
             btnTxt="Add checkbox"
-            @click="addBuyingCheckbox"
-            v-if="buyingCheckbox.length < 7"
+            @click="addBuyingCheckbox()"
           />
         </div>
       </div>
@@ -73,15 +75,11 @@ const buyingCheckbox = ref([])
 const buyingCheckboxSub = ref([])
 
 const addBuyingCheckbox = () => {
-  if (buyingCheckbox.value.length < 7) {
-    buyingCheckbox.value.push(true)
-  }
+  buyingCheckbox.value.push(true)
 }
 
 const addBuyingCheckboxSub = () => {
-  if (buyingCheckboxSub.value.length < 3) {
-    buyingCheckboxSub.value.push(true)
-  }
+  buyingCheckboxSub.value.push(true)
 }
 </script>
 <style lang="scss">
@@ -99,6 +97,18 @@ const addBuyingCheckboxSub = () => {
     &-chbox {
       margin-top: rem(16px);
       padding: rem(12px) rem(8px);
+      .sub-chbox {
+        margin-left: rem(34px);
+        .inputField {
+          margin-top: rem(24px);
+          & + .inputField {
+            margin-top: rem(16px);
+          }
+        }
+        .btn {
+          margin-top: rem(24px);
+        }
+      }
     }
     &-btn {
       display: flex;
