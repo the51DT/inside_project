@@ -12,7 +12,7 @@
     top: auto;
     background-color: $neutral-white;
     display: flex;
-    box-shadow: 0px 1px 0px 0px $neutral-lightgrey;
+    box-shadow: 0px -1px 0px 0px $neutral-lightgrey;
     z-index: 1;
     &--date {
       width: 100%;
