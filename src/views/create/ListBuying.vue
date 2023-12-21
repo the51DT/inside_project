@@ -30,14 +30,6 @@
             @click="addBuyingCheckbox"
             v-if="buyingCheckbox.length < 7"
           />
-          <ButtonCmp
-            plusBtn="delete"
-            btnSize="small"
-            iconPositionCenter="center"
-            btnTxt="delete checkbox"
-            @click="deleteBuyingCheckbox"
-            v-if="buyingCheckbox.length >= 1"
-          />
         </div>
       </div>
       <div class="create-box--buying__reminder">
@@ -64,11 +56,6 @@ const buyingCheckbox = ref([])
 const addBuyingCheckbox = () => {
   if (buyingCheckbox.value.length < 7) {
     buyingCheckbox.value.push(true)
-  }
-}
-const deleteBuyingCheckbox = () => {
-  if (buyingCheckbox.value.length >= 1) {
-    buyingCheckbox.value.pop(true)
   }
 }
 </script>

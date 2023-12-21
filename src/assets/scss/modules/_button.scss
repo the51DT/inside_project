@@ -657,6 +657,8 @@
           height: rem(20px);
           background: url('@/assets/images/icon/icon_plus_base.svg') no-repeat;
           background-size: contain;
+          top: 50%;
+          transform: translateY(-50%);
         }
       }
     }
@@ -677,6 +679,8 @@
           height: rem(20px);
           background: url('@/assets/images/icon/icon_delete_red.svg') no-repeat;
           background-size: contain;
+          top: 50%;
+          transform: translateY(-50%);
         }
       }
     }
