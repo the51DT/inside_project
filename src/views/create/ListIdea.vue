@@ -41,7 +41,7 @@
 <script setup></script>
 <style lang="scss">
 .create__wrap {
-  padding: rem(78px) rem(16px) rem(48px);
+  padding: rem(78px) rem(16px) rem(60px);
   .create-box--idea {
     &-tit {
       .inputField__text {

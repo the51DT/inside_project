@@ -84,7 +84,7 @@ const addBuyingCheckboxSub = (index) => {
 </script>
 <style lang="scss">
 .create__wrap {
-  padding: rem(78px) rem(16px) rem(48px);
+  padding: rem(78px) rem(16px) rem(60px);
   .create-box--buying {
     &-tit {
       .inputField__text {
