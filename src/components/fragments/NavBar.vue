@@ -1,6 +1,6 @@
 /* eslint-disable */
 <template>
-  <div class="nav-bar">
+  <div class="nav-bar" v-if="navBar">
     <h3 v-if="props.title !== ''" class="title">{{ props.title }}</h3>
     <div class="nav-bar--list">
       <ul>
@@ -17,6 +17,9 @@
         </li>
       </ul>
     </div>
+  </div>
+  <div class="search" v-else>
+    <inputField type="search" id="search_default" placeholder="Search..." />
   </div>
   <router-view v-if="view" />
 </template>
@@ -37,6 +40,10 @@ const props = defineProps({
     default: ''
   },
   view: {
+    type: Boolean,
+    default: true
+  },
+  navBar: {
     type: Boolean,
     default: true
   }
