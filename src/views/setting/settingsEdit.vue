@@ -5,13 +5,14 @@
   <div class="setting__wrap setting__wrap--edit">
     <div class="setting__top">
       <div class="setting__profile">
-        <div class="profile__img"></div>
+        <div class="profile__img" :style="{backgroundImage : `url(${previewImage})`}"></div>
       </div>
       <inputField
         type="file"
         id="file_change"
         chooseFileLabel="Change Image"
         icon
+        @change="changeImage"
       ></inputField>
     </div>
     <div class="setting__bottom">
@@ -57,6 +58,20 @@ const goUrl = (url) => {
 }
 const name = ref('')
 const email = ref('')
+
+const previewImage = ref('')
+
+const changeImage = (event) => {
+  const files = event.target?.files
+  if (files.length > 0) {
+    const file = files[0]
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      previewImage.value = e.target.result
+    }
+    reader.readAsDataURL(file)
+  }
+}
 </script>
 
 <style lang="scss">
@@ -77,6 +92,9 @@ const email = ref('')
         .profile__img {
           width: rem(120px);
           height: rem(120px);
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
         &--button {
           border-radius: rem(100px);
@@ -106,6 +124,9 @@ const email = ref('')
         justify-content: space-between;
       }
       &__submit {
+        position: fixed;
+        bottom: rem(32px);
+        width: calc(100% - rem(32px));
         span {
           &::before {
             background-image: url('@/assets/images/icon/setting_check.svg') !important;

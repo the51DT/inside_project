@@ -79,6 +79,11 @@ const goUrl = (url) => {
         flex-direction: column;
         justify-content: space-between;
       }
+      &__submit {
+        position: fixed;
+        bottom: rem(32px);
+        width: calc(100% - rem(32px));
+      }
     }
   }
 }

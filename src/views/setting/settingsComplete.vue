@@ -27,22 +27,29 @@ const goUrl = (url) => {
 
 <style lang="scss">
   .setting__wrap--complete{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: rem(16px);
-    height: 100vh;
     .setting {
       &__center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         text-align: center;
-        margin-top: rem(40px);
+        width: calc(100% - rem(32px));
         img {
-          margin: rem(30px) 0;
+          margin: 0 0 rem(30px);
+          width: rem(240px);
+          height: rem(240px);
         }
         .title {
           font-size: rem(24px);
         }
+      }
+      &__complete {
+        position: fixed;
+        left: 50%;
+        bottom: rem(32px);
+        transform: translateX(-50%);
+        width: calc(100% - rem(32px));
       }
     }
   }
