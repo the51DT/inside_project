@@ -106,12 +106,16 @@ export default {
 .onboarding__wrap {
   background-color: $primary-base;
   .swiper {
+    &-slide {
+      display: flex;
+    }
     &-wrapper {
       .swiper-box {
         padding: 0 rem(16px);
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
         .top-img {
           padding: 0 rem(24px);
         }
