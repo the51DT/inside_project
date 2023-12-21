@@ -14,15 +14,17 @@
 @include navBar;
 @include tabBar;
 
-.nav-bar__fixed {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1;
-}
 html,
 body,
 #app,
 #app > div {
   height: 100%;
+}
+
+.nav-bar__fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  height: auto !important;
 }
