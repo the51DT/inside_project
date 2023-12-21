@@ -40,11 +40,21 @@
         v-else-if="type === 'textareaTitle' || type === 'textareaDes'"
         :type="type"
         class="inputField__text"
-        :class="[type === 'textareaTitle' ? 'textarea_tit' : 'textarea_des',
-        type === 'textareaTitle' && fontCustom === '32' ? 'textarea_tit--32' : '',
-        type === 'textareaTitle' && fontCustom === '16' ? 'textarea_tit--16' : '',
-        type === 'textareaDes' && fontCustom === '400' ? 'textarea_des--400' : '',
-        type === 'textareaDes' && fontCustom === '500' ? 'textarea_des--500' : '',]"
+        :class="[
+          type === 'textareaTitle' ? 'textarea_tit' : 'textarea_des',
+          type === 'textareaTitle' && fontCustom === '32'
+            ? 'textarea_tit--32'
+            : '',
+          type === 'textareaTitle' && fontCustom === '16'
+            ? 'textarea_tit--16'
+            : '',
+          type === 'textareaDes' && fontCustom === '400'
+            ? 'textarea_des--400'
+            : '',
+          type === 'textareaDes' && fontCustom === '500'
+            ? 'textarea_des--500'
+            : ''
+        ]"
         :id="id"
         :name="name"
         :placeholder="placeholder"
@@ -67,6 +77,7 @@
         :readonly="readonly"
         :checked="checked"
         @change="checkedText"
+        @keyup="handleBackspace"
       />
       <!-- 토글 -->
       <input
@@ -137,6 +148,7 @@
         :placeholder="placeholder"
         :readonly="checked"
         :contenteditable="readonly ? false : true"
+        @keyup="handleBackspace"
       >
         {{ defaultText }}
       </p>
@@ -268,6 +280,20 @@ export default {
     searchProgress: function (el) {
       const searchValue = el.target.value
       this.$emit('update:searchValue', searchValue)
+    },
+    handleBackspace: function (event) {
+      // Backspace 키 눌렀을 때 처리
+      if (event.key === 'Backspace' && event.target.tagName === 'P') {
+        // Backspace 키를 눌렀고, 이벤트가 <p> 태그에서 발생한 경우
+        // 여기에 <input> 요소를 삭제하는 로직 추가
+        const inputElement = document.querySelector(
+          '.inputField__input__checkbox'
+        )
+        console.log(inputElement)
+        if (inputElement) {
+          inputElement.remove()
+        }
+      }
     }
   }
 }

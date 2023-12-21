@@ -7,9 +7,14 @@
       <div class="create-box--buying">
         <div class="create-box--buying-tit">
           <inputField
-            type="textareaTitle"
+            type="textarea"
             id="buying-title"
             placeholder="Monthly Needs"
+          />
+          <inputField
+            type="textareaTitle"
+            id="textareaTitle_default"
+            placeholder="Title here"
             fontCustom="32"
           />
         </div>
