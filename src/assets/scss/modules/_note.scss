@@ -10,8 +10,58 @@
     height: rem(224px);
     padding: rem(12px);
     border-radius: rem(8px);
+    &__wrap {
+      width: fit-content;
+    }
+    &--hasSub {
+      border-radius: rem(8px) rem(8px) 0 0 !important;
+    }
     &--default {
       border: solid 1px $neutral-lightgrey;
+    }
+    &--purple {
+      background-color: $primary-light;
+    }
+    &--yellow {
+      background-color: $warning-light;
+    }
+    &--lightyellow {
+      background-color: $secondary-light;
+    }
+    &--red {
+      background-color: $error-light;
+    }
+    &--green {
+      background-color: $success-light;
+    }
+    &--sub {
+      padding: rem(8px) rem(12px);
+      border-radius: 0 0 rem(8px) rem(8px);
+      font-size: rem(10px);
+      font-weight: 400;
+      line-height: rem(12.1px);
+      background-color: $neutral-lightgrey;
+      color: $neutral-darkgrey;
+      &.purple {
+        background-color: $primary-base;
+        color: $neutral-white;
+      }
+      &.yellow {
+        background-color: $warning-base;
+        color: $neutral-dark;
+      }
+      &.lightyellow {
+        background-color: $secondary-base;
+        color: $neutral-dark;
+      }
+      &.red {
+        background-color: $error-base;
+        color: $neutral-white;
+      }
+      &.green {
+        background-color: $success-base;
+        color: $neutral-dark;
+      }
     }
     &__title {
       font-size: rem(16px);
@@ -19,9 +69,21 @@
       line-height: rem(22.4px);
     }
     &__detail {
+      margin-top: rem(16px);
       &--text {
         font-size: rem(10px);
         line-height: rem(12.1px);
+      }
+      &--image {
+        width: rem(156px);
+        height: rem(80px);
+        margin-bottom: rem(12px);
+      }
+      .inputField {
+        padding: rem(10px) 0;
+        & + .inputField {
+          margin-top: 0;
+        }
       }
     }
   }

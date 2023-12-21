@@ -1,16 +1,84 @@
 <template>
-  <div :class="['note', !color ? 'note--default' : '']">
-    <h6 class="note__title">{{ title }}</h6>
-    <div class="note__detail">
-      <p class="note__detail--text">{{ detailText }}</p>
+  <div class="note__wrap">
+    <div :class="['note',
+      !color ? 'note--default' : '',
+      color === 'purple' ? 'note--purple' : '',
+      color === 'lightyellow' ? 'note--lightyellow' : '',
+      color === 'yellow' ? 'note--yellow' : '',
+      color === 'red' ? 'note--red' : '',
+      color === 'green' ? 'note--green' : '',
+      sub ? 'note--hasSub' : ''
+    ]">
+      <h6 class="note__title">{{ title }}</h6>
+      <div class="note__detail">
+        <p v-if="type === 'text'" class="note__detail--text">
+          Create a mobile app UI Kit that provide a basic notes functionality but with some improvement.<br><br>
+          There will be a choice to select what kind of notes that user needed, so the experience while taking notes can be unique based on the needs.
+        </p>
+        <div v-else-if="type === 'image'">
+          <img src="../../assets/images/img/Thumbnail.png" alt="thumbnail" class="note__detail--image">
+          <p class="note__detail--text">Create a mobile app UI Kit that provide a basic notes functionality but with some improvement.</p>
+        </div>
+        <input-field
+          v-else-if="type === 'checkbox'"
+          type="checkbox"
+          size="small"
+          :defaultText="list"
+          :key="list"
+          v-for="list in lists"
+        />
+        <div v-else-if="type === 'checkboxSub'">
+          <inputField
+            type="checkbox"
+            defaultText="Item 1"
+            size="small"
+          ></inputField>
+          <inputField
+            type="checkbox"
+            defaultText="Sub item 1"
+            size="small"
+            sub
+          ></inputField>
+          <inputField
+            type="checkbox"
+            defaultText="Sub item 2"
+            size="small"
+            sub
+          ></inputField>
+          <inputField
+            type="checkbox"
+            defaultText="Item 2"
+            size="small"
+          ></inputField>
+        </div>
+      </div>
     </div>
+    <div v-if="sub" :class="['note--sub', color]">{{ sub }}</div>
   </div>
 </template>
 
 <script setup>
 import { defineProps } from 'vue'
 
-defineProps(['title', 'detailText'])
+defineProps({
+  title: {
+    type: String
+  },
+  type: {
+    type: String,
+    default: 'text'
+  },
+  color: {
+    type: String
+  },
+  sub: {
+    type: String
+  },
+  lists: {
+    type: Array,
+    default: () => ['Item 1', 'Item 2', 'Item 3', 'Item 4']
+  }
+})
 </script>
 
 <style lang="scss">
