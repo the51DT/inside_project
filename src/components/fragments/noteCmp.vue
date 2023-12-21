@@ -16,7 +16,7 @@
           There will be a choice to select what kind of notes that user needed, so the experience while taking notes can be unique based on the needs.
         </p>
         <div v-else-if="type === 'image'">
-          <img src="../../assets/images/img/Thumbnail.png" alt="thumbnail" class="note__detail--image">
+          <div class="note__detail--image"></div>
           <p class="note__detail--text">Create a mobile app UI Kit that provide a basic notes functionality but with some improvement.</p>
         </div>
         <input-field
