@@ -59,7 +59,7 @@
       </ul>
     </template>
     <template v-slot:footer>
-      <button @click="closeBtn($event), isState">
+      <button @click="closeBtn($event), isState()">
         <span class="hidden">close</span>
       </button>
     </template>
