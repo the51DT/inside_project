@@ -1,5 +1,8 @@
 <template>
-  <NavBar title="" back="Back to Login"></NavBar>
+  <div class="nav-bar__fixed">
+    <NavBar title="" back="Back to login" :view="false" />
+  </div>
+  <router-view></router-view>
 </template>
 
 <script setup>
@@ -15,23 +18,7 @@
       padding: 0 rem(16px) rem(48px);
       height: 100vh;
       &--detail {
-        padding: 0 rem(16px) rem(32px);
-        height: calc(100vh - rem(54px));
-      }
-      .backLink {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: rem(8px);
-        padding: rem(16px) 0;
-        color: $primary-base;
-        &::before {
-          content: '';
-          display: block;
-          width: rem(6px);
-          height: rem(10px);
-          background-image: url('@/assets/images/icon/login_back.svg');
-        }
+        padding: rem(54px) rem(16px) rem(32px);
       }
     }
     &__input {

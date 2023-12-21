@@ -1,7 +1,7 @@
 <template>
   <div class="search__wrap">
     <div class="search__top">
-      <router-link :to="{ name: 'defaultHome' }"><span class="hidden">back</span></router-link>
+      <a @click="goUrl('back')"><span class="hidden">back</span></a>
       <inputField
         type="search"
         id="search"
@@ -21,27 +21,37 @@
 </template>
 
 <script setup>
+import router from '@/router'
 import { ref } from 'vue'
+
+const goUrl = (url) => {
+  if (url === 'back') {
+    router.go(-1)
+  }
+}
 
 const result = ref('')
 
 const addRecent = (result) => {
   const target = document.querySelector('.search__bottom ul')
-  const li = document.createElement('li')
-  const link = document.createElement('a')
-  const resultValue = document.createTextNode(result)
-  link.setAttribute('href', '/home/default')
-  link.appendChild(resultValue)
-  li.appendChild(link)
-  target.appendChild(li)
+  const el = `<li><a herf="/home/default">${result}</a></li>`
+  target.insertAdjacentHTML('afterbegin', el)
+  console.log(target.lastChild)
+  if (target.childElementCount > 5) {
+    target.removeChild(target.lastChild)
+  }
+  // const li = document.createElement('li')
+  // const link = document.createElement('a')
+  // const resultValue = document.createTextNode(result)
+  // link.setAttribute('href', '/home/default')
+  // link.appendChild(resultValue)
+  // li.appendChild(link)
+  // target.appendChild(li)
 }
 </script>
 
 <style lang="scss">
   .search {
-    &__wrap{
-      height: 100vh;
-    }
     &__top {
       display: flex;
       align-items: center;
@@ -59,7 +69,6 @@ const addRecent = (result) => {
       }
     }
     &__bottom {
-      height: calc(100vh - rem(55px));
       padding: rem(24px) rem(16px);
       overflow-y: scroll;
       -ms-overflow-style: none;
