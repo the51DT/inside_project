@@ -74,11 +74,6 @@ const userEmailState = reactive({ caption: '', warn: true })
 const userPasswordState = reactive({ caption: '', warn: true })
 
 const goLogin = () => {
-  console.log(userEmail.value, users.value.email)
-  console.log(userEmailState)
-  console.log(userPasswordState)
-  console.log(userEmailState.warn)
-  console.log(userPasswordState.warn)
   if (userEmail.value !== users.value.email) {
     userEmailState.warn = true
     userEmailState.caption = 'please check your ID :)'
