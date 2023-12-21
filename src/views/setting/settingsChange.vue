@@ -1,5 +1,7 @@
 <template>
-  <nav-bar title="Change Password" back="Back"></nav-bar>
+  <div class="nav-bar__fixed">
+    <NavBar back="Back" title="Change Password" />
+  </div>
   <div class="setting__wrap setting__wrap--change">
     <div class="setting__top">
       <p class="setting__guide">Please input your current password first</p>
@@ -53,7 +55,9 @@ const goUrl = (url) => {
 </script>
 
 <style lang="scss">
-  .setting__wrap--change{
+.setting__wrap {
+  padding-top: rem(54px);
+  &--change {
     .setting {
       &__top {
         display: flex;
@@ -77,4 +81,5 @@ const goUrl = (url) => {
       }
     }
   }
+}
 </style>

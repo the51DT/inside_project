@@ -1,6 +1,8 @@
 <template>
   <div>
-    <NavBar back="Back" />
+    <div class="nav-bar__fixed">
+      <NavBar back="Back" />
+    </div>
     <div class="create__wrap">
       <div class="create-box--buying">
         <div class="create-box--buying-tit">
@@ -72,7 +74,7 @@ const deleteBuyingCheckbox = () => {
 </script>
 <style lang="scss">
 .create__wrap {
-  padding: rem(24px) rem(16px) 0;
+  padding: rem(78px) rem(16px) 0;
   .create-box--buying {
     &-tit {
       .inputField__text {

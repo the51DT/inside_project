@@ -1,6 +1,8 @@
 <template>
   <div>
-    <NavBar back="Back" />
+    <div class="nav-bar__fixed">
+      <NavBar back="Back" />
+    </div>
     <div class="create__wrap">
       <div class="create-box--idea">
         <div class="create-box--idea-tit">
@@ -33,7 +35,7 @@
 <script setup></script>
 <style lang="scss">
 .create__wrap {
-  padding: rem(24px) rem(16px) 0;
+  padding: rem(78px) rem(16px) 0;
   .create-box--idea {
     &-tit {
       .inputField__text {

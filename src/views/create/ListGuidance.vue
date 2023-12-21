@@ -1,6 +1,8 @@
 <template>
   <div>
-    <NavBar back="Back" />
+    <div class="nav-bar__fixed">
+      <NavBar back="Back" />
+    </div>
     <div class="create__wrap">
       <div class="create-box--guidance">
         <div class="create-box--guidance-tit">
@@ -23,6 +25,7 @@
           </div>
           <div class="middle-upload preview" v-else>
             <img :src="previewImage" alt="선택한 이미지" />
+            <inputField type="file" id="file_default" />
           </div>
           <div class="middle-des">
             <inputField
@@ -62,7 +65,7 @@ const changeImage = (event) => {
 </script>
 <style lang="scss">
 .create__wrap {
-  padding: rem(24px) rem(16px) 0;
+  padding: rem(78px) rem(16px) 0;
   .create-box--guidance {
     &-tit {
       .inputField__text {
@@ -103,9 +106,19 @@ const changeImage = (event) => {
       }
       .preview {
         padding: 0;
+        display: block;
+        position: relative;
+        border: 0;
+        border-radius: 0;
         img {
           display: block;
           width: 100%;
+        }
+        .inputField {
+          margin-top: 0;
+          position: absolute;
+          bottom: 2%;
+          right: 2%;
         }
       }
     }

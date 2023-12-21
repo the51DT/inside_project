@@ -1,5 +1,7 @@
 <template>
-  <nav-bar title="Edit Profile" back="Settings"></nav-bar>
+  <div class="nav-bar__fixed">
+    <NavBar back="Settings" title="Edit Profile" />
+  </div>
   <div class="setting__wrap setting__wrap--edit">
     <div class="setting__top">
       <div class="setting__profile">
@@ -55,11 +57,12 @@ const goUrl = (url) => {
 }
 const name = ref('')
 const email = ref('')
-
 </script>
 
 <style lang="scss">
-  .setting__wrap--edit {
+.setting__wrap {
+  padding-top: rem(54px);
+  &--edit {
     .setting {
       &__top {
         display: flex;
@@ -111,4 +114,5 @@ const email = ref('')
       }
     }
   }
+}
 </style>

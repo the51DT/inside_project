@@ -1,5 +1,7 @@
 <template>
-  <NavBar title="New Notes" />
+  <div class="nav-bar__fixed">
+    <NavBar title="New Notes" />
+  </div>
   <div class="create_list__wrap">
     <TitleInput type="24" title="What Do You Want to Notes?" />
     <div class="create_list__box">
@@ -66,7 +68,7 @@ const ToCreateList = (path) => {
 </script>
 <style lang="scss">
 .create_list__wrap {
-  padding: rem(24px) rem(16px) 0;
+  padding: rem(78px) rem(16px) 0;
   display: flex;
   flex-direction: column;
   .create_list__box {
