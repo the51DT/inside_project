@@ -95,14 +95,10 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { ref } from 'vue'
 
-defineProps({
-  count: {
-    type: Number,
-    default: 0
-  }
-})
+const count = ref(0)
+console.log(count.value)
 </script>
 
 <style lang="scss">
@@ -131,10 +127,12 @@ defineProps({
   }
   &__bottom {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     gap: rem(16px);
     padding: rem(24px) rem(16px) rem(124px);
+    .note__wrap {
+      width: calc(50% - rem(8px));
+    }
   }
 }
 .finished-no__wrap {

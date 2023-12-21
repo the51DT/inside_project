@@ -6,13 +6,13 @@
 
 @mixin note {
   .note {
-    width: rem(180px);
+    width: 100%;
     height: rem(224px);
     padding: rem(12px);
     border-radius: rem(8px);
     background-color: $neutral-white;
     &__wrap {
-      width: fit-content;
+      width: 50%;
     }
     &--hasSub {
       border-radius: rem(8px) rem(8px) 0 0 !important;
@@ -76,9 +76,15 @@
         line-height: rem(12.1px);
       }
       &--image {
-        width: rem(156px);
+        display: block;
+        width: 100%;
         height: rem(80px);
+        margin: 0 auto;
         margin-bottom: rem(12px);
+        background-image: url('@/assets/images/img/Thumbnail.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
       }
       .inputField {
         padding: rem(10px) 0;
