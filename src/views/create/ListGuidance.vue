@@ -83,7 +83,7 @@ const changeImage = (event) => {
         display: flex;
         flex-direction: column;
         align-items: center;
-        border-radius: rem(10px);
+        border-radius: rem(12px);
         padding: rem(20px) 0;
         .empty-img-icon {
           width: rem(28px);
@@ -109,7 +109,7 @@ const changeImage = (event) => {
         display: block;
         position: relative;
         border: 0;
-        border-radius: 0;
+        border-radius: rem(12px);
         img {
           display: block;
           width: 100%;
