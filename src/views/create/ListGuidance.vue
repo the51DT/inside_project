@@ -9,7 +9,7 @@
           <inputField
             type="textareaTitle"
             id="guidance-title"
-            placeholder="New Product guidances"
+            placeholder="New guidances"
             fontCustom="32"
           />
         </div>
