@@ -43,7 +43,7 @@
           <inputField
             type="toggle"
             id="email"
-            checked
+            :checked="isEmail"
             @change="notifications"
           ></inputField>
         </li>
@@ -52,14 +52,14 @@
           <inputField
             type="toggle"
             id="push"
-            checked
+            :checked="isPush"
             @change="notifications"
           ></inputField>
         </li>
       </ul>
     </template>
     <template v-slot:footer>
-      <button @click="closeBtn($event)">
+      <button @click="closeBtn($event), isState()">
         <span class="hidden">close</span>
       </button>
     </template>
@@ -98,16 +98,18 @@ const nameValue = ref('Michael Antonio')
 const emailValue = ref('anto_michael@gmail.com')
 
 const state = ref('All active')
-
-const notifications = (el) => {
-  const parentElement = el.currentTarget.parentElement.parentElement
-  const email = parentElement.querySelector('#email')
-  const push = parentElement.querySelector('#push')
-  if (email.checked === true && push.checked === true) {
+const isEmail = ref(true)
+const isPush = ref(true)
+const notifications = (event) => {
+  if (event.target.id === 'email') isEmail.value = event.target.checked
+  if (event.target.id === 'push') isPush.value = event.target.checked
+}
+const isState = () => {
+  if (isEmail.value && isPush.value) {
     state.value = 'All active'
-  } else if (email.checked === true && push.checked === false) {
+  } else if (isEmail.value && !isPush.value) {
     state.value = 'Email active'
-  } else if (email.checked === false && push.checked === true) {
+  } else if (!isEmail.value && isPush.value) {
     state.value = 'Push active'
   } else {
     state.value = 'All inactive'
