@@ -1,0 +1,28 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:color';
+@use 'sass:string';
+@use '../abstract/' as *;
+
+@mixin note {
+  .note {
+    width: rem(180px);
+    height: rem(224px);
+    padding: rem(12px);
+    border-radius: rem(8px);
+    &--default {
+      border: solid 1px $neutral-lightgrey;
+    }
+    &__title {
+      font-size: rem(16px);
+      font-weight: 500;
+      line-height: rem(22.4px);
+    }
+    &__detail {
+      &--text {
+        font-size: rem(10px);
+        line-height: rem(12.1px);
+      }
+    }
+  }
+}
