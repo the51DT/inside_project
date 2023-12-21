@@ -67,7 +67,7 @@ const changeImage = (event) => {
 </script>
 <style lang="scss">
 .create__wrap {
-  padding: rem(78px) rem(16px) 0;
+  padding: rem(78px) rem(16px) rem(48px);
   .create-box--guidance {
     &-tit {
       .inputField__text {
