@@ -7,9 +7,10 @@
       <div class="create-box--guidance">
         <div class="create-box--guidance-tit">
           <inputField
-            type="textarea"
+            type="textareaTitle"
             id="guidance-title"
             placeholder="New Product guidances"
+            fontCustom="32"
           />
         </div>
         <div class="create-box--guidance-middle">
@@ -32,6 +33,7 @@
               type="textareaDes"
               id="textareaDes_default"
               placeholder="Write your notes here..."
+              fontCustom="400"
             />
           </div>
         </div>

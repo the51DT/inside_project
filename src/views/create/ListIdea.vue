@@ -6,13 +6,19 @@
     <div class="create__wrap">
       <div class="create-box--idea">
         <div class="create-box--idea-tit">
-          <inputField type="textarea" id="idea-title" placeholder="New idea" />
+          <inputField
+            type="textareaTitle"
+            id="idea-title"
+            placeholder="New idea"
+            fontCustom="32"
+          />
         </div>
         <div class="create-box--idea-des">
           <inputField
             type="textareaDes"
             id="textareaDes_default"
             placeholder="Write your notes here..."
+            fontCustom="400"
           />
         </div>
       </div>

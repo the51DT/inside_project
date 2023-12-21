@@ -7,9 +7,10 @@
       <div class="create-box--buying">
         <div class="create-box--buying-tit">
           <inputField
-            type="textarea"
+            type="textareaTitle"
             id="buying-title"
             placeholder="Monthly Needs"
+            fontCustom="32"
           />
         </div>
         <div class="create-box--buying-chbox" v-if="buyingCheckbox.length >= 1">
