@@ -37,6 +37,14 @@ const routes = [
         /* webpackChunkName: "components" */ '../views/guide/OverlaysView.vue'
       )
   },
+  {
+    path: '/guide/note',
+    name: 'noteView',
+    component: () =>
+      import(
+        /* webpackChunkName: "components" */ '../views/guide/noteView.vue'
+      )
+  },
   // onboarding
   {
     path: '/start',

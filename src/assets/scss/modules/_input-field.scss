@@ -122,6 +122,11 @@
           color: $neutral-basegrey;
         }
       }
+      &[contenteditable] * {
+        font-size: rem(16px) !important;
+        font-weight: 400 !important;
+        line-height: rem(22.4px) !important;
+      }
       &:focus {
         outline: none;
         color: $neutral-dark;
@@ -134,11 +139,17 @@
         padding: 0;
         padding-right: rem(16px);
         margin-left: rem(12px);
+        font-weight: 500;
         &:empty {
           &::before {
             content: attr(placeholder);
             color: $neutral-basegrey;
           }
+        }
+        &[contenteditable] * {
+          font-size: rem(16px) !important;
+          font-weight: 500 !important;
+          line-height: rem(22.4px) !important;
         }
         &--sub {
           width: calc(100% - rem(58px));
@@ -146,6 +157,11 @@
         &--small {
           margin-left: rem(8px);
           font-size: rem(12px);
+          &[contenteditable] * {
+            font-size: rem(12px) !important;
+            font-weight: 400 !important;
+            line-height: rem(14.52px) !important;
+          }
         }
       }
       &.checked {
@@ -160,10 +176,45 @@
         font-size: rem(32px);
         font-weight: 700;
         line-height: rem(38.4px);
+        &--32 {
+          &[contenteditable] * {
+            font-size: rem(32px) !important;
+            font-weight: 700 !important;
+            line-height: rem(38.4px) !important;
+          }
+        } 
+        &--16 {
+          font-size: rem(16px);
+          font-weight: 700;
+          line-height: rem(22.4px);
+          &[contenteditable] * {
+            font-size: rem(16px) !important;
+            font-weight: 700 !important;
+            line-height: rem(22.4px) !important;
+          }
+        }
       }
       &.textarea_des {
         font-size: rem(16px);
         font-weight: 400;
+        line-height: rem(22.4px);
+        &--400 {
+          &[contenteditable] * {
+            font-size: rem(16px) !important;
+            font-weight: 400 !important;
+            line-height: rem(22.4px) !important;
+          }
+        } 
+        &--500 {
+          font-size: rem(16px);
+          font-weight: 500;
+          line-height: rem(22.4px);
+          &[contenteditable] * {
+            font-size: rem(16px) !important;
+            font-weight: 500 !important;
+            line-height: rem(22.4px) !important;
+          }
+        }
       }
     }
     &__file {

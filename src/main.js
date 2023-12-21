@@ -9,6 +9,7 @@ import ButtonCmp from '@/components/fragments/ButtonCmp.vue'
 import listCmp from '@/components/fragments/listCmp.vue'
 import inputField from '@/components/fragments/inputField.vue'
 import tagCmp from '@/components/fragments/TagCmp.vue'
+import noteCmp from '@/components/fragments/noteCmp.vue'
 import TabBar from '@/components/fragments/TabBar.vue'
 import TaskBar from '@/components/fragments/TaskBar.vue'
 import NavBar from '@/components/fragments/NavBar.vue'
@@ -26,6 +27,7 @@ app.component('ButtonCmp', ButtonCmp)
 app.component('listCmp', listCmp)
 app.component('inputField', inputField)
 app.component('tagCmp', tagCmp)
+app.component('noteCmp', noteCmp)
 app.component('TabBar', TabBar)
 app.component('TaskBar', TaskBar)
 app.component('NavBar', NavBar)
