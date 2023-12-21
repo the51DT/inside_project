@@ -2,7 +2,7 @@
   <div class="setting__wrap setting__wrap--complete">
     <div class="setting__center">
       <img src="../../assets/images/setting/setting_illustration.png" alt="change password complete">
-      <TitleInput title="Password Changed" sub="Please check your email! We've sent you a link to finish the process."></TitleInput>
+      <TitleInput title="Password Changed" sub="Please check your email! We've sent you a link to finish the process." type="24" subtype="14"></TitleInput>
     </div>
     <ButtonCmp
       :class="'setting__complete'"
