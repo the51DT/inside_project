@@ -16,7 +16,7 @@
         <div v-if="buyingCheckbox.length >= 1">
           <div
             class="create-box--buying-chbox"
-            v-for="(checkbox, index) in buyingCheckbox"
+            v-for="(id, index) in buyingCheckbox"
             :key="index"
           >
             <inputField
@@ -26,10 +26,10 @@
             />
             <div class="sub-chbox">
               <inputField
-                v-for="(checkbox, index) in buyingCheckboxSub"
-                :key="index"
+                v-for="(subItem, subindex) in buyingCheckbox[index].sub"
+                :key="subindex"
                 type="checkbox"
-                :id="`buying-checkbox-sub-${index}`"
+                :id="`buying-checkbox-sub-${subindex}`"
                 placeholder="Write your notes here..."
               />
               <ButtonCmp
@@ -37,7 +37,7 @@
                 btnSize="small"
                 iconPositionCenter="center"
                 btnTxt="Add Sub"
-                @click="addBuyingCheckboxSub()"
+                @click="addBuyingCheckboxSub(index)"
               />
             </div>
           </div>
@@ -72,14 +72,14 @@
 import { ref } from 'vue'
 
 const buyingCheckbox = ref([])
-const buyingCheckboxSub = ref([])
+// const buyingCheckboxSub = ref([])
 
 const addBuyingCheckbox = () => {
-  buyingCheckbox.value.push(true)
+  buyingCheckbox.value.push({ id: '', sub: [] })
 }
 
-const addBuyingCheckboxSub = () => {
-  buyingCheckboxSub.value.push(true)
+const addBuyingCheckboxSub = (index) => {
+  buyingCheckbox.value[index].sub.push({ id: '', sub: [] })
 }
 </script>
 <style lang="scss">
