@@ -1,7 +1,7 @@
 <template>
   <div class="search__wrap">
     <div class="search__top">
-      <a @click="goUrl('back')"><span class="hidden">back</span></a>
+      <button @click="goUrl('back')"><span class="hidden">back</span></button>
       <inputField
         type="search"
         id="search"
@@ -56,7 +56,8 @@ const addRecent = (event) => {
     gap: rem(12px);
     padding: rem(9px) rem(16px);
     border-bottom: solid rem(1px) $neutral-lightgrey;
-    a {
+    button {
+      border: none;
       &::before {
         content: '';
         display: block;
