@@ -2,12 +2,12 @@
   <!-- 리스트 -->
   <button :class="['list-box', typeClass]">
     <!-- 왼쪽 -->
-    <div class="list-box__left"></div>
+    <i class="list-box__left"></i>
     <!-- 오른쪽 -->
-    <div class="list-box__right">
-      <p class="big-title">{{ bigTitle }}</p>
-      <p class="sub-title">{{ subTitle }}</p>
-    </div>
+    <span class="list-box__right">
+      <strong class="big-title">{{ bigTitle }}</strong>
+      <span class="sub-title">{{ subTitle }}</span>
+    </span>
   </button>
 </template>
 
