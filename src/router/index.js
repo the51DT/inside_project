@@ -41,9 +41,7 @@ const routes = [
     path: '/guide/note',
     name: 'noteView',
     component: () =>
-      import(
-        /* webpackChunkName: "components" */ '../views/guide/noteView.vue'
-      )
+      import(/* webpackChunkName: "components" */ '../views/guide/noteView.vue')
   },
   // onboarding
   {
@@ -119,14 +117,14 @@ const routes = [
   },
   // home
   {
-    path: '/home/default',
-    name: 'defaultHome',
+    path: '/home',
+    name: 'Home',
     component: () =>
       import(/* webpackChunkName: "settings" */ '../views/home/defaultHome.vue')
   },
   // create
   {
-    path: '/create/default',
+    path: '/create',
     name: 'DefaultList',
     component: () =>
       import(
@@ -169,17 +167,21 @@ const routes = [
   },
   // finish
   {
-    path: '/finished/default',
-    name: 'defaultFinished',
+    path: '/finished',
+    name: 'Finished',
     component: () =>
-      import(/* webpackChunkName: "settings" */ '../views/finished/defaultFinished.vue')
+      import(
+        /* webpackChunkName: "settings" */ '../views/finished/defaultFinished.vue'
+      )
   },
   // search
   {
     path: '/search',
     name: 'searchView',
     component: () =>
-      import(/* webpackChunkName: "settings" */ '../views/search/searchView.vue')
+      import(
+        /* webpackChunkName: "settings" */ '../views/search/searchView.vue'
+      )
   }
 ]
 
