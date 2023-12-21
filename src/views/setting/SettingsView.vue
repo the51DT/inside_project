@@ -22,15 +22,13 @@
     </div>
     <div class="setting__bottom">
       <p class="setting__title">APP SETTINGS</p>
-      <ul class="setting__list">
-        <li @click="goUrl('changePW')">Change Password</li>
-        <li>Text Size<span>Medium</span></li>
-        <li @click="openBtn('notifications')">
-          Notifications<span class="state">{{ state }}</span>
-        </li>
+      <div class="setting__list">
+        <button @click="goUrl('changePW')">Change Password</button>
+        <button>Text Size<span>Medium</span></button>
+        <button @click="openBtn('notifications')">Notifications<span class="state">{{ state }}</span></button>
         <div class="setting__line"></div>
-        <li @click="openBtn('logOut')">Log Out</li>
-      </ul>
+        <button @click="openBtn('logOut')">Log Out</button>
+      </div>
     </div>
   </div>
 
@@ -64,6 +62,7 @@
       </button>
     </template>
   </modal-bottom>
+
   <modal-center id="logOut">
     <template v-slot:title>
       <h4>Log Out</h4>
@@ -74,8 +73,18 @@
       </div>
     </template>
     <template v-slot:footer>
-      <button @click="closeBtn($event)">Cancel</button
-      ><button @click="goUrl('login')">Yes</button>
+      <ButtonCmp
+        bdBtn="base"
+        btnSize="small"
+        btnTxt="Cancel"
+        @click="closeBtn($event)"
+      />
+      <ButtonCmp
+        bgBtn="base"
+        btnSize="small"
+        btnTxt="Yes"
+        @click="goUrl('login')"
+      />
     </template>
   </modal-center>
 </template>
@@ -118,210 +127,177 @@ const isState = () => {
 </script>
 
 <style lang="scss">
-.setting {
-  &__wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    margin: 0 auto;
-    /* height: calc(100vh - rem(54px)); */
-    padding-top: rem(54px);
-  }
-  &__top {
-    position: relative;
-    text-align: center;
-    padding: rem(16px) 0;
-    border-bottom: solid rem(1px) $neutral-lightgrey;
-    h2 {
-      font-size: rem(16px);
-      font-weight: 500;
+  .setting {
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      margin: 0 auto;
+      padding-top: rem(54px);
     }
-    .backLink {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+    &__top {
+      display: flex;
+      flex-direction: column;
+      gap: rem(32px);
+      margin: 0 rem(16px);
+      padding: rem(24px) 0;
+      border-bottom: solid rem(1px) $neutral-lightgrey;
+    }
+    &__profile {
       display: flex;
       align-items: center;
-      gap: rem(8px);
-      color: $primary-base;
-      &::before {
-        content: '';
-        display: block;
-        width: rem(6px);
-        height: rem(10px);
-        background-image: url('@/assets/images/icon/login_back.svg');
-      }
-    }
-  }
-  &__top {
-    display: flex;
-    flex-direction: column;
-    gap: rem(32px);
-    margin: 0 rem(16px);
-    padding: rem(24px) 0;
-    border-bottom: solid rem(1px) $neutral-lightgrey;
-  }
-  &__profile {
-    display: flex;
-    align-items: center;
-    gap: rem(16px);
-    .profile {
-      &__img {
-        width: rem(64px);
-        height: rem(64px);
-        border-radius: rem(100px);
-        background-color: $neutral-darkgrey;
-      }
-      &__info {
-        &--name {
-          font-size: rem(20px);
-          font-weight: 700;
-          line-height: rem(28px);
-          text-align: left;
+      gap: rem(16px);
+      .profile {
+        &__img {
+          width: rem(64px);
+          height: rem(64px);
+          border-radius: rem(100px);
+          background-color: $neutral-darkgrey;
         }
-        &--email {
-          display: flex;
-          align-items: center;
-          gap: rem(8px);
-          margin-top: rem(8px);
-          font-size: rem(12px);
-          color: $neutral-darkgrey;
+        &__info {
+          &--name {
+            font-size: rem(20px);
+            font-weight: 700;
+            line-height: rem(28px);
+            text-align: left;
+          }
+          &--email {
+            display: flex;
+            align-items: center;
+            gap: rem(8px);
+            margin-top: rem(8px);
+            font-size: rem(12px);
+            color: $neutral-darkgrey;
+            &::before {
+              content: '';
+              display: block;
+              width: rem(15px);
+              height: rem(15px);
+              background-image: url('@/assets/images/icon/icon_mail.svg');
+              background-repeat: no-repeat;
+              background-position: center center;
+            }
+          }
+        }
+      }
+      &--button {
+        span {
           &::before {
-            content: '';
-            display: block;
-            width: rem(15px);
-            height: rem(15px);
-            background-image: url('@/assets/images/icon/icon_mail.svg');
-            background-repeat: no-repeat;
-            background-position: center center;
+            background-image: url('@/assets/images/icon/icon_edit.svg') !important;
+            background-position: center center !important;
+            background-size: auto !important;
           }
         }
       }
     }
-    &--button {
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-      // gap: rem(8px);
-      // color: $primary-base;
-      span {
-        &::before {
-          background-image: url('@/assets/images/icon/icon_edit.svg') !important;
-          background-position: center center !important;
-          background-size: auto !important;
-        }
-      }
-    }
-  }
-  &__bottom {
-    display: flex;
-    flex-direction: column;
-    gap: rem(8px);
-    margin: 0 rem(16px);
-    padding-top: rem(24px);
-  }
-  &__title {
-    font-size: rem(10px);
-    color: $neutral-darkgrey;
-  }
-  &__list {
-    li {
+    &__bottom {
       display: flex;
-      align-items: center;
-      gap: rem(12px);
-      padding: rem(16px) rem(8px);
-      span {
-        position: absolute;
-        right: rem(24px);
-        font-size: rem(12px);
-        color: $neutral-darkgrey;
-      }
-      &::before {
-        content: '';
-        display: block;
-        width: rem(24px);
-        height: rem(24px);
-        background-position: center center;
-        background-repeat: no-repeat;
-      }
-      &:first-of-type {
-        &::before {
-          background-image: url('@/assets/images/icon/setting_password.svg');
-        }
-        &::after {
-          content: '';
+      flex-direction: column;
+      gap: rem(8px);
+      margin: 0 rem(16px);
+      padding-top: rem(24px);
+    }
+    &__title {
+      font-size: rem(10px);
+      color: $neutral-darkgrey;
+    }
+    &__list {
+      button {
+        display: flex;
+        align-items: center;
+        gap: rem(12px);
+        padding: rem(16px) rem(8px);
+        border: none;
+        span {
           position: absolute;
           right: rem(24px);
-          width: rem(16px);
-          height: rem(16px);
-          background-image: url('@/assets/images/icon/setting_arrow.svg');
+          font-size: rem(12px);
+          color: $neutral-darkgrey;
         }
-      }
-      &:nth-child(2) {
         &::before {
-          background-image: url('@/assets/images/icon/setting_text.svg');
+          content: '';
+          display: block;
+          width: rem(24px);
+          height: rem(24px);
+          background-position: center center;
+          background-repeat: no-repeat;
         }
-      }
-      &:nth-child(3) {
-        &::before {
-          background-image: url('@/assets/images/icon/setting_bell.svg');
+        &:first-of-type {
+          &::before {
+            background-image: url('@/assets/images/icon/setting_password.svg');
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            right: rem(24px);
+            width: rem(16px);
+            height: rem(16px);
+            background-image: url('@/assets/images/icon/setting_arrow.svg');
+          }
         }
-      }
-      &:last-of-type {
-        color: $error-base;
-        &::before {
-          background-image: url('@/assets/images/icon/setting_logOut.svg');
+        &:nth-child(2) {
+          &::before {
+            background-image: url('@/assets/images/icon/setting_text.svg');
+          }
+        }
+        &:nth-child(3) {
+          &::before {
+            background-image: url('@/assets/images/icon/setting_bell.svg');
+          }
+        }
+        &:last-of-type {
+          color: $error-base;
+          &::before {
+            background-image: url('@/assets/images/icon/setting_logOut.svg');
+          }
         }
       }
     }
-  }
-  &__line {
-    margin: rem(8px) 0;
-    border-bottom: solid rem(1px) $neutral-lightgrey;
-  }
-}
-#notifications {
-  li {
-    display: flex;
-    justify-content: space-between;
-    padding: rem(17px) rem(8px);
-    font-size: rem(16px);
-    font-weight: 500;
-    .inputField {
-      width: fit-content;
+    &__line {
+      margin: rem(8px) 0;
+      border-bottom: solid rem(1px) $neutral-lightgrey;
     }
   }
-  button {
-    width: rem(24px);
-    height: rem(24px);
-    border: none;
-    border-radius: rem(100px);
-    background-color: $neutral-lightgrey;
-    background-image: url('@/assets/images/icon/setting_x.svg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    cursor: pointer;
-  }
-}
-#logOut {
-  .popup--footer {
-    display: flex;
-    justify-content: center;
-    gap: rem(16px);
+  #notifications {
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: rem(17px) rem(8px);
+      font-size: rem(16px);
+      font-weight: 500;
+      .inputField {
+        width: fit-content;
+      }
+    }
     button {
-      width: rem(108px);
-      height: rem(38px);
+      width: rem(24px);
+      height: rem(24px);
+      border: none;
       border-radius: rem(100px);
-      padding: rem(8px);
-      &:first-of-type {
-        border: solid rem(1px) $primary-base;
-        color: $primary-base;
-      }
-      &:last-of-type {
-        background-color: $primary-base;
-        color: $neutral-white;
+      background-color: $neutral-lightgrey;
+      background-image: url('@/assets/images/icon/setting_x.svg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      cursor: pointer;
+    }
+  }
+  #logOut {
+    .popup--footer{
+      button {
+        width: rem(108px);
+        height: rem(38px);
+        border-radius: rem(100px);
+        padding: rem(8px);
+        &:first-of-type {
+          border: solid rem(1px) $primary-base;
+          color: $primary-base;
+          margin-left: 0;
+        }
+        &:last-of-type {
+          background-color: $primary-base;
+          color: $neutral-white;
+        }
       }
     }
   }
-}
 </style>

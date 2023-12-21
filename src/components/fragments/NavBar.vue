@@ -18,7 +18,7 @@
       </ul>
     </div>
   </div>
-  <router-view />
+  <router-view v-if="view" />
 </template>
 
 <script setup>
@@ -35,6 +35,10 @@ const props = defineProps({
   rightBtn: {
     type: String,
     default: ''
+  },
+  view: {
+    type: Boolean,
+    default: true
   }
 })
 // console.log(props.title, props.rightBtn)

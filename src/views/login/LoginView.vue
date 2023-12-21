@@ -39,7 +39,7 @@
         btnSize="large"
         iconPositionCenter="center"
         btnTxt="Login with Google"
-        @click="onClickGoogle()"
+        @click="alertText('기능 구현 준비중')"
       />
       <ButtonCmp
         bdBtn="base"
@@ -60,7 +60,7 @@ const router = useRouter()
 
 const goUrl = (url) => {
   if (url === 'home') {
-    router.push({ name: 'MainHomeView' })
+    router.push({ name: 'defaultHome' })
   } else if (url === 'register') {
     router.push({ name: 'LoginRegister' })
   } else if (url === 'forgot') {
@@ -68,10 +68,14 @@ const goUrl = (url) => {
   }
 }
 
-const onClickGoogle = () => {
-  // 구글 새 창 열기 (window.open 사용)
-  window.open('http://google.com', '_blank')
+const alertText = (text) => {
+  alert(text)
 }
+
+// const onClickGoogle = () => {
+//   // 구글 새 창 열기 (window.open 사용)
+//   window.open('http://google.com', '_blank')
+// }
 </script>
 
 <style lang="scss">
@@ -84,23 +88,8 @@ const onClickGoogle = () => {
       padding: 0 rem(16px) rem(48px);
       height: 100vh;
       &--detail {
-        padding: 0 rem(16px) rem(32px);
+        padding: rem(54px) rem(16px) rem(32px);
         height: calc(100vh - rem(54px));
-      }
-      .backLink {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: rem(8px);
-        padding: rem(16px) 0;
-        color: $primary-base;
-        &::before {
-          content: '';
-          display: block;
-          width: rem(6px);
-          height: rem(10px);
-          background-image: url('@/assets/images/icon/login_back.svg');
-        }
       }
     }
     &__input {
