@@ -42,6 +42,9 @@
         }
         &.bookmark {
           background-image: url(@/assets/images/icon/icon-task-bookmark.svg);
+          &.active {
+            background-image: url(@/assets/images/icon/icon-task-bookmark-solid.svg);
+          }
         }
         &.options {
           background-color: $primary-base;
