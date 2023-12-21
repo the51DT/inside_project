@@ -208,6 +208,7 @@ const isState = () => {
         gap: rem(12px);
         padding: rem(16px) rem(8px);
         border: none;
+        width: 100%;
         span {
           position: absolute;
           right: rem(24px);
