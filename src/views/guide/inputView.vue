@@ -1,5 +1,5 @@
 <template>
-  <div class="guide-txt__wrap">
+  <div class="guide-txt__wrap guide">
     <h4>인풋 컴포넌트 : inputField</h4>
     <div class="guide-txt-box">
       <h5>1. type</h5>
@@ -71,7 +71,7 @@
       <p>* checkbox에서만 사용</p>
     </div>
   </div>
-  <div>
+  <div class="guide">
     <inputField
       type="text"
       title="input_default"
@@ -315,7 +315,7 @@
       placeholder="Search..."
     ></inputField>
   </div>
-  <div class="guide-txt__wrap">
+  <div class="guide-txt__wrap guide">
     <h4>태그 컴포넌트 : inputField</h4>
     <div class="guide-txt-box">
       <h5>1. text</h5>
@@ -330,7 +330,7 @@
       <p>태그 삭제 버튼을 넣습니다. type:Boolean</p>
     </div>
   </div>
-  <div>
+  <div class="guide">
     <p>tag_default</p>
     <tagCmp text="Label Name"></tagCmp>
     <tagCmp text="Label Name" color="highlight"></tagCmp>
@@ -340,14 +340,14 @@
     <tagCmp text="Label Name" color="highlight" del></tagCmp>
     <tagCmp text="Label Name" color="white" del></tagCmp>
   </div>
-  <div class="guide-txt__wrap">
+  <div class="guide-txt__wrap guide">
     <h4>태그 컴포넌트 : textarea 제목 + 설명 박스</h4>
     <div class="guide-txt-box">
       <h5>1. type</h5>
       <p>textareaTitle, textareaDes 두가지 중 하나 작성</p>
     </div>
   </div>
-  <div>
+  <div class="guide">
     <inputField
       type="textareaTitle"
       title="textareaTitleDes_default"
@@ -403,4 +403,8 @@ export default {
   }
 }
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.guide {
+  height: auto !important;
+}
+</style>
