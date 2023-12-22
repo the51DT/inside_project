@@ -33,8 +33,7 @@
             btnSize="small"
             iconPositionCenter="center"
             btnTxt="Add checkbox"
-            @click="addBuyingCheckbox"
-            v-if="buyingCheckbox.length < 7"
+            @click="addBuyingCheckbox()"
           />
         </div>
       </div>
@@ -60,9 +59,7 @@ import { ref } from 'vue'
 const buyingCheckbox = ref([])
 
 const addBuyingCheckbox = () => {
-  if (buyingCheckbox.value.length < 7) {
-    buyingCheckbox.value.push(true)
-  }
+  buyingCheckbox.value.push(true)
 }
 </script>
 <style lang="scss">
