@@ -40,7 +40,6 @@ import { onMounted, ref } from 'vue'
 const countDiv = ref(0)
 const count = ref(0)
 
-console.log(countDiv.value.children)
 onMounted(() => {
   count.value = countDiv.value.children.length
 })

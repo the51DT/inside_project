@@ -11,6 +11,7 @@
         v-model:defaultText="userEmail"
         :caption="userEmailState.caption"
         :warn="userEmailState.warn"
+        @keyup.enter="goLogin()"
       />
       <inputField
         type="password"
@@ -21,6 +22,7 @@
         v-model:defaultText="userPassword"
         :caption="userPasswordState.caption"
         :warn="userPasswordState.warn"
+        @keyup.enter="goLogin()"
       />
       <ButtonCmp
         bgBtn="base"
@@ -80,40 +82,42 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
+import { useStore } from 'vuex'
 const router = useRouter()
+const store = useStore()
 
-const users = ref({
-  email: 'the51@the-51.com',
-  password: 'qwer1234'
-})
+const users = computed(() => store.state.users)
 const userEmail = ref('')
 const userPassword = ref('')
 const userEmailState = reactive({ caption: '', warn: true })
 const userPasswordState = reactive({ caption: '', warn: true })
 
 const goLogin = () => {
-  if (userEmail.value !== users.value.email) {
-    userEmailState.warn = true
-    userEmailState.caption = 'please check your ID :)'
-  } else {
-    userEmailState.warn = false
-    userEmailState.caption = ''
-  }
-  if (userPassword.value !== users.value.password) {
-    userPasswordState.warn = true
-    userPasswordState.caption = 'please check your Password :)'
-  } else {
-    userPasswordState.warn = false
-    userPasswordState.caption = ''
-  }
-  if (userEmail.value === users.value.email) {
-    router.push({ name: 'defaultHome' })
+  for (let i = 0; i < users.value.length; i++) {
+    if (userEmail.value !== users.value[i].email) {
+      userEmailState.warn = true
+      userEmailState.caption = 'please check your ID :)'
+    } else {
+      userEmailState.warn = false
+      userEmailState.caption = ''
+    }
+    if (userPassword.value !== users.value[i].password) {
+      userPasswordState.warn = true
+      userPasswordState.caption = 'please check your Password :)'
+    } else {
+      userPasswordState.warn = false
+      userPasswordState.caption = ''
+    }
+    if (userEmail.value === users.value[i].email && userPassword.value === users.value[i].password) {
+      router.push({ name: 'Home' })
+      store.commit('userNumber', i)
+    }
   }
 }
 const goUrl = (url) => {
   if (url === 'home') {
-    router.push({ name: 'defaultHome' })
+    router.push({ name: 'Home' })
   } else if (url === 'register') {
     router.push({ name: 'LoginRegister' })
   } else if (url === 'forgot') {
@@ -133,7 +137,8 @@ const goUrl = (url) => {
     height: 100vh;
     &--detail {
       padding: rem(54px) rem(16px) rem(32px);
-      height: calc(100vh - rem(54px));
+      height: calc(100% - rem(54px));
+      overflow-y: scroll;
     }
   }
   &__input {

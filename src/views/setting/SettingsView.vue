@@ -106,9 +106,11 @@ const goUrl = (url) => {
 
 const store = useStore()
 
-const nameValue = computed(() => store.state.settingName)
-const emailValue = computed(() => store.state.settingEmail)
-const previewImage = computed(() => store.state.settingImg)
+const userNum = computed(() => store.state.userNum)
+const nameValue = computed(() => store.state.users[userNum.value].name)
+const emailValue = computed(() => store.state.users[userNum.value].email)
+const previewImage = computed(() => store.state.users[userNum.value].img)
+console.log(store.state.users[userNum.value].img)
 
 // const nameValue = ref('Michael Antonio')
 // const emailValue = ref('anto_michael@gmail.com')

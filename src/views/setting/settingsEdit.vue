@@ -41,7 +41,7 @@
         btnSize="large"
         iconPositionLeft="left"
         btnTxt="Save Changes"
-        @click="[goUrl('settings'),sendName(name), sendEmail(email), sendImg(previewImage)]"
+        @click="[goUrl('settings'),sendName(), sendEmail(), sendImg(previewImage)]"
       />
     </div>
   </div>
@@ -62,26 +62,28 @@ const email = ref('')
 
 const store = useStore()
 
-const nameValue = computed(() => store.state.settingName)
-const emailValue = computed(() => store.state.settingEmail)
-const imgValue = computed(() => store.state.settingImg)
+const userNum = computed(() => store.state.userNum)
+const nameValue = computed(() => store.state.users[userNum.value].name)
+const emailValue = computed(() => store.state.users[userNum.value].email)
+const imgValue = computed(() => store.state.users[userNum.value].img)
 
-const sendName = (el) => {
+const sendName = () => {
   if (name.value.length === 0) {
-    store.commit('settingNewName', nameValue)
+    store.commit('settingNewName', { index: userNum.value, settingNewName: nameValue.value })
   } else {
-    store.commit('settingNewName', el)
+    store.commit('settingNewName', { index: userNum.value, settingNewName: name.value })
   }
 }
-const sendEmail = (el) => {
+const sendEmail = () => {
   if (email.value.length === 0) {
-    store.commit('settingNewEmail', emailValue)
+    store.commit('settingNewEmail', { index: userNum.value, settingNewEmail: emailValue.value })
   } else {
-    store.commit('settingNewEmail', el)
+    store.commit('settingNewEmail', { index: userNum.value, settingNewEmail: email.value })
   }
 }
 const sendImg = (el) => {
-  store.commit('settingNewImg', el)
+  store.commit('settingNewImg', { index: userNum.value, settingNewImg: el.value })
+  console.log(el)
 }
 const previewImage = ref(imgValue.value)
 
