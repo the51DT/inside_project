@@ -29,7 +29,8 @@ export default {}
 <style lang="scss">
 .home-no__wrap {
   display: flex;
-  height: 100vh;
+  width: 100vw;
+  height: 100%;
   background-color: $primary-background;
   .home-no__box {
     text-align: center;

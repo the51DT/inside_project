@@ -1,5 +1,5 @@
 <template>
-  <div class="note__wrap">
+  <a class="note__wrap" href="/home">
     <div :class="['note',
       !color ? 'note--default' : '',
       color === 'purple' ? 'note--purple' : '',
@@ -16,7 +16,7 @@
           There will be a choice to select what kind of notes that user needed, so the experience while taking notes can be unique based on the needs.
         </p>
         <div v-else-if="type === 'image'">
-          <div class="note__detail--image"></div>
+          <img class="note__detail--image" src="../../assets/images/img/Thumbnail.png" alt="note thumbnail">
           <p class="note__detail--text">Create a mobile app UI Kit that provide a basic notes functionality but with some improvement.</p>
         </div>
         <input-field
@@ -53,8 +53,8 @@
         </div>
       </div>
     </div>
-    <div v-if="sub" :class="['note--sub', color]">{{ sub }}</div>
-  </div>
+    <p v-if="sub" :class="['note--sub', color]"><span>{{ sub }}</span></p>
+  </a>
 </template>
 
 <script setup>

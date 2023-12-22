@@ -37,8 +37,10 @@ const goUrl = (url) => {
         width: calc(100% - rem(32px));
         img {
           margin: 0 0 rem(30px);
-          width: rem(240px);
-          height: rem(240px);
+          width: 100%;
+          height: 100%;
+          max-width: rem(240px);
+          max-height: rem(240px);
         }
         .title {
           font-size: rem(24px);
