@@ -15,7 +15,7 @@
       >
         <span>Bookmark</span>
       </button>
-      <button class="options" @click="openBtn('OpenOptions')">
+      <button class="options" @click="openBtn('OpenOptions'), Option()">
         <span>Open Options</span>
       </button>
     </div>
@@ -121,8 +121,12 @@ export default {
   methods: {
     bookMarkToogle() {
       this.isActive = !this.isActive
+      this.search = !this.search
     },
     searchTop() {
+      this.search = !this.search
+    },
+    Option() {
       this.search = !this.search
     }
   }

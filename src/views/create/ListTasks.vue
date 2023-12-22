@@ -1,28 +1,7 @@
 <template>
   <div>
-    <!-- 기본 화면 (task - sub Notes 입력 하시겠습니까?) -->
-    <template v-if="firstPage">
-      <div class="nav-bar__fixed">
-        <NavBar back="Back" />
-      </div>
-      <div class="create__wrap basic">
-        <div class="basic-box">
-          <div class="basic_des">
-            <!-- <div class="subnote-img"></div> -->
-            <p>Do you want to take notes of your work?</p>
-            <p>Click the button right now</p>
-          </div>
-          <ButtonCmp
-            bgBtn="base"
-            btnSize="large"
-            btnTxt="Add Sub Note"
-            @click="move()"
-          />
-        </div>
-      </div>
-    </template>
     <!-- // 기본 화면 (task - sub Notes 입력 하시겠습니까?) -->
-    <template v-else-if="writePage">
+    <template v-if="writePage">
       <!-- sub Notes 입력할 화면 -->
       <div class="nav-bar__fixed">
         <NavBar back="Back" />
@@ -89,14 +68,9 @@ import { ref } from 'vue'
 // import { draggable } from 'vuedraggable'
 
 const items = ref([])
-const firstPage = ref(true)
-const writePage = ref(false)
+const writePage = ref(true)
 const addItem = (type) => {
   items.value.push({ type })
-}
-const move = () => {
-  firstPage.value = false
-  writePage.value = true
 }
 </script>
 <style lang="scss">
