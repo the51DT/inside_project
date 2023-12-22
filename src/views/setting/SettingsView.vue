@@ -5,7 +5,7 @@
   <div class="setting__wrap">
     <div class="setting__top">
       <div class="setting__profile">
-        <div class="profile__img"></div>
+        <div class="profile__img" :style="{backgroundImage : `url(${previewImage})`}"></div>
         <div class="profile__info">
           <p class="profile__info--name">{{ nameValue }}</p>
           <p class="profile__info--email">{{ emailValue }}</p>
@@ -90,7 +90,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { useStore } from 'vuex'
+import { computed, ref } from 'vue'
 import router from '@/router'
 
 const goUrl = (url) => {
@@ -103,8 +104,14 @@ const goUrl = (url) => {
   }
 }
 
-const nameValue = ref('Michael Antonio')
-const emailValue = ref('anto_michael@gmail.com')
+const store = useStore()
+
+const nameValue = computed(() => store.state.settingName)
+const emailValue = computed(() => store.state.settingEmail)
+const previewImage = computed(() => store.state.settingImg)
+
+// const nameValue = ref('Michael Antonio')
+// const emailValue = ref('anto_michael@gmail.com')
 
 const state = ref('All active')
 const isEmail = ref(true)
@@ -153,6 +160,9 @@ const isState = () => {
           height: rem(64px);
           border-radius: rem(100px);
           background-color: $neutral-darkgrey;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
         &__info {
           &--name {
