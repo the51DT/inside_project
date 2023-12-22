@@ -173,4 +173,9 @@ const goUrl = (url) => {
     }
   }
 }
+#google {
+  .btn {
+    margin-left: 0;
+  }
+}
 </style>

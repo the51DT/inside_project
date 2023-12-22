@@ -5,7 +5,7 @@
   <div class="setting__wrap setting__wrap--edit">
     <div class="setting__top">
       <div class="setting__profile">
-        <div class="profile__img" :style="{backgroundImage : `url(${previewImage})`}"></div>
+        <div class="profile__img" :style="{backgroundImage : `url(${previewImage})`}" ref="profile_img"></div>
       </div>
       <inputField
         type="file"
@@ -22,7 +22,7 @@
           title="Full Name"
           id="name"
           name="name"
-          placeholder="Michael Antonio"
+          :placeholder="nameValue"
           v-model:defaultText="name"
         ></inputField>
         <inputField
@@ -30,7 +30,7 @@
           title="Email Address"
           id="email"
           name="email"
-          placeholder="anto_michael@gmail.com"
+          :placeholder="emailValue"
           caption="Changing email address information means you need to re-login to the apps."
           v-model:defaultText="email"
         ></inputField>
@@ -41,15 +41,16 @@
         btnSize="large"
         iconPositionLeft="left"
         btnTxt="Save Changes"
-        @click="goUrl('settings')"
+        @click="[goUrl('settings'),sendName(name), sendEmail(email), sendImg(previewImage)]"
       />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import router from '@/router'
+import { useStore } from 'vuex'
 
 const goUrl = (url) => {
   if (url === 'settings') {
@@ -59,7 +60,30 @@ const goUrl = (url) => {
 const name = ref('')
 const email = ref('')
 
-const previewImage = ref('')
+const store = useStore()
+
+const nameValue = computed(() => store.state.settingName)
+const emailValue = computed(() => store.state.settingEmail)
+const imgValue = computed(() => store.state.settingImg)
+
+const sendName = (el) => {
+  if (name.value.length === 0) {
+    store.commit('settingNewName', nameValue)
+  } else {
+    store.commit('settingNewName', el)
+  }
+}
+const sendEmail = (el) => {
+  if (email.value.length === 0) {
+    store.commit('settingNewEmail', emailValue)
+  } else {
+    store.commit('settingNewEmail', el)
+  }
+}
+const sendImg = (el) => {
+  store.commit('settingNewImg', el)
+}
+const previewImage = ref(imgValue.value)
 
 const changeImage = (event) => {
   const files = event.target?.files
@@ -72,6 +96,7 @@ const changeImage = (event) => {
     reader.readAsDataURL(file)
   }
 }
+
 </script>
 
 <style lang="scss">
