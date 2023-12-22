@@ -75,7 +75,7 @@ export default {
       },
       {
         img: require('../../assets/images/onboarding/onboarding_img_3.png'),
-        des: 'Text area, checklist, or same combination. Adapt with ypur needs'
+        des: 'Text area, checklist, or same combination.'
       }
     ]
     const modules = [Pagination]
@@ -117,6 +117,9 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        .top {
+          padding-bottom: rem(40px);
+        }
         .top-img {
           padding: 0 rem(24px);
         }
