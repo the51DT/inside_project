@@ -29,7 +29,7 @@ export default {}
 <style lang="scss">
 .home-no__wrap {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   background-color: $primary-background;
   .home-no__box {

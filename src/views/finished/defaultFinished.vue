@@ -142,7 +142,7 @@ onMounted(() => {
 }
 .finished-no__wrap {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   background-color: $primary-background;
   .finished-no__box {

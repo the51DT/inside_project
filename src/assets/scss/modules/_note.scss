@@ -78,13 +78,9 @@
       &--image {
         display: block;
         width: 100%;
-        height: rem(80px);
+        height: 100%;
         margin: 0 auto;
         margin-bottom: rem(12px);
-        background-image: url('@/assets/images/img/Thumbnail.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
       }
       .inputField {
         padding: rem(10px) 0;
