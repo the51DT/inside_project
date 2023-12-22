@@ -33,6 +33,7 @@
                   : 'Write your notes here...'
               "
               :fontCustom="item.type === 'textarea' ? '400' : ''"
+              @keyup.delete="deleteInput($event)"
             />
             <!-- </draggable> -->
           </div>
@@ -71,6 +72,17 @@ const items = ref([])
 const writePage = ref(true)
 const addItem = (type) => {
   items.value.push({ type })
+}
+const deleteInput = (event) => {
+  const input = event.target
+  const target = input.closest('.inputField')
+  if (input.innerHTML < 1) {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace') {
+        target.remove()
+      }
+    })
+  }
 }
 </script>
 <style lang="scss">

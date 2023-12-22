@@ -285,10 +285,8 @@ export default {
     deleteInput: function (event) {
       const input = event.target
       const target = input.closest('.inputField')
-      console.log(event)
-      if (input.innerHTML === '') {
+      if (input.innerHTML < 1) {
         input.addEventListener('keydown', (e) => {
-          console.log(e.key)
           if (e.key === 'Backspace') {
             target.remove()
           }

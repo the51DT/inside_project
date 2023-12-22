@@ -299,6 +299,7 @@
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
+        display: none;
         width: rem(18px);
         height: rem(18px);
         border-radius: rem(100px);
@@ -309,7 +310,6 @@
         background-position: center center;
         margin-left: rem(8px);
       }
-      &::-webkit-search-decoration,
       &::-webkit-search-cancel-button,
       &::-webkit-search-results-button,
       &::-webkit-search-results-decoration {
@@ -326,6 +326,10 @@
         background-repeat: no-repeat;
         background-position: center center;
         margin-left: rem(8px);
+      }
+      &::-webkit-search-decoration
+      {
+        display: none;
       }
     }
     &__title {

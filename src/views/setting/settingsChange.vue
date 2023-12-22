@@ -38,7 +38,7 @@
         btnSize="large"
         iconPositionRight="right"
         btnTxt="Save Changes"
-        @click="goUrl('complete')"
+        @click="[goUrl('complete'), goLogin()]"
       />
     </div>
   </div>
@@ -46,6 +46,10 @@
 
 <script setup>
 import router from '@/router'
+
+const goLogin = () => {
+
+}
 
 const goUrl = (url) => {
   if (url === 'complete') {

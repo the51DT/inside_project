@@ -23,6 +23,7 @@
               type="checkbox"
               :id="`buying-checkbox-${index}`"
               placeholder="Write your notes here..."
+              @keyup.delete="deleteInput($event)"
             />
             <div class="sub-chbox">
               <inputField
@@ -31,6 +32,7 @@
                 type="checkbox"
                 :id="`buying-checkbox-sub-${subindex}`"
                 placeholder="Write your notes here..."
+                @keyup.delete="deleteInput($event)"
               />
               <ButtonCmp
                 plusBtn="base"
@@ -80,6 +82,25 @@ const addBuyingCheckbox = () => {
 
 const addBuyingCheckboxSub = (index) => {
   buyingCheckbox.value[index].sub.push({ id: '', sub: [] })
+}
+
+const deleteInput = (event) => {
+  const input = event.target
+  const target = input.closest('.inputField')
+  console.log(target.closest('.create-box--buying-chbox').querySelector('.sub-chbox .inputField'))
+  if (input.innerHTML < 1) {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace') {
+        if (target.closest('.create-box--buying-chbox') && !target.closest('.sub-chbox')) {
+          if (target.closest('.create-box--buying-chbox > .sub-chbox') === null) {
+            target.closest('.create-box--buying-chbox').remove()
+          }
+        } else {
+          target.remove()
+        }
+      }
+    })
+  }
 }
 </script>
 <style lang="scss">

@@ -25,6 +25,7 @@
             type="checkbox"
             :id="`buying-checkbox-${index}`"
             placeholder="Write your notes here..."
+            @keyup.delete="deleteInput($event)"
           />
         </div>
         <div class="create-box--buying-btn">
@@ -60,6 +61,18 @@ const buyingCheckbox = ref([])
 
 const addBuyingCheckbox = () => {
   buyingCheckbox.value.push(true)
+}
+
+const deleteInput = (event) => {
+  const input = event.target
+  const target = input.closest('.inputField')
+  if (input.innerHTML < 1) {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace') {
+        target.remove()
+      }
+    })
+  }
 }
 </script>
 <style lang="scss">
