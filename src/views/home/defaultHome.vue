@@ -1,23 +1,21 @@
 <template>
   <div>
-    <div>
-      <div class="home-no__wrap">
-        <div class="home-no__box">
-          <div class="home-no__box__img"></div>
-          <div class="home-no__box__des">
-            <TitleInput
-              type="24"
-              title="Start Your Journey"
-              subtype="14"
-              sub="Every big step start with small step.
+    <div class="home-no__wrap">
+      <div class="home-no__box">
+        <div class="home-no__box__img"></div>
+        <div class="home-no__box__des">
+          <TitleInput
+            type="24"
+            title="Start Your Journey"
+            subtype="14"
+            sub="Every big step start with small step.
               Notes your first idea and start
               your journey!"
-            />
-          </div>
-          <div class="home-no__box__img-line"></div>
+          />
         </div>
-        <TabBar />
+        <div class="home-no__box__img-line"></div>
       </div>
+      <TabBar />
     </div>
     <!-- <div v-else></div> -->
   </div>
@@ -30,7 +28,7 @@ export default {}
 .home-no__wrap {
   display: flex;
   width: 100vw;
-  height: 100%;
+  height: calc(100% - rem(83.5px));
   background-color: $primary-background;
   .home-no__box {
     text-align: center;
