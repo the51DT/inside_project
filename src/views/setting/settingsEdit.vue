@@ -65,10 +65,11 @@ const store = useStore()
 const userNum = computed(() => store.state.userNum)
 const nameValue = computed(() => store.state.users[userNum.value].name)
 const emailValue = computed(() => store.state.users[userNum.value].email)
-const imgValue = computed(() => store.state.users[userNum.value].img)
+const imgValue = computed(() => store.state.settingImg)
 
 const sendName = () => {
   if (name.value.length === 0) {
+    console.log(userNum.value, nameValue.value)
     store.commit('settingNewName', { index: userNum.value, settingNewName: nameValue.value })
   } else {
     store.commit('settingNewName', { index: userNum.value, settingNewName: name.value })
@@ -82,8 +83,7 @@ const sendEmail = () => {
   }
 }
 const sendImg = (el) => {
-  store.commit('settingNewImg', { index: userNum.value, settingNewImg: el.value })
-  console.log(el)
+  store.commit('settingNewImg', el)
 }
 const previewImage = ref(imgValue.value)
 
