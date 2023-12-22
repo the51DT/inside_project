@@ -19,7 +19,13 @@
       >Main</router-link
     >
   </nav> -->
-
+  <ul>
+    <li><router-link to="/start">홈페이지</router-link></li>
+    <li><router-link to="/guide/input">가이드 - Input</router-link></li>
+    <li><router-link to="/guide/button">가이드 - Button</router-link></li>
+    <li><router-link to="/guide/overlays">가이드 - Modal</router-link></li>
+    <li><router-link to="/guide/note">가이드 - note</router-link></li>
+  </ul>
   <router-view />
 </template>
 <script setup>
