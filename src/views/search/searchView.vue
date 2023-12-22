@@ -33,13 +33,13 @@ const goUrl = (url) => {
 
 const result = ref('')
 const seachList = ref([
-  { item: 'Product Idea', route: 'defaultHome' },
-  { item: 'Monthly Buying List', route: 'defaultHome' }
+  { item: 'Product Idea', route: 'Home' },
+  { item: 'Monthly Buying List', route: 'Home' }
 ])
 
 const addRecent = (event) => {
   if (result.value === '') return false
-  const searchResult = { item: result.value.toString(), route: 'defaultHome' }
+  const searchResult = { item: result.value.toString(), route: 'Home' }
   seachList.value.push(searchResult)
   if (seachList.value.length > 5) seachList.value.shift()
 }
