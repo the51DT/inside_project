@@ -30,6 +30,7 @@ export default {
       // console.log(
       //   event.target.closest('.bg--item').querySelectorAll('.active').length
       // )
+
       if (!event.target.classList.contains('active')) {
         if (
           event.target.closest('.bg--item').querySelectorAll('.active').length >
@@ -44,6 +45,11 @@ export default {
         }
         event.target.classList.add('active')
       }
+      const bodyBgColor = window
+        .getComputedStyle(event.target, null)
+        .getPropertyValue('background-color')
+
+      document.querySelector('.color-bg').style.backgroundColor = bodyBgColor
     }
   }
 }

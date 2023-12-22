@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="color-bg">
     <!-- // 기본 화면 (task - sub Notes 입력 하시겠습니까?) -->
     <template v-if="writePage">
       <!-- sub Notes 입력할 화면 -->

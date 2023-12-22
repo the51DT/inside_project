@@ -67,6 +67,9 @@ const ToCreateList = (path) => {
 }
 </script>
 <style lang="scss">
+body {
+  background-color: $neutral-white;
+}
 .create_list__wrap {
   padding: rem(78px) rem(16px) 0;
   display: flex;

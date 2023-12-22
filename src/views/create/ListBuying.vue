@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="color-bg">
     <div class="nav-bar__fixed">
       <NavBar back="Back" />
     </div>
