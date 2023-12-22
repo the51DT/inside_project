@@ -5,7 +5,7 @@
       <span class="task-bar--edit">19.30</span>
     </div>
     <div class="task-bar--list">
-      <button class="search">
+      <button class="search" @click="searchTop()">
         <span>Search</span>
       </button>
       <button
@@ -76,6 +76,28 @@
       </button>
     </template>
   </modal-bottom>
+  <div class="nav-bar__fixed" id="searhBar">
+    <div class="nav-bar" v-if="search">
+      <div class="nav-bar--list">
+        <ul>
+          <li>
+            <button class="back" @click="searchTop()">
+              <span class="hidden">{{ back }}</span>
+            </button>
+          </li>
+          <li>
+            <div class="search">
+              <inputField
+                type="search"
+                id="search_default"
+                placeholder="Search..."
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -86,6 +108,8 @@ export default {
   data() {
     return {
       isActive: false,
+      search: false,
+      back: 'back',
       lists: [
         { type: '1', text: 'Set Reminder', flag: 'Not set' },
         { type: '2', text: 'Change Note Type', flag: 'Buying Some...' },
@@ -97,9 +121,38 @@ export default {
   methods: {
     bookMarkToogle() {
       this.isActive = !this.isActive
+    },
+    searchTop() {
+      this.search = !this.search
     }
   }
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#searhBar {
+  .nav-bar {
+    &--list {
+      ul {
+        justify-content: flex-start;
+        li {
+          button {
+            &.back {
+              width: rem(20px);
+              height: rem(20px);
+              background-image: url(@/assets/images/icon/search_back.svg);
+              padding-right: rem(8px);
+            }
+          }
+          & + li {
+            width: 100%;
+            .search {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</style>

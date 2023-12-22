@@ -6,6 +6,7 @@
 
 @mixin taskBar() {
   .task-bar {
+    white-space: nowrap;
     position: fixed;
     bottom: 0;
     width: 100%;
