@@ -24,7 +24,7 @@
           <h3>Amazing Journey!</h3>
           <p>You have Successfully<br>finished {{ count }} notes</p>
         </div>
-        <div class="finished__bottom">
+        <div class="finished__bottom" ref="countDiv">
           <noteCmp
             title="💡 New Product Idea Design"
             type="text"
@@ -95,10 +95,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
+const countDiv = ref(0)
 const count = ref(0)
-console.log(count.value)
+
+console.log(countDiv.value.children)
+onMounted(() => {
+  count.value = countDiv.value.children.length
+})
 </script>
 
 <style lang="scss">
@@ -137,7 +142,8 @@ console.log(count.value)
 }
 .finished-no__wrap {
   display: flex;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: $primary-background;
   .finished-no__box {
     text-align: center;

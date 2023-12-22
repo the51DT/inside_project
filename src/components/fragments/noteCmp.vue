@@ -1,5 +1,5 @@
 <template>
-  <div class="note__wrap">
+  <a class="note__wrap" href="/home">
     <div :class="['note',
       !color ? 'note--default' : '',
       color === 'purple' ? 'note--purple' : '',
@@ -53,8 +53,8 @@
         </div>
       </div>
     </div>
-    <div v-if="sub" :class="['note--sub', color]">{{ sub }}</div>
-  </div>
+    <p v-if="sub" :class="['note--sub', color]"><span>{{ sub }}</span></p>
+  </a>
 </template>
 
 <script setup>

@@ -45,7 +45,7 @@
         btnSize="large"
         iconPositionCenter="center"
         btnTxt="Login with Google"
-        @click="alertText('기능 구현 준비중')"
+        @click="openBtn('google')"
       />
       <ButtonCmp
         bdBtn="base"
@@ -57,6 +57,25 @@
       />
     </div>
   </div>
+
+  <modal-center id="google">
+    <template v-slot:title>
+      <h4>X</h4>
+    </template>
+    <template v-slot:body>
+      <div class="popup--body__contnet">
+        기능 구현 준비중
+      </div>
+    </template>
+    <template v-slot:footer>
+      <ButtonCmp
+        bgBtn="base"
+        btnSize="small"
+        btnTxt="close"
+        @click="closeBtn($event)"
+      />
+    </template>
+  </modal-center>
 </template>
 
 <script setup>
@@ -101,15 +120,6 @@ const goUrl = (url) => {
     router.push({ name: 'LoginForgot' })
   }
 }
-
-const alertText = (text) => {
-  alert(text)
-}
-
-// const onClickGoogle = () => {
-//   // 구글 새 창 열기 (window.open 사용)
-//   window.open('http://google.com', '_blank')
-// }
 </script>
 
 <style lang="scss">
@@ -129,7 +139,6 @@ const alertText = (text) => {
   &__input {
     margin-top: rem(32px);
     & .btn {
-      display: block;
       margin-top: rem(12px);
     }
   }
