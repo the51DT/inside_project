@@ -190,6 +190,7 @@
     >
       {{ caption }}
     </p>
+    <!-- 드래그 가능 -->
   </div>
 </template>
 
