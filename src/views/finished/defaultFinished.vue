@@ -24,70 +24,10 @@
           <h3>Amazing Journey!</h3>
           <p>You have Successfully<br>finished {{ count }} notes</p>
         </div>
-        <div class="finished__bottom" ref="countDiv">
-          <noteCmp
-            title="💡 New Product Idea Design"
-            type="text"
-            sub="Interesting Idea"
-          />
-          <noteCmp
-            title="💡 New Product Idea Design"
-            type="image"
-            color="purple"
-            sub="Interesting Idea"
-          />
-          <noteCmp
-            title="🛒 Monthly Buy List"
-            type="checkbox"
-            color="yellow"
-            sub="Interesting Idea"
-          />
-          <noteCmp
-            title="🛒 Monthly Buy List"
-            type="checkboxSub"
-            color="lightyellow"
-            sub="Interesting Idea"
-          />
-          <noteCmp
-            title="Red"
-            color="red"
-            sub="Interesting Idea"
-          />
-          <noteCmp
-            title="Green"
-            color="green"
-            sub="Interesting Idea"
-          />
-
-          <!-- no sub -->
-          <noteCmp
-            title="💡 New Product Idea Design"
-            type="text"
-          />
-          <noteCmp
-            title="💡 New Product Idea Design"
-            type="image"
-            color="purple"
-          />
-          <noteCmp
-            title="🛒 Monthly Buy List"
-            type="checkbox"
-            color="yellow"
-          />
-          <noteCmp
-            title="🛒 Monthly Buy List"
-            type="checkboxSub"
-            color="lightyellow"
-          />
-          <noteCmp
-            title="Red"
-            color="red"
-          />
-          <noteCmp
-            title="Green"
-            color="green"
-          />
-        </div>
+        <ul class="finished__bottom" ref="countDiv">
+          <li :key="list.title" v-for="list in lists"><noteCmp :title="list.title" :type="list.type" :color="list.color" sub="Interesting Idea"/></li>
+          <li :key="list.title" v-for="list in lists"><noteCmp :title="list.title" :type="list.type" :color="list.color"/></li>
+        </ul>
       </div>
     </div>
     <TabBar />
@@ -104,6 +44,39 @@ console.log(countDiv.value.children)
 onMounted(() => {
   count.value = countDiv.value.children.length
 })
+
+const lists = [
+  {
+    title: '💡 New Product Idea Design',
+    type: 'text',
+    color: ''
+  },
+  {
+    title: '💡 New Product Idea Design',
+    type: 'image',
+    color: 'purple'
+  },
+  {
+    title: '🛒 Monthly Buy List',
+    type: 'checkbox',
+    color: 'yellow'
+  },
+  {
+    title: '🛒 Monthly Buy List',
+    type: 'checkboxSub',
+    color: 'lightyellow'
+  },
+  {
+    title: 'red',
+    type: 'text',
+    color: 'red'
+  },
+  {
+    title: 'green',
+    type: 'text',
+    color: 'green'
+  }
+]
 </script>
 
 <style lang="scss">
@@ -135,7 +108,7 @@ onMounted(() => {
     flex-wrap: wrap;
     gap: rem(16px);
     padding: rem(24px) rem(16px) rem(124px);
-    .note__wrap {
+    li {
       width: calc(50% - rem(8px));
     }
   }
