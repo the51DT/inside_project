@@ -69,7 +69,6 @@ const imgValue = computed(() => store.state.settingImg)
 
 const sendName = () => {
   if (name.value.length === 0) {
-    console.log(userNum.value, nameValue.value)
     store.commit('settingNewName', { index: userNum.value, settingNewName: nameValue.value })
   } else {
     store.commit('settingNewName', { index: userNum.value, settingNewName: name.value })

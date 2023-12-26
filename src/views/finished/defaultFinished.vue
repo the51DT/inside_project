@@ -1,44 +1,46 @@
 <template>
-  <div>
-    <div v-if="data === 0">
-      <div class="finished-no__wrap">
-        <div class="finished-no__box">
-          <div class="finished-no__box__img"></div>
-          <div class="finished-no__box__des">
-            <TitleInput
-              type="24"
-              title="No Finished Notes Yet"
-              subtype="14"
-              sub="Once you create a note and finish it,
-                it will be appeared on this screen.
-                So, let’s start your journey!"
-            />
-          </div>
-          <div class="finished-no__box__img-line"></div>
+  <div class="finished">
+    <div v-if="note === 0" class="finished-no__wrap">
+      <div class="finished-no__box">
+        <div class="finished-no__box__img"></div>
+        <div class="finished-no__box__des">
+          <TitleInput
+            type="24"
+            title="No Finished Notes Yet"
+            subtype="14"
+            sub="Once you create a note and finish it,
+              it will be appeared on this screen.
+              So, let’s start your journey!"
+          />
         </div>
+        <div class="finished-no__box__img-line"></div>
+        <div class="hidden" ref="countDiv"></div>
       </div>
     </div>
-    <div v-else>
-      <div class="finished__wrap">
-        <div class="finished__top">
-          <h3>Amazing Journey!</h3>
-          <p>You have Successfully<br>finished {{ count }} notes</p>
-        </div>
-        <ul class="finished__bottom" ref="countDiv">
-          <li :key="list.title" v-for="list in lists"><noteCmp :title="list.title" :type="list.type" :color="list.color" sub="Interesting Idea"/></li>
-          <li :key="list.title" v-for="list in lists"><noteCmp :title="list.title" :type="list.type" :color="list.color"/></li>
-        </ul>
+    <div v-else class="finished__wrap">
+      <div class="finished__top">
+        <h3>Amazing Journey!</h3>
+        <p>You have Successfully<br>finished {{ count }} notes</p>
       </div>
+      <ul class="finished__bottom" ref="countDiv">
+        <li :key="list.title" v-for="list in lists"><noteCmp :title="list.title" :type="list.type" :color="list.color" sub="Interesting Idea"/></li>
+        <li :key="list.title" v-for="list in lists"><noteCmp :title="list.title" :type="list.type" :color="list.color"/></li>
+      </ul>
     </div>
     <TabBar />
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
+import { useStore } from 'vuex'
 
 const countDiv = ref(0)
 const count = ref(0)
+
+const store = useStore()
+const userNum = computed(() => store.state.userNum)
+const note = computed(() => store.state.users[userNum.value].note).value
 
 onMounted(() => {
   count.value = countDiv.value.children.length
@@ -80,6 +82,7 @@ const lists = [
 
 <style lang="scss">
 .finished {
+  height: 100%;
   &__wrap {
     background-color: $primary-background;
   }
