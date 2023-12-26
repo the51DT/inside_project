@@ -65,9 +65,7 @@
       <h4>X</h4>
     </template>
     <template v-slot:body>
-      <div class="popup--body__contnet">
-        기능 구현 준비중
-      </div>
+      <div class="popup--body__contnet">기능 구현 준비중</div>
     </template>
     <template v-slot:footer>
       <ButtonCmp
@@ -87,32 +85,37 @@ import { useStore } from 'vuex'
 const router = useRouter()
 const store = useStore()
 
-const users = computed(() => store.state.users)
+const users = computed(() => store.state.users.usersInfo)
 const userEmail = ref('')
 const userPassword = ref('')
 const userEmailState = reactive({ caption: '', warn: true })
 const userPasswordState = reactive({ caption: '', warn: true })
-
 const goLogin = () => {
-  for (let i = 0; i < users.value.length; i++) {
-    if (userEmail.value !== users.value[i].email) {
-      userEmailState.warn = true
-      userEmailState.caption = 'please check your ID :)'
-    } else {
-      userEmailState.warn = false
-      userEmailState.caption = ''
-    }
-    if (userPassword.value !== users.value[i].password) {
-      userPasswordState.warn = true
-      userPasswordState.caption = 'please check your Password :)'
-    } else {
-      userPasswordState.warn = false
-      userPasswordState.caption = ''
-    }
-    if (userEmail.value === users.value[i].email && userPassword.value === users.value[i].password) {
-      router.push({ name: 'Home' })
-      store.commit('userNumber', i)
-    }
+  const isID = users.value
+    .filter((id) => id.email === userEmail.value)
+    .map((email) => email.email)
+    .toString()
+  const isPassword = users.value
+    .filter((id) => id.email === userEmail.value)
+    .map((pw) => pw.password)
+    .toString()
+  console.log(isID, isPassword)
+  if (isID !== userEmail.value || userEmail.value === '') {
+    userEmailState.warn = true
+    userEmailState.caption = 'please check your ID :)'
+  } else {
+    userEmailState.warn = false
+    userEmailState.caption = ''
+  }
+  if (isPassword !== userPassword.value || userPassword.value === '') {
+    userPasswordState.warn = true
+    userPasswordState.caption = 'please check your Password :)'
+  } else {
+    userPasswordState.warn = false
+    userPasswordState.caption = ''
+  }
+  if (userEmailState.warn === false && userPasswordState.warn === false) {
+    router.push({ name: 'Home' })
   }
 }
 const goUrl = (url) => {

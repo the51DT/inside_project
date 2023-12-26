@@ -120,6 +120,7 @@
       &:empty {
         &::before {
           content: attr(placeholder);
+          display: block;
           color: $neutral-basegrey;
         }
       }
@@ -131,10 +132,17 @@
       &:focus {
         outline: none;
         color: $neutral-dark;
+        &:empty {
+          &::before {
+            content: attr(placeholder);
+            display: block;
+            color: $neutral-basegrey;
+          }
+        }
       }
-      &::placeholder {
-        color: $neutral-basegrey;
-      }
+      // &::placeholder {
+      //   color: $neutral-basegrey;
+      // }
       &--side {
         width: calc(100% - rem(34px));
         padding: 0;
