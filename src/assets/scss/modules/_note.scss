@@ -7,10 +7,11 @@
 @mixin note {
   .note {
     width: 100%;
-    min-height: rem(224px);
+    height: rem(224px);
     padding: rem(12px);
     border-radius: rem(8px);
     background-color: $neutral-white;
+    overflow-y: hidden;
     &__wrap {
       width: 50%;
     }

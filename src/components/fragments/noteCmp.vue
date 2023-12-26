@@ -26,29 +26,34 @@
           :defaultText="list"
           :key="list"
           v-for="list in lists"
+          disabled
         />
         <div v-else-if="type === 'checkboxSub'">
           <inputField
             type="checkbox"
             defaultText="Item 1"
             size="small"
+            disabled
           ></inputField>
           <inputField
             type="checkbox"
             defaultText="Sub item 1"
             size="small"
             sub
+            disabled
           ></inputField>
           <inputField
             type="checkbox"
             defaultText="Sub item 2"
             size="small"
             sub
+            disabled
           ></inputField>
           <inputField
             type="checkbox"
             defaultText="Item 2"
             size="small"
+            disabled
           ></inputField>
         </div>
       </div>
