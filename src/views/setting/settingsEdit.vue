@@ -22,7 +22,10 @@
           title="Full Name"
           id="name"
           name="name"
-          :placeholder="nameValue"
+          placeholder="Full Name"
+          :defaultText="nameValue"
+          :caption="nameState.caption"
+          :warn="nameState.warn"
           v-model:defaultText="name"
         ></inputField>
         <inputField
@@ -30,8 +33,10 @@
           title="Email Address"
           id="email"
           name="email"
-          :placeholder="emailValue"
-          caption="Changing email address information means you need to re-login to the apps."
+          placeholder="Email Address"
+          :defaultText="emailValue"
+          :caption="emailState.caption"
+          :warn="emailState.warn"
           v-model:defaultText="email"
         ></inputField>
       </div>
@@ -41,14 +46,14 @@
         btnSize="large"
         iconPositionLeft="left"
         btnTxt="Save Changes"
-        @click="[goUrl('settings'),sendName(), sendEmail(), sendImg(previewImage)]"
+        @click="[sendName(), sendEmail(), sendImg(previewImage)]"
       />
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, reactive } from 'vue'
 import router from '@/router'
 import { useStore } from 'vuex'
 
@@ -59,6 +64,8 @@ const goUrl = (url) => {
 }
 const name = ref('')
 const email = ref('')
+const nameState = reactive({ caption: '', warn: false })
+const emailState = reactive({ caption: 'Changing email address information means you need to re-login to the apps.', warn: false })
 
 const store = useStore()
 
@@ -68,17 +75,29 @@ const emailValue = computed(() => store.state.users[userNum.value].email)
 const imgValue = computed(() => store.state.settingImg)
 
 const sendName = () => {
-  if (name.value.length === 0) {
-    store.commit('settingNewName', { index: userNum.value, settingNewName: nameValue.value })
+  if (name.value.length === 0 || nameValue.value === name.value) {
+    nameState.caption = 'please enter change name :)'
+    nameState.warn = true
   } else {
     store.commit('settingNewName', { index: userNum.value, settingNewName: name.value })
+    nameState.caption = ''
+    nameState.warn = false
   }
 }
 const sendEmail = () => {
-  if (email.value.length === 0) {
-    store.commit('settingNewEmail', { index: userNum.value, settingNewEmail: emailValue.value })
+  if (email.value.length === 0 || emailValue.value === email.value) {
+    emailState.caption = 'please enter change email :)'
+    emailState.warn = true
   } else {
-    store.commit('settingNewEmail', { index: userNum.value, settingNewEmail: email.value })
+    if (email.value.includes('@')) {
+      store.commit('settingNewEmail', { index: userNum.value, settingNewEmail: email.value })
+      goUrl('settings')
+      emailState.caption = ''
+      emailState.warn = false
+    } else {
+      emailState.caption = 'please enter right email :)'
+      emailState.warn = true
+    }
   }
 }
 const sendImg = (el) => {
