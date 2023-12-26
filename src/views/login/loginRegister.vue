@@ -54,7 +54,7 @@
         icon2
         iconPosition
         btnTxt="Register"
-        @click="[goLogin()]"
+        @click=";[goLogin()]"
       />
     </div>
   </div>
@@ -63,7 +63,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 
 const router = useRouter()
 
@@ -76,6 +76,7 @@ const nameState = reactive({ caption: '', warn: true })
 const emailState = reactive({ caption: '', warn: true })
 const passwordState = reactive({ caption: '', warn: true })
 const retypeState = reactive({ caption: '', warn: true })
+const users = computed(() => store.state.users.usersInfo)
 
 const registerUser = () => {
   const newUser = {
@@ -92,6 +93,10 @@ const registerUser = () => {
 }
 
 const goLogin = () => {
+  const checkID = users.value
+    .filter((id) => id.email === newEmail.value)
+    .map((email) => email.email)
+    .toString()
   if (!newName.value) {
     nameState.caption = 'please enter your name :)'
     nameState.warn = true
@@ -99,7 +104,7 @@ const goLogin = () => {
     nameState.caption = ''
     nameState.warn = false
   }
-  if (!newEmail.value) {
+  if (!newEmail.value || checkID === newEmail.value) {
     emailState.caption = 'please enter your email :)'
     emailState.warn = true
   } else {
@@ -125,7 +130,13 @@ const goLogin = () => {
       retypeState.warn = false
     }
   }
-  if (newName.value && newEmail.value && newPassword.value) {
+  if (
+    checkID !== newEmail.value &&
+    newName.value &&
+    newEmail.value &&
+    newPassword.value
+  ) {
+    console.log(checkID, newEmail.value)
     if (newPassword.value === retypePassword.value) {
       registerUser()
       goUrl('login')
@@ -140,5 +151,4 @@ const goUrl = (url) => {
 }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
