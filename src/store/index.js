@@ -31,6 +31,9 @@ export default createStore({
     settingNewImg (state, settingNewImg) {
       state.settingImg = settingNewImg
     },
+    settingNewPW (state, { index, settingNewPW }) {
+      state.users[index].password = settingNewPW
+    },
     addUser (state, user) {
       state.users.push(user)
     },
