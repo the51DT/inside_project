@@ -77,6 +77,7 @@
         :readonly="readonly"
         :checked="checked"
         @change="checkedText"
+        :onclick="disabled ? 'return false;' : ''"
       />
       <!-- 토글 -->
       <input
@@ -218,6 +219,7 @@ export default {
     chooseFileLabel: String,
     icon: Boolean,
     fontCustom: String,
+    disabled: Boolean,
     options: {
       type: Array,
       default: () => {
