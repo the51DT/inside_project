@@ -85,6 +85,11 @@ export default {
       default: 'http://www.naver.com'
     }
   },
+  data() {
+    return {
+      button: ''
+    }
+  },
   computed: {
     typeClass() {
       if (this.bgBtn !== '') return `bg-${this.bgBtn}`

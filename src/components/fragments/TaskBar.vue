@@ -115,7 +115,8 @@ export default {
         { type: '2', text: 'Change Note Type', flag: 'Buying Some...' },
         { type: '3', text: 'Give Label', flag: 'Not set' },
         { type: '4', text: 'Mark as Finished', flag: '' }
-      ]
+      ],
+      bglist: []
     }
   },
   methods: {
