@@ -46,7 +46,7 @@
         btnSize="large"
         iconPositionRight="right"
         btnTxt="Save Changes"
-        @click="[goLogin()]"
+        @click=";[goLogin()]"
       />
     </div>
   </div>
@@ -61,12 +61,17 @@ const current = ref('')
 const change = ref('')
 const retype = ref('')
 const currentState = reactive({ caption: '', warn: false })
-const changelState = reactive({ caption: 'Password should contain a-z, A-Z, 0-9', warn: false })
+const changelState = reactive({
+  caption: 'Password should contain a-z, A-Z, 0-9',
+  warn: false
+})
 const retypeState = reactive({ caption: '', warn: false })
 
 const store = useStore()
 const userNum = computed(() => store.state.userNum)
-const currentPassword = computed(() => store.state.users[userNum.value].password)
+const currentPassword = computed(
+  () => store.state.users[userNum.value].password
+)
 
 const goLogin = () => {
   if (!current.value) {
@@ -101,7 +106,10 @@ const goLogin = () => {
   if (current.value && change.value && retype.value) {
     if (current.value === currentPassword.value) {
       if (change.value === retype.value) {
-        store.commit('settingNewPW', { index: userNum.value, settingNewPW: change.value })
+        store.commit('settingNewPW', {
+          index: userNum.value,
+          settingNewPW: change.value
+        })
         goUrl('complete')
       }
     }
