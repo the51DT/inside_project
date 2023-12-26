@@ -26,9 +26,33 @@
     <li><router-link to="/guide/overlays">가이드 - Modal</router-link></li>
     <li><router-link to="/guide/note">가이드 - note</router-link></li>
   </ul> -->
+  <nav v-if="isPath">
+    <a
+      href="https://github.com/the51DX/inside_project"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Github</a
+    >
+    |
+    <a
+      href="https://www.figma.com/file/cRMUv5f1VccUYMJCHp2rRo/(Free-Version)-Makarya-Notes---Advanced-Note-Taking-App-Design-System-%2B-UI-Kit-(Community)?type=design&node-id=936-13105&mode=design&t=sk3qMJa7denScNJE-0"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Figma</a
+    >
+    |
+    <router-link to="/start">Mobile</router-link>
+  </nav>
   <router-view />
 </template>
 <script setup>
-// import { ref } from 'vue'
-// const isMain = ref(false)
+/* eslint-disable */
+import { useRouter } from 'vue-router'
+import { ref } from 'vue'
+const isPath = ref(true)
+const router = useRouter()
+router.beforeEach((to, from, next) => {
+  to.fullPath === '/' ? (isPath.value = true) : (isPath.value = false)
+  next()
+})
 </script>
