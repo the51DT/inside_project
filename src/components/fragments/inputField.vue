@@ -34,6 +34,7 @@
         :placeholder="placeholder"
         :value="defaultText"
         contenteditable="true"
+        @keyup.delete="textareaPlaceholder"
       ></p>
       <!-- 텍스트에리어 (제목 혹은 설명으로 사용되는 경우) -->
       <p
@@ -59,6 +60,7 @@
         :name="name"
         :placeholder="placeholder"
         contenteditable="true"
+        @keyup.delete="textareaPlaceholder"
       ></p>
       <!-- 체크박스 -->
       <input
@@ -148,6 +150,7 @@
         :placeholder="placeholder"
         :readonly="checked"
         :contenteditable="readonly ? false : true"
+        @keyup.delete="textareaPlaceholder"
       >
         {{ defaultText }}
       </p>
@@ -281,7 +284,7 @@ export default {
     searchProgress: function (el) {
       const searchValue = el.target.value
       this.$emit('update:searchValue', searchValue)
-    }
+    },
     // deleteInput: function (event) {
     //   const input = event.target
     //   const target = input.closest('.inputField')
@@ -293,6 +296,12 @@ export default {
     //     })
     //   }
     // }
+    textareaPlaceholder: function (el) {
+      const target = el.target
+      if (Boolean(target.innerHTML) && target.textContent.length === 0) {
+        target.innerHTML = ''
+      }
+    }
   }
 }
 </script>
