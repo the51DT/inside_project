@@ -87,12 +87,11 @@ const addBuyingCheckboxSub = (index) => {
 const deleteInput = (event) => {
   const input = event.target
   const target = input.closest('.inputField')
-  console.log(target.closest('.create-box--buying-chbox').querySelector('.sub-chbox .inputField'))
   if (input.innerHTML < 1) {
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Backspace') {
         if (target.closest('.create-box--buying-chbox') && !target.closest('.sub-chbox')) {
-          if (target.closest('.create-box--buying-chbox > .sub-chbox') === null) {
+          if (target.closest('.create-box--buying-chbox').querySelector('.sub-chbox .inputField') === null) {
             target.closest('.create-box--buying-chbox').remove()
           }
         } else {
