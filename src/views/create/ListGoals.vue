@@ -24,13 +24,14 @@
               :id="`buying-checkbox-${index}`"
               placeholder="Write your notes here..."
               @keyup.delete="deleteInput($event)"
+              @change="chkedInput"
             />
-            <div class="sub-chbox">
+            <div class="sub-chbox" :id="`chk-${index}`">
               <inputField
                 v-for="(subItem, subindex) in buyingCheckbox[index].sub"
                 :key="subindex"
                 type="checkbox"
-                :id="`buying-checkbox-sub-${subindex}`"
+                :id="`buying-checkbox-sub--${index}-${subindex}`"
                 placeholder="Write your notes here..."
                 @keyup.delete="deleteInput($event)"
               />
@@ -90,8 +91,15 @@ const deleteInput = (event) => {
   if (input.innerHTML < 1) {
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Backspace') {
-        if (target.closest('.create-box--buying-chbox') && !target.closest('.sub-chbox')) {
-          if (target.closest('.create-box--buying-chbox').querySelector('.sub-chbox .inputField') === null) {
+        if (
+          target.closest('.create-box--buying-chbox') &&
+          !target.closest('.sub-chbox')
+        ) {
+          if (
+            target
+              .closest('.create-box--buying-chbox')
+              .querySelector('.sub-chbox .inputField') === null
+          ) {
             target.closest('.create-box--buying-chbox').remove()
           }
         } else {
@@ -100,6 +108,101 @@ const deleteInput = (event) => {
       }
     })
   }
+}
+// 전체 체크선
+const chkedInput = (event) => {
+  const chkedInput = event.target
+  const findId = chkedInput.getAttribute('id')
+  const findIndex = parseInt(findId.split('buying-checkbox-')[1])
+  // findIndexdp 해당하는 sub
+  const chkedInputParent = chkedInput.parentNode
+  const chkedInputParent2 = chkedInputParent.parentNode
+  const chkedInputParent3 = chkedInputParent2.parentNode
+  const chkedInputId = chkedInputParent3
+    .querySelector('.sub-chbox')
+    .getAttribute('id')
+  const chkedInputIdFindIndex = parseInt(chkedInputId.split('chk-')[1])
+  const chkedInputClass = chkedInputParent3.querySelector('.sub-chbox')
+  const chkedInputClassEach = chkedInputClass.querySelectorAll(
+    '.inputField__input__checkbox'
+  )
+  const chkedInputLabelEach = chkedInputClass.querySelectorAll(
+    '.inputField__input__checkbox--label'
+  )
+  const chkedInputTxtEach = chkedInputClass.querySelectorAll(
+    '.inputField__text.inputField__text--side'
+  )
+  // 전체 index = 서브 index
+  if (findIndex === chkedInputIdFindIndex && chkedInput.checked) {
+    chkedInputClassEach.forEach((checkbox) => {
+      checkbox.checked = true
+      checkbox.readOnly = true
+    })
+    chkedInputLabelEach.forEach((checkbox) => {
+      checkbox.classList.add('on')
+    })
+    chkedInputTxtEach.forEach((checkbox) => {
+      checkbox.setAttribute('contenteditable', 'false')
+      checkbox.classList.add('checked')
+    })
+  } else if (findIndex === chkedInputIdFindIndex && !chkedInput.checked) {
+    chkedInputClassEach.forEach((checkbox) => {
+      checkbox.checked = false
+      checkbox.readOnly = false
+    })
+    chkedInputLabelEach.forEach((checkbox) => {
+      checkbox.classList.remove('on')
+    })
+    chkedInputTxtEach.forEach((checkbox) => {
+      checkbox.setAttribute('contenteditable', 'true')
+      checkbox.classList.remove('checked')
+    })
+  }
+  // if (findIndex === chkedInputIdFindIndex && chkedInput.checked) {
+  //   chkedInputTxtEach.forEach((checkbox) => {
+  //     if (checkbox.innerText === '') {
+  //       chkedInputClassEach.forEach((input) => {
+  //         input.checked = true
+  //         input.readOnly = true
+  //         console.log(checkbox.innerText)
+  //       })
+  //       chkedInputLabelEach.forEach((checkbox) => {
+  //         checkbox.classList.add('on')
+  //       })
+  //       checkbox.setAttribute('contenteditable', 'false')
+  //       checkbox.classList.add('checked')
+  //     } else if (checkbox.innerText === '') {
+  //       chkedInputClassEach.forEach((input) => {
+  //         input.checked = false
+  //         input.readOnly = false
+  //       })
+  //       chkedInputLabelEach.forEach((label) => {
+  //         label.classList.remove('on')
+  //       })
+  //       checkbox.setAttribute('contenteditable', 'true')
+  //       checkbox.classList.remove('checked')
+  //     }
+  //   })
+  // } else if (findIndex === chkedInputIdFindIndex && !chkedInput.checked) {
+  //   chkedInputTxtEach.forEach((checkbox) => {
+  //     if (checkbox.innerText !== '') {
+  //       chkedInputClassEach.forEach((input) => {
+  //         input.checked = false
+  //         input.readOnly = false
+  //       })
+  //       chkedInputLabelEach.forEach((checkbox) => {
+  //         checkbox.classList.remove('on')
+  //       })
+  //       checkbox.setAttribute('contenteditable', 'true')
+  //       checkbox.classList.remove('checked')
+  //     } else if (checkbox.innerText === '') {
+  //       chkedInputClassEach.forEach((input) => {
+  //         input.checked = false
+  //         input.readOnly = false
+  //       })
+  //     }
+  //   })
+  // }
 }
 </script>
 <style lang="scss">

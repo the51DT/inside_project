@@ -115,7 +115,7 @@
       font-size: rem(16px);
       line-height: initial;
       height: auto;
-      color: $neutral-darkgrey;
+      color: $neutral-dark;
       overflow-y: visible;
       &:empty {
         &::before {
@@ -327,8 +327,7 @@
         background-position: center center;
         margin-left: rem(8px);
       }
-      &::-webkit-search-decoration
-      {
+      &::-webkit-search-decoration {
         display: none;
       }
     }
