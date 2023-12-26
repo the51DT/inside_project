@@ -254,10 +254,10 @@ export default {
       const target = el.currentTarget
       const input = target.nextElementSibling
       const label = input.nextElementSibling
-      if (input.innerText === 0) {
+      if (input.innerText === '') {
         target.checked = false
       }
-      if (target.checked === true && input.innerText !== 0) {
+      if (target.checked === true && input.innerText !== '') {
         input.classList.add('checked')
       } else {
         input.classList.remove('checked')
