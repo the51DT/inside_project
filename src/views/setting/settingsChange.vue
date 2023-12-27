@@ -8,8 +8,8 @@
       <inputField
         type="password"
         title="Current Password"
-        id="name"
-        name="name"
+        id="current"
+        name="current"
         placeholder="*********"
         v-model:defaultText="current"
         :caption="currentState.caption"
@@ -22,8 +22,8 @@
         <inputField
           type="password"
           title="New Password"
-          id="name"
-          name="name"
+          id="change"
+          name="change"
           placeholder="*********"
           v-model:defaultText="change"
           :caption="changelState.caption"
@@ -32,8 +32,8 @@
         <inputField
           type="password"
           title="Retype New Password"
-          id="name"
-          name="name"
+          id="retype"
+          name="retype"
           placeholder="*********"
           v-model:defaultText="retype"
           :caption="retypeState.caption"
@@ -68,16 +68,16 @@ const changelState = reactive({
 const retypeState = reactive({ caption: '', warn: false })
 
 const store = useStore()
-const userNum = computed(() => store.state.userNum)
-const currentPassword = computed(
-  () => store.state.users[userNum.value].password
-)
+const useremail = computed(() => store.state.users.loginEmail)
+const users = computed(() => store.state.users.usersInfo)
+const loginUser = users.value.filter((el) => { return el.email === useremail.value })
+const currentPassword = loginUser[0].password
 
 const goLogin = () => {
   if (!current.value) {
     currentState.caption = 'please enter current password :)'
     currentState.warn = true
-  } else if (current.value !== currentPassword.value) {
+  } else if (current.value !== currentPassword) {
     currentState.caption = 'please check current password :)'
     currentState.warn = true
   } else {
@@ -104,12 +104,9 @@ const goLogin = () => {
     }
   }
   if (current.value && change.value && retype.value) {
-    if (current.value === currentPassword.value) {
+    if (current.value === currentPassword) {
       if (change.value === retype.value) {
-        store.commit('settingNewPW', {
-          index: userNum.value,
-          settingNewPW: change.value
-        })
+        store.commit('settingNewPW', change.value)
         goUrl('complete')
       }
     }

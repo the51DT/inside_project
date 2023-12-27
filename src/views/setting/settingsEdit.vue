@@ -29,15 +29,14 @@
           v-model:defaultText="name"
         ></inputField>
         <inputField
-          type="email"
-          title="Email Address"
-          id="email"
-          name="email"
-          placeholder="Email Address"
-          :defaultText="emailValue"
-          :caption="emailState.caption"
-          :warn="emailState.warn"
-          v-model:defaultText="email"
+          type="password"
+          title="Current Password"
+          id="password"
+          name="password"
+          placeholder="Current Password"
+          :caption="passwordState.caption"
+          :warn="passwordState.warn"
+          v-model:defaultText="password"
         ></inputField>
       </div>
       <ButtonCmp
@@ -46,7 +45,7 @@
         btnSize="large"
         iconPositionLeft="left"
         btnTxt="Save Changes"
-        @click="[sendName(), sendEmail(), sendImg(previewImage)]"
+        @click="[goLogin()]"
       />
     </div>
   </div>
@@ -63,9 +62,9 @@ const goUrl = (url) => {
   }
 }
 const name = ref('')
-const email = ref('')
+const password = ref('')
 const nameState = reactive({ caption: '', warn: false })
-const emailState = reactive({ caption: 'Changing email address information means you need to re-login to the apps.', warn: false })
+const passwordState = reactive({ caption: 'Changing email address information means you need to re-login to the apps.', warn: false })
 
 const store = useStore()
 
@@ -73,7 +72,7 @@ const useremail = computed(() => store.state.users.loginEmail)
 const users = computed(() => store.state.users.usersInfo)
 const loginUser = users.value.filter((el) => { return el.email === useremail.value })
 const nameValue = loginUser[0].name
-const emailValue = loginUser[0].email
+const passwordValue = loginUser[0].password
 const imgValue = computed(() => store.state.users.settingImg)
 
 const sendName = () => {
@@ -86,19 +85,20 @@ const sendName = () => {
     nameState.warn = false
   }
 }
-const sendEmail = () => {
-  if (email.value.length === 0 || emailValue.value === email.value) {
-    emailState.caption = 'please enter change email :)'
-    emailState.warn = true
+const goLogin = () => {
+  if (password.value.length === 0) {
+    passwordState.caption = 'please enter your current password :)'
+    passwordState.warn = true
   } else {
-    if (email.value.includes('@')) {
-      store.commit('settingNewEmail', email.value)
-      emailState.caption = ''
-      emailState.warn = false
+    if (passwordValue === password.value) {
+      passwordState.caption = ''
+      passwordState.warn = false
       goUrl('settings')
+      sendName()
+      sendImg(previewImage)
     } else {
-      emailState.caption = 'please enter right email :)'
-      emailState.warn = true
+      passwordState.caption = 'please enter right password :)'
+      passwordState.warn = true
     }
   }
 }

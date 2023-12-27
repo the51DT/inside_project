@@ -26,9 +26,10 @@ export const users = {
     settingNewName(state, settingNewName) {
       state.usersInfo.find((el) => el.email === state.loginEmail).name = settingNewName
     },
-    settingNewEmail(state, settingNewEmail) {
-      state.usersInfo.find((el) => el.email === state.loginEmail).email = settingNewEmail
-    },
+    // settingNewEmail(state, settingNewEmail) {
+    //   state.usersInfo.find((el) => el.email === state.loginEmail).email = settingNewEmail
+    //   state.loginEmail = settingNewEmail
+    // },
     settingNewImg(state, settingNewImg) {
       state.settingImg = settingNewImg
     },
