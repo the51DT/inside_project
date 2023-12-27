@@ -86,6 +86,8 @@ const lists = [
 .finished {
   height: 100%;
   &__wrap {
+    height: 100%;
+    overflow-y: scroll;
     background-color: $primary-background;
   }
   &__top {
