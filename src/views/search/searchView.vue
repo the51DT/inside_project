@@ -33,15 +33,11 @@ const goUrl = (url) => {
 }
 const store = useStore()
 const result = ref('')
-// const useremail = computed(() => store.state.users.loginEmail)
 const seachList2 = computed(() => store.state.users.loginEmail)
-// console.log(seachList2.value)
 const users = computed(() => store.state.users.usersInfo)
 const loginUserList = users.value.find(
   (user) => user.email === seachList2.value
 )
-// console.log(seachList2.value, loginUserList.searchList)
-// console.log(store.state.users.usersInfo)
 const seachList = ref(loginUserList.searchList)
 
 const addRecent = (event) => {
