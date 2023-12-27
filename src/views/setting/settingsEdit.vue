@@ -77,33 +77,41 @@ const nameValue = loginUser[0].name
 const passwordValue = loginUser[0].password
 const imgValue = computed(() => store.state.users.settingImg)
 
-const sendName = () => {
-  if (name.value.length === 0 || nameValue.value === name.value) {
+// const sendName = () => {
+//   if (name.value.length === 0 || nameValue.value === name.value) {
+//     nameState.caption = 'please enter change name :)'
+//     nameState.warn = true
+//   } else {
+//     nameState.caption = ''
+//     nameState.warn = false
+//   }
+// }
+
+console.log(nameValue, nameValue.value, name, name.value)
+const goLogin = () => {
+  if (password.value.length === 0) {
+    passwordState.caption = 'please enter your current password :)'
+    passwordState.warn = true
+  } else {
+    if (passwordValue === password.value) {
+      passwordState.caption = ''
+      passwordState.warn = false
+    } else {
+      passwordState.caption = 'please enter right password :)'
+      passwordState.warn = true
+    }
+  }
+  if (name.value.length === 0 || nameValue === name.value) {
     nameState.caption = 'please enter change name :)'
     nameState.warn = true
   } else {
     nameState.caption = ''
     nameState.warn = false
   }
-}
-const goLogin = () => {
-  if (password.value.length === 0) {
-    passwordState.caption = 'please enter your current password :)'
-    passwordState.warn = true
-    sendName()
-  } else {
-    if (passwordValue === password.value) {
-      passwordState.caption = ''
-      passwordState.warn = false
-      goUrl('settings')
-      sendName()
-      sendImg(previewImage)
-      store.commit('settingNewName', name.value)
-    } else {
-      passwordState.caption = 'please enter right password :)'
-      passwordState.warn = true
-      sendName()
-    }
+  if (name.value.length !== 0 && nameValue !== name.value && passwordValue === password.value) {
+    sendImg(previewImage)
+    store.commit('settingNewName', name.value)
+    goUrl('settings')
   }
 }
 const sendImg = (el) => {
