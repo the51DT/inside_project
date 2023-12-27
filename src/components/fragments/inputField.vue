@@ -149,7 +149,7 @@
         :name="name"
         :placeholder="placeholder"
         :readonly="checked"
-        :contenteditable="readonly ? false : true"
+        :contenteditable="readonly || listType ? false : true"
         @keyup.delete="textareaPlaceholder"
       >
         {{ defaultText }}
@@ -223,6 +223,7 @@ export default {
     icon: Boolean,
     fontCustom: String,
     disabled: Boolean,
+    listType: Boolean,
     options: {
       type: Array,
       default: () => {

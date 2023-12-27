@@ -165,6 +165,14 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "settings" */ '../views/create/ListTasks.vue')
   },
+  {
+    path: '/create/newtasks',
+    name: 'ListNewTasks',
+    component: () =>
+      import(
+        /* webpackChunkName: "settings" */ '../views/create/ListTasksNew.vue'
+      )
+  },
   // finish
   {
     path: '/finished',

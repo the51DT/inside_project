@@ -1,65 +1,63 @@
 <template>
   <div class="color-bg">
-    <!-- // 기본 화면 (task - sub Notes 입력 하시겠습니까?) -->
-    <template v-if="writePage">
-      <!-- sub Notes 입력할 화면 -->
+    <!-- sub Notes 리스트 -->
+    <template v-if="listPage">
       <div class="nav-bar__fixed">
-        <NavBar back="Back" />
+        <NavBar back="Back" rightBtn="tasks" />
       </div>
       <div class="create__wrap">
-        <div class="create-box--task">
-          <div class="create-box--task-tit">
-            <inputField
-              type="textareaTitle"
-              id="task-title"
-              placeholder="Title Here"
-              fontCustom="32"
-            />
-          </div>
-          <div v-if="items.length >= 1" class="create-box--task-add">
-            <!-- <draggable v-model="items"> -->
-            <inputField
-              v-for="(item, index) in items"
+        <!-- ACTIVE SUB NOTES -->
+        <div class="create-box--active">
+          <p>ACTIVE SUB NOTES</p>
+          <ul class="sub-list">
+            <li
+              class="sub-list-each"
+              v-for="(list, index) in activeList"
               :key="index"
-              :type="item.type === 'textarea' ? 'textareaDes' : 'checkbox'"
-              :id="
-                item.type === 'textarea'
-                  ? `textareaDes_default-${index}`
-                  : `list-checkbox-${index}`
-              "
-              :placeholder="
-                item.type === 'textarea'
-                  ? 'Write your notes here...'
-                  : 'Write your notes here...'
-              "
-              :fontCustom="item.type === 'textarea' ? '400' : ''"
-              @keyup.delete="deleteInput($event)"
-            />
-            <!-- </draggable> -->
-          </div>
-          <div class="create-box--task-btn">
-            <p>ACTIONS</p>
-            <ButtonCmp
-              plusBtn="base"
-              btnSize="small"
-              iconPositionCenter="center"
-              btnTxt="Add Free TextArea"
-              @click="addItem('textarea')"
-            />
-            <ButtonCmp
-              plusBtn="base"
-              btnSize="small"
-              iconPositionCenter="center"
-              btnTxt="Add CheckList"
-              @click="addItem('checkbox')"
-            />
-          </div>
+              :class="list.bgcolor"
+            >
+              <inputField
+                type="checkbox"
+                :id="`active-${index}-list-title`"
+                round
+                :defaultText="list.title"
+                placeholder="Write your notes here..."
+                @change="chkedList"
+                :listType="true"
+              />
+              <p :class="isChked === 'checked'" class="each-des">
+                {{ list.des }}
+              </p>
+            </li>
+          </ul>
+        </div>
+        <!-- COMPLETED SUB NOTES -->
+        <div class="create-box--active">
+          <p>COMPLETED SUB NOTES</p>
+          <ul class="sub-list">
+            <li
+              class="sub-list-each"
+              v-for="(list, index) in completedList"
+              :key="index"
+              :class="list.bgcolor"
+            >
+              <inputField
+                type="checkbox"
+                :id="`completed-${index}-list-title`"
+                round
+                :defaultText="list.title"
+                placeholder="Write your notes here..."
+                @change="chkedList"
+                :listType="true"
+              />
+              <p :class="isChked === 'checked'" class="each-des">
+                {{ list.des }}
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
-      <TaskBar />
-      <!-- // sub Notes 입력할 화면 -->
     </template>
-    <!-- sub Notes 리스트 -->
     <!-- // sub Notes 리스트 -->
   </div>
 </template>
@@ -68,88 +66,137 @@
 import { ref } from 'vue'
 // import { draggable } from 'vuedraggable'
 
-const items = ref([])
-const writePage = ref(true)
-const addItem = (type) => {
-  items.value.push({ type })
-}
-const deleteInput = (event) => {
-  const input = event.target
-  const target = input.closest('.inputField')
-  if (input.innerHTML < 1) {
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Backspace') {
-        target.remove()
-      }
-    })
+const listPage = ref(true)
+const activeList = [
+  {
+    title: 'important task',
+    des: 'Create a mobile app UI Kit that provide a basic notes functionality but with some improvement',
+    bgcolor: 'secondary-light'
+  },
+  {
+    title: 'important task',
+    des: 'Create a mobile app UI Kit that provide a basic notes functionality but with some improvement',
+    bgcolor: 'primary-base'
+  }
+]
+const completedList = [
+  {
+    title: 'task1',
+    des: 'Create a mobile app UI Kit that provide a basic notes functionality but with some improvement',
+    bgcolor: 'warning-light'
+  },
+  {
+    title: 'task2',
+    des: 'Create a mobile app UI Kit that provide a basic notes functionality but with some improvement',
+    bgcolor: 'success-light'
+  },
+  {
+    title: 'task3',
+    des: 'Create a mobile app UI Kit that provide a basic notes functionality but with some improvement',
+    bgcolor: 'error-light'
+  }
+]
+const chkedList = (event) => {
+  const chkedTitleInput = event.target
+  console.log(chkedTitleInput)
+  const chkedTitleParent = chkedTitleInput.parentNode
+  const chkedchkedTitleParent2 = chkedTitleParent.parentNode
+  const chkedchkedTitleParent3 = chkedchkedTitleParent2.parentNode
+  const TitlePtag = chkedchkedTitleParent3.querySelector(
+    '.inputField__text.inputField__text--side'
+  )
+  const chkedTitlePtag = chkedchkedTitleParent3.querySelector(
+    '.inputField__text.inputField__text--side.checked'
+  )
+  console.log(TitlePtag)
+  console.log(chkedTitlePtag)
+  const chkedDes = chkedchkedTitleParent3.querySelector('.each-des')
+  if (TitlePtag === chkedTitlePtag) {
+    chkedDes.classList.add('checked')
+  } else {
+    chkedDes.classList.remove('checked')
   }
 }
 </script>
 <style lang="scss">
 .create__wrap {
   padding: rem(78px) rem(16px) rem(60px);
-  .create-box--task {
-    &-tit {
-      .inputField__text {
-        padding: 0;
-        font-size: rem(32px);
-        font-weight: 700;
-        line-height: rem(38.4px);
-      }
+  .create-box--active {
+    > p {
+      font-size: rem(10px);
+      color: $neutral-darkgrey;
+      line-height: normal;
     }
-    &-add {
-      margin-top: rem(16px);
-      padding: rem(12px) 0;
-      .inputField {
-        & + .inputField {
-          margin-top: rem(24px);
+    .sub-list {
+      margin-top: rem(24px);
+      li {
+        & + li {
+          margin-top: rem(16px);
+        }
+      }
+      &-each {
+        border-radius: rem(8px);
+        .inputField {
+          padding: rem(12px) rem(12px) 0;
+        }
+        .each-des {
+          padding: rem(8px) rem(12px) rem(12px);
+          margin-top: rem(8px);
+          border-top: rem(1px) solid;
+          font-size: rem(14px);
+          line-height: rem(19.6px);
+        }
+        &.secondary-light {
+          background-color: $secondary-light;
+          .inputField__text,
+          .each-des {
+            color: $secondary-dark;
+            border-color: $secondary-dark;
+          }
+        }
+        &.primary-base {
+          background-color: $primary-light;
+          .inputField__text,
+          .each-des {
+            color: $primary-dark;
+            border-color: $primary-dark;
+          }
+        }
+        &.warning-light {
+          background-color: $warning-light;
+          .inputField__text,
+          .each-des {
+            color: $warning-dark;
+            border-color: $warning-dark;
+          }
+        }
+        &.success-light {
+          background-color: $success-light;
+          .inputField__text,
+          .each-des {
+            color: $success-dark;
+            border-color: $success-dark;
+          }
+        }
+        &.error-light {
+          background-color: $error-light;
+          .inputField__text,
+          .each-des {
+            color: $error-dark;
+            border-color: $error-dark;
+          }
         }
       }
     }
-    &-btn {
-      margin-top: rem(24px);
-      padding-top: rem(24px);
-      border-top: 1px solid $neutral-lightgrey;
-      button {
-        display: flex;
-        gap: 16px;
-        margin-top: rem(24px);
-      }
+    & + .create-box--active {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: rem(1px) solid $neutral-basegrey;
     }
   }
-  &.basic {
-    position: relative;
-    height: 100%;
-    .basic-box {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      padding: 0 rem(16px);
-    }
-    .subnote-img {
-      background: url('@/assets/images/onboarding/onboarding_img_3.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-      padding-top: 100%;
-      display: block;
-    }
-    .basic_des {
-      font-size: rem(40px);
-      line-height: rem(50px);
-      color: $neutral-basegrey;
-      text-align: center;
-      p {
-        & + p {
-          margin-top: rem(32px);
-          color: $neutral-darkgrey;
-        }
-      }
-    }
-    button {
-      margin-top: rem(32px);
+  .each-des {
+    &.checked {
+      text-decoration: line-through;
     }
   }
 }
