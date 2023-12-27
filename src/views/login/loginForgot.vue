@@ -8,6 +8,9 @@
         id="email"
         name="email"
         placeholder="Example: johndoe@gmail.com"
+        v-model:defaultText="email"
+        :caption="emailState.caption"
+        :warn="emailState.warn"
       />
     </div>
     <div class="login__button">
@@ -25,12 +28,29 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { ref, reactive, computed } from 'vue'
+import { useStore } from 'vuex'
 
+const store = useStore()
 const router = useRouter()
 
+const users = computed(() => store.state.users.usersInfo)
+const email = ref('')
+const emailState = reactive({ caption: '', warn: false })
+
 const goUrl = (url) => {
-  if (url === 'reset') {
-    router.push({ name: 'LoginReset' })
+  const isID = users.value
+    .filter((id) => id.email === email.value)
+    .map((email) => email.email)
+    .toString()
+  if (isID !== email.value || email.value === '') {
+    emailState.warn = true
+    emailState.caption = 'please check your ID :)'
+  } else {
+    console.log(isID + 'hi')
+    if (url === 'reset') {
+      router.push({ name: 'LoginReset' })
+    }
   }
 }
 </script>
