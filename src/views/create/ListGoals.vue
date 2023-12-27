@@ -114,7 +114,7 @@ const chkedInput = (event) => {
   const chkedInput = event.target
   const findId = chkedInput.getAttribute('id')
   const findIndex = parseInt(findId.split('buying-checkbox-')[1])
-  // findIndexdp 해당하는 sub
+  // findIndex에 해당하는 sub
   const chkedInputParent = chkedInput.parentNode
   const chkedInputParent2 = chkedInputParent.parentNode
   const chkedInputParent3 = chkedInputParent2.parentNode
@@ -132,8 +132,9 @@ const chkedInput = (event) => {
   const chkedInputTxtEach = chkedInputClass.querySelectorAll(
     '.inputField__text.inputField__text--side'
   )
-  // 전체 index = 서브 index
+  // 전체 index = 서브 index & 현재 index에 체크가 되어있는 경우
   if (findIndex === chkedInputIdFindIndex && chkedInput.checked) {
+    const emptyArray = []
     chkedInputClassEach.forEach((checkbox) => {
       checkbox.checked = true
       checkbox.readOnly = true
@@ -141,11 +142,21 @@ const chkedInput = (event) => {
     chkedInputLabelEach.forEach((checkbox) => {
       checkbox.classList.add('on')
     })
-    chkedInputTxtEach.forEach((checkbox) => {
+    chkedInputTxtEach.forEach((checkbox, index) => {
       checkbox.setAttribute('contenteditable', 'false')
       checkbox.classList.add('checked')
+      if (checkbox.innerText === '') {
+        emptyArray.push(index)
+      }
     })
-  } else if (findIndex === chkedInputIdFindIndex && !chkedInput.checked) {
+    emptyArray.forEach((empty) => {
+      chkedInputClassEach[empty].checked = false
+      chkedInputClassEach[empty].readOnly = false
+      chkedInputLabelEach[empty].classList.remove('on')
+      chkedInputTxtEach[empty].setAttribute('contenteditable', 'true')
+      chkedInputTxtEach[empty].classList.remove('checked')
+    })
+  } else {
     chkedInputClassEach.forEach((checkbox) => {
       checkbox.checked = false
       checkbox.readOnly = false
@@ -158,51 +169,6 @@ const chkedInput = (event) => {
       checkbox.classList.remove('checked')
     })
   }
-  // if (findIndex === chkedInputIdFindIndex && chkedInput.checked) {
-  //   chkedInputTxtEach.forEach((checkbox) => {
-  //     if (checkbox.innerText === '') {
-  //       chkedInputClassEach.forEach((input) => {
-  //         input.checked = true
-  //         input.readOnly = true
-  //         console.log(checkbox.innerText)
-  //       })
-  //       chkedInputLabelEach.forEach((checkbox) => {
-  //         checkbox.classList.add('on')
-  //       })
-  //       checkbox.setAttribute('contenteditable', 'false')
-  //       checkbox.classList.add('checked')
-  //     } else if (checkbox.innerText === '') {
-  //       chkedInputClassEach.forEach((input) => {
-  //         input.checked = false
-  //         input.readOnly = false
-  //       })
-  //       chkedInputLabelEach.forEach((label) => {
-  //         label.classList.remove('on')
-  //       })
-  //       checkbox.setAttribute('contenteditable', 'true')
-  //       checkbox.classList.remove('checked')
-  //     }
-  //   })
-  // } else if (findIndex === chkedInputIdFindIndex && !chkedInput.checked) {
-  //   chkedInputTxtEach.forEach((checkbox) => {
-  //     if (checkbox.innerText !== '') {
-  //       chkedInputClassEach.forEach((input) => {
-  //         input.checked = false
-  //         input.readOnly = false
-  //       })
-  //       chkedInputLabelEach.forEach((checkbox) => {
-  //         checkbox.classList.remove('on')
-  //       })
-  //       checkbox.setAttribute('contenteditable', 'true')
-  //       checkbox.classList.remove('checked')
-  //     } else if (checkbox.innerText === '') {
-  //       chkedInputClassEach.forEach((input) => {
-  //         input.checked = false
-  //         input.readOnly = false
-  //       })
-  //     }
-  //   })
-  // }
 }
 </script>
 <style lang="scss">
