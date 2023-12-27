@@ -11,20 +11,29 @@ export const users = {
           email: 'the51@the-51.com',
           password: 'qwer1234',
           name: 'the51',
-          note: 12
+          note: 12,
+          searchList: [
+            { item: 'Product Idea', route: 'Home' },
+            { item: 'Monthly Buying List', route: 'Home' }
+          ]
         },
         {
           email: 'test@the-51.com',
           password: '1234',
           name: 'test',
-          note: 0
+          note: 0,
+          searchList: [
+            { item: 'test', route: 'Home' },
+            { item: 'test132', route: 'Home' }
+          ]
         }
       ]
     }
   },
   mutations: {
     settingNewName(state, settingNewName) {
-      state.usersInfo.find((el) => el.email === state.loginEmail).name = settingNewName
+      state.usersInfo.find((el) => el.email === state.loginEmail).name =
+        settingNewName
     },
     // settingNewEmail(state, settingNewEmail) {
     //   state.usersInfo.find((el) => el.email === state.loginEmail).email = settingNewEmail
@@ -34,7 +43,8 @@ export const users = {
       state.settingImg = settingNewImg
     },
     settingNewPW(state, settingNewPW) {
-      state.usersInfo.find((el) => el.email === state.loginEmail).password = settingNewPW
+      state.usersInfo.find((el) => el.email === state.loginEmail).password =
+        settingNewPW
     },
     forgotPW(state, { pw: newPW, email: useremail }) {
       state.usersInfo.find((el) => el.email === useremail).password = newPW

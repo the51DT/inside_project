@@ -23,19 +23,26 @@
 
 <script setup>
 import router from '@/router'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex'
 
 const goUrl = (url) => {
   if (url === 'back') {
     router.go(-1)
   }
 }
-
+const store = useStore()
 const result = ref('')
-const seachList = ref([
-  { item: 'Product Idea', route: 'Home' },
-  { item: 'Monthly Buying List', route: 'Home' }
-])
+// const useremail = computed(() => store.state.users.loginEmail)
+const seachList2 = computed(() => store.state.users.loginEmail)
+// console.log(seachList2.value)
+const users = computed(() => store.state.users.usersInfo)
+const loginUserList = users.value.find(
+  (user) => user.email === seachList2.value
+)
+// console.log(seachList2.value, loginUserList.searchList)
+// console.log(store.state.users.usersInfo)
+const seachList = ref(loginUserList.searchList)
 
 const addRecent = (event) => {
   if (result.value === '') return false
