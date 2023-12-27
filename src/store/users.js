@@ -36,6 +36,9 @@ export const users = {
     settingNewPW(state, settingNewPW) {
       state.usersInfo.find((el) => el.email === state.loginEmail).password = settingNewPW
     },
+    forgotPW(state, { pw: newPW, email: useremail }) {
+      state.usersInfo.find((el) => el.email === useremail).password = newPW
+    },
     addUser(state, user) {
       state.usersInfo.push(user)
       console.table(state.usersInfo)
