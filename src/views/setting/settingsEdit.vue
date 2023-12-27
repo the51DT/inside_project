@@ -27,6 +27,7 @@
           :caption="nameState.caption"
           :warn="nameState.warn"
           v-model:defaultText="name"
+          @keyup.enter="goLogin"
         ></inputField>
         <inputField
           type="password"
@@ -37,6 +38,7 @@
           :caption="passwordState.caption"
           :warn="passwordState.warn"
           v-model:defaultText="password"
+          @keyup.enter="goLogin"
         ></inputField>
       </div>
       <ButtonCmp
@@ -80,7 +82,6 @@ const sendName = () => {
     nameState.caption = 'please enter change name :)'
     nameState.warn = true
   } else {
-    store.commit('settingNewName', name.value)
     nameState.caption = ''
     nameState.warn = false
   }
@@ -89,6 +90,7 @@ const goLogin = () => {
   if (password.value.length === 0) {
     passwordState.caption = 'please enter your current password :)'
     passwordState.warn = true
+    sendName()
   } else {
     if (passwordValue === password.value) {
       passwordState.caption = ''
@@ -96,9 +98,11 @@ const goLogin = () => {
       goUrl('settings')
       sendName()
       sendImg(previewImage)
+      store.commit('settingNewName', name.value)
     } else {
       passwordState.caption = 'please enter right password :)'
       passwordState.warn = true
+      sendName()
     }
   }
 }

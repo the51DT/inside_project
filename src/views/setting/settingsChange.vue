@@ -14,6 +14,7 @@
         v-model:defaultText="current"
         :caption="currentState.caption"
         :warn="currentState.warn"
+        @keyup.enter="goLogin()"
       ></inputField>
     </div>
     <div class="setting__bottom">
@@ -28,6 +29,7 @@
           v-model:defaultText="change"
           :caption="changelState.caption"
           :warn="changelState.warn"
+          @keyup.enter="goLogin()"
         ></inputField>
         <inputField
           type="password"
@@ -38,6 +40,7 @@
           v-model:defaultText="retype"
           :caption="retypeState.caption"
           :warn="retypeState.warn"
+          @keyup.enter="goLogin()"
         ></inputField>
       </div>
       <ButtonCmp
@@ -46,7 +49,7 @@
         btnSize="large"
         iconPositionRight="right"
         btnTxt="Save Changes"
-        @click=";[goLogin()]"
+        @click="[goLogin()]"
       />
     </div>
   </div>

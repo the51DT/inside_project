@@ -11,6 +11,7 @@
         v-model:defaultText="email"
         :caption="emailState.caption"
         :warn="emailState.warn"
+        @keyup.enter="goUrl('reset')"
       />
     </div>
     <div class="login__button">

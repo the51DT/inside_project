@@ -11,6 +11,7 @@
         v-model:defaultText="change"
         :caption="changeState.caption"
         :warn="changeState.warn"
+        @keyup.enter="goLogin('home')"
       />
       <inputField
         type="password"
@@ -21,6 +22,7 @@
         v-model:defaultText="retype"
         :caption="retypeState.caption"
         :warn="retypeState.warn"
+        @keyup.enter="goLogin('home')"
       />
     </div>
     <div class="login__button">
