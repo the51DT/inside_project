@@ -82,7 +82,8 @@ const registerUser = () => {
   const newUser = {
     email: newEmail.value,
     password: newPassword.value,
-    name: newName.value
+    name: newName.value,
+    note: 0
   }
   if (newName.value && newEmail.value && newPassword.value) {
     goUrl('login')
