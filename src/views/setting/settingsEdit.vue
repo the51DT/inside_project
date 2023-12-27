@@ -69,17 +69,19 @@ const emailState = reactive({ caption: 'Changing email address information means
 
 const store = useStore()
 
-const userNum = computed(() => store.state.userNum)
-const nameValue = computed(() => store.state.users[userNum.value].name)
-const emailValue = computed(() => store.state.users[userNum.value].email)
-const imgValue = computed(() => store.state.settingImg)
+const useremail = computed(() => store.state.users.loginEmail)
+const users = computed(() => store.state.users.usersInfo)
+const loginUser = users.value.filter((el) => { return el.email === useremail.value })
+const nameValue = loginUser[0].name
+const emailValue = loginUser[0].email
+const imgValue = computed(() => store.state.users.settingImg)
 
 const sendName = () => {
   if (name.value.length === 0 || nameValue.value === name.value) {
     nameState.caption = 'please enter change name :)'
     nameState.warn = true
   } else {
-    store.commit('settingNewName', { index: userNum.value, settingNewName: name.value })
+    store.commit('settingNewName', name.value)
     nameState.caption = ''
     nameState.warn = false
   }
@@ -90,10 +92,10 @@ const sendEmail = () => {
     emailState.warn = true
   } else {
     if (email.value.includes('@')) {
-      store.commit('settingNewEmail', { index: userNum.value, settingNewEmail: email.value })
-      goUrl('settings')
+      store.commit('settingNewEmail', email.value)
       emailState.caption = ''
       emailState.warn = false
+      goUrl('settings')
     } else {
       emailState.caption = 'please enter right email :)'
       emailState.warn = true

@@ -116,6 +116,7 @@ const goLogin = () => {
   }
   if (userEmailState.warn === false && userPasswordState.warn === false) {
     router.push({ name: 'Home' })
+    store.commit('loginInfo', isID)
   }
 }
 const goUrl = (url) => {
