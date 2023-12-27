@@ -32,13 +32,14 @@
           <swiper-slide
             v-for="(note, i) in notes"
             :key="i"
+            style="width: auto !important"
           >
-          <noteCmp
-            :title="note.title"
-            :type="note.type"
-            :color="note.color"
-            sub="Interesting Idea"
-          />
+            <noteCmp
+              :title="note.title"
+              :type="note.type"
+              :color="note.color"
+              sub="Interesting Idea"
+            />
           </swiper-slide>
         </swiper>
       </div>
@@ -54,15 +55,12 @@
       </div>
       <div class="home__swiper">
         <swiper class="swiper swiper2" :options="swiperOption">
-          <swiper-slide
-            v-for="(note, i) in notes"
-            :key="i"
-          >
-          <noteCmp
-            :title="note.title"
-            :type="note.type"
-            :color="note.color"
-          />
+          <swiper-slide v-for="(note, i) in notes" :key="i">
+            <noteCmp
+              :title="note.title"
+              :type="note.type"
+              :color="note.color"
+            />
           </swiper-slide>
         </swiper>
       </div>
@@ -81,12 +79,13 @@ import 'swiper/css/pagination'
 const store = useStore()
 const useremail = computed(() => store.state.users.loginEmail)
 const users = computed(() => store.state.users.usersInfo)
-const loginUser = users.value.filter((el) => { return el.email === useremail.value })
+const loginUser = users.value.filter((el) => {
+  return el.email === useremail.value
+})
 const note = loginUser[0].note
 
 console.log(note)
 const swiperOption = {
-  spaceBetween: 20,
   slidesPerView: 2
 }
 
@@ -125,7 +124,7 @@ const notes = [
 </script>
 
 <style lang="scss">
-.home{
+.home {
   height: 100%;
   &-no__wrap {
     display: flex;
@@ -184,6 +183,12 @@ const notes = [
         display: block;
         width: fit-content;
       }
+    }
+    .swiper-wrapper {
+      gap: rem(20px);
+    }
+    .swiper-slide {
+      width: auto !important;
     }
   }
 }
