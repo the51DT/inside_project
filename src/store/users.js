@@ -4,7 +4,7 @@
 export const users = {
   state() {
     return {
-      userNum: 0,
+      loginEmail: '',
       settingImg: '',
       usersInfo: [
         {
@@ -23,21 +23,25 @@ export const users = {
     }
   },
   mutations: {
-    settingNewName(state, { index, settingNewName }) {
-      state.users[index].name = settingNewName
+    settingNewName(state, settingNewName) {
+      state.usersInfo.find((el) => el.email === state.loginEmail).name = settingNewName
     },
-    settingNewEmail(state, { index, settingNewEmail }) {
-      state.users[index].email = settingNewEmail
+    settingNewEmail(state, settingNewEmail) {
+      state.usersInfo.find((el) => el.email === state.loginEmail).email = settingNewEmail
     },
     settingNewImg(state, settingNewImg) {
       state.settingImg = settingNewImg
     },
-    settingNewPW(state, { index, settingNewPW }) {
-      state.users[index].password = settingNewPW
+    settingNewPW(state, settingNewPW) {
+      state.usersInfo.find((el) => el.email === state.loginEmail).password = settingNewPW
     },
     addUser(state, user) {
       state.usersInfo.push(user)
       console.table(state.usersInfo)
+    },
+    loginInfo(state, email) {
+      state.loginEmail = email
+      console.table('로그인 된 이메일 : ' + state.loginEmail)
     }
   }
 }

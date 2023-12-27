@@ -106,10 +106,12 @@ const goUrl = (url) => {
 
 const store = useStore()
 
-const userNum = computed(() => store.state.userNum)
-const nameValue = computed(() => store.state.users[userNum.value].name)
-const emailValue = computed(() => store.state.users[userNum.value].email)
-const previewImage = computed(() => store.state.settingImg)
+const useremail = computed(() => store.state.users.loginEmail)
+const users = computed(() => store.state.users.usersInfo)
+const loginUser = users.value.filter((el) => { return el.email === useremail.value })
+const nameValue = loginUser[0].name
+const emailValue = loginUser[0].email
+const previewImage = computed(() => store.state.users.settingImg)
 
 // const nameValue = ref('Michael Antonio')
 // const emailValue = ref('anto_michael@gmail.com')
