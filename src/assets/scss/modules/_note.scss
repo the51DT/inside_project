@@ -13,7 +13,7 @@
     background-color: $neutral-white;
     overflow-y: hidden;
     &__wrap {
-      width: 50%;
+      display: block;
     }
     &--hasSub {
       border-radius: rem(8px) rem(8px) 0 0 !important;

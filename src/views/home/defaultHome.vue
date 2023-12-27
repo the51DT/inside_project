@@ -28,12 +28,12 @@
         />
       </div>
       <div class="home__swiper">
-        <swiper class="swiper swiper1" :options="swiperOption">
-          <swiper-slide
-            v-for="(note, i) in notes"
-            :key="i"
-            style="width: auto !important"
-          >
+        <swiper
+          class="swiper swiper1"
+          :slides-per-view="1.8"
+          :space-between="20"
+        >
+          <swiper-slide v-for="(note, i) in notes" :key="i">
             <noteCmp
               :title="note.title"
               :type="note.type"
@@ -54,7 +54,11 @@
         />
       </div>
       <div class="home__swiper">
-        <swiper class="swiper swiper2" :options="swiperOption">
+        <swiper
+          class="swiper swiper2"
+          :slides-per-view="1.8"
+          :space-between="20"
+        >
           <swiper-slide v-for="(note, i) in notes" :key="i">
             <noteCmp
               :title="note.title"
@@ -83,11 +87,6 @@ const loginUser = users.value.filter((el) => {
   return el.email === useremail.value
 })
 const note = loginUser[0].note
-
-console.log(note)
-const swiperOption = {
-  slidesPerView: 2
-}
 
 const notes = [
   {
@@ -162,6 +161,7 @@ const notes = [
     overflow-y: scroll;
   }
   &__titleArea {
+    margin-top: rem(48px);
     display: flex;
     justify-content: space-between;
     &--title {
@@ -169,27 +169,27 @@ const notes = [
       font-weight: 700;
     }
   }
-  &__swiper {
-    margin: rem(12px) 0 rem(48px);
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-    .note {
-      width: rem(180px);
-      &--sub {
-        width: rem(180px);
-      }
-      &__wrap {
-        display: block;
-        width: fit-content;
-      }
-    }
-    .swiper-wrapper {
-      gap: rem(20px);
-    }
-    .swiper-slide {
-      width: auto !important;
-    }
-  }
+  // &__swiper {
+  //   margin: rem(12px) 0 rem(48px);
+  //   &:last-of-type {
+  //     margin-bottom: 0;
+  //   }
+  //   .note {
+  //     width: rem(180px);
+  //     &--sub {
+  //       width: rem(180px);
+  //     }
+  //     &__wrap {
+  //       display: block;
+  //       width: fit-content;
+  //     }
+  //   }
+  //   .swiper-wrapper {
+  //     gap: rem(20px);
+  //   }
+  //   .swiper-slide {
+  //     flex-shrink: initial;
+  //   }
+  // }
 }
 </style>
