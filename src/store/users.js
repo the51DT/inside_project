@@ -4,7 +4,7 @@
 export const users = {
   state() {
     return {
-      loginEmail: 'the51@the-51.com',
+      loginEmail: '',
       settingImg: '',
       usersInfo: [
         {

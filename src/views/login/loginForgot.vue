@@ -47,9 +47,8 @@ const goUrl = (url) => {
     emailState.warn = true
     emailState.caption = 'please check your ID :)'
   } else {
-    console.log(isID + 'hi')
     if (url === 'reset') {
-      router.push({ name: 'LoginReset' })
+      router.push({ name: 'LoginReset', query: { email: isID } })
     }
   }
 }

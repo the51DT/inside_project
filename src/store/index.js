@@ -10,5 +10,5 @@ export default createStore({
   modules: {
     users: users
   },
-  plugins: [persistedstate({ paths: ['users.usersInfo'] })]
+  plugins: [persistedstate({ paths: ['users.usersInfo', 'users.loginEmail'] })]
 })

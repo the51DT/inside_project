@@ -12,7 +12,7 @@
       />
       <inputField
         type="password"
-        title="New Password"
+        title="Retyp Password"
         id="retypePassword"
         name="retypePassword"
         placeholder="********"
@@ -32,9 +32,11 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
+const route = useRoute()
+console.log(route.query.email)
 
 const goUrl = (url) => {
   if (url === 'home') {
