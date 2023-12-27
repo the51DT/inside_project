@@ -39,8 +39,10 @@ const countDiv = ref(0)
 const count = ref(0)
 
 const store = useStore()
-const userNum = computed(() => store.state.userNum)
-const note = computed(() => store.state.users[userNum.value].note).value
+const useremail = computed(() => store.state.users.loginEmail)
+const users = computed(() => store.state.users.usersInfo)
+const loginUser = users.value.filter((el) => { return el.email === useremail.value })
+const note = loginUser[0].note
 
 onMounted(() => {
   count.value = countDiv.value.children.length
