@@ -173,7 +173,7 @@ const chkedInput = (event) => {
 </script>
 <style lang="scss">
 #app {
-  &div {
+  > div {
     &.color-bg {
       height: auto;
     }
