@@ -27,10 +27,6 @@ export default {
   },
   methods: {
     choiceBtn(event) {
-      // console.log(
-      //   event.target.closest('.bg--item').querySelectorAll('.active').length
-      // )
-
       if (!event.target.classList.contains('active')) {
         if (
           event.target.closest('.bg--item').querySelectorAll('.active').length >
