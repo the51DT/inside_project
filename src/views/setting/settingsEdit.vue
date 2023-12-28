@@ -23,7 +23,7 @@
           id="name"
           name="name"
           placeholder="Full Name"
-          :defaultText="nameValue"
+          :defaultText="name"
           :caption="nameState.caption"
           :warn="nameState.warn"
           v-model:defaultText="name"
@@ -63,10 +63,6 @@ const goUrl = (url) => {
     router.go(-1)
   }
 }
-const name = ref('')
-const password = ref('')
-const nameState = reactive({ caption: '', warn: false })
-const passwordState = reactive({ caption: 'Changing email address information means you need to re-login to the apps.', warn: false })
 
 const store = useStore()
 
@@ -77,6 +73,11 @@ const nameValue = loginUser[0].name
 const passwordValue = loginUser[0].password
 const imgValue = computed(() => store.state.users.settingImg)
 
+const name = ref(`${nameValue}`)
+const password = ref('')
+const nameState = reactive({ caption: '', warn: false })
+const passwordState = reactive({ caption: 'Changing email address information means you need to re-login to the apps.', warn: false })
+
 // const sendName = () => {
 //   if (name.value.length === 0 || nameValue.value === name.value) {
 //     nameState.caption = 'please enter change name :)'
@@ -86,8 +87,6 @@ const imgValue = computed(() => store.state.users.settingImg)
 //     nameState.warn = false
 //   }
 // }
-
-console.log(nameValue, nameValue.value, name, name.value)
 const goLogin = () => {
   if (password.value.length === 0) {
     passwordState.caption = 'please enter your current password :)'
