@@ -61,14 +61,14 @@
         <p class="extras__title">EXTRAS</p>
         <ul>
           <li :key="list" v-for="list in lists">
-            <button :data-icon="list.type">
+            <button :data-icon="list.type" @click="notYetNotice()">
               {{ list.text }}
               <span>{{ list.flag }}</span>
             </button>
           </li>
         </ul>
       </div>
-      <button class="deleteBtn">Delete Note</button>
+      <button class="deleteBtn" @click="deleteBtn()">Delete Note</button>
     </template>
     <template v-slot:footer>
       <button class="closeBtn" @click="closeBtn($event)">
@@ -98,6 +98,59 @@
       </div>
     </div>
   </div>
+  <modal-center id="deleteNote">
+    <template v-slot:title>
+      <h4>Delete Notes</h4>
+    </template>
+    <template v-slot:body>
+      <br />
+      <div class="popup--body__contnet">
+        Are you sure you want to delete the selected notes?
+      </div>
+      <br />
+      <div class="popup--body__contnet">
+        Deleting notes mean it will be removed permanently.
+      </div>
+    </template>
+    <template v-slot:footer>
+      <ButtonCmp
+        bdBtn="base"
+        btnSize="small"
+        btnTxt="Cancel"
+        @click="closeBtn($event)"
+      />
+      <ButtonCmp
+        bgBtn="base"
+        btnSize="small"
+        btnTxt="Yes,Delete"
+        @click="$router.go(-1)"
+      />
+    </template>
+  </modal-center>
+  <modal-center id="notYetNotice">
+    <template v-slot:title>
+      <h4>Preparing to implement the feature.</h4>
+    </template>
+    <template v-slot:body>
+      <br />
+      <div class="popup--body__contnet">
+        I'm sorry.<br />
+        We are still preparing to implement the feature.
+      </div>
+      <br />
+      <div class="popup--body__contnet">
+        We will complete it as soon as possible.
+      </div>
+    </template>
+    <template v-slot:footer>
+      <ButtonCmp
+        bdBtn="base"
+        btnSize="small"
+        btnTxt="Cancel"
+        @click="closeBtn($event)"
+      />
+    </template>
+  </modal-center>
 </template>
 
 <script>
@@ -125,6 +178,18 @@ export default {
     },
     searchTop() {
       this.search = !this.search
+    },
+    deleteBtn() {
+      const delBtn = document.getElementById('OpenOptions')
+      const delBtnNewModal = document.getElementById('deleteNote')
+      delBtn.classList.remove('active')
+      delBtnNewModal.classList.add('active')
+    },
+    notYetNotice() {
+      const notYet = document.getElementById('OpenOptions')
+      const notYetNewModal = document.getElementById('notYetNotice')
+      notYet.classList.remove('active')
+      notYetNewModal.classList.add('active')
     }
   }
 }
