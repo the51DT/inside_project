@@ -66,6 +66,13 @@ const changeImage = (event) => {
 }
 </script>
 <style lang="scss">
+#app {
+  &div {
+    &.color-bg {
+      height: auto;
+    }
+  }
+}
 .create__wrap {
   padding: rem(78px) rem(16px) rem(60px);
   .create-box--guidance {
