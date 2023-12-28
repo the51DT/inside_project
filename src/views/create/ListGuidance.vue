@@ -26,7 +26,7 @@
           </div>
           <div class="middle-upload preview" v-else>
             <img :src="previewImage" alt="선택한 이미지" />
-            <inputField type="file" id="file_default" />
+            <inputField type="file" id="file_default" @change="changeImage" />
           </div>
           <div class="middle-des">
             <inputField
@@ -54,13 +54,20 @@ import { ref } from 'vue'
 const previewImage = ref('')
 
 const changeImage = (event) => {
+  // 입력 이벤트에서 선택된 파일을 가져오기
   const files = event.target?.files
+  // 최소한 하나의 파일이 선택되었는지 확인
   if (files.length > 0) {
+    // 파일 목록에서 첫 번째 파일을 가져오기
     const file = files[0]
+    // FileReader 인스턴스를 생성합니다.
     const reader = new FileReader()
+    // 파일 읽기가 완료될 때의 onload 이벤트 핸들러를 설정
     reader.onload = (e) => {
+      // previewImage ref의 값을 읽은 파일의 데이터 URL로 설정
       previewImage.value = e.target.result
     }
+    // 파일 내용을 데이터 URL로 읽기
     reader.readAsDataURL(file)
   }
 }
