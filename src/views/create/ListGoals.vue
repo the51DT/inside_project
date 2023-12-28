@@ -97,7 +97,7 @@ const deleteInput = (event) => {
     input.addEventListener('keydown', (e) => {
       // Backspace 키를 눌렀을 때
       if (e.key === 'Backspace') {
-        // 만약 해당 inputField의 부모(create-box--buying-chbox) & inputField의 부모(sub-chkbox) 없는 경우 (1뎁스만 있는 경우)
+        // 만약 해당 inputField의 부모(create-box--buying-chbox) & inputField의 부모(sub-chkbox) 없는 경우 (서브 뎁스가 아닌 경우)
         if (
           target.closest('.create-box--buying-chbox') &&
           !target.closest('.sub-chbox')
