@@ -235,6 +235,7 @@
         padding: rem(16px);
         box-shadow: 0 rem(3px) rem(4px) 0 rgba(0, 0, 0, 0.2);
         border-radius: rem(100px);
+        background-color: $neutral-white;
         cursor: pointer;
         &::after {
           content: '';
