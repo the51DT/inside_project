@@ -76,39 +76,51 @@ import { ref } from 'vue'
 
 const buyingCheckbox = ref([])
 
+// buyingCheckbox 배열에 새로운 객체를 추가
 const addBuyingCheckbox = () => {
   buyingCheckbox.value.push({ sub: [] })
 }
 
+// buyingCheckbox의 특정 인덱스에 서브 배열을 추가
 const addBuyingCheckboxSub = (index) => {
   buyingCheckbox.value[index].sub.push({ sub: [] })
 }
 
+// Backspace 키를 눌렀을 때, 특정 조건에 따라 요소를 삭제
 const deleteInput = (event) => {
   const input = event.target
   const target = input.closest('.inputField')
+
+  // 입력 필드의 내용이 비어있을 때
   if (input.innerHTML < 1) {
+    // 키보드 이벤트 리스너 등록
     input.addEventListener('keydown', (e) => {
+      // Backspace 키를 눌렀을 때
       if (e.key === 'Backspace') {
+        // 만약 해당 inputField의 부모(create-box--buying-chbox) & inputField의 부모(sub-chkbox) 없는 경우 (1뎁스만 있는 경우)
         if (
           target.closest('.create-box--buying-chbox') &&
           !target.closest('.sub-chbox')
         ) {
+          // 만약 해당 inputField의 부모(create-box--buying-chbox)에 .subbox .inputField가 없는 경우 (Add Sub가 추가 안된 경우)
           if (
             target
               .closest('.create-box--buying-chbox')
               .querySelector('.sub-chbox .inputField') === null
           ) {
+            // 해당 체크박스를 포함하는 그룹을 제거
             target.closest('.create-box--buying-chbox').remove()
           }
         } else {
+          // 일반적인 경우에는 해당 요소를 제거
           target.remove()
         }
       }
     })
   }
 }
-// 전체 체크선
+
+// 전체 체크박스를 클릭했을 때의 동작 정의
 const chkedInput = (event) => {
   const chkedInput = event.target
   const findId = chkedInput.getAttribute('id')
@@ -135,19 +147,24 @@ const chkedInput = (event) => {
   if (findIndex === chkedInputIdFindIndex && chkedInput.checked) {
     const emptyArray = []
     chkedInputClassEach.forEach((checkbox) => {
+      // 전체 체크박스 선택 시 하위 체크박스들을 읽기 전용으로 만들기
       checkbox.checked = true
       checkbox.readOnly = true
     })
     chkedInputLabelEach.forEach((checkbox) => {
+      // 체크박스 레이블에 'on' 클래스를 추가하여 스타일을 변경
       checkbox.classList.add('on')
     })
     chkedInputTxtEach.forEach((checkbox, index) => {
+      // 텍스트를 편집 불가능 상태로 변경하고 'checked' 클래스를 추가
       checkbox.setAttribute('contenteditable', 'false')
       checkbox.classList.add('checked')
       if (checkbox.innerText === '') {
+        // 텍스트가 비어 있는 경우 해당 인덱스에 추가
         emptyArray.push(index)
       }
     })
+    // 빈 텍스트가 있는 경우 해당 체크박스를 해제하고 편집 가능으로 변경
     emptyArray.forEach((empty) => {
       chkedInputClassEach[empty].checked = false
       chkedInputClassEach[empty].readOnly = false
@@ -156,6 +173,7 @@ const chkedInput = (event) => {
       chkedInputTxtEach[empty].classList.remove('checked')
     })
   } else {
+    // 전체 체크가 해제된 경우 하위 체크박스들을 초기화하고 편집 가능으로 변경
     chkedInputClassEach.forEach((checkbox) => {
       checkbox.checked = false
       checkbox.readOnly = false
