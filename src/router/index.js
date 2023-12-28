@@ -122,6 +122,18 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "settings" */ '../views/home/defaultHome.vue')
   },
+  {
+    path: '/pinnedall',
+    name: 'HomePinned',
+    component: () =>
+      import(/* webpackChunkName: "settings" */ '../views/home/ideaHomeAll.vue')
+  },
+  {
+    path: '/idaAll',
+    name: 'HomeidaAll',
+    component: () =>
+      import(/* webpackChunkName: "settings" */ '../views/home/ideaHomeAll.vue')
+  },
   // create
   {
     path: '/create',

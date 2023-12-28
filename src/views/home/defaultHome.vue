@@ -24,7 +24,7 @@
           btnSize="large"
           btnTxt="View all"
           :btnType="false"
-          useUrl="/home"
+          useUrl="/pinnedall"
         />
       </div>
       <div class="home__swiper">
@@ -50,7 +50,7 @@
           btnSize="large"
           btnTxt="View all"
           :btnType="false"
-          useUrl="/home"
+          useUrl="/idaAll"
         />
       </div>
       <div class="home__swiper">
