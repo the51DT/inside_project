@@ -132,14 +132,14 @@ const notes = [
     background-color: $primary-background;
     .home-no__box {
       text-align: center;
-      padding: 0 rem(60px);
+      padding: 0 rem(50px);
       margin: 0 auto;
       &__img {
         width: rem(240px);
         height: rem(240px);
         background: url('@/assets/images/home/home_no_img.png') no-repeat;
         background-size: contain;
-        margin: rem(111px) auto 0;
+        margin: rem(50px) auto 0;
         &-line {
           width: rem(150px);
           height: rem(100px);
@@ -169,27 +169,8 @@ const notes = [
       font-weight: 700;
     }
   }
-  // &__swiper {
-  //   margin: rem(12px) 0 rem(48px);
-  //   &:last-of-type {
-  //     margin-bottom: 0;
-  //   }
-  //   .note {
-  //     width: rem(180px);
-  //     &--sub {
-  //       width: rem(180px);
-  //     }
-  //     &__wrap {
-  //       display: block;
-  //       width: fit-content;
-  //     }
-  //   }
-  //   .swiper-wrapper {
-  //     gap: rem(20px);
-  //   }
-  //   .swiper-slide {
-  //     flex-shrink: initial;
-  //   }
-  // }
+  &__swiper {
+    margin-top: rem(12px);
+  }
 }
 </style>

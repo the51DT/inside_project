@@ -20,11 +20,20 @@
     <div v-else class="finished__wrap">
       <div class="finished__top">
         <h3>Amazing Journey!</h3>
-        <p>You have Successfully<br>finished {{ count }} notes</p>
+        <p>You have Successfully<br />finished {{ count }} notes</p>
       </div>
       <ul class="finished__bottom" ref="countDiv">
-        <li :key="list.title" v-for="list in lists"><noteCmp :title="list.title" :type="list.type" :color="list.color" sub="Interesting Idea"/></li>
-        <li :key="list.title" v-for="list in lists"><noteCmp :title="list.title" :type="list.type" :color="list.color"/></li>
+        <li :key="list.title" v-for="list in lists">
+          <noteCmp
+            :title="list.title"
+            :type="list.type"
+            :color="list.color"
+            sub="Interesting Idea"
+          />
+        </li>
+        <li :key="list.title" v-for="list in lists">
+          <noteCmp :title="list.title" :type="list.type" :color="list.color" />
+        </li>
       </ul>
     </div>
     <TabBar />
@@ -41,7 +50,9 @@ const count = ref(0)
 const store = useStore()
 const useremail = computed(() => store.state.users.loginEmail)
 const users = computed(() => store.state.users.usersInfo)
-const loginUser = users.value.filter((el) => { return el.email === useremail.value })
+const loginUser = users.value.filter((el) => {
+  return el.email === useremail.value
+})
 const note = loginUser[0].note
 
 onMounted(() => {
@@ -126,18 +137,19 @@ const lists = [
   background-color: $primary-background;
   .finished-no__box {
     text-align: center;
-    padding: 0 rem(60px);
+    padding: 0 rem(50px);
     margin: 0 auto;
     &__img {
       width: rem(240px);
       height: rem(240px);
       background: url('@/assets/images/finished/finished_no_img.png') no-repeat;
       background-size: contain;
-      margin: rem(111px) auto 0;
+      margin: rem(50px) auto 0;
       &-line {
         width: rem(150px);
         height: rem(100px);
-        background: url('@/assets/images/finished/finished_no_img_line.png') no-repeat;
+        background: url('@/assets/images/finished/finished_no_img_line.png')
+          no-repeat;
         background-size: contain;
         margin: rem(21px) auto 0;
       }
