@@ -75,14 +75,13 @@
 import { ref } from 'vue'
 
 const buyingCheckbox = ref([])
-// const buyingCheckboxSub = ref([])
 
 const addBuyingCheckbox = () => {
-  buyingCheckbox.value.push({ id: '', sub: [] })
+  buyingCheckbox.value.push({ sub: [] })
 }
 
 const addBuyingCheckboxSub = (index) => {
-  buyingCheckbox.value[index].sub.push({ id: '', sub: [] })
+  buyingCheckbox.value[index].sub.push({ sub: [] })
 }
 
 const deleteInput = (event) => {
