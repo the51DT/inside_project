@@ -176,6 +176,7 @@ const chkedInput = (event) => {
   > div {
     &.color-bg {
       height: auto;
+      min-height: 100%;
     }
   }
 }

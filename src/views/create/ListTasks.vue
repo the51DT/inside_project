@@ -123,6 +123,7 @@ const chkedList = (event) => {
   > div {
     &.color-bg {
       height: auto;
+      min-height: 100%;
     }
   }
 }
