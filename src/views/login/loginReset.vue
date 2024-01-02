@@ -11,7 +11,7 @@
         v-model:defaultText="change"
         :caption="changeState.caption"
         :warn="changeState.warn"
-        @keyup.enter="goLogin('home')"
+        @keyup.enter="goUrl('home')"
       />
       <inputField
         type="password"
@@ -22,7 +22,7 @@
         v-model:defaultText="retype"
         :caption="retypeState.caption"
         :warn="retypeState.warn"
-        @keyup.enter="goLogin('home')"
+        @keyup.enter="goUrl('home')"
       />
     </div>
     <div class="login__button">
@@ -61,8 +61,13 @@ const goUrl = (url) => {
     changeState.caption = 'please enter change password :)'
     changeState.warn = true
   } else {
-    changeState.caption = ''
-    changeState.warn = false
+    if (!/^[A-Za-z0-9]{8,}$/.test(change.value)) {
+      changeState.caption = 'min. 8 character, combination of 0-9, A-Z, a-z'
+      changeState.warn = true
+    } else {
+      changeState.caption = ''
+      changeState.warn = false
+    }
   }
   if (!retype.value) {
     retypeState.caption = 'please enter retype password :)'

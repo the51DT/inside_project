@@ -72,10 +72,10 @@ const newName = ref('')
 const newEmail = ref('')
 const newPassword = ref('')
 const retypePassword = ref('')
-const nameState = reactive({ caption: '', warn: true })
-const emailState = reactive({ caption: '', warn: true })
-const passwordState = reactive({ caption: '', warn: true })
-const retypeState = reactive({ caption: '', warn: true })
+const nameState = reactive({ caption: '', warn: false })
+const emailState = reactive({ caption: '', warn: false })
+const passwordState = reactive({ caption: '', warn: false })
+const retypeState = reactive({ caption: '', warn: false })
 const users = computed(() => store.state.users.usersInfo)
 
 const registerUser = () => {
@@ -106,19 +106,29 @@ const goLogin = () => {
     nameState.caption = ''
     nameState.warn = false
   }
-  if (!newEmail.value || checkID === newEmail.value) {
+  if (!newEmail.value) {
     emailState.caption = 'please enter your email :)'
     emailState.warn = true
   } else {
-    emailState.caption = ''
-    emailState.warn = false
+    if (!/^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(newEmail.value)) {
+      emailState.caption = 'please enter right email include @ :)'
+      emailState.warn = true
+    } else {
+      emailState.caption = ''
+      emailState.warn = false
+    }
   }
   if (!newPassword.value) {
     passwordState.caption = 'please enter your password :)'
     passwordState.warn = true
   } else {
-    passwordState.caption = ''
-    passwordState.warn = false
+    if (!/^[A-Za-z0-9]{8,}$/.test(newPassword.value)) {
+      passwordState.caption = 'min. 8 character, combination of 0-9, A-Z, a-z'
+      passwordState.warn = true
+    } else {
+      passwordState.caption = ''
+      passwordState.warn = false
+    }
   }
   if (!retypePassword.value) {
     retypeState.caption = 'please enter retype password :)'
