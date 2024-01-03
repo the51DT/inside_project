@@ -80,45 +80,59 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive } from 'vue'
 import { useStore } from 'vuex'
 const router = useRouter()
 const store = useStore()
 
-const users = computed(() => store.state.users.usersInfo)
+// const users = computed(() => store.state.users.usersInfo)
 const userEmail = ref('')
 const userPassword = ref('')
 const userEmailState = reactive({ caption: '', warn: true })
 const userPasswordState = reactive({ caption: '', warn: true })
 const goLogin = () => {
-  const isID = users.value
-    .filter((id) => id.email === userEmail.value)
-    .map((email) => email.email)
-    .toString()
-  const isPassword = users.value
-    .filter((id) => id.email === userEmail.value)
-    .map((pw) => pw.password)
-    .toString()
-  console.log(isID, isPassword)
-  if (isID !== userEmail.value || userEmail.value === '') {
-    userEmailState.warn = true
-    userEmailState.caption = 'please check your ID :)'
+  // 여기에 로그인 로직을 추가
+  // 유효성 검사 및 서버로의 로그인 요청을 수행할 수 있습니다.
+  if (userEmail.value && userPassword.value) {
+    // 여기에 로그인 성공 시 실행할 로직을 추가
+    store.dispatch('fetchUsersInfo')
+    // 로그인 후의 리다이렉션을 원하는 경로로 지정
+    router.push('/home')
+    // 예: 로그인 후 이동할 경로
   } else {
-    userEmailState.warn = false
-    userEmailState.caption = ''
-  }
-  if (isPassword !== userPassword.value || userPassword.value === '') {
-    userPasswordState.warn = true
-    userPasswordState.caption = 'please check your Password :)'
-  } else {
-    userPasswordState.warn = false
-    userPasswordState.caption = ''
-  }
-  if (userEmailState.warn === false && userPasswordState.warn === false) {
-    router.push({ name: 'Home' })
-    store.commit('loginInfo', isID)
+    // 로그인 실패 시 실행할 로직을 추가
+    console.error('Invalid email or password')
   }
 }
+// const goLogin = () => {
+//   const isID = users.value
+//     .filter((id) => id.email === userEmail.value)
+//     .map((email) => email.email)
+//     .toString()
+//   const isPassword = users.value
+//     .filter((id) => id.email === userEmail.value)
+//     .map((pw) => pw.password)
+//     .toString()
+//   console.log(isID, isPassword)
+//   if (isID !== userEmail.value || userEmail.value === '') {
+//     userEmailState.warn = true
+//     userEmailState.caption = 'please check your ID :)'
+//   } else {
+//     userEmailState.warn = false
+//     userEmailState.caption = ''
+//   }
+//   if (isPassword !== userPassword.value || userPassword.value === '') {
+//     userPasswordState.warn = true
+//     userPasswordState.caption = 'please check your Password :)'
+//   } else {
+//     userPasswordState.warn = false
+//     userPasswordState.caption = ''
+//   }
+//   if (userEmailState.warn === false && userPasswordState.warn === false) {
+//     router.push({ name: 'Home' })
+//     store.commit('loginInfo', isID)
+//   }
+// }
 const goUrl = (url) => {
   if (url === 'home') {
     router.push({ name: 'Home' })
