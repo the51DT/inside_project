@@ -82,28 +82,39 @@
 import { useRouter } from 'vue-router'
 import { ref, reactive } from 'vue'
 import { useStore } from 'vuex'
+import axios from 'axios'
 const router = useRouter()
 const store = useStore()
-
 // const users = computed(() => store.state.users.usersInfo)
 const userEmail = ref('')
 const userPassword = ref('')
 const userEmailState = reactive({ caption: '', warn: true })
 const userPasswordState = reactive({ caption: '', warn: true })
-const goLogin = () => {
-  // 여기에 로그인 로직을 추가
-  // 유효성 검사 및 서버로의 로그인 요청을 수행할 수 있습니다.
+const goLogin = async () => {
   if (userEmail.value && userPassword.value) {
-    // 여기에 로그인 성공 시 실행할 로직을 추가
-    store.dispatch('fetchUsersInfo')
-    // 로그인 후의 리다이렉션을 원하는 경로로 지정
-    router.push('/home')
-    // 예: 로그인 후 이동할 경로
+    try {
+      const response = await axios.post('http://localhost:3001/users', {
+        email: userEmail.value,
+        password: userPassword.value
+      })
+
+      if (response.status === 201) {
+        // 로그인 성공 시 실행할 로직
+        await store.dispatch('fetchUsersInfo')
+        router.push('/home')
+      } else {
+        // 로그인 실패 시 실행할 로직
+        console.error('Login failed: Unknown error')
+      }
+    } catch (error) {
+      // 서버 응답이 오지 않은 경우 또는 네트워크 오류 등의 경우
+      console.error('Error during login:' || 'Unknown error')
+    }
   } else {
-    // 로그인 실패 시 실행할 로직을 추가
-    console.error('Invalid email or password')
+    console.error('Email and password are required.')
   }
 }
+
 // const goLogin = () => {
 //   const isID = users.value
 //     .filter((id) => id.email === userEmail.value)
