@@ -49,7 +49,7 @@ export const users = {
         .then((response) => {
           const usersInfo = response.data.users
           commit('setUsersInfo', usersInfo)
-          conole.log(response.data)
+          console.log(response.data)
         })
         .catch((error) => {
           console.error('Error fetching user data:', error)

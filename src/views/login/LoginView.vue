@@ -98,7 +98,7 @@ const goLogin = async () => {
         password: userPassword.value
       })
 
-      if (response.status === 201) {
+      if (response.status) {
         // 로그인 성공 시 실행할 로직
         await store.dispatch('fetchUsersInfo')
         router.push('/home')
