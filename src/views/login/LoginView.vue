@@ -93,25 +93,35 @@ const userPasswordState = reactive({ caption: '', warn: true })
 const goLogin = async () => {
   if (userEmail.value && userPassword.value) {
     try {
-      const response = await axios.post('http://localhost:3001/users', {
-        email: userEmail.value,
-        password: userPassword.value
+      const response = await axios.get('http://localhost:3001/users', {
+        // 매개변수 설정
+        params: {
+          email: userEmail.value,
+          password: userPassword.value
+        }
       })
-
       if (response.status) {
-        // 로그인 성공 시 실행할 로직
-        await store.dispatch('fetchUsersInfo')
-        router.push('/home')
+        const userFromDb = response.data[0]
+        console.log(userFromDb)
+        if (userFromDb.email === userEmail.value) {
+          // 로그인 성공 시 실행할 로직
+          await store.dispatch('fetchUsersInfo')
+          router.push('/home')
+        } else {
+          // 비밀번호가 일치하지 않음
+          console.error('로그인 실패: 올바르지 않은 비밀번호')
+        }
       } else {
-        // 로그인 실패 시 실행할 로직
+        // 제공된 이메일과 일치하는 사용자를 찾을 수 없음
+        console.log(userPassword.value)
         console.error('Login failed: Unknown error')
       }
     } catch (error) {
-      // 서버 응답이 오지 않은 경우 또는 네트워크 오류 등의 경우
-      console.error('Error during login:' || 'Unknown error')
+      // 네트워크 또는 서버 오류
+      console.error('로그인 중 오류 발생:', error.message || '알 수 없는 오류')
     }
   } else {
-    console.error('Email and password are required.')
+    console.error('이메일과 비밀번호는 필수 입력 사항입니다.')
   }
 }
 
