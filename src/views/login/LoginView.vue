@@ -80,43 +80,69 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive } from 'vue'
 import { useStore } from 'vuex'
+import axios from 'axios'
 const router = useRouter()
 const store = useStore()
 
-const users = computed(() => store.state.users.usersInfo)
 const userEmail = ref('')
 const userPassword = ref('')
-const userEmailState = reactive({ caption: '', warn: true })
-const userPasswordState = reactive({ caption: '', warn: true })
-const goLogin = () => {
-  const isID = users.value
+const userEmailState = reactive({ caption: '', warn: false })
+const userPasswordState = reactive({ caption: '', warn: false })
+
+const goLogin = async () => {
+  const response = await axios.get('http://localhost:3001/users')
+  const isID = response.data
     .filter((id) => id.email === userEmail.value)
     .map((email) => email.email)
     .toString()
-  const isPassword = users.value
+  const isPassword = response.data
     .filter((id) => id.email === userEmail.value)
     .map((pw) => pw.password)
     .toString()
   console.log(isID, isPassword)
-  if (isID !== userEmail.value || userEmail.value === '') {
+  if (!userEmail.value) {
+    userEmailState.caption = 'please enter your email :)'
     userEmailState.warn = true
-    userEmailState.caption = 'please check your ID :)'
+  } else if (isID === '') {
+    userEmailState.caption = 'please check your email :)'
+    userEmailState.warn = true
   } else {
-    userEmailState.warn = false
     userEmailState.caption = ''
+    userEmailState.warn = false
   }
-  if (isPassword !== userPassword.value || userPassword.value === '') {
+  if (!userPassword.value) {
+    userPasswordState.caption = 'please enter your password :)'
     userPasswordState.warn = true
-    userPasswordState.caption = 'please check your Password :)'
   } else {
-    userPasswordState.warn = false
     userPasswordState.caption = ''
+    userPasswordState.warn = false
   }
-  if (userEmailState.warn === false && userPasswordState.warn === false) {
-    router.push({ name: 'Home' })
-    store.commit('loginInfo', isID)
+  if (userEmail.value && userPassword.value) {
+    try {
+      if (response) {
+        if (isID === userEmail.value && isPassword === userPassword.value) {
+          // 로그인 성공 시 실행할 로직
+          await store.dispatch('fetchUsersInfo', isID)
+          router.push('/home')
+        } else {
+          // 비밀번호가 일치하지 않음
+          console.error('로그인 실패: 올바르지 않은 비밀번호')
+          userPasswordState.caption = 'please check your password :)'
+          userPasswordState.warn = true
+        }
+      } else {
+        // 제공된 이메일과 일치하는 사용자를 찾을 수 없음
+        console.log(userPassword.value)
+        console.error('Login failed: Unknown error')
+      }
+    } catch (error) {
+      // 네트워크 또는 서버 오류
+      console.error('로그인 중 오류 발생:', error.message || '알 수 없는 오류')
+    }
+  } else {
+    console.error('이메일과 비밀번호는 필수 입력 사항입니다.')
   }
 }
 const goUrl = (url) => {

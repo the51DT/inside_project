@@ -79,11 +79,13 @@ import { useStore } from 'vuex'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import axios from 'axios'
 
 const store = useStore()
 const useremail = computed(() => store.state.users.loginEmail)
-const users = computed(() => store.state.users.usersInfo)
-const loginUser = users.value.filter((el) => {
+// const users = computed(() => store.state.users.usersInfo)
+const users = await axios.get('http://localhost:3001/users')
+const loginUser = users.data.filter((el) => {
   return el.email === useremail.value
 })
 const note = loginUser[0].note
