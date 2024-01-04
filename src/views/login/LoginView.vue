@@ -122,17 +122,28 @@ const goLogin = async () => {
         } else {
           //  email 혹은 password 다를 때
           console.error('로그인 실패: 올바르지 않은 아이디 또는 비밀번호')
+          userEmailState.caption = 'please check your ID :)'
+          userPasswordState.caption = 'please check your Password :)'
         }
       } else {
         // 실패 시
         console.error('로그인 실패: 사용자를 찾을 수 없음')
+        userEmailState.caption = 'The ID does not exist :)'
+        userPasswordState.caption = 'The Password does not exist :)'
       }
     } catch (error) {
       console.error('error')
     }
+  } else if (userEmail.value && !userPassword.value) {
+    // 비밀번호 입력하지 않았을 때
+    userPasswordState.caption = 'Please enter your Password :)'
+  } else if (!userEmail.value && userPassword.value) {
+    // 아이디 입력하지 않았을 때
+    userEmailState.caption = 'Please enter your ID :)'
   } else {
-    // 입력하지 않았을 때
-    console.error('이메일과 비밀번호는 필수 입력 사항입니다.')
+    // 아이디, 비밀번호 입력하지 않았을 때
+    userEmailState.caption = 'Please enter your ID :)'
+    userPasswordState.caption = 'Please enter your Password :)'
   }
 }
 
