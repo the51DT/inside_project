@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable space-before-function-paren */
 // import VueCookies from 'vue-cookies'
+import axios from 'axios'
+
 export const users = {
   state() {
     return {
