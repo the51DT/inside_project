@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div v-if="note === 0" class="home-no__wrap">
+    <div v-if="noteVaule === 0" class="home-no__wrap">
       <div class="home-no__box">
         <div class="home-no__box__img"></div>
         <div class="home-no__box__des">
@@ -88,7 +88,8 @@ const users = await axios.get('http://localhost:3001/users')
 const loginUser = users.data.filter((el) => {
   return el.email === useremail.value
 })
-const note = loginUser[0].note
+const noteVaule = loginUser[0].note
+console.log(noteVaule)
 
 const notes = [
   {
