@@ -90,6 +90,16 @@ const userEmail = ref('')
 const userPassword = ref('')
 const userEmailState = reactive({ caption: '', warn: true })
 const userPasswordState = reactive({ caption: '', warn: true })
+// axios : 비동기 통신 JavaScript 라이브러리
+// axios를 이용하여 API 호출하는 경우 바로 응답이 오지 않기 때믄에 일반적으로 비동기 방식 사용
+// 요청과 응답을 모두 JSON 형식으로 자동 변환시켜줌
+// then (응답 성공) - catch (응답 실패) - then(응답 항상 실행)
+// async, await : promise를 편하게 사용 가능 (JavaScript에서 가장 최근에 등장한 비동기 처리 패턴)
+// async/ await 해당 구문은 : try (응답 성공) - catch (응답 실패)
+// 1. get : 서버로부터 데이터 받아옴 (url에 변수를 포함시켜 요청)
+// 2. post : 서버로부터 데이터를 전송하여 자원을 생성
+// 3. put : 서번에 존재하는 database 자원을 수정
+// 4. delete : 서버에 존재하는 database 자원을 삭제
 const goLogin = async () => {
   if (userEmail.value && userPassword.value) {
     try {
@@ -100,27 +110,28 @@ const goLogin = async () => {
           password: userPassword.value
         }
       })
-      if (response.status) {
-        const userFromDb = response.data[0]
-        console.log(userFromDb)
-        if (userFromDb.email === userEmail.value) {
-          // 로그인 성공 시 실행할 로직
+      const userFromDb = response.data[0]
+      if (userFromDb) {
+        if (
+          userFromDb.email === userEmail.value &&
+          userFromDb.password === userPassword.value
+        ) {
+          // 성공 시
           await store.dispatch('fetchUsersInfo')
           router.push('/home')
         } else {
-          // 비밀번호가 일치하지 않음
-          console.error('로그인 실패: 올바르지 않은 비밀번호')
+          //  email 혹은 password 다를 때
+          console.error('로그인 실패: 올바르지 않은 아이디 또는 비밀번호')
         }
       } else {
-        // 제공된 이메일과 일치하는 사용자를 찾을 수 없음
-        console.log(userPassword.value)
-        console.error('Login failed: Unknown error')
+        // 실패 시
+        console.error('로그인 실패: 사용자를 찾을 수 없음')
       }
     } catch (error) {
-      // 네트워크 또는 서버 오류
-      console.error('로그인 중 오류 발생:', error.message || '알 수 없는 오류')
+      console.error('error')
     }
   } else {
+    // 입력하지 않았을 때
     console.error('이메일과 비밀번호는 필수 입력 사항입니다.')
   }
 }
