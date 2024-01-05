@@ -10,50 +10,58 @@
         <div class="create-box--active">
           <p>ACTIVE SUB NOTES</p>
           <ul class="sub-list">
-            <li
-              class="sub-list-each"
-              v-for="(list, index) in activeList"
-              :key="index"
-              :class="list.bgcolor"
-            >
-              <inputField
-                type="checkbox"
-                :id="`active-${index}-list-title`"
-                round
-                :defaultText="list.title"
-                placeholder="Write your notes here..."
-                @change="chkedList"
-                :listType="true"
-              />
-              <p :class="isChked === 'checked'" class="each-des">
-                {{ list.des }}
-              </p>
-            </li>
+            <draggable v-model="myArray" @end="onDragEnd">
+              <transition-group>
+                <li
+                  class="sub-list-each"
+                  v-for="(list, index) in activeList"
+                  :key="index"
+                  :class="list.bgcolor"
+                >
+                  <inputField
+                    type="checkbox"
+                    :id="`active-${index}-list-title`"
+                    round
+                    :defaultText="list.title"
+                    placeholder="Write your notes here..."
+                    @change="chkedList"
+                    :listType="true"
+                  />
+                  <p :class="isChked === 'checked'" class="each-des">
+                    {{ list.des }}
+                  </p>
+                </li>
+              </transition-group>
+            </draggable>
           </ul>
         </div>
         <!-- COMPLETED SUB NOTES -->
         <div class="create-box--active">
           <p>COMPLETED SUB NOTES</p>
           <ul class="sub-list">
-            <li
-              class="sub-list-each"
-              v-for="(list, index) in completedList"
-              :key="index"
-              :class="list.bgcolor"
-            >
-              <inputField
-                type="checkbox"
-                :id="`completed-${index}-list-title`"
-                round
-                :defaultText="list.title"
-                placeholder="Write your notes here..."
-                @change="chkedList"
-                :listType="true"
-              />
-              <p :class="isChked === 'checked'" class="each-des">
-                {{ list.des }}
-              </p>
-            </li>
+            <draggable v-model="myArray" @end="onDragEnd">
+              <transition-group>
+                <li
+                  class="sub-list-each"
+                  v-for="(list, index) in completedList"
+                  :key="index"
+                  :class="list.bgcolor"
+                >
+                  <inputField
+                    type="checkbox"
+                    :id="`completed-${index}-list-title`"
+                    round
+                    :defaultText="list.title"
+                    placeholder="Write your notes here..."
+                    @change="chkedList"
+                    :listType="true"
+                  />
+                  <p :class="isChked === 'checked'" class="each-des">
+                    {{ list.des }}
+                  </p>
+                </li>
+              </transition-group>
+            </draggable>
           </ul>
         </div>
       </div>
@@ -64,8 +72,11 @@
 
 <script setup>
 import { ref } from 'vue'
-// import { draggable } from 'vuedraggable'
-
+import { VueDraggableNext } from 'vue-draggable-next'
+const draggable = VueDraggableNext
+const onDragEnd = (event) => {
+  console.log('드래그 완료!')
+}
 const listPage = ref(true)
 const activeList = [
   {
@@ -130,10 +141,18 @@ const chkedList = (event) => {
 .create__wrap {
   padding: rem(78px) rem(16px) rem(60px);
   .create-box--active {
-    > p {
-      font-size: rem(10px);
-      color: $neutral-darkgrey;
-      line-height: normal;
+    .edit_btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      > p {
+        color: $neutral-darkgrey;
+        line-height: normal;
+      }
+      > .btn {
+        .btn-txt {
+        }
+      }
     }
     .sub-list {
       margin-top: rem(24px);
