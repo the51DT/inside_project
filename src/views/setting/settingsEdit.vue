@@ -51,6 +51,10 @@
       />
     </div>
   </div>
+
+  <ToastPopup id="toast">
+    <template v-slot:text>Your new profile picture has been uploaded</template>
+  </ToastPopup>
 </template>
 
 <script setup>
@@ -118,6 +122,14 @@ const sendImg = (el) => {
 }
 const previewImage = ref(imgValue.value)
 
+const toastPop = (id) => {
+  if (id !== '') {
+    const popupId = document.getElementById(id)
+    popupId.classList.add('active')
+    setTimeout(() => { popupId.classList.remove('active') }, 4000)
+  }
+}
+
 const changeImage = (event) => {
   const files = event.target?.files
   if (files.length > 0) {
@@ -127,6 +139,7 @@ const changeImage = (event) => {
       previewImage.value = e.target.result
     }
     reader.readAsDataURL(file)
+    toastPop('toast')
   }
 }
 

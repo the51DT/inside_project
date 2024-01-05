@@ -87,6 +87,18 @@
       />
     </template>
   </modal-center>
+  <ToastPopup id="allActiveNoti">
+    <template v-slot:text>Notifications has been set to <span class="bold">All active</span></template>
+  </ToastPopup>
+  <ToastPopup id="emailNoti">
+    <template v-slot:text>Notifications has been set to <span class="bold">Email active</span></template>
+  </ToastPopup>
+  <ToastPopup id="pushNoti">
+    <template v-slot:text>Notifications has been set to <span class="bold">Push active</span></template>
+  </ToastPopup>
+  <ToastPopup id="allInNoti">
+    <template v-slot:text>Notifications has been set to <span class="bold">All inactive</span></template>
+  </ToastPopup>
 </template>
 
 <script setup>
@@ -119,6 +131,15 @@ const previewImage = computed(() => store.state.users.settingImg)
 const state = ref('All active')
 const isEmail = ref(true)
 const isPush = ref(true)
+
+const toastPop = (id) => {
+  if (id !== '') {
+    const popupId = document.getElementById(id)
+    popupId.classList.add('active')
+    setTimeout(() => { popupId.classList.remove('active') }, 4000)
+  }
+}
+
 const notifications = (event) => {
   if (event.target.id === 'email') isEmail.value = event.target.checked
   if (event.target.id === 'push') isPush.value = event.target.checked
@@ -126,12 +147,16 @@ const notifications = (event) => {
 const isState = () => {
   if (isEmail.value && isPush.value) {
     state.value = 'All active'
+    toastPop('allActiveNoti')
   } else if (isEmail.value && !isPush.value) {
     state.value = 'Email active'
+    toastPop('emailNoti')
   } else if (!isEmail.value && isPush.value) {
     state.value = 'Push active'
+    toastPop('pushNoti')
   } else {
     state.value = 'All inactive'
+    toastPop('allInNoti')
   }
 }
 </script>
