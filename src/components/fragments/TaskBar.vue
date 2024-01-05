@@ -61,7 +61,7 @@
         <p class="extras__title">EXTRAS</p>
         <ul>
           <li :key="list" v-for="list in lists">
-            <button :data-icon="list.type" @click="notYetNotice()">
+            <button :data-icon="list.type" @click="list.pop">
               {{ list.text }}
               <span>{{ list.flag }}</span>
             </button>
@@ -151,6 +151,9 @@
       />
     </template>
   </modal-center>
+  <ToastPopup id="markFinished">
+    <template v-slot:text>this notes moved to <span class="bold">finished notes</span></template>
+  </ToastPopup>
 </template>
 
 <script>
@@ -164,10 +167,10 @@ export default {
       search: false,
       back: 'back',
       lists: [
-        { type: '1', text: 'Set Reminder', flag: 'Not set' },
-        { type: '2', text: 'Change Note Type', flag: 'Buying Some...' },
-        { type: '3', text: 'Give Label', flag: 'Not set' },
-        { type: '4', text: 'Mark as Finished', flag: '' }
+        { type: '1', text: 'Set Reminder', flag: 'Not set', pop: () => { this.notYetNotice(); } },
+        { type: '2', text: 'Change Note Type', flag: 'Buying Some...', pop: () => { this.notYetNotice(); } },
+        { type: '3', text: 'Give Label', flag: 'Not set', pop: () => { this.notYetNotice(); } },
+        { type: '4', text: 'Mark as Finished', flag: '', pop: () => { this.toastPop('markFinished'); } }
       ],
       bglist: []
     }
@@ -190,6 +193,15 @@ export default {
       const notYetNewModal = document.getElementById('notYetNotice')
       notYet.classList.remove('active')
       notYetNewModal.classList.add('active')
+    },
+    toastPop(id) {
+      if (id !== '') {
+        const notYet = document.getElementById('OpenOptions')
+        notYet.classList.remove('active')
+        const popupId = document.getElementById(id)
+        popupId.classList.add('active')
+        setTimeout(() => { popupId.classList.remove('active') }, 4000)
+      }
     }
   }
 }
