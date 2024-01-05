@@ -33,6 +33,13 @@
       btnTxt="modal-bottom3"
       @click="openBtn('modal-bottom3')"
     />
+    <br/>
+    <ButtonCmp
+      bdBtn="base"
+      btnSize="small"
+      btnTxt="toastPopup"
+      @click="toastPop('toast')"
+    />
     <modal-center id="modal">
       <template v-slot:title>
         <h4>Modal Title</h4>
@@ -139,6 +146,11 @@
         </button>
       </template>
     </modal-bottom>
+
+    <ToastPopup id="toast">
+      <template v-slot:text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolores nihil quam ad sequi natus ducimus, ipsa iure tempore qui modi id dolorum mollitia! <span class="bold">Error consequuntur nam amet ratione quibusdam.</span></template>
+    </ToastPopup>
+
     <task-bar />
     <nav-bar title="" rightBtn="" />
     <nav-bar title="" rightBtn="setting" />

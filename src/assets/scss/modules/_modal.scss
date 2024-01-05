@@ -214,5 +214,46 @@
         @include ally-hidden;
       }
     }
+    &--toast {
+      display: none;
+      width: calc(100% - rem(32px));
+      padding: rem(16px) rem(16px) rem(16px) rem(62px);
+      position: fixed;
+      bottom: rem(32px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 99;
+      background-color: $success-light;
+      color: $success-dark;
+      opacity: 0;
+      border-radius: rem(8px);
+      &::before {
+        content: '';
+        position: absolute;
+        top: rem(16px);
+        left: rem(20px);
+        width: rem(22px);
+        height: rem(22px);
+        border-radius: rem(100px);
+        background-color: $success-base;
+        background-image: url('@/assets/images/icon/check.svg');
+        background-size: rem(16px) rem(16px);
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      &.active {
+        display: block;
+        animation: toast 4s ease-in-out;
+      }
+      & .bold {
+        font-weight: 700;
+      }
+    }
   }
+}
+@keyframes toast {
+  0% {opacity: 0; bottom:rem(-32px)}
+  15% {opacity: 1; bottom:rem(32px)}
+  85% {opacity: 1; bottom:rem(32px)}
+  100% {opacity: 0; bottom:rem(-32px)}
 }

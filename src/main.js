@@ -13,6 +13,7 @@ import noteCmp from '@/components/fragments/noteCmp.vue'
 import TabBar from '@/components/fragments/TabBar.vue'
 import TaskBar from '@/components/fragments/TaskBar.vue'
 import NavBar from '@/components/fragments/NavBar.vue'
+import ToastPopup from '@/components/layouts/ToastPopup.vue'
 import common from './assets/js/common'
 import '@/assets/scss/index.scss'
 
@@ -31,4 +32,5 @@ app.component('noteCmp', noteCmp)
 app.component('TabBar', TabBar)
 app.component('TaskBar', TaskBar)
 app.component('NavBar', NavBar)
+app.component('ToastPopup', ToastPopup)
 app.mount('#app')
